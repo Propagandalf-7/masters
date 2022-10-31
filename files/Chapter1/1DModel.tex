@@ -1,0 +1,218 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+	
+\section{Timoshenko beam models} \label{sec:1D_Model}
+
+
+Consider the classical Timoshenko model for the vibration of a beam with no damping.
+
+\subsection{Equations of motion and constitutive equations}\label{ssec:1D_Model:EquationsOfMotion+ConstitutiveEquation}
+In this section we introduce the Timoshenko beam theory for the transverse vibration of a uniform beam. For a reference of the model, \cite{Inm94} and \cite{Fu65} were used.\\
+
+Consider a beam defined on the interval $[0,\ell]$. Let $w$ represent the transverse displacement and $\phi$ a rotation of the cross-sections of the beam.
+
+\subsubsection*{Equations of motion}\label{sssec:1D_Model:EquationOfMotion}
+\begin{eqnarray}
+	\rho A \partial_t^2 w &=& \partial_x V + Q, \label{eq:1D_Model:EquationOfMotion1}\\
+	\rho I\partial_t^2 \phi  &=& V + \partial_x M. \label{eq:1D_Model:EquationOfMotion2}
+\end{eqnarray}
+In \eqref{eq:1D_Model:EquationOfMotion1} and \eqref{eq:1D_Model:EquationOfMotion2} $\rho$ denotes the density, $A$ is the area of a cross section, $I$ is the area moment of inertia, $M$ is the moment, $V$ is the shear force and $Q$ is an external force acting on the beam.
+
+\subsubsection*{Constitutive equations}\label{sssec:1D_Model:ConstitutiveEquation}
+\begin{eqnarray}
+	M &=& EI\partial_x \phi, \label{eq:1D_Model:ConstitutiveEquations1}\\
+	V &=& AG\kappa^2(\partial_x w - \phi), \label{eq:1D_Model:ConstitutiveEquations2}
+\end{eqnarray}
+$E$ is Young's modulus, $G$ the shear modulus and $\kappa^2$ the shear correction factor.
+
+\subsubsection*{Dimensionless form}\label{sssec:1D_Model:DimensionlessForm}
+As mentioned in subsection \ref{ssec:3D_Model:DimensionlessForm}, the same dimensionless scaling is used for all the models in this dissertation.\\
+
+Set \[\tau = \frac{t}{t_0}, \,\, \xi = \frac{x}{\ell}, \,\, w^*(\xi,\tau) = \frac{w(x,t)}{\ell} \ \text{ and } \ \phi^*(\xi, \tau) = \phi(x,t).\]
+
+The dimensionless forms of the shear force, moment and external force density are \[ V^{*}(\xi,\tau) = \frac{V(x,t)}{AG\kappa^2}, \quad M^{*}(\xi,\tau) = \frac{M(x,t)}{A G\kappa^2 \ell} \,\,\, \ \text{and} \ \,\,\, Q^*(\xi,\tau) = \frac{Q(x,t)\ell}{A G\kappa^2}.\]
+
+Choose $t_0$ the same as in subsection \ref{ssec:3D_Model:DimensionlessForm}, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+
+As in [VV06] and [LLV09] we use the dimensionless constants
+\begin{equation*}
+	\alpha = \frac{A \ell^2}{I} \,\,\, \text{and} \,\,\, \beta
+	=\frac{AG\kappa^2 \ell^2}{EI}.
+\end{equation*}
+
+Interestingly, it turns out that 
+\begin{eqnarray*}
+	\frac{\beta}{\alpha} & = & \gamma
+\end{eqnarray*} where $\gamma$ is the dimensionless parameter defined in subsection \ref{ssec:3D_Model:DimensionlessForm}.\\
+
+\textbf{Remark} Recall that in subsection \ref{ssec:3D_Model:DimensionlessForm} the constant $G\kappa^2$ was used for the scaling of the stresses.
+
+\subsubsection*{Dimensionless equations of motion}\label{sssec:1D_Model:DimensionlessEquationsOfMotion}
+\begin{eqnarray}
+	\partial_{t}^{2} w &=& \partial_{x}V + Q, \label{eq:1D_Model:EquationOfMotion1D}\\
+	\frac{1}{\alpha} \partial_{t}^{2} \phi &=& V + \partial_{x}M.\label{eq:1D_Model:EquationOfMotion2D}
+\end{eqnarray}
+\subsubsection*{Dimensionless constitutive equations}\label{sssec:1D_Model:DimensionlessConstitutiveEquations}
+\begin{eqnarray}
+	M &=& \frac{1}{\beta}\partial_x \phi, \label{eq:1D_Model:ConstitutiveEquations1D}\\
+	V &=& \partial_x w-\phi. \label{eq:1D_Model:ConstitutiveEquations2D}
+\end{eqnarray}
+The original notation is retained for convenience.
+
+\subsection{Boundary conditions}\label{ssec:1D_Model:BoundaryConditions}
+The following boundary conditions are considered for the Timoshenko beam models in this dissertation.\\
+
+\textbf{Clamped or built-in endpoint} - At the clamped end the boundary conditions are $w = 0$ and $\phi = 0$.\\
+
+\textbf{Free endpoint} - At the free end the boundary conditions are $M = 0$ and $V = 0$.\\
+
+\textbf{Pinned or hinged endpoint} - At the pinned endpoint the boundary conditions are $w = 0$ and $M = 0$.\\
+
+\textbf{Suspended endpoint} - At the pinned endpoint the boundary conditions are $V = kw$ and $M = 0$. The parameter k is the elastic constant of the linear spring that suspends the beam.
+
+\subsection{Boundary value problems}\label{ssec:1D_Model:ModelProblems}
+The following model problems are used in this dissertation.  
+
+\subsubsection*{Problem T-1}\label{sssec:1D_Model:ProblemT1}
+The beam is pinned at both endpoints.\\
+
+{Boundary Conditions}\\
+\begin{eqnarray*}
+	w(0,\cdot) = 0, \ \ &M(0,\cdot) = 0, \label{eq:1D_Model:ProblemT1BC1}\\
+	w(1,\cdot) = 0, \ \ &M(1,\cdot) = 0. \label{eq:1D_Model:ProblemT1BC2}
+\end{eqnarray*}
+
+\subsubsection*{Problem T-2}\label{sssec:1D_Model:ProblemT2}
+The beam is clamped at the left endpoint where $x = 0$, and free-hanging where $x = 1$. (In this configuration, the beam is called a cantilever beam.)\\
+
+{Boundary Conditions}\\
+\begin{eqnarray*}
+	w(0,\cdot) = 0, \ \ &\phi(0,\cdot) = 0, \label{eq:1D_Model:ProblemT2BC1}\\
+	M(1,\cdot) = 0, \ \ &V(1,\cdot) = 0. \label{eq:1D_Model:ProblemT2BC2}
+\end{eqnarray*}
+
+\subsubsection*{Problem T-3}\label{sssec:1D_Model:ProblemT3}
+The beam is suspended at both endpoints.
+
+{Boundary Conditions}\\
+\begin{eqnarray*}
+	V(0,\cdot) = k w(0,\cdot), \ \ &M(0,\cdot) = 0, \label{eq:1D_Model:ProblemT3BC1}\\
+	V(1,\cdot) = -kw(1,\cdot), \ \ &M(1,\cdot) = 0. \label{eq:1D_Model:ProblemT3BC2}
+\end{eqnarray*}
+\textbf{Remark:} These boundary conditions are only valid for $w$ ``small enough'' for the motion to remain linear. This is explained in more detail in Section 4.4.
+
+\subsubsection*{Problem T-4}\label{sssec:1D_Model:ProblemT4}
+The beam is free at both endpoints.
+{Boundary Conditions}\\
+\begin{eqnarray*}
+	V(0,\cdot) = 0, \ \ &M(0,\cdot) = 0, \label{eq:1D_Model:ProblemT4BC1}\\
+	V(1,\cdot) = 0, \ \ &M(1,\cdot) = 0. \label{eq:1D_Model:ProblemT4BC2}
+\end{eqnarray*}
+An example of a free-free beam is given in Section 4.5.
+
+\subsection{Variational form}\label{ssec:1D_Model:VariationalForm}
+Let $v, \psi \in C^1[0,1]$ be arbitrary functions. Multiply by these functions in equations \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion2D} and integrate over the interval $[0,1]$ to obtain:
+\begin{eqnarray*}
+	\int_{0}^{1} \partial_{t}^{2} w v &=& \int_{0}^{1}\partial_{x}V v  + \int_{0}^{1} Q v ,\\
+	\int_{0}^{1}\frac{1}{\alpha} \partial_{t}^{2} \phi \psi  &=& \int_{0}^{1}V \psi  + \int_{0}^{1}\partial_{x}M \psi.
+\end{eqnarray*}
+
+Integration by parts yields
+\begin{eqnarray*}
+	\int_{0}^{1} \partial_{t}^{2} w v &=&  - \int_{0}^{1}V v'  + \int_{0}^{1} Q v + V(\cdot,t) v(\cdot) |_0^1,\\
+	\int_{0}^{1}\frac{1}{\alpha} \partial_{t}^{2} \phi \psi  &=& \int_{0}^{1}V \psi - \int_{0}^{1}M \psi' + M(\cdot,t) \psi(\cdot) |_0^1.
+\end{eqnarray*}
+
+Substitute the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations2D} to obtain
+
+\begin{eqnarray}
+	\int_{0}^{1} \partial_{t}^{2} w v  &=& -\int_{0}^{1}(\partial_x w-\phi) v'  + \int_{0}^{1} Q v \nonumber\\
+	& & + \left. \partial_x w(\cdot,t) v(\cdot) \right |_0^1 -\left. \phi(\cdot,t) v(\cdot) \right |_0^1, \label{TGT_13}\\
+	\int_{0}^{1}\frac{1}{\alpha} \partial_{t}^{2} \phi \psi  &=&  \int_{0}^{1} (\partial_x w - \phi) \psi   - \frac{1}{\beta} \int_{0}^{1}\partial_x \phi \psi' \nonumber \\
+	& &+ \frac{1}{\beta}\partial_x \phi(\cdot,t) \psi(\cdot) |_0^1 .\label{TGT_14}
+\end{eqnarray}
+\subsubsection{Function spaces}\label{sssec:1D_Model:FunctionSpace}
+It is convenient to define the following function spaces:
+\begin{eqnarray}
+	F_0[0,1] & = & \left\{f \in C^1[0,1] \ | \ f(0) = f(1) = 0 \right\} \label{eq:1D_Model:FunctionSpace1}\\
+	F_1[0,1] & = & \left\{g \in C^1[0,1] \ | \ g(0) = 0 \right\} \label{eq:1D_Model:FunctionSpace2}
+\end{eqnarray}
+
+\subsubsection{Test function spaces for different problems}\label{sssec:1D_Model:TestFunction}
+Problem T-1
+\begin{eqnarray*}
+	T[0,1] &:=& F_0[0,1] \times C^1[0,1]
+\end{eqnarray*}
+Problem T-2
+\begin{eqnarray*}
+		T[0,1] &:=& F_1[0,1] \times F_1[0,1]
+\end{eqnarray*}
+Problem T-3 
+\begin{eqnarray*}
+	T[0,1] &:=&  C^1[0,1]\times C^1[0,1]
+\end{eqnarray*}
+Problem T-4
+\begin{eqnarray*}
+		T[0,1] &:=& C^1[0,1] \times C^1[0,1]
+\end{eqnarray*}
+
+\textbf{The variational problem of the pinned-pinned beam}\\
+
+Using the test function space for Problem T-1, the equations \eqref{TGT_13} and \eqref{TGT_14} reduce to
+\begin{eqnarray}
+	\int_{0}^{1} \partial_{t}^{2} w v &=& -\int_{0}^{1}(\partial_x w - \phi) v' + \int_{0}^{1} Q v, \label{eq:1D_Model:ProblemT1V1}\\
+	\int_{0}^{1}\frac{1}{\alpha} \partial_{t}^{2} \phi \psi &=&   \int_{0}^{1} (\partial_x w -\phi) \psi - \frac{1}{\beta} \int_{0}^{1}\partial_x \phi \psi'.\label{eq:1D_Model:ProblemT1V2}
+\end{eqnarray}
+for all $v, \psi \in T[0,1]$.
+
+\subsubsection{Bilinear forms}
+For $f,g \in T[0,1]$, define the bilinear forms
+\begin{eqnarray}
+	c(f,g) & = & \int_0^1  \partial_t^2 f_1 g_1 + \frac{1}{\alpha}\int_0^1  \partial_t^2 f_2g_2, \label{eq:1D_Model:Bilinear} \\ 
+	b(f,g) & = &   \int_0^1 (f_1'-f_2)(g_1' - g_2) + \frac{1}{\beta}\int_0^1  f_2' g_2', \label{eq:1D_Model:Bilinear_c}
+\end{eqnarray}
+Define the integral
+\begin{eqnarray}
+	(f,g) &=& \int_{0}^1 fg \label{eq:1D_Model:Bilinear_int}
+\end{eqnarray} for all $f,g \in L^2(0,1).$\\
+
+\textbf{Remark}\\
+$L^2(a,b)$ is the space of all square integrable functions on the interval $(a,b)$. The inner product is defined by $\displaystyle (f,g) = \int_a^b fg$, and the induced norm $\displaystyle ||f|| = \int_a^b f^2$. See the appendix for more information.\\
+
+
+\textcolor{red}{***********Maak seker L2 is in die appendix!.}\\
+
+\subsubsection*{Problem T-1V}\label{sssec:1D_Model:ProblemT1V}
+Find a function ${u} = \langle w, \phi \rangle$ such that for all $t >0$, ${u} \in  T[0,1]$ satisfying
+\begin{eqnarray}
+	c(\partial_t^2 u,{\phi}) &=& -b({u},{\phi}) + (Q,{\phi})
+\end{eqnarray} for each ${\phi} = \langle v, \psi \rangle \in T[0,1]$. \\
+
+\textbf{The variational problem of the cantilever beam.}\\
+
+Using the test function space for Problem T-2, the equations \eqref{TGT_13} and \eqref{TGT_14} reduce to
+\begin{eqnarray}
+	\int_{0}^{1} \partial_{t}^{2} w v &=& -\int_{0}^{1}(\partial_x w - \phi) v' + \int_{0}^{1} Q v, \label{eq:1D_Model:ProblemT1V1}\\
+	\int_{0}^{1}\frac{1}{\alpha} \partial_{t}^{2} \phi \psi &=&   \int_{0}^{1} (\partial_x w -\phi) \psi - \frac{1}{\beta} \int_{0}^{1}\partial_x \phi \psi',\label{eq:1D_Model:ProblemT1V2}
+\end{eqnarray}
+for all $v, \psi \in T[0,1]$.\\
+
+This variational form is the same as for the case of the pinned-pinned beam, Problem T-1 as discussed above. Therefore the bilinear forms \eqref{eq:1D_Model:Bilinear} and \eqref{eq:1D_Model:Bilinear_c} can be used.
+
+\subsubsection*{Problem T-2V}\label{sssec:1D_Model:ProblemT1V}
+Find a function ${u} = \langle w, \phi \rangle$ such that for all $t >0$, ${u} \in  T[0,1]$ satisfying
+\begin{eqnarray}
+	c(u,{\phi}) &=& -b({u},{\phi}) + (Q,{\phi}) \label{var_form_timo}
+\end{eqnarray} for each ${\phi} = \langle v, \psi \rangle \in T[0,1]$. \\
+
+\textbf{Remark} The formulation of Problem T-3V and Problem T-4V are the same. But there are some complications for Problem T-3V, which are discussed in Chapter 4.\\
+
+The application for the Timoshenko beam theory are continued in Chapters 2,4 and 6. In Chapter 2, the cantilever beam is used an example to the existence theory. In Chapter 4, modal analysis is applied to the free-free and cantilever beam. The free-free and suspended beams are also used to discuss an empirical study. In Chapter 6, the cantilever beam is used in the comparison of our linear models.
+
+
+
+
+\end{document}
+
+
+

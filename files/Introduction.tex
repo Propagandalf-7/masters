@@ -1,0 +1,54 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+This dissertation is a literature study that focusses on the comparison of popular simplified models to more complex three-dimensional versions of the models. This comparison is restricted the eigenvalues and eigenfunctions of the different models.\\
+
+\textbf{Motivation and Problem Identification}\\
+From small transverse vibration of a linearly elastic (flat) plate [Mindlin, 1951], to a fully non-linear shell model, numerous mathematical problems are possible. (The same remark is also true for beams.) In this research project, our focus is on the small vibrations but not sufficiently small to justify a linear model.\\
+
+In the article of [Antman,1976], we see that the author takes a rigorous mathematical approach to obtain fully general theories of non-linearly elastic rods and shells from three-dimensional theories. In a follow up article [Antman,1996], open problems of nonlinear elastic rods are investigates and references are made to 4 articles of Simo and Vu-Quoc. Where [Antman,1976] follows a vigorous math approach, [Simo and Vu-Quoc,1987] follows an engineering approach. Their work however, received wide recognition and it is worthwhile to compare their articles to the work of [Antman,1976] and [Antman,1996].\\
+
+In applications simplified models can be used with some additional but different assumptions and it leads to different models for the same real life problem. An example of where numerous models are used to study the same real world problem is the Tacoma Narrows Bridge disaster of 1940. [Gazzola, 2013] and [McKenna,1999] both derive models for this specific problem but with different approaches. Even though both authors agree on the shortcomings of many bridge models and that non-linear theories should be used, [Gazzola, 2013] insists on using a plate to model the bridge, while [McKenna,1999] uses a beam. This gives at least two different models for the same real world problem.\\
+
+
+\textbf{Research Methodology}\\
+The main objective of this literature study is the comparison of such models, using either analysis or a finite element method simulation. Adding assumptions to a general model leads to many different simplified models that can be applied to the same situation. It is important to investigate the differences in these models and their applicability to real world problems.\\
+
+Calculating solutions for these models will be useful for the comparison, but due to the complexities of the problems, numerical methods are used to obtain approximate solutions. The finite element method is generally accepted to be the best for elasto-mechanics. Appropriate articles will be used to ensure convergence of the solutions.\\
+
+This study will also look at possible simplifications to the models through the addition of more assumptions. Examples of simplifications to models is the added assumption of rigidity of a beam model. This simplifies the model from a system of partial differential equations, to a system of ordinary differential equations.\\
+
+This masters research is an in depth literature study with a main focus on model problems on shells and rods with attention given to:
+\begin{itemize}
+	\item Comparison of different models for the same problem either using analysis or numerical methods.
+	\item Determining existence of solutions, given that the relevant articles are available.
+	\item Convergence of finite element method when calculating solutions to the model problems.
+\end{itemize}
+
+The term validity in this case will refer to how well the solutions of the models compare to a ``realistic'' model. Ideally one would want to compare the models to a perfectly realistic model. But since no such realistic model truly exists, some simplifications have to be made. For this dissertation, the three-dimensional models are the most realistic, while the one-dimensional are the least realistic. The two-dimensional models can be seen as an intermediate step between the one and three-dimensional models.\\
+
+As seen in \ref{ssec:1D_Model:Modal}, the solutions of second order hyperbolic type problems can be expressed as a linear combination of the eigenvalues and eigenfunctions. So to be able to compare the different models of this dissertation, it is sufficient to compare the eigenvalues and the shapes of the eigenfunctions.\\
+
+This idea to determine the validity of the models follows form the work done in [LVV08]. In this article, the authors compared a Timoshenko cantilever beam to a two-dimensional cantilever beam. The comparison was made by comparing the eigenvalues as well as comparing some of the mode shapes. The authors were able to show that the Timoshenko model compares very well to the two-dimensional beam model. The work of [LVV08] is revisited in this chapter and extended to a three-dimensional cantilever beam and also plate theory.\\
+
+
+The eigenvalues and eigenfunctions for the Timoshenko beam are calculated using the method for [VV06] (this was discussed in \ref{sec:Timo:EigenvalueProblem}). The frequency equation is sketched and the eigenvalues are found using interval division. This insures that no eigenvalues are skipped and the accuracy can be determined to a desired level. Other methods can also be used to obtain the eigenvalues. The method presented in [VV06] also allows the mode shapes to be determined if the eigenvalues are found. The results for the Timoshenko beam in this section are accurate up to 5 significant digits.\\
+
+The eigenvalues and eigenfunctions for the two and three-dimensional models and the Reissner-Mindlin plate model are calculated using the Finite Element Method. For each model, the eigenvalue problem is described in Chapter 5. The first 30 eigenvalues are accurate to at least 5 significant digits. The rest of the eigenvalues are accurate to at least 4 significant digits.\\
+
+To be able to match the eigenvalues of the different models for the comparison, the modal shapes are sketched and their shapes are compared. Similar shapes will imply that the eigenvalues can be compared. In this chapter, the eigenvalues relating to the mode shape of the Timoshenko beam model is referred to as ``beam-type'' eigenvalues. Similarly eigenvalues relating to the mode shape of the Reissner-Mindlin plate model is referred to as ``plate-type'' eigenvalues.
+
+\textcolor{red}{*****************test*************}\\
+Since the cross-section is square, the area moment of inertia for the Timoshenko beam and the plate model can be calculated. For the Timoshenko beam model, the area moment of inertial is 
+\begin{eqnarray*}
+	I = \frac{h^3b}{12}.
+\end{eqnarray*}
+
+Using the definition if the dimensionless parameter $\alpha$, the following relationship between $\alpha$ and $h$ is found
+\begin{eqnarray*}
+	h = \sqrt{\frac{12}{\alpha}}
+\end{eqnarray*}
+
+\textcolor{red}{******************************}
+
+
+\end{document}

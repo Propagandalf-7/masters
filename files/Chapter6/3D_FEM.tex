@@ -1,0 +1,335 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+
+\section{Three-dimensional elastic model}\label{sec:FEM:3D}
+Consider a three-dimensional cantilever elastic body, with a rectangular cross-section.
+ 
+\subsubsection{Reference configuration for rectangular cross-section}
+Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the elastic body as $\Omega \in R^3$ with $(0,0,0)$ the reference point. For a rectangular cross-section, $\Omega$ can be described as
+\begin{eqnarray*}
+	\Omega = \left\{ x \in R^3 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} , \ -\frac{b}{2} \leq x_3 \leq \frac{b}{2}\right \}
+\end{eqnarray*}
+Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ into the six distinct flat surfaces as follows:
+
+
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{eqnarray*}
+		\Sigma_0:& \quad x_1 &= 0\\
+		\Sigma_1:& \quad x_1 &= 1\\
+		\Gamma_1:& \quad x_3 &= -{b}/{2} 
+	\end{eqnarray*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{eqnarray*}
+		\Gamma_2:& \quad x_2 &= -{h}/{2}\\
+		\Gamma_3:& \quad x_3 &= {b}/{2}\\
+		\Gamma_4:& \quad x_2 &= {h}/{2} 
+	\end{eqnarray*}
+\end{minipage}
+
+\subsubsection{Cantilever elastic body}
+Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma_0$ and free-hanging at all the other sides. This is referred to as Problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.
+\FloatBarrier
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		
+		\draw[line width = 0.4mm] (-0.5,1) -- (6.5,1);
+		\draw[line width = 0.4mm] (-0.5,-1) -- (6.5,-1);
+		\draw[line width = 0.4mm] (6.5,-1) -- (6.5,1);
+		\draw[line width = 0.4mm] (-0.5,-1) -- (-0.5,1);
+		
+		\draw[line width = 0.4mm] (0.5,1.5) -- (7.5,1.5);
+		\draw[line width = 0.4mm] (7.5,-0.5) -- (7.5,1.5);
+		
+		
+		\draw[line width = 0.4mm] (-0.5,1) -- (0.5,1.5);
+		\draw[line width = 0.4mm] (6.5,1) -- (7.5,1.5);
+		\draw[line width = 0.4mm] (6.5,-1) -- (7.5,-0.5);
+		
+		
+		
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+4});
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+3.5});
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+3});
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+2.5});
+		
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+2});
+		\draw[scale=0.5, domain=2:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+2});
+		
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+1.5});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+1});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x+0.5});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-0.5});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-1});
+		\draw[scale=0.5, domain=-3:-1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-1.5});
+		\draw[scale=0.5, domain=-3:0, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-2});
+		\draw[scale=0.5, domain=-3:1, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-2.5});
+		\draw[scale=0.5, domain=-3:2, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-3});
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-3.5});
+		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,dotted] plot ({\x}, {0.5*\x-4});
+		
+		%\node at (6.9,1) {$b$};
+		%\node at (6.65,0) {$h$};
+		%\node at (3.2,-1.2) {$\ell = 1$};
+		
+		\draw[line width = 0.1mm,->] (9,1) -- (10,1.6);
+		\draw[line width = 0.1mm,->] (9,1) -- (10.4,1);
+		\draw[line width = 0.1mm,->] (9,1) -- (9,2.1);
+		\node at (9.3,1.4) {$e_3$};
+		\node at (9.7,0.8) {$e_1$};
+		\node at (8.8,1.5) {$e_2$};
+		
+		\node at (7.7,0.5) {$h$};
+		\draw[-stealth] (7.7,0.7) -- (7.7,1.5);
+		\draw (7.6,1.5) -- (7.8,1.5);
+		\draw[-stealth] (7.7,0.3) -- (7.7,-0.5);
+		\draw (7.6,-0.5) -- (7.8,-0.5);
+		
+		\node at (3,-1.2) {$1$};
+		\draw[stealth-] (-0.5,-1.2) -- (2.8,-1.2);
+		\draw[stealth-] (6.5,-1.2) -- (3.2,-1.2);
+		\draw (6.5,-1.3) -- (6.5,-1.1);
+		\draw (-0.5,-1.3) -- (-0.5,-1.1);
+		
+		\node at (7.2,-0.9) {$b$};
+		\draw[stealth-] (7.7,-0.5) -- (7.35,-0.75);
+		\draw[stealth-] (6.5,-1.2) -- (7,-0.95);
+		
+		\draw[line width = 0.1mm,->] (9,1) -- (10.4,1);
+		\draw[line width = 0.1mm,->] (9,1) -- (9,2.1);
+		\node at (9.7,0.8) {$e_1$};
+		\node at (8.8,1.5) {$e_2$};
+		
+		\node at (-0.6,0) {$(0,0)$};
+		\node at (0,0)[circle,fill,inner sep=1.5pt]{};
+		
+		%\node at (-1.4,-1.3) {$(0,-\frac{h}{2},-\frac{b}{2})$};
+		%\node at (-1.4,1) {$(0,\frac{h}{2},-\frac{b}{2})$};
+		%\node at (0.5,1.8) {$(0,\frac{h}{2},\frac{b}{2})$};
+		
+		%\node at (6,-1.3) {$(1,-\frac{h}{2},-\frac{b}{2})$};
+		%\node at (6.3,0.7) {$(1,\frac{h}{2},-\frac{b}{2})$};
+		%\node at (7.5,1.8) {$(1,\frac{h}{2},\frac{b}{2})$};
+		%\node at (8.4,-0.4) {$(1,-\frac{h}{2},\frac{b}{2})$};
+		
+	\end{tikzpicture}
+	\caption{Cantilever Three-Dimensional Elastic Body with Rectangular Cross-Section.}
+\end{figure} 
+\FloatBarrier
+
+In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. For convenience, the relevant results from section \ref{ssec:3D_Model:VariationalForm} are repeated.
+
+\subsubsection{Problem 3D-1V}
+Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
+\begin{align}
+	c(u,\phi) = -b(u,\phi) - (Q,\phi) \label{3DB_20}
+\end{align}
+for all $\phi \in T(\Omega)$.\\
+
+With the test function space
+\begin{eqnarray*}
+	T(\Omega) & = & \left\{ \phi \in C(\Omega) \ | \ \phi = 0 \ \textrm{ on } \ \Sigma_0 \right\}.
+\end{eqnarray*}
+
+The bilinear forms and integral function are defined by
+\begin{eqnarray}
+	b(u,\phi) &=& \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+	\textrm{Tr}(\Phi) ~dV,\\
+	c(u,\phi) &=& \int_\Omega~ (\partial^2_t u) \cdot \phi~dV, \\
+	(f,g) &=& \int_{\Omega} f\cdot g \ dV, \\
+\end{eqnarray}
+with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.\\
+
+
+
+Using the definition of the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten as follows.
+\subsubsection*{Constitutive equations}
+\begin{eqnarray*}
+	\sigma_{11} & = &  \frac{1}{\gamma(1+\nu)}\partial_1 u_1 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_3}\\
+	\sigma_{22} & = &  \frac{1}{\gamma(1+\nu)}\partial_2 u_2 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_4}\\
+	\sigma_{33} & = &  \frac{1}{\gamma(1+\nu)}\partial_3 u_3 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_5}\\
+	\sigma_{23} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_3 u_2 + \partial_2 u_3)\label{3DB_6}\\
+	\sigma_{31} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_3 u_1 + \partial_1 u_3)\label{3DB_7}\\
+	\sigma_{12} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_2 u_1 + \partial_1 u_2)\label{3DB_8}
+\end{eqnarray*}
+
+\subsubsection{Bilinear Form}
+\begin{align*}
+	b(u,\phi)  &=  \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+	\textrm{Tr}(\Phi) ~dV \nonumber\\
+	 &=  \int_{\Omega} \sigma_{11} \partial_1\phi_1 + \sigma_{12}\partial_1 \phi_2 + \sigma_{13}\partial_1 \phi_3 + \sigma_{21}\partial_2 \phi_1 + \sigma_{22}\partial_2\phi_2 + \sigma_{23}\partial_2 \phi_3 ~dV
+\end{align*}
+
+In this form, the bilinear form $b$ is more useful for applications than the general form.
+
+\subsection{Weak variational form}
+
+\subsubsection{Bilinear form}
+Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
+
+\subsubsection{Problem 3D-1W}
+Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, satisfying the following equation
+\begin{eqnarray}
+	c(u,v) + b(u,v) & = & (Q,v) \ \ \ \textrm{ for each } v \in V.
+\end{eqnarray}
+
+\subsection{Galerkin approximation}
+Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes. These rectangular prismatic elements are also known as brick shaped elements as described by \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.\\
+
+Define a set of $n$-dimensional linear independent basis functions. For the three-dimensional model, the basis functions can be defined by the set
+\begin{eqnarray*}
+ \{\langle\phi_1, 0 , 0\rangle, \langle\phi_2, 0, 0\rangle,...,\langle\phi_{n}, 0, 0 \rangle,\\
+	\langle 0,\phi_1 ,0 \rangle,\langle 0 ,\phi_2,0\rangle,...,\langle 0,\phi_{n},0\rangle,\\
+	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
+\end{eqnarray*}
+
+For this dissertation, we use tri-cubic functions $\phi_i$. For a simplification, tri-linear functions can also be used instead. For easier notation, denote each of the basis functions in the set by $\delta_i$.\\
+
+The functions that satisfy the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. The admissible basis functions for this model can be renumbered and expressed as the set $\left\{\delta_1, \delta_2, ..., \delta_k \right\}$ for some $k \leq 3n$.\\
+
+Define the space
+\begin{eqnarray*}
+	S^h & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k \right\} \right)
+\end{eqnarray*}
+
+For each function $u^h \in S^h$, $u^h$ can be expressed as
+\begin{eqnarray*}
+	u^h = \sum_{i = 1}^{k} u_i(t) \delta_{i}(x)
+\end{eqnarray*}
+
+Problem 3D-1V can now be rewritten into a Galerkin Approximation, denoted by Problem 3D-1G.
+
+
+\subsubsection{Problem 3D-1G}
+Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
+\begin{eqnarray*}
+	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
+\end{eqnarray*} for $i = 1,2,...,k$.\\
+
+\subsection{System of ordinary differential equations}
+Consider the following standard Finite Element Method matrices.
+
+\subsubsection{FEM matrices}
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{eqnarray*}
+		\mathbf{M}_{ij} & = & \int_{\Omega} \phi_j \phi_i \ dV \ \\
+		{K_{11}}_{ij} & = & \int_{\Omega} \partial_1\phi_j \partial_1\phi_i \ dV \  \\
+		{K_{12}}_{ij} & = & \int_{\Omega} \partial_1\phi_j \partial_2\phi_i \ dV \ \\
+		{K_{13}}_{ij} & = & \int_{\Omega} \partial_1\phi_j \partial_3\phi_i \ dV \ 
+	\end{eqnarray*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{eqnarray*}
+		{K_{22}}_{ij} & = & \int_{\Omega} \partial_2\phi_j \partial_2\phi_i \ dV \  \\
+		{K_{23}}_{ij} & = & \int_{\Omega} \partial_2\phi_j \partial_3\phi_i \ dV \ \\
+		{K_{33}}_{ij} & = & \int_{\Omega} \partial_3\phi_j \partial_3\phi_i \ dV \ \\
+	\end{eqnarray*}
+\end{minipage}
+for $i,j = 1,2,...,k.$\\
+
+And
+
+\begin{eqnarray*}
+	\mathbf{M_f}_{ij} & = & \int_{\Omega} \phi_j \phi_i \ dV
+\end{eqnarray*}
+for $i = 1,2,...,k$ and for $j = 1,2,...,3n.$\\
+
+The remaining matrices can be defined as
+\begin{eqnarray*}
+	{K_{21}} & = & {K_{12}}^{T},\\
+	{K_{31}} & = & {K_{13}}^{T}, \\
+	{K_{32}} & = & {K_{23}}^{T}. \\
+\end{eqnarray*}
+
+Define the following matrices:\\
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{eqnarray*}
+		\mathbf{K11} & = & \left(C_1 + C_2 \right) K_{11} + C_3 K_{22} + C_3 K_{33}\\
+		\mathbf{K12} & = & C_3 K_{12} + C_2 K_{21}\\
+		\mathbf{K13} & = & C_3 K_{13} + C_2 K_{31}\\
+		\mathbf{K21} & = & C_3 K_{21} + C_2 K_{12}\\
+		\mathbf{K22} & = & \left(C_1 + C_2 \right) K_{22} + C_3 K_{11} + C_3 K_{33}
+	\end{eqnarray*}
+\end{minipage}%
+\begin{minipage}{0.8\linewidth}
+	\begin{eqnarray*}
+		\mathbf{K23} & = & C_3 K_{23} + C_2 K_{32}\\
+		\mathbf{K31} & = & C_3 K_{31} + C_2 K_{13}\\
+		\mathbf{K32} & = & C_3 K_{32} + C_2 K_{23}\\
+		\mathbf{K33} & = & \left(C_1 + C_3 \right) K_{33} + C_3 K_{11} + C_3 K_{22}
+	\end{eqnarray*}
+\end{minipage}\\
+
+with $C_1 = \frac{1}{\gamma(1+\nu)}$, $C_2 =  \frac{\nu}{\gamma (1+\nu)(1-2\nu)}$ and $C_3 =  \frac{1}{2\gamma(1-2\nu)}$.\\
+
+Using the standard FEM matrices and the matrices $K11$ to $K33$, the following concatenated matrices are defined:\\
+
+
+\begin{eqnarray}
+	\begin{aligned}
+		K = 
+		\begin{bmatrix}
+			\mathbf{K11} & \mathbf{K12} & \mathbf{K13}\\
+			\mathbf{K21} & \mathbf{K22} & \mathbf{K23}\\
+			\mathbf{K31} & \mathbf{K32} & \mathbf{K33}
+		\end{bmatrix}
+	\end{aligned}
+	\ \ \ \ \ \ \ \ \
+	\begin{aligned}
+		M  = 
+		\begin{bmatrix}
+			\mathbf{M} & {O} & {O}\\
+			{O} & \mathbf{M} & {O}\\
+			{O} & {O} & \mathbf{M}
+		\end{bmatrix}
+	\end{aligned}\label{eq:3DFEM:K+M}
+\end{eqnarray}
+
+
+
+\begin{eqnarray}
+	M_f & = &
+	\begin{bmatrix}
+		\mathbf{M_f} & {O_f} & {O_f}\\
+		{O_f} & \mathbf{M_f} & {O_f}\\
+		{O_f} & {O_f} & \mathbf{M_f}
+	\end{bmatrix}\label{eq:3DFEM:M}
+\end{eqnarray}
+The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathbf{M}$ and $\mathbf{M_f}$ respectively.\\
+
+Using \eqref{eq:3DFEM:K+M} and \eqref{eq:3DFEM:M}, Problem 3D-1G is rewritten as a system of ordinary differential equations. This system is referred to as Problem 3D-1ODE
+
+\subsubsection{Problem 3D-1ODE}
+Find a function $\bar{u} \in S^h$ such that
+\begin{eqnarray}
+	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I. \label{3D_M}
+\end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \langle u, \partial_1 u, \partial_2 u, \partial_3 u, \partial_{11} u, \partial_{12}u, \partial_{13}u,\partial_{22}u,\partial_{23}u, \partial_{33}u,$\\$ \partial_{111}u, \partial_{112}u, \partial_{113}u, \partial_{121}u, \partial_{122}u, \partial_{123}u, \partial_{133}u,\partial_{223}u,\partial_{233}u,\partial_{333}u \rangle$. \textcolor{red}{beter manier om voor te stel?}
+
+\subsection{Eigenvalue problem}
+The equation \eqref{3D_M} is the same form as in section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem 3D-1 by Problem 3D-1E.
+
+\subsubsection{Problem 3D-1E}
+Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
+\begin{eqnarray}
+	M\lambda{\bar{u}} & = & K\bar{u}.
+\end{eqnarray}
+\end{document}
+
+
+Consider a set of $n$ linear independent three-dimensional scalar valued functions $\delta_i$. In this dissertation, these functions are tri-cubic basis functions (an extension of Hermite cubics from the two-dimensional model into three-dimensions). The functions $\delta_i$ satisfying the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Since there are a finite number if admissible basis functions, they can be numbered $\delta_1, \delta_2,...,\delta_k$.\\
+
+Let $S^h$ be a $3k$-dimensional subset of $T(\Omega)$ where
+\begin{eqnarray*}
+	S^h & = & \textrm{span}(\left\{\langle \delta_i, 0,  0\rangle \ | \ i = 1,2,...,p \right\} \cup \left\{\langle 0, \delta_i, 0\rangle \ | \ i = 1,2,...,p \right\}\\
+	&& \quad \quad \quad \quad \quad  \cup \left\{\langle 0, 0, \delta_i\rangle \ | \ i = 1,2,...,p \right\} ).
+\end{eqnarray*}
+
+The body $\Omega$ is divided into an $n_1 \times n_2 \times n_3$ grid consisting of rectangular prism shaped elements. This is described as ``bricked-shaped'' elements in [WuXX]. Let $x^*_i = \langle x_1,x_2,x_3\rangle \in \Omega$ where $\delta_i(x_1,x_2,x_3) = 1$. Define $\bar{x} = \langle x_1^*,x_2^*,...,x_k^* \rangle$.  For each solution $u$ of Problem 3D-1V let $u^h$ denote the projection of $u$ into the finite dimensional space $S^h$. Each function $u^h=\langle u_1^h,u_2^h,u_3^h\rangle$ in S$^h$ can be expressed as
+\begin{eqnarray*}
+	w_1^h(\bar{x},t) = \sum_{i = 1}^{p} w_{1}(x_i^*,t) \delta_{i}(\bar{x}), \ \ \ w_2^h(\bar{x},t) = \sum_{i = 1}^{p} w_{2}(x_i^*,t) \delta_{i}(\bar{x})\\
+	\ \ \   \textrm{ and }  w_3^h(\bar{x},t) = \sum_{i = 1}^{p} w_{3}(x_i^*,t) \delta_{i}(\bar{x}).
+\end{eqnarray*}
+
+Then Problem 3D-1V can be rewritten into a Galerkin Approximation, denoted by Problem 3D-1G

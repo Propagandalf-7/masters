@@ -1,0 +1,100 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\section{Two-dimensional model problem for an elastic solid} \label{sec:2D_Model}
+\subsection{Introduction}
+The following derivation of the two-dimensional model is based on my own work, using the textbook \cite{Sadd05} as a guide.\\
+
+Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$\textcolor{red}{;} $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
+\begin{eqnarray}
+	\partial_i u_3 = 0 \quad \textrm{ for } i = 1,2,3 \textrm{ on } \Omega.
+\end{eqnarray}
+
+It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in $R_2$ with two-dimensional stress and strain. The out of plane conditions for strain \eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a two-dimensional form using the stress components (1.2.16) as $\displaystyle T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.$\\
+
+
+\subsection{Equations of motion and constitutive equations}\label{ssec:2D_Model:EquationsOfMotion+ConstitutiveEquations}
+ The following equations of motion and constitutive equations follow from subsections \ref{ssec:3D_Model:DimensionlessForm} and 1.3.2.
+\subsubsection{Equation of motion}\label{sssec:2D_Model:EquationOfMotion}
+\begin{eqnarray}
+	\partial_t^2 u & = & \textrm{div}T + Q, \label{eq:2D_Model:EM}
+\end{eqnarray}
+where
+\begin{eqnarray}
+	\textrm{div} T & = &
+	\begin{bmatrix}
+		\partial_1 \sigma_{11} + \partial_2 \sigma_{12} \\
+		\partial_1 \sigma_{21} + \partial_2 \sigma_{22}
+	\end{bmatrix}. \label{eq:2D_Model:DivT}
+\end{eqnarray}
+\subsubsection{Constitutive equation}\label{sssec:2D_Model:ConstitutiveEquation}
+\begin{eqnarray}
+	T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E}) I. \label{eq:2D_Model:CE}
+\end{eqnarray}
+
+\subsection{Model problem}\label{ssec:2D_Model:ModelProblem}
+Suppose $\Omega \subset R_2$ is the reference configuration for a solid executing small vibrations. The boundary of $\Omega$ consists of two parts $\Sigma$ and $\Gamma$. The model problem is described as:
+\begin{itemize}
+    \item[] The equation of motion \eqref{eq:2D_Model:EM} and constitutive equation \eqref{eq:2D_Model:CE} are satisfied in $\Omega$.
+	\item[] The displacement $u$ is specified on $\Sigma$;
+	\item[] Traction $Tn$ is specified on $\Gamma$.
+\end{itemize}
+
+\subsubsection{Problem 2D-1}\label{sssec:2D_Model:Problem2D1}
+Find a vector valued function $u$, satisfying equations \eqref{eq:2D_Model:EM} to \eqref{eq:2D_Model:CE} and the boundary conditions:\\
+
+Boundary Conditions:\\
+\begin{eqnarray*}
+	u & = & 0 \quad \textrm{ on } \Sigma,\\
+	Tn & = & 0 \quad \textrm{ on } \Gamma.
+\end{eqnarray*} with $n$ the outward unit normal.
+
+\subsection{Variational form}\label{ssec:2D_Model:VariationalForm}
+The steps to derive the variational form is almost identical to the case of the three-dimensional case. Therefore it is not shown again and only the differences are discussed. \\
+
+Instead of volume integrals ($dV$) and surface integrals ($dS$), the two-dimensional model has area ($dA$) and line integrals ($ds$). Rather than the divergence formula, the divergence form of Green's formula is used to obtain the following result:
+\begin{eqnarray*}
+	\int_{\Omega} \textrm{div}(T)\cdot \phi \ dA & = & -\int_{\Omega} \textrm{Tr}(T\Phi) \ dA + \int_{\Gamma} Tn\cdot \phi ds.
+\end{eqnarray*}
+
+The general variational form of the two-dimensional model is given as
+\begin{eqnarray*}
+	\int_\Omega~ (\partial^2_t u) \cdot \phi~dA & = & \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+	\textrm{Tr}(\Phi) ~dA + \int_\Omega~ Q \cdot \phi~dA
+	+ \int_\Gamma~Tn \cdot \phi~ds,
+\end{eqnarray*}
+with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
+
+\subsubsection{Bilinear forms and integral}\label{sssec:2D_Model:BilinearForm}
+Define the bilinear forms
+\begin{eqnarray}
+	b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+	\textrm{Tr}(\Phi) ~dA \label{eq:2D_Model:Bilinear}
+\end{eqnarray}
+and
+\begin{eqnarray}
+	c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dA \label{eq:2D_Model:Bilinear_c}
+\end{eqnarray}
+with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.\\
+Also define the integral
+\begin{eqnarray}
+	(f,g) &=& \int_{\Omega} f\cdot g \ dA \label{eq:2D_Model:Bilinear_int}
+\end{eqnarray}
+
+\subsubsection{Test functions for problem 2D-1}\label{sssec:2D_Model:TestFunctions2D1}
+The test function space has the same definition of the test function space for Problem 3D-1. But since $\Omega \in R_2$, we have that $T(\Omega) \subset R_2$.
+\begin{eqnarray*}
+	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
+\end{eqnarray*}
+
+\subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1V}
+Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
+\begin{align}
+	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEq}
+\end{align}
+for all $\phi \in T(\Omega)$.\\
+
+ Applications are continued in Chapter 5 and 6. In Chapter 5, the finite element analysis is applied to a cantilever beam to solve the eigenvalue problem. In Chapter 6, a cantilever beam in used in the comparison of our linear models.
+
+\end{document}
+
+

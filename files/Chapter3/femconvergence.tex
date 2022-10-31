@@ -1,0 +1,525 @@
+s\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\section{Convergence of eigenvalues in Finite Element Analysis}
+This section looks at the work of the authors of the textbook [SF97].
+
+\subsection{Eigenvalue problem for vibration problem}
+Consider the general variational problem Problem GVar from section 2.2.1
+\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
+	Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+\begin{eqnarray}
+	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
+\end{eqnarray}
+while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\\
+
+\textcolor{red}{Haal uit**********************************}\\
+The following spaces are also defined in section 2.2.1:
+\begin{itemize}
+	\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
+	\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
+	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
+\end{itemize} The inner product of the function space $L^2$ is given by $(\cdot, \cdot)$ with induced norm $||\cdot||_{L^2}$.\\
+
+Define a Hilbert space $H = V \times W$, with inner product defined by
+\begin{eqnarray*}
+	(x,y)_H := b(x_1,y_1) + c(x_1,y_1) \ \ \ \ \textrm{for all} \ x,y \in H.
+\end{eqnarray*} $V$ is obviously a linear subspace of $H$, and it is assumed that $(\cdot,\cdot)_V  = b(\cdot,\cdot)$. $V$ is also the closure of the test function space $T$.\\
+\textcolor{red}{**********************************}\\
+
+
+Recall form Section 2.2, $V$ is the energy space with inner-product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$. For the Timoshenko beam theory, $V$ is the closure of the test-function space $T$. It is assumed that $b(\cdot,\cdot) = (\cdot,\cdot)_V$.\\
+
+Denote the eigenvalue problem of Problem GVar by Problem GVarE. This eigenvalue problem can be formulated as follow
+
+\subsubsection{Problem GVarE} Find $\lambda \in \mathbb{R}$ and $u \in V$ such that
+\begin{eqnarray*}
+	b(u(t),v) = \lambda c( u(t), v ) \ \ \ \ \textrm{ for all  } v\in V.
+\end{eqnarray*}
+
+\subsection{Interpolation theorem}
+Consider the Interpolation Theorem for Finite Elements from the textbook [ORXX].\\
+
+\sout{Consider the following theorem for Finite Elements from the textbook [ORXX]. This theorem is called The Interpolation Theorem for Finite Elements.}
+
+\newtheorem*{Interpolation}{Theorem}
+\begin{Interpolation}[The Interpolation Theorem for Finite Elements] 
+	Let $\Omega$ be an open bounded domain in $\mathcal{R}^n$ satisfying the cone condition. Let $k$ be a fixed integer and $m$ an integer such that $0\leq m \leq k+1$. Let $\Pi \in L(H^{k+1}(\Omega), H^{m}(\Omega))$ be such that
+	\begin{eqnarray}
+	    \Pi u = u \ \ \ \ \textrm{ for all } u \in \mathcal{P}_k(\Omega)
+	\end{eqnarray}
+	Then for any $u \in H^{k+1}(\Omega)$ and for sufficiently small $h$, there exists positive a constant $C$, independent of $u$ and $h$, such that
+	\begin{eqnarray}
+	    ||u - \Pi u||_{H^m(\Omega)} \leq C \frac{h^{k+1}}{p^m} |u|_H^{k+1}(\Omega)
+	\end{eqnarray}
+	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
+\end{Interpolation} ************what is p?
+
+This theorem provides an error estimate for the projection of $u$ in a Sobolev space. By proving this theorem, the authors in [ORXX] show the accuracy of the finite element interpolations of functions $u$ defined in a Sobolev space $H^{k+1}(\Omega)$ into a finite dimensional subspace $S^h(\Omega)$, with the projection defined by $\Pi u$.\\
+
+\subsection{Eigenvalue problem for our models*********}
+For this dissertation, the result can be simplified and need not be so general. The basis functions used in this dissertation are called Hermite-Cubic basis functions. Therefore the focus can be restricted to functions in an n-dimensional polynomial space.\\
+**********Wys hoe function spaces H, V, W verander na polynomial spcaes!!************
+
+\subsubsection{Notation}
+Define the linear interpolation operator as
+\begin{eqnarray*}
+	\Pi f &=& f_{I},
+\end{eqnarray*} such that
+\begin{eqnarray*}
+	\Pi (f+g) &=& \Pi f + \Pi g, \\
+	\Pi (\alpha f) &=& \alpha \Pi f.
+\end{eqnarray*}
+%\newpage
+
+Define the reference interval $I_{e} = [a, a+h]$. The following notation,
+\begin{eqnarray*}
+	\left[\Pi u \right]_{I_{e}} &=& \Pi_{e} \left[u\right]_{I_{e}},
+\end{eqnarray*} implies that $\Pi u$ restricted to the interval $I_{e}$ must equal $\Pi_{e} u$.\\
+
+Define the following set and integers.
+\begin{itemize}
+	\item[] $\mathcal{P}_{j}(I_{e}):$ the set of all polynomials on the interval $I_{e}$ of degree at most $j$.\\
+	
+	\item[] $r(\Pi_{e})$: If the range of $\Pi_{e}$ is contained in $\mathcal{P}_{j}(I_{e})$ and $k\leq j$ is the largest integer such that $\Pi_{e} f = f$ for each $f\in\mathcal{P}_{j}(I_{e})$, then $r(\Pi_{e}) = k$.\\
+	
+	\item[] $s(\Pi_{e})$: the integer $s(\Pi_{e})$ is the largest order derivative used in the definition of $\Pi_{e}$.
+\end{itemize}
+\textbf{Interpolation Theorem} Suppose there exists an integer $k$ such that for each element
+\begin{eqnarray*}
+	s(\Pi_{e}) + 1 \leq & k & \leq r(\Pi_{e}) + 1
+\end{eqnarray*}
+Then there exists a constant C such that for any $u\in C^{k}_{+}(I)$ we have
+\begin{eqnarray*}
+	||(\Pi u)^{(m)} - u^{(m)}|| & \leq & Ch^{k-m}||u^{(k)}|| \ \ \textrm{ for } m = 0,1,...,k
+\end{eqnarray*}
+
+In this form, the theory of convergence of the eigenvalues for our models can be investigated. For this theory, consider another textbook [SF73]. In this textbook, the authors prove the convergence of of the eigenvalues using the interpolation theorem. The results of the authors of [SF73] is discussed here, in the notation followed in throughout this dissertation.
+
+\subsection{Convergence of the eigenvalues}
+From the brief introduction of modal analysis in section 1.xxx, it is clear that the solution of the eigenvalue problem is an infinite sequence of eigenvalues with corresponding eigenfunctions (eigenvectors in this case). Therefore assume the eigenvalues can be ordered, i.e. $\lambda_{1} \leq \lambda_{2} \leq \lambda_{3} \leq ...$. Denote the corresponding eigenvectors by $u_{i}$ and scale the eigenvectors such that $||u_{i}|| = 1$ for all $i$. Fix $m\in\mathbb{N}$ and consider a finite dimensional ordered subset of the eigenvalues $\lambda_{1} \leq \lambda_{2} \leq \lambda_{3} \leq ... \leq \lambda_{m}$.\\
+
+For each of the models in this dissertation, the set of test functions are defined as $T$. Now take the set of admissible basis functions $\left\{ \phi_{i} \in T \ | \ i = 1,2,...,m\right\}$, and define a finite dimensional subspace $S^{h} := span(\left\{\phi_{i}\in T \ | \ i = 1,2,...,m\right\})$ of V. From this finite dimensional subspace, the following set of eigenvalues $\lambda^{h}_{1} \leq \lambda^{h}_{2} \leq \lambda^{h}_{3} \leq ... \leq \lambda^{h}_{m}$, also ordered, with corresponding normalized eigenvectors $u^{h}_{i}$ for each i are obtained.\\
+
+The following definitions from [SF73] are required for the theory.\\
+\textbf{Rayleigh Quotient:}
+\begin{align*}
+	R(v) = \frac{b(v,v)}{( v,v )}
+\end{align*}
+
+\textbf{minmax Principle:} Let T denote the class of subspaces of V that has dimension j. Then
+\begin{align*}
+\lambda_{j} = \min\limits_{s\in T} \max\limits_{v\in S}R(v)
+\end{align*}\\
+
+\textbf{Rayleigh-Ritz Projection:} If $u \in V$, then $Pu$ is its component in the subspace $S^{h}$:
+\begin{align*}
+b(u-Pu,v^{h}) = 0 \ \ \ \ \forall \ v^{h} \in S^{h}
+\end{align*}
+
+Now since the space $S^{h}$ is a finite subspace of T, any subspace of $S^{h}$ will also be a subspace of T. So the minmax principle applies to $S^{h}$. So we then get a lower bound for the approximate eigenvalues
+\begin{align*}
+\lambda_{i} \leq \lambda_{i}^{h}
+\end{align*}
+
+
+Let $E_{j} \subset T$ denote the eigenspace spanned by $\left\{u_{1},u_{2},...,u_{j}\right\}$ for $j = 1,2,...,m$. Then we consider the subspaces $S_{j}$ where
+\begin{align*}
+S_{j} = PE_{j} \ \ \textrm{ for } j = 1,2,...,m
+\end{align*}
+The elements $Py_{i}$ of $E_{j}$ are the projections of the exact eigenvectors to the space $S^{h}$ but are not necessarily equal to the eigenvector's approximations $u^{h}_{i}$. But it can proved that they are close.\\
+
+Let $B_{m} = \left\{u\in E_{m} \ | \ ||u|| = 1\right\}$ and define $\mu_{m} = \inf\left\{ ( Pu,Pu) \ | \ \in B_{m} \right\}$.\\
+
+\textbf{Proposition 7.1:} $\mu_{m} > 0$ if and only if $\dim S_{m} = m$\\
+
+\begin{comment}
+\textbf{Proof:} Suppose that $\dim S_{m} < m$, then the set of projected eigenvalues $\left\{Py_{1}, Py_{2},...,Py_{m}\right\}$ is a linearly dependent set. So then there exists a $u \in B_{m}$ such that $Pu = 0$. Then $\mu_{m} = 0$. So the result follows by the contra-positive. \qed \\
+
+
+So we from here on assume that $S^{h}$ is such that $\dim S_{m} = m$.\\
+\end{comment}
+
+\textbf{Proposition 7.2:} $\lambda^{h}_{m} \leq \max\left\{R(Pu) \ | \ u \in B_{m} \right\}$\\
+
+\begin{comment}
+\textbf{Proof:} The minmax principle gives $\lambda_{m}^{h} \leq \max\left\{R(v) \ | \ v \in S_{m} \right\}$ since $\dim S_{m} = m$.\\
+
+Now we take an arbitrary $v \in S_{m}$, $v \neq 0$. Then there exists a $u \in E_{m}$ such that $Py = v$. Since $u \in E_{m}$, we have that $\frac{1}{||u||}u \in B_{m}$ and
+
+\begin{eqnarray*}
+R(\frac{1}{||u||}u) &=& \frac{b\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)}{\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)}\\
+					&=& \frac{b(u,u)}{(u,u)}\\
+					&=& R(u)
+\end{eqnarray*}
+So then we have that
+\begin{eqnarray*}
+\lambda_{m}^{h} &\leq & \max\left\{R(v) \ | \ v \in S_{m} \right\}\\
+					&=& \max\left\{R(Pu) \ | \ u \in E_{m} \right\}\\
+					&=& \max\left\{R(Pu) \ | \ u \in B_{m} \right\}
+\end{eqnarray*}\qed
+\end{comment}
+%\newpage
+
+\textbf{Lemma 7.1:} $\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}$\\
+
+\begin{comment}
+\textbf{Proof:} Let $Y = \sum_{i=1}^{m} c_{i}u_{i}$.
+\begin{eqnarray*}
+b(u,u) &=& b\left(\sum_{i=1}^{m} c_{i}u_{i},\sum_{j=1}^{m} c_{j}u_{j}\right)\\
+		&=& \sum_{i=1}^{m} c_{i}\sum_{j=1}^{m} c_{j} b(u_{i},u_{j})
+\end{eqnarray*}
+\textbf{RTP:} $\left\{u_{1},u_{2},...,u_{m}\right\}$ is orthonormal.\\
+Pick any $i,j \in \mathbb{N}$ such that $i,j \leq m$. Let arbitrary $v_{i},v_{j} \in V$ be arbitrary, then
+\begin{eqnarray*}
+	b(u_{i},u_{i}) &=& \lambda_{i}( u_{i},u_{i})\\
+	b(u_{j},u_{j}) &=& \lambda_{j}( u_{j},u_{j})
+\end{eqnarray*}
+Now we pick $u_{i} = u_{j}$ and $u_{j} = u_{i}$. Then
+\begin{eqnarray*}
+	b(u_{i},u_{j}) &=& \lambda_{i}( u_{i},u_{j})\\
+	b(u_{j},u_{i}) &=& \lambda_{j}( u_{j},u_{i})
+\end{eqnarray*}
+Then using the symmetry of $b(\cdot,\cdot)$ and $( \cdot, \cdot )$, and subtracting, we get
+\begin{eqnarray*}
+ 0 &=& (\lambda_{i} - \lambda_{j})( u_{i}, u_{j} )
+\end{eqnarray*}
+So if $i \neq j$, $\lambda_{i} \neq \lambda_{j}$. Thus we must have that $u_{i}$ and $u_{j}$ are orthogonal. And since by the way $u_{i}$ is defined, $||u_{i}|| = 1$. So thus $\left\{u_{1},u_{2},...,u_{m}\right\}$ is orthonormal.\\
+
+
+So then $b(u,u) = \sum_{i=1}^{m} c_{i}^{2} \lambda_{i} \leq \lambda_{m}\sum_{i=1}^{m} c_{i}^{2} =\lambda_{m} ||u||^{2}$ for all $u \in E_{m}$.\\
+And since $B_{m} \subset E_{m}$, we have $b(Pu,Pu) \leq \lambda_{m}$ for all $u\in B_{m}$\\
+
+
+So now from the definition of $\mu_{m}^{h}$ and the Rayleigh quotient, we have
+\begin{eqnarray*}
+	R(Pu) &=& \frac{b(Pu,Pu)}{(Pu,Pu)}\\
+		&=& \frac{b(Pu,Pu)}{||Pu||^{2}}\\
+		&\leq & \frac{\lambda_{m}}{\mu_{m}^{h}}
+\end{eqnarray*}
+This together with Proposition 7.1 gives
+\begin{eqnarray*}
+	\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}
+\end{eqnarray*}\qed
+\end{comment}
+
+Now since $\lambda_{i}^{h} \geq \lambda_{i}$ and by Lemma 7.1, we must then have that $0 < \mu_{m}^{h} \leq 1$. Now define the error estimate as
+\begin{eqnarray*}
+\sigma_{m}^{h} = 1 - \mu_{m}^{h}
+\end{eqnarray*}
+
+%\newpage
+
+\textbf{Corollary 7.1:} $0 \leq \sigma_{m}^{h} < 1$ and $\lambda_{m}^{h} - \lambda_{m} \leq \lambda_{m}^{h}\sigma_{m}^{h}$\\
+
+\begin{comment}
+\textbf{Proof:}
+\begin{eqnarray*}
+\lambda_{m}^{h} & \leq & \frac{\lambda_{m}}{\mu_{m}^{h}} \ \ \textrm { (by Lemma 7.1)} \\
+\lambda_{m}^{h}\mu_{m}^{h}& \leq & \lambda_{m} \\
+-\lambda_{m}& \leq & -\lambda_{m}^{h}\mu_{m}^{h} \\
+\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h} -\lambda_{m}^{h}\mu_{m}^{h}\\
+\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h}\sigma_{m}^{h}
+\end{eqnarray*}\qed
+
+
+So from this Corollary 7.1, we see that to prove that our approximate eigenvalues converge to the exact eigenvalues. The only thing then left to prove is  that $\sigma_{m}^{h} \rightarrow 0$ as $h \rightarrow 0$.\\
+\\
+
+
+\textbf{Proposition 7.1} $\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \}$\\
+
+
+\textbf{Proof:}  Let $u \in B_{m}$. Then
+\begin{eqnarray*}
+||u - Pu||^{2} &=& ( u - Pu, u - Pu ) \\
+				&=& ( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ) \\
+				&=& 2( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ) - ( u, u )\\
+				&=& 2( u, u - Pu ) + ( Pu, Pu ) - ( u, u )\\
+( u, u ) - ( Pu, Pu )  & = & 2( u, u - Pu ) - ||u - Pu||^{2}	
+\end{eqnarray*}
+Now since $u \in B_{m}$, $<u,u> = 1$. So we have
+\begin{eqnarray*}
+1 - ||Pu||^{2}  & = & 2( u, u - Pu ) - ||u - Pu||^{2}	
+\end{eqnarray*}
+Now the right hand side, $1 - ||Pu||^{2} \leq 1 - \mu_{m}^{h} = \sigma_{m}^{h}$ for all $u \in B_{m}$. So then we must have that
+\begin{eqnarray*}
+\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \}
+\end{eqnarray*}\qed
+\end{comment}
+
+Next we introduce some new notation to ease the writing. For any $u \in E_{m}$, let $u^{*} = \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}$ where $u = \sum_{i=1}^{m} c_{i}u_{i}$.\\
+
+%\newpage
+
+\textbf{Proposition 7.3:} For any $u \in E_{m}$
+\begin{eqnarray*}
+( u, u - Pu ) = b(u^{*} - Pu^{*}, u -Pu)
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:} For any $i = 1,2,...,m$, we have that
+\begin{eqnarray*}
+\lambda_{i}( u_{i},u-Pu ) &=&  b(u_{i}, u-Pu)\\
+									&=& b(u_{i}, u-Pu) - b(u-Pu,Pu_{i}) \ \textrm{ (by definition of Rayleigh-Ritz Projection)}\\
+									&=&  b(u_{i}, u-Pu) - b(Pu_{i},u-Pu)\\
+									&=&  b(u_{i}-Pu_{i}, u-Pu)
+\end{eqnarray*}
+So multiplying by $c_{i}\lambda_{i}^{-1}$ and summation over i gives:
+\begin{eqnarray*}
+\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}\lambda_{i}( u_{i},u-Pu ) &=& \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}b(u_{i}-Pu_{i}, u-Pu)\\
+									&=& b(\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}-\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}Pu_{i}, u-Pu)\\
+									&=& b(u^{*}-Pu^{*}, u-Pu)
+\end{eqnarray*}
+So $( u,u-Pu ) = b(u^{*}-Pu^{*}, u-Pu)$.\qed\\
+\end{comment}
+
+\textbf{Lemma 7.2:} $\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$\\
+
+\begin{comment}
+\textbf{Proof:} From Proposition 7.1, we have
+\begin{eqnarray*}
+\sigma_{m}^{h} &=& \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \} \\
+				&\leq & \max\left\{ 2( u,u-Pu ) \ | \ u \in B_{m} \right \}
+\end{eqnarray*} since $||u-Pu||^{2} \geq 0$.\\
+\end{comment}
+
+Using Proposition 7.3
+\begin{eqnarray*}
+\sigma_{m}^{h} &\leq & \max\left\{ 2b(u^{*} - Pu^{*}, u -Pu) \ | \ u \in B_{m} \right \}			
+\end{eqnarray*}
+Now
+\begin{eqnarray*}
+b(u^{*} - Pu^{*}, u -Pu) & \leq & ||u^{*} - Pu^{*}||||u -Pu|| \ \textrm{ (Schwartz inequality)} \\
+\end{eqnarray*}
+Thus  $\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$. \qed
+
+%\newpage
+
+\textbf{Proposition 7.3:} For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
+\begin{eqnarray*}
+||u^{*} - Pu^{*}|| < \epsilon \ \textrm{ for each } u \in B_{m}\\
+||u - Pu|| < \epsilon \ \textrm{ for each } u \in B_{m}
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+Suppose we have a set of basis functions $\Phi \subset S^{h}$ such that each element in $\Phi$ has order k, i.e. for each $v \in \Phi$, $v^{(k)} = 0$. Now from the definition of the Rayleigh-Ritz Projection, we have that $Pu$ is the closest element in $S^{h}$ to $u$. In particular, $||u-Pu||\leq ||u-\Pi u||$, where $\Pi u$ is the interpolant of $u$ into $S^{h}$.\\
+
+
+Now from, we use the Approximation Theorem, so that we have
+\begin{eqnarray*}
+||u - \Pi u|| \leq Ch^{k}||u^{(k)}||
+\end{eqnarray*}
+So for any $\epsilon > 0$, we can find a $\delta$ such that if $h<\delta$ then
+\begin{eqnarray*}
+||u - Pu|| \leq ||u - \Pi u|| \leq \epsilon
+\end{eqnarray*}
+A similar argument for $||u^{*} - Pu^{*}||$ proves the theorem.
+\qed
+\\
+\end{comment}
+
+\textbf{Lemma 7.4:} For any $\epsilon >0$ there exists a $\delta > 0$ such that
+\begin{eqnarray*}
+\sigma_{m}^{h} < \epsilon \ \textrm{ if } \ h < \delta
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:} For any $\epsilon > 0$ there exists a $\delta > 0$ such that if $h<\delta$, then
+\begin{eqnarray*}
+||u-Pu|| < \epsilon \ \textrm{ for each } \ u \in B_{m}
+\end{eqnarray*}
+This, together with Lemma 7.2 and Proposition 7.4 gives the result.\qed\\
+\end{comment}
+
+\textbf{Lemma 7.5:} There exists a $\delta > 0$ such that for $h < \delta$
+\begin{eqnarray*}
+\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+Using Lemma 7.4, choose $\delta$ such that $\sigma_{m}^{h} < \frac{1}{2}$. Then by Lemma 7.1 gives that $\lambda_{m}^{h} < 2\lambda_{m}$. So we have that
+$\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}$.
+\qed
+\end{comment}
+
+\subsection{Convergence of the eigenfunctions}
+So from Lemma 7.4, it is that if $h \rightarrow 0$, we will get convergence in the eigenvalues. The next step is now to use this, to show convergence in the eigenvectors.\\
+
+
+\textbf{Lemma 7.6:}
+\begin{eqnarray*}
+b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h} ) + \lambda_{m}^{h} - \lambda_{m}
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+\begin{eqnarray*}
+b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& b(u_{m},u_{m}) - 2b(u_{m},u^{h}_{m}) + b(u^{h}_{m},u^{h}_{m}) \\
+								&=& \lambda_{m} ( u_{m}, u_{m} ) - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h}( u_{m}^{h},u_{m}^{h} )\\
+								&=&  \lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} \\
+								&=& 2\lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} - \lambda_{m}\\
+								&=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) + \lambda_{m}^{h} - \lambda_{m}
+\end{eqnarray*}
+\qed
+\end{comment}
+
+We have already shown that $\lambda_{m}^{h} \rightarrow \lambda_{m}$. So it remains only to show that $( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) \rightarrow 0$ as $h \rightarrow 0$
+
+
+Now we have the possibility that an eigenvalue, say $\lambda_{m}$ has multiplicity $r>1$. This implies that there are at least two eigenfunctions that correspond to this eigenvalue.\\
+
+The Euler-Bernoulli beam however, only has a repeated eigenvalue if we consider the free-free boundary conditions. Then the beam would have a zero eigenvalue with multiplicity more than 1. Our model, however, does not have repeated eigenvalues. So we may assume that all the eigenvalues has multiplicity $r=1$.\\
+
+
+\textbf{Lemma 7.7:} For all m and j
+\begin{eqnarray*}
+(\lambda_{j}^{h} - \lambda_{m}) ( Pu_{m}, u_{j}^{h}) = \lambda_{m} ( u_{m}-Pu_{m},u_{j}^{h} )
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+Since the term $\lambda_{m}( Pu,u^{h}_{j})$ appears on both sides of the equation, it is only required to show that
+\begin{eqnarray*}
+\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& \lambda_{m} ( u, u_{j}^{h} )
+\end{eqnarray*}
+Now
+\begin{eqnarray*}
+\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& b(Pu,u_{j}^{h})\\
+\lambda_{m} ( u, u_{j}^{h} ) &=& b(u,u_{j}^{h})
+\end{eqnarray*} Since $u$ and $u_{j}^{h}$ are both eigenfunctions.\\
+
+
+Then equality follows from the definitions of the projection P.
+\qed
+\end{comment}
+
+The set $\left\{u_{1}^{h},u_{2}^{h},...,u_{N}^{h}\right\}$ then forms an orthonormal basis for $S^{h}$. So we can then write a projection $Pu_{m}$ as:
+\begin{eqnarray}
+Pu_{m} &=& \sum_{j=1}^{N} ( P u_{m} ,u_{j}^{h}) u_{j}^{h} \label{CV1}
+\end{eqnarray}
+
+
+From Lemma 7.8, we see that $( P_{m},u_{j}^{h} )$ is small if $\lambda_{m}^{h}$ is not close to $\lambda_{j}$. So then (\ref{CV1}) tells us then that $Pu_{m}$ is close to $u_{m}^{h}$. This will allow us to estimate $Pu_{m} - u_{m}^{h}$.\\
+
+
+Since we have convergence in our eigenvalues, it follows that $\exists \rho > 0$ and $\exists \delta > 0$ such that if $h<\delta$ we have that
+\begin{eqnarray}
+|\lambda_{m} - \lambda_{j}^{h}| &>& \rho \ \ \textrm{ for all } \ j = 1,2,...,N
+\end{eqnarray}
+Therefore
+\begin{eqnarray}
+\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|} &\leq & \rho \ \ \textrm{ for all } \ j = 1,2,...,N
+\end{eqnarray}
+
+
+\textbf{Lemma 7.8:}
+\begin{eqnarray*}
+||Pu - QPu||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+
+Now using Lemma 7.7:
+\begin{eqnarray*}
+||Pu - \beta u_{m}^{h}||^{2} &=& \sum_{j\neq m} \left(\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|}\right)^{2} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}\\
+				&\leq & \rho^{2} \sum_{j\neq m} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2} \\
+				&\leq & \rho^{2} \sum_{j=1}^{N} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2} \\
+				& = & \rho^{2} ||u - Pu||^{2}\\
+\end{eqnarray*}
+\qed
+\end{comment}
+
+\textbf{Lemma 7.9:}
+\begin{eqnarray*}
+||u_{m} - \beta u_{m}^{h}|| &\leq & \left(1+\rho\right)||u_{m}-Pu_{m}||
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+\begin{eqnarray*}
+||u_{m} - \beta u_{m}^{h}|| & \leq & ||u_{m}-Pu_{m}|| + ||Pu_{m} - \beta u_{m}^{h}|| \\
+			& \leq & \left(1+\rho\right)||u_{m}-Pu_{m}|| \ \ \textrm{ (by Lemma 7.8)}
+\end{eqnarray*}
+\qed
+\end{comment}
+
+
+
+So again using the Approximation Theorem, we have that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.\\
+
+
+\textbf{Proposition 7.4:}
+\begin{eqnarray*}
+||u_{m} -  u_{m}^{h}|| &\leq & 2||u_{m}-\beta u^{h}_{m}||
+\end{eqnarray*}
+
+\begin{comment}
+\textbf{Proof:}
+\begin{eqnarray*}
+||u_{m} - u_{m}^{h}|| &=& ||u_{m} - \beta u_{m}^{h} + \beta u_{m}^{h} - u_{m}^{h}|| \\
+					& \leq & ||u_{m} - \beta u_{m}^{h}|| + ||\beta u_{m}^{h} - u_{m}^{h}|| \\
+					& = & 2||u_{m} - \beta u_{m}^{h}||	
+\end{eqnarray*}
+\qed
+\end{comment}
+
+Therefore we have that $||u_{m} -  u_{m}^{h}|| \leq Ch^{k}||u^{k}||$. So for any $\epsilon >0$ , we can find a $\delta >0$ so that if $h < \delta$, we have that $||u_{m} -  u_{m}^{h}|| < \epsilon$.
+
+Finally, for elastic beam models like the Euler-Bernoulli beam model, the norm $||.||$ is the energy norm defined as
+\begin{eqnarray*}
+||u|| &=& \left(\int u^{2}\right)^{\frac{1}{2}}
+\end{eqnarray*}
+
+
+So clearly then we have that $u_{m}^{h} \rightarrow u_{m}$ as $h \rightarrow 0$.
+
+\section{Example}
+What moet hier kom?\\
+
+dalk timoshenko beam sal beter wees met plaat of 2d model.\\
+
+Consider a variational problem for a cantilever two-dimensional beam, with a reference configuration $\Omega$. In section \ref{sssec:2D_Model:Problem2D1}, the derivation of this variational problem is referred to as Problem 2D-1V.
+
+\subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1V}
+Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
+\begin{align}
+	\int_{\Omega} (\partial_t^2 u)\cdot \phi \ dA = -b(u,\phi) - \int_{\Omega} Q\cdot\phi \ dA \label{eq:2D_Model:Problem2D1VEq}
+\end{align}
+for all $\phi \in T(\Omega)$.\\
+
+With the test function space defined as
+\subsubsection{Test functions}
+\begin{eqnarray*}
+	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
+\end{eqnarray*}
+
+
+
+
+\subsection{Weak variational form}
+For all $f,g \in T(\Omega)$ and $h \in C(\Omega)$, define the bilinear forms
+\begin{eqnarray*}
+	c(f,g) & = & \iint_\Omega f \cdot g \ dA, \\
+\end{eqnarray*}
+and integral
+\begin{eqnarray*}
+	(h,g) & = & \iint_\Omega h \cdot g \ dA. \\
+\end{eqnarray*}
+Recall from section  that the bilinear form $b$ is defined as
+\begin{eqnarray*}
+	b(u,\phi) & = & \frac{1}{\gamma(1-\nu^2)}\iint_{\Omega} (\partial_1 u_1 \partial_1 \phi_1 + \partial_2 u_2 \partial _2 \phi_2 + \nu\partial_1 u_1 \partial_2\phi_2 + \nu \partial_2 u_2 \partial_1 \phi_1 ) \ dA \\
+	& + & \frac{1}{2\gamma(1+\nu)}\iint_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
+\end{eqnarray*}
+
+Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
+
+\subsubsection{Problem 2D-1W}
+Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, satisfying the following equation
+\begin{eqnarray}
+	c(u''(t),v) + b(u(t),v) & = & (Q(t),v)_X \ \ \ \textrm{ for each } v \in V.
+\end{eqnarray}
+
+\end{document}

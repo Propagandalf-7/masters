@@ -1,0 +1,196 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\section{Introduction}
+
+
+\section{Eigenvalue problem}\label{sec:Timo:EigenvalueProblem}
+In section \ref{ssec:1D_Model:Modal} the idea of modal analysis is explored using a Timoshenko beam as an example. In this section, we look at the work of the authors of [VV06]. The authors gives a method to calculate the eigenvalues and eigenfunctions for the Timoshenko beam theory.\\
+
+Consider a general eigenvalue problem for the Timoshenko beam theory.
+
+\sout{The next step is to find a method to {easily} calculate the eigenvalues and eigenvectors for the Timoshenko beam models {theory}}.\\
+
+\sout{For this section, the work of the authors of [VV06] is discussed. {Consider the article [VV06].} In this article the authors present a method to calculate the exact eigenvalues and eigenvectors for the Timoshenko beam theory}.\\
+
+\sout{To discuss the work of [VV06], a general eigenvalue problem is required. So consider only the differential equations of an eigenvalue problem for a Timoshenko beam. The reader can refer to Problem T-1E in section \ref{ssec:1D_Model:Modal} for a more specific example of the derivation of the eigenvalue problems for the Timoshenko beam theory.}
+
+\sout{In section \ref{ssec:1D_Model:Modal}, the eigenvalue for Problem T-1 is given as Problem T-1E. }
+\textcolor{red}{Probleem se naam verander vanaf Differential equations for the eigenvalue problem}
+\subsubsection{General eigenvalue problem} \label{sssec:Timo:EigenvalueProblem}
+Find functions $u$ and $\phi$ and a real number $\lambda$ satisfying the following equations
+\begin{eqnarray}
+-u'' + \phi' &=& \lambda u, \label{eq:Timo:EigenvalueProblem1}\\
+-\alpha u' + \alpha\phi - \frac{1}{\gamma}\phi'' &=& \lambda\phi.\label{eq:Timo:EigenvalueProblem2}
+\end{eqnarray}
+
+Recall from section \ref{sec:1D_Model}, $u$ represents the transverse motion of the beam, $\phi$ is the angle of rotation of the cross-section of the beam, $\alpha$ and $\gamma$ are dimensionless constants defined in section 1.5 and $\lambda$ represents the eigenvalue. \\
+
+The authors of [VV06] first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In [VV06] the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in \mathbb{R}$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
+\begin{eqnarray*}
+-m^{2}e^{mx}w_{1}+me^{mx}w_{2}&=&\lambda e^{mx}w_{1},\\
+-\frac{1}{\gamma}m^{2}e^{mx}w_{2}-\alpha me^{mx}w_{1}+\alpha e^{mx}w_{2}&=&\lambda e^{mx}w_{2}.
+\end{eqnarray*}
+
+
+From these equations it can be concluded that $e^{mx}\bar{w}$ is a solution of the system if and only if the pair $\langle m,\bar{w} \rangle$ is a solution of the linear system:
+
+\begin{equation}
+\begin{bmatrix}
+-m^{2}-\lambda & m\\
+-\alpha m & -\frac{1}{\gamma}m^{2}+(\alpha- \lambda)
+\end{bmatrix}
+\begin{bmatrix}
+w_{1}\\w_{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\0
+\end{bmatrix}. \label{eq:Timo:SolutionEigenvalueProblem}
+\end{equation}
+
+Let $A$ denote the coefficient matrix of \eqref{eq:Timo:SolutionEigenvalueProblem}. For a nontrivial solution of $\bar{w}$, it is required that the determinant of matrix $A$ is $0$.
+\begin{align*}
+\textrm{det}(A)=m^{4}+\lambda(1+\gamma)m^{2}+\gamma\lambda(\lambda-\alpha)=0. \label{TE7}
+\end{align*}
+
+This equation is called the characteristic equation. The characteristic equation is quadratic with respect to $m^2$. The roots of the characteristic equation can be expressed as
+\begin{align}
+m^{2}=-\frac{1}{2}\lambda(1+\gamma)(1\pm\sqrt{\Delta}),
+\end{align}
+where
+\begin{align}
+\Delta=1-\frac{4\gamma}{(1+\gamma)^{2}}\left(1-\frac{\alpha}{\lambda}\right)=\frac{4\gamma}{(1+\gamma)^{2}}\frac{\alpha}{\lambda}+\frac{(1-\gamma)^{2}}{(1+\gamma)^{2}}.
+\end{align}
+
+It is clear that $\Delta>0$, since $\lambda$, $\alpha$ and $\gamma$ are all positive. Therefore $m^{2}$ will always be real, and have distinct roots.\\
+
+Consider the case where $m^{2} = 0$, which occurs when $\lambda = \alpha$. Then the matrix A simplifies to
+\begin{equation*}
+\begin{bmatrix}
+	\alpha & 0\\
+	0&0
+	\end{bmatrix}.
+\end{equation*}
+
+In  this case it is easy to find two linearly independent solutions:
+\begin{eqnarray*}
+\left[u(x) \ \phi(x)\right]^{T} = \left[0 \ 1 \right]^{T} \ \ \textrm{ and } \ \ \left[u(x) \ \phi(x)\right]^{T} = \left[1 \ \alpha x \right]^{T}.
+\end{eqnarray*}
+
+
+
+Now if $m^{2} \neq 0$, we consider the system $A\bar{w}=0$ with $w_{1} = m$ and $w_{2} = m^{2} + \lambda$. From [VV06], the parameters $\omega$, $\mu$ and $\theta$ are uniquely determined by $\lambda$.
+\begin{eqnarray}
+	\omega^2 & = & \frac{1}{2}\lambda(1+\gamma)(\Delta^{\frac{1}{2}}+1) \ \textrm{ for } \lambda >0\\
+	\mu^2 & = & \frac{1}{2}\lambda(1+\gamma)(\Delta^{\frac{1}{2}}-1) \ \textrm{ for } \lambda < \alpha\\
+	\theta^2 & = & \frac{1}{2}\lambda(1+\gamma)(1-\Delta^{\frac{1}{2}}) \ \textrm{ for } \lambda > \alpha
+\end{eqnarray}
+
+ The three cases $\lambda < \alpha$, $\lambda = \alpha$ and $\lambda > \alpha$ are considered separately by the authors of [VV06]. The general solution from [VV06] for each case is presented below.
+
+\subsubsection{Case $\boldsymbol{\lambda<\alpha}$}
+
+Denote the roots of (\ref{TE7}) by $\pm \mu$ and $\pm \omega i$. Thus the general solution is given by
+\begin{eqnarray*}
+\begin{bmatrix}
+u(x)\\ \phi(x)
+\end{bmatrix}
+&=&
+A
+\begin{bmatrix}
+\sinh (\mu x) \\ \frac{\lambda+\mu^{2}}{\mu}\cosh (\mu x)
+\end{bmatrix}
++
+B
+\begin{bmatrix}
+\cosh (\mu x) \\ \frac{\lambda+\mu^{2}}{\mu}\sinh (\mu x)
+\end{bmatrix}
++
+C
+\begin{bmatrix}
+\sin (\omega x) \\ -\frac{\lambda-\omega^{2}}{\omega}\cos (\omega x)
+\end{bmatrix}\\
+&&
++
+D
+\begin{bmatrix}
+\cos (\omega x) \\ \frac{\lambda-\omega^{2}}{\omega}\sin (\omega x)
+\end{bmatrix}.
+\end{eqnarray*}
+
+\subsubsection{Case $\boldsymbol{ \lambda=\alpha}$}
+
+In this case the roots of (\ref{TE7}) are $0$ with multiplicity 2, and $\pm \omega i$. The general solution is
+\begin{eqnarray*}
+	\begin{bmatrix}
+		u(x)\\ \phi(x)
+	\end{bmatrix}
+	=
+	A
+	\begin{bmatrix}
+		0 \\1
+	\end{bmatrix}
+	+
+	B
+	\begin{bmatrix}
+		1 \\ \alpha x
+	\end{bmatrix}
+	+
+	C
+	\begin{bmatrix}
+		\sin (\omega x) \\ -\frac{\lambda-\omega^{2}}{\omega}\cos (\omega x)
+	\end{bmatrix}
+	+
+	D
+	\begin{bmatrix}
+		\cos (\omega x) \\ \frac{\lambda-\omega^{2}}{\omega}\sin (\omega x)
+	\end{bmatrix}.\label{T9}
+\end{eqnarray*}
+
+\subsubsection{Case $\boldsymbol{\lambda>\alpha}$}
+
+All the roots of (\ref{TE7}) are complex. Denote them by $\pm \theta i$ and $\pm \omega i$. The general solution is
+\begin{eqnarray*}
+\begin{bmatrix}
+u(x)\\ \phi(x)
+\end{bmatrix}
+&=&
+A
+\begin{bmatrix}
+\sin (\theta  x) \\-\frac{\lambda-\theta^{2}}{\theta}\cos (\theta x)
+\end{bmatrix}
++
+B
+\begin{bmatrix}
+\cos (\theta x) \\ \frac{\lambda-\theta^{2}}{\theta}\sin (\theta x)
+\end{bmatrix}
++
+C
+\begin{bmatrix}
+\sin (\omega x) \\ -\frac{\lambda-\omega^{2}}{\omega}\cos (\omega x)
+\end{bmatrix}\\
+&&
++
+D
+\begin{bmatrix}
+\cos (\omega x) \\ \frac{\lambda-\omega^{2}}{\omega}\sin (\omega x)
+\end{bmatrix}.\label{T10}
+\end{eqnarray*}
+
+The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in [VV06] using an example. A summary of the strategy is presented here.\\
+
+From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions of the model problem. The boundary conditions at $x=0$ reduces the solution space of four dimensions to a solution space of dimension at least two. The boundary condition at $x=1$ is then substituted which results in a homogeneous system of linear equations.
+\begin{eqnarray*}
+A \bar{b} = \bar{0}
+\end{eqnarray*}
+
+ This system has either the zero solution or infinitely many solutions. To ensure a non-zero solution, the determinant of the coefficient matrix $A$ of the system of equations is set equal to 0. The equation $\textrm{det}(A) = 0$ is called the frequency equation. The frequency equation has infinitely many solutions and each solution corresponds to an eigenvalue.\\
+ 
+ For each eigenvalue, a unique solution for the pair $\bar{b}$ can be obtained. A eigenfunction for $u$ and $\phi$ is obtained using $\bar{b}$ and corresponds to the relevant eigenvalue.\\
+
+The following two sections provide examples of this strategy applied to beam models. These examples are also in [VV06].
+
+**sluit af***
+******NB Verduidelik $\alpha$
+\end{document}
+%obvisouly the solution space is 4 dimensional . bc at 0 makes it at most two.

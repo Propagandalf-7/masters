@@ -1,0 +1,66 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\subsection*{The Space $L^2$}
+Consider a measurable space $X$. The set of square integrable functions is called the $L^2$ space.\\
+
+The inner product of $L^2$ is defined as 
+\begin{eqnarray*}
+	(f,g) = \int_X fg \ \ \ \ \textrm { for } f,g \in L2.
+\end{eqnarray*}
+The norm can be defined as $||f|| = (f,f)^{\frac{1}{2}}$ for each $f \in L^2(X)$. For reference, see \cite{Rud53}.\\
+
+
+\textcolor{red}{***********************************************}\\
+
+The space $C^m(a,b)$ is the space of functions with continuous derivatives up to order $m$ over the open interval (a,b).\\
+
+The space $C^m[a,b]$ is the space of functions in $C^m(a,b)$, with existing right derivatives at $a$ and existing left derivatives at $b$, up to order m.\\
+
+The space $C_0^m(a,b)$ contains all functions $f$ in $C^m[a,b]$ with the property that there exists numbers $a < \alpha < \beta < b$ such that $f$ is zero on $[a,\alpha] \cup [\beta, b]$.\\
+
+The space $C^\infty(a,b)$ contains all functions in $C^m(a,b)$ for all $m$.\\
+
+The space $C^\infty[a,b]$ contains all functions in $C^m[a,b]$ for all $m$.\\
+
+The space $C_0^\infty(a,b)$ contains all functions in $C_0^m(a,b)$ for all $m$.\\
+
+\textbf{Definition:} First Order Weak Derivative\\
+Suppose $u \in L^2(a,b)$ and there exist a $v \in L^2(a,b)$ such that
+\begin{eqnarray*}
+	(u,\phi') = -(v,\phi) \ \textrm{ for each } \phi \in C^{\infty}_0(a,b)
+\end{eqnarray*}
+then $v$ is called the first order weak derivative of $u$ and is denoted by $Du$.\\
+
+\textbf{Definition:} Higher Order Weak Derivative\\
+Suppose $u \in L^2(a,b)$ and there exist a $v \in L^2(a,b)$ such that
+\begin{eqnarray*}
+	(u,\phi^{(m)}) = (-1)^{(m)}(v,\phi) \ \textrm{ for each } \phi \in C^{\infty}_0(a,b)
+\end{eqnarray*}
+then $v$ is called the m'th order weak derivative of $u$ and is denoted by $D^{(m)}u$.\\
+
+Define inner product $$(u,v)_m = (u,v) + (Du,Dv) + ... + (D^mu ,D^mv)$$.
+
+The space $W^1(a,b) \subset L^2(a,b)$ contains the functions with first order weak derivatives. $W^m(a,b)\subset L^2(a,b)$ contains the functions with weak derivatives up to order $m$. $W^m(a,b)$ is a Sobolev space with inner product $(u,v)_m$ and norm defined by 
+\begin{eqnarray*}
+	||u||_m = (u,u)^{\frac{1}{2}}_m.
+\end{eqnarray*}
+
+The space $H^1(a,b)$ is the closure of $C^1[a,b]$ in $W^1(a,b)$ with respect to the norm of $W^1(a,b)$. The space $H^m(a,b)$ is the closure of $C^m[a,b]$ in $W^m(a,b)$ with respect to the norm of $W^m(a,b)$.
+
+\section*{Results for One-Dimensional Case}
+
+
+
+\section*{Results for Higher-Dimensional Case}
+
+\newtheorem{thmAH1}{Theorem}
+\begin{thmAH1}
+	The m'th order weak derivative $D^{(m)}u$ is uniquely determined.
+\end{thmAH1}
+
+\newtheorem{thmAH2}{Theorem}
+\begin{thmAH2}
+	$C^m(\bar{I}) \subset W^m(I)$ and if $u \in C^m(C^m(\bar{I})C^m(\bar{I})\bar{I})$, then $D^{(m)}u = u^{(m)}$. 
+\end{thmAH2}
+
+\end{document}

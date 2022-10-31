@@ -1,0 +1,52 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\section*{One-Dimensional Case}
+Consider the interval $[0,\ell]$. Divide the interval into $n$ elements $[x_{k-1},x_k]$. Each $x_i$ is called a node.
+\subsection*{Piecewise Linear}
+Denote the linear basis functions by $\phi_i$.
+
+\subsubsection{Properties}
+\begin{itemize}
+	\item[-] The restriction of $\phi_i$ to an element is a linear polynomial.
+	\item[-] $\phi_i = \in C^1_+[0, \ell]$
+	\item[-] $\phi$ is piecewise linear.
+	\item[-] $\phi_i(x_i) = 1$ and $\phi_i(x_j) = 0$ if $i \neq j$.
+\end{itemize}
+
+
+\subsection*{Hermite Piecewise Cubics}
+The Hermite piecewise cubic basis functions has a continuous derivative. Thus any linear combination also have a continuous derivative. There are two types of Hermite cubics. Denote type one by $\phi_i^(1)$ and type two by $\phi_i^(2)$.\\
+
+\subsubsection{Properties of Type One}
+\begin{itemize}
+	\item[-] The restriction of $\phi^{(1)}_i$ to an element is a cubic polynomial.
+	\item[-] $\phi^{(1)}_i \in C^2_+[0,\ell]$
+	\item[-] $(\phi^{(1)}_i)''$ is piecewise continuous with possible discontinuities at the nodes.
+	\item[-] $\phi^{(1)}_i(x_i) = 1$ and $(\phi^{(1)}_i)' = 0$
+	\item[-] $\phi^{(1)}_0(x) = 0$ if $x \notin [0,x_1)$, $\phi^{(1)}_n(x) = 0$ if $x \notin (x_{n-1},x_n]$ and for $i = 1,2,...,n-1$, $\phi^{(1)}_i(x) = 0$ if $x \notin (x_{i-1},x_{i+1})$
+\end{itemize}
+
+\subsubsection{Properties of Type Two}
+\begin{itemize}
+	\item[-] The restriction of $\phi^{(2)}_i$ to an element is a cubic polynomial.
+	\item[-] $\phi^{(2)}_i \in C^2_+[0,\ell]$
+	\item[-] $(\phi^{(2)}_i)''$ is piecewise continuous with possible discontinuities at the nodes.
+	\item[-] $\phi^{(2)}_i(x_i) = 0$ and $(\phi^{(2)}_i)' = 1$
+	\item[-] $\phi^{(2)}_0(x) = 0$ if $x \notin [0,x_1)$, $\phi^{(2)}_n(x) = 0$ if $x \notin (x_{n-1},x_n]$ and for $i = 1,2,...,n-1$, $\phi^{(2)}_i(x) = 0$ if $x \notin (x_{i-1},x_{i+1})$
+\end{itemize}
+
+\section*{Two-Dimensional Case}
+Consider a rectangle $\Omega$ with length of sides $a$ and $b$, partitioned into smaller rectangles with length $\delta x$ and width $\delta y$. Each node is determined by $(x_i,y_i)$.
+\subsection*{Piecewise Bi-Linear}
+Denote the bilinear basis functions by $\phi_i$.
+
+\subsubsection{Properties}
+\begin{itemize}
+	\item[-] The restriction of $\phi_i$ to an element is a bilinear polynomial. $\phi_i(x,y) = a + bx + cy + dxy$.
+	\item[-] $\phi_i(x,\cdot) \in C^1_+[0,b]$ for each $x \in [0,a]$, and $\phi_i(\cdot,y) \in C^1_+[0,a]$ for each $x \in [0,b]$.
+	\item[-] $\phi_i(x_i,y_i) = 1$ and $\phi_i = 0$ at any other node.
+	\item[-] $0 < \phi_i < 1$ on each element having the node $(x_i,y_i)$ as a vertex. And $\phi_i = 0$ on every other node.
+\end{itemize}
+
+
+\end{document}

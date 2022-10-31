@@ -1,0 +1,71 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+\section{Introduction}
+This chapter is an investigation into the validity of a cantilever Timoshenko beam and a cantilever Reissner-Mindlin plate. Validity in this context refer to how well the solutions compare to the solutions of more realistic higher dimensional models.\\
+
+The chapter consists of three main parts.
+
+\begin{itemize}
+	\item[-] Section 7.2: Comparison between the cantilever Timoshenko beam and cantilever two-dimensional beam.
+	\item[-] Section 7.3: Comparison between the cantilever two-dimensional beam and cantilever three-dimensional beams.
+	\item[-] Section 7.4: Comparison between the cantilever Reissner-Mindlin plate and cantilever three-dimensional plate.
+\end{itemize}
+
+In Section 7.2, the work in \cite{LVV09} is discussed and the numerical results are verified. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. More results not given in  [LVV09] are also calculated, to be used in the sections following.
+
+Section 7.3 is a natural extension of the article \cite{LVV09}. In this section, the validity of a two-dimensional beam model is investigated. The results of the two-dimensional beam are compared to a three-dimensional beam. The two-dimensional beam thus serves are an intermediate step to validate the Timoshenko beam model.
+
+ extends the work of \cite{LVV09} to a comparison of a cantilever two-dimensional beam to a cantilever three-dimensional beam.\\
+
+Section 7.4 extends the work of \cite{LVV09} to plate models. Specifically a comparison of a cantilever two-dimensional Reissner-Mindlin plate to a cantilever three-dimensional plate.\\
+
+\subsubsection{Parameters}
+All the models in this dissertation are made of the same isotropic material and have square cross-section. Therefore for all the models, the elastic modulus $\displaystyle G = \frac{E}{2(1+\nu)}$. The shear correction factor is chosen as $\kappa^2 = 5/6$ and Poisson's ratio $\nu = 0.3$.\\
+ 
+ 
+ 
+\end{document}
+
+
+This is the same idea as done in the article [LVV09]. To make the comparison between models of different dimensions, the eigenvalues and eigenfuctions of the models are considered. If the eigenvalues and eigenfunctions compare well, it can be assumed that the solution to the model problem would also compare well. The reason for this is explained in Section 1.5.5. And since the Fourier coefficients in the solution decreases very rapidly, only the first few eigenvalues and eigenfunctions need to be considered.\\
+
+Section 6.2 looks at some of the results obtained in [LVV09]. The results for the Euler-Bernoulli beam theory is excluded a the article has sufficient results. The idea of Section 6.2 is to verify the conclusions obtained in [LVV09]. The results of the section also aggregate the work of the article by examining different values for the parameter $\alpha$.\\
+
+Section 6.3 extends the work of [LVV09] by examining the comparison between a two-dimensional and three-dimensional cantilever beam model. The authors' opinion is that a comparison between a two-dimensional and three-dimensional model would be less problematic than comparing the one-dimensional (Timoshenko) beam model to a three-dimensional model. The two-dimensional model can be seen as an intermediate step.
+
+
+\subsubsection{Parameters}
+For all models, the parameters are chosen as $\nu = 0.3$, and $\kappa^2 = 5/6$. It is assumed that all models are made from the same isotropic material, hence $G = \frac{E}{2(1+\nu)}$. Since the beams have a rectangular cross-section, for the Timoshenko beam model the area moment of inertia can be calculated as
+\begin{eqnarray*}
+	I & = & \frac{h^3b}{12}.
+\end{eqnarray*}
+The dimensionless constant $\alpha$, given in Section 1.5.1, gives the following relationship between the beam's height, length and the value of $\alpha$:
+\begin{eqnarray*}
+	\frac{h}{\ell}  & = & \sqrt{\frac{12}{\alpha}}
+\end{eqnarray*}
+This equation show that the ratio of the height of the beam and the length is dependant on the value of the parameter $\alpha$. The parameter $\alpha$ only appears in the one-dimensional beam model. But for continuity will be used for all models in this chapter to determine the ratio of length to height of the models.
+
+\subsubsection{Remark:}
+\begin{itemize}
+	\item[--] All results in this chapter are given to 3 significant digits.
+	\item[--] ****b does not depend on $\alpha$
+\end{itemize}
+
+**********************Needs work******************\\
+The comparisons in this Chapter are as follow:
+\begin{itemize}
+	\item[] Section 7.2: The Timoshenko cantilever beam (Problem T-2) and two-dimensional cantilever beam (Problem 2D-1).
+	\item[] Section 7.3: The two-dimensional cantilever beam (Problem 2D-1) and three-dimensional cantilever beam(Problem 3D-1)
+	\item[] Section 7.4: The Reisner-Mindlin cantilever plate (Problem P-1) and three-dimensional cantilever plate (Problem 3D-1)
+\end{itemize}
+
+For the first part of this chapter, the work of the authors of \cite{LVV09} are discussed. The authors of 
+
+
+
+
+This chapter is a discussion and an extension of the work of the authors of \cite{LVV09}. In \cite{LVV09}, the authors examined the validity of a cantilever Timoshenko beam using a cantilever two-dimensional beam as a reference.\\
+
+After the discussion of \cite{LVV09}, the work of the authors is extended to investigate the validity of a cantilever two-dimensional beam using a cantilever three-dimensional beam as a reference. Finally the validity of a cantilever Reissner-Mindlin plate is investigated using a cantilever three-dimensional plate model as reference. The structure and idea of the authors of \cite{LVV09} is used a guide throughout this chapter.\\
+
+The chapter is divided into the following sections:\\

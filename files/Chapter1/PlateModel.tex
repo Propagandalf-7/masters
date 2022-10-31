@@ -1,0 +1,216 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+	\section{Reissner-Mindlin Plate Model} \label{sec:P_Model}
+	Consider small vibrations of a plate. This motion can be described by using spherical coordinates. Assume that the plate has a two dimensional domain $\Omega \subset R_2$. For $r \geq 0$, the coordinates $x_1$ and $x_2$ can be rewritten as
+	\[ x_1 = r \sin \phi \cos \theta, \]
+	\[ x_2 = r \sin \phi \sin \theta. \]
+	
+	Let
+	\[ r = \sqrt{q^2 + x_3^2},~~~\sin \phi = \frac{q}{r}~~~\textrm{and}~~~\cos \theta = \frac{x_3}{r}.\]
+	and define the unit vectors
+	\begin{eqnarray*}
+		\bar e_r &=& \cos \theta ~\bar e_1 + \sin \theta ~\bar e_2,\\
+		\bar e_n &=& \sin \phi~\bar e_r + \cos \psi~\bar e_3, \\
+		\bar e_\phi &=& \cos \phi~\bar e_r - \sin \psi~\bar e_3.
+	\end{eqnarray*}
+	
+	Any point on the plate can be described by
+	\[ \bar{x} = x_1 \bar e_1 + x_2 \bar e_2 + x_3 \bar e_3 = q \bar e_r + x_3 \bar e_3. \]
+	
+	
+	Let $w$ represent the displacement of the plate body and $\psi$ the angle between the material line and a line perpendicular to the plate. In the spherical coordinate form, the angle can easily be calculated for the directions of $\bar{e}_1$ and $\bar{e}_2$, i.e.
+	\begin{eqnarray*}
+		\psi_1 & = & \frac{q}{r} \bar{e}_r \cdot \bar{e}_1, \\
+		\psi_2 & = & \frac{q}{r} \bar{e}_r \cdot \bar{e}_2.
+	\end{eqnarray*}
+	Define
+	\begin{eqnarray*}
+		{\psi} = \langle \psi_1 \  \psi_2\rangle = \langle \sin\phi \cos \theta \ \ \sin\phi \sin \theta\rangle.
+	\end{eqnarray*}
+	
+	The plate model in consideration is restricted to a linear model. Therefore $\sin\phi$ can be approximated by $\phi$ such that
+	\begin{eqnarray*}
+		{\psi} = \langle \psi_1 \  \psi_2\rangle = \langle \phi \cos \theta \ \ \phi \sin \theta \rangle.
+	\end{eqnarray*}
+	
+	The equations for the Reissner-Mindlin plate model is given in the next section. The model is restricted to the linear theory.
+	
+	\subsection{Equations of Motion and Constitutive Equations}\label{ssec:P_Model:EquationsOfMotion+ConstitutiveEquation}
+	Consider a Reissner-Mindlin plate with reference configuration $\Omega \in R_2$. Let $u \in \Omega$ define the transverse motion of the plate model and $\psi = \langle \psi_1 \ \psi_2 \rangle$ the angle between the material line and a line perpendicular to the plate.
+	
+	\subsubsection*{Equations of Motion}\label{sssec:P_Model:EquationsOfMotion}
+	\begin{eqnarray}
+		\rho h \partial_t^2 w & = & \textrm{div} Q + q \label{eq:P_Model:EM1}\\
+		\rho I \partial_t^2 {\psi} & = & \textrm{div} M - Q \label{P2}\label{eq:P_Model:EM1}
+	\end{eqnarray}
+	In these equations $\rho$ denotes the density of the plate, $\displaystyle I = \frac{h^3}{12}$ the length moment of inertia, $M$ the moment density and $Q$ the shear force density. The parameter $q$ is an external force acting on the plate. The moment density is defined as
+	
+	\begin{eqnarray*}
+		M = 
+		\begin{bmatrix}
+			M_{11} & M_{12}\\
+			M_{21} & M_{22}
+		\end{bmatrix}.
+	\end{eqnarray*}
+	
+	\subsubsection*{Constitutive Equations}\label{sssec:P_Model:ConstitutiveEquation}
+	For the linear model, the constitutive equations are defined as:
+	\begin{eqnarray}
+		Q & = & \kappa^2 G h(\nabla w + \psi) \label{eq:P_Model:CE1} \\
+		M_{11} & = & \frac{1}{2} D \left[2(\partial_1 \psi_1 + \nu \partial_2 \psi_2)\right]  \label{eq:P_Model:CE2}\\
+		M_{12} =  M_{21} & = & \frac{1}{2} D \left[(1-\nu)(\partial_1 \psi_2 + \nu \partial_2 \psi_2)\right] \label{eq:P_Model:CE3} \\
+		M_{22} & = & \frac{1}{2} D \left[2(\partial_2 \psi_2 + \nu \partial_1 \psi_1)\right] \label{eq:P_Model:CE4}
+	\end{eqnarray}
+	where $G$ is the shear modulus, $\kappa^2$ a shear correction factor and $D$ is a measure of stiffness for the plate and is defined by
+	\begin{eqnarray*}
+		D & = & \frac{EI}{1-\nu^2}
+	\end{eqnarray*}
+	where $E$ is Young's modulus and $\nu$ Poisson's ratio.\\
+	
+	In classical plate theory, $\psi = -\nabla w$ and the constitutive equation for $Q$ is excluded.
+	
+	\subsection{Dimensionless Form}\label{ssec:P_Model:DimensionlessForm}
+	
+	Set
+	\[\tau = \frac{t}{t_0}, \,\, \quad \xi_1 = \frac{x_1}{\ell}, \,\, \quad \xi_2 = \frac{x_2}{\ell},\] 
+	\[w^*(\xi,\tau) = \frac{w(x,t)}{\ell} \ \text{ and } \ {\psi}^*(\xi, \tau) = {\psi}(x,t).\]
+	
+	The dimensionless forms of the force density, moment density and load can be constructed as \[ Q^{*}(\xi,\tau) = \frac{Q(x,t)}{\ell G\kappa^2}, \quad M^{*}(\xi,\tau) = \frac{M(x,t)}{\ell^2 G\kappa^2} \,\,\, \ \text{and} \ \,\,\, q^*(\xi,\tau) = \frac{q(x,t)}{G\kappa^2}.\]
+	
+	Choose $t_0$ the same as in Section 1.3.4, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+	
+	The dimensionless constants are
+	\[h = \frac{h}{\ell}, \,\, \quad I^* = \frac{h^3}{12} \ \text{ and } \  \beta = \frac{\ell^3G\kappa^2}{EI}.\]
+	
+	\subsubsection{Remark}
+	Similar to the model in section \ref{ssec:3D_Model:DimensionlessForm}, the constant $G$ is introduced to allow for the comparison of models in later chapters. It will also be required that $\kappa$ is the same for the beam and plate models.
+	
+	\subsubsection{Dimensionless Equations of Motion}\label{sssec:P_Model:EquationsOfMotionD}
+	\begin{eqnarray}
+		h \partial_t^2 w & = & \textrm{div} Q + q \label{eq:P_Model:EM1D} \\
+		I \partial_t^2 {\psi} & = & \textrm{div} M - Q \label{eq:P_Model:EM2D_chap1}
+	\end{eqnarray}
+	\subsubsection{Dimensionless Constitutive Equations}\label{sssec:P_Model:ConstitutiveEquationsD}
+	\begin{eqnarray}
+		Q & = & h(\nabla w + \psi) \label{eq:P_Model:CE1D}\\
+		M_{11} & = & \frac{1}{2\beta(1-\nu^2)} \left[ 2(\partial_1\psi_1 + \nu \partial_2 \psi_2 \right] \label{eq:P_Model:CE2D}\\
+		M_{12} = M_{21} & = & \frac{1}{2\beta(1-\nu^2)} \left[ (1-\nu)(\partial_1\psi_2 + \partial_2 \psi_1) \right] \label{eq:P_Model:CE3D}\\
+		M_{11} & = & \frac{1}{2\beta(1-\nu^2)} \left[ 2(\partial_2 \psi_2 + \nu \partial_1 \psi_1)\right] \label{eq:P_Model:CE4D_chap1}
+	\end{eqnarray}
+	\subsection{Boundary Conditions}\label{ssec:P_Model:BoundaryConditions}
+	The boundary conditions are applied along an edge of a plate. Let $n$ be the outward normal of the edge, and $\tau$ be a unit vector tangent to that edge.\\
+	
+	Some commonly used boundary (or edge) conditions are:\\
+	
+	Free Edge:
+	\[Mn\cdot n = 0, \ \ Mn\cdot \tau = 0 \ \ \textrm{ and }\ Q\cdot n = 0 \]
+	Soft Supported Edge:
+	\[Mn\cdot n = 0, \ \ w = 0 \ \ \textrm{ and } \ Mn \cdot \tau = 0 \]
+	Rigidly Supported Edge:
+	\[Mn\cdot n = 0, \ \ w = 0 \ \ \textrm{ and } \ {\psi} \cdot \tau = 0 \]
+	Soft Clamped Edge:
+	\[w = 0, \ \ Mn \cdot \tau = 0 \ \ \textrm{ and } \ \psi \cdot n = 0 \]
+	Rigidly Clamped Edge:
+	\[w = 0, \ \ \psi_1 = 0 \ \ \textrm{ and } \ \psi_2 = 0 \]
+	
+	In this dissertation, only the free edge and rigidly clamped edge boundary conditions are considered.
+	
+	\subsection{Model Problems}\label{ssec:P_Model:ModelProblems}
+	Let $\Omega \subset R_2$ denote reference configuration of the plate model. Following \cite{Wu05}, $\Omega$ is a rectangle.\\
+	
+	The boundary $\partial \Omega$ can be divided into 4 distinct parts. Denote any two opposing sides by $\Sigma_0$ and $\Sigma_1$ and the remaining two opposing sides by $\Gamma_0$ and $\Gamma_1$.
+	
+	\subsubsection{Problem P-1}\label{sssec:P_Model:ProblemP1}
+	Consider a cantilever plate model. In this configuration, the plate is clamped at one edge and free hanging at the rest of the boundary. With out loss of generality, assume that the plate is clamped on the edge $\Sigma_0$.\\
+
+	Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1}, the boundary conditions.\\
+	
+	Boundary Conditions\\
+	\[w = 0,  \ \textrm{ and } \ \psi = \bar{0} \ \textrm{ on } \Sigma_0.\]
+	\[Mn\cdot n = 0,\ \ \ Mn\cdot \tau = 0, \ \textrm{ and } \ Q \cdot n =0 \ \textrm{ on } \partial\Omega\setminus\Sigma_0.\]
+	with $\tau$ a unit vector perpendicular to $n$.\\
+	
+	\subsubsection{Problem P-2}\label{sssec:P_Model:ProblemP2}
+	Consider a plate model that is rigidly clamped on $\partial \Omega$. Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1}, the boundary conditions.\\
+	
+	Boundary Conditions\\
+	\[w = 0,  \ \textrm{ and } \ \psi = \bar{0} \ \textrm{ on } \partial \Omega.\]
+	
+	
+	\subsection{Variational Form}\label{ssec:P_Model:VariationalForm}
+	Let $v \in C_2^1[0,1]$ and $w \in C^1[0,1] \times C^1[0,1]$ such that $w$ is a vector valued function. Multiplication these functions to \eqref{eq:P_Model:EM1D} and \eqref{eq:P_Model:EM2D} yields:
+	\begin{eqnarray*}
+		\int_\Omega h \partial_t^2 w v \ dA & = & \int_\Omega \textrm{div} (Q) v \ dA + \int_\Omega q v \ dA\\
+		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & \int_\Omega \textrm{div} (M) \cdot \phi \ dA - \int_\Omega Q \cdot \phi \ dA
+	\end{eqnarray*}
+	
+	Following from Green's Formulas, similar to section \ref{ssec:3D_Model:VariationalForm}, 
+	\begin{eqnarray*}
+		\int_\Omega \textrm{div}(Q) v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds,\\
+		\int_\Omega \textrm{div}(M) \cdot \phi \ dA & = & - \int_\Omega \textrm{Tr} (M \Phi) \ dA + \int_{\partial\Omega} M n \cdot \phi ds.
+	\end{eqnarray*}
+	$\textrm{Tr} (M \Phi)$ is the trace of the matrix $M \Phi$, $n$ is the normal vector to $\Omega$, and 
+	\begin{eqnarray*}
+		\Phi = 
+		\begin{bmatrix}
+			\partial_1\phi_1 & \partial_2\phi_1\\
+			\partial_1\phi_2 & \partial_2\phi_2
+		\end{bmatrix}.
+	\end{eqnarray*}
+	
+	The variational form can be given as
+	\begin{align}
+		\int_\Omega h \partial_t^2 w v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_\Omega q v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds, \label{P1}\\
+		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & - \int_\Omega \textrm{Tr} (M \Phi) \ dA - \int_\Omega Q \cdot \phi \ dA + \int_{\partial\Omega} M n \cdot \phi ds. \label{P2}
+	\end{align}
+
+	Using the test function space for Problem P-1, the equations \eqref{P1} and \eqref{P2} reduce to
+	\begin{eqnarray}
+		\int_\Omega h \partial_t^2 w v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_\Omega q v \ dA, \label{eq:P_Model:ProblemP1V1}\\
+		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & - b(\phi,v) - \int_\Omega Q \cdot \phi \ dA, \label{eq:P_Model:ProblemP1V2}
+	\end{eqnarray}
+	for all $v \in T_1(\bar{\Omega})$ and $\phi \in T_2(\bar{\Omega})$
+
+	\subsubsection{Bilinear Forms and integral}\label{sssec:P_Model:BilinearForm}
+	Let $u = \langle w, \psi \rangle$ and $\phi = \langle v, \phi \rangle$. Define the bilinear forms
+	\begin{eqnarray*}
+		b(u,\phi) & = & \int_\Omega Q \cdot \nabla v \ dA + \int_{\Omega} \textrm{Tr}(M\Phi) \ dA,
+	\end{eqnarray*}
+	and
+	\begin{eqnarray}
+		c(u,\phi) = \int_\Omega h (\partial_t^2 w) v \ dA + \int_\Omega I (\partial_t^2 \psi) \cdot \phi \ dA \label{eq:2D_Model:Bilinear_c}
+	\end{eqnarray}
+	Also define the integral
+	\begin{eqnarray}
+		(f,g) &=& -\int_{\Omega} f\cdot g \ dA \label{eq:2D_Model:Bilinear_int}
+	\end{eqnarray}
+	
+	
+	\subsubsection{Test Functions for Problem P-1}\label{sssec:P_Model:TestfunctionsP1}
+	Define the following spaces $T_1(\bar{\Omega})$ and $T_2(\bar{\Omega})$ determined by the boundary conditions for $w$ and $\phi$
+	\begin{eqnarray*}
+		T_1(\bar{\Omega}) & = & \left \{v \in C^1(\bar{\Omega})\ | \ v = 0 \textrm{ on } \Sigma_0\right\},\\ 
+		T_2(\bar{\Omega}) & = & \left \{ \phi = \left[ \phi_1 \ \phi_2 \right]^T \ | \ \phi_1, \phi_2 \in C^1(\bar{\Omega}), \ \phi_1 = \phi_2 = 0 \textrm{ on } \Sigma_0 \right\}.
+	\end{eqnarray*}
+	
+	\subsubsection{Problem P-1V}\label{sssec:P_Model:ProblemP1V}
+	Find a function $u = \langle w, \psi \rangle$, such that for all $t>0$, $u \in T_1({\bar{\Omega}}) \times T_2({\bar{\Omega}})$ and the following equations are satisfied
+	\begin{eqnarray}
+		c(u,\phi) &=& -b(u,\phi) + (Q,\phi), \label{eq:P_Model:ProblemP1V1}
+	\end{eqnarray} with $\phi = \langle v, \phi \rangle  \in T_1({\bar{\Omega}}) \times T_2({\bar{\Omega}})$ an arbitrary function.\\
+	
+	
+ Applications are continued in Chapter 5 and 6. In Chapter 5, the finite element analysis is applied to a cantilever plate to solve the eigenvalue problem. In Chapter 6, a cantilever plate in used in the comparison of our linear models.
+\end{document}
+
+	\textcolor{red}{Voel nie die dra iets by nie.}\\
+\textbf{\sout{Remark}} \sout{Using the constitutive equations \eqref{eq:P_Model:CE2D} - \eqref{eq:P_Model:CE4D}, and the definition of the vectors $n$ and $\tau$, the following can be obtained to simplify the boundary conditions:}
+\begin{eqnarray*}
+	Mn\cdot n \neq 0 \  \textrm{ and } Mn\cdot \tau \neq 0 \textrm{ implies } \ \psi_1 = \psi_2 = 0 \\
+	Mn\cdot n = 0 \  \textrm{ and } Mn\cdot \tau \neq 0 \textrm{ implies } \ \psi\cdot\tau = 0\\
+	Mn\cdot n \neq 0 \  \textrm{ and } Mn\cdot \tau = 0 \textrm{ implies } \ \psi \cdot n = 0\\
+	Mn\cdot n = 0 \ \textrm{ and } Mn\cdot \tau = 0 \textrm{ implies } \ \psi_1 \neq 0 \neq \psi_2
+\end{eqnarray*}
+\textcolor{red}{Equations kan ek nie dood trek nie, so ek los die nota hier.}
+%\textbf{Remark:}\\
+%The components of the moment desnity matrix $M$ are forces, and for any vector $v$, $Mv$ is also a vector.
