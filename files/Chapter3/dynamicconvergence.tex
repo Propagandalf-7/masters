@@ -27,7 +27,7 @@ To start, the authors of \cite{BV13} formulate the Galerkin Approximation of Pro
 For any function $w_h$ in $S^h$, $w_h$ can be expressed as a linear combination
 \begin{eqnarray*}
 	w_h = \sum_{j=1}^n w_j \phi_j.
-\end{eqnarray*} Define a vector valued function $\bar{w} = \langle w_1 \ w_2 \ ... \ w_n \rangle$ for each $w_h \in S^h$. Denote the problem of solving the Galerkin Approximation of Problem GVar, by Problem GVar$^h$.
+\end{eqnarray*} Define a vector valued function $\bar{w} = \langle w_1 \ w_2 \ ... \ w_n \rangle$ for each $w_h \in S^h$. The problem of solving the Galerkin Approximation is denoted by Problem GVar$^h$.
 
 \subsubsection*{Problem GVar$^h$}
 Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J)$ such that for each $t\in J$
@@ -56,8 +56,10 @@ In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is the
 	e^h(t) = e_p(t) +e(t) \label{Error}
 \end{eqnarray}
 
-The authors of \cite{BV13} use interpolation theory to determine the error $e_p$. However to obtain an error estimate for $e$ is not trivial. The approach of the authors is to use Finite Element Analysis to obtain an error estimate for $e$.
+The authors of \cite{BV13} use interpolation theory to determine the error $e_p$. However to obtain an error estimate for $e$ is not trivial. The approach of the authors is to use Finite Element Analysis to obtain an error estimate for $e$.\\
 
+
+Now we look at the main results of \cite{BV13}.
 \subsection{Main result}
 
 The following two assumptions are made in \cite{BV13}.
@@ -68,9 +70,11 @@ The following two assumptions are made in \cite{BV13}.
 	\item[] \textbf{B2} - There exists a subspace $H$ of $V$ and a positive integer $\alpha$ such that if $w \in H$, then $$\inf_{v\in S^{h}}||w-v||_V \leq \hat{C} h^\alpha|||w|||_H,$$ where $|||w|||_H$ is a norm or a semi-norm for $H$.
 \end{itemize}
 
-\newtheorem*{DC_Thm5}{Theorem 3}
+To solve the error estimate $e$, the following theorem is proved in \cite{BV13}.
+
+\newtheorem*{DC_Thm5}{Theorem 2}
 \begin{DC_Thm5}
-	Error estimate\\
+	{Main Result}\\
 	If $f\in C^{2}([0,T],X)$, then
 	\begin{eqnarray*}
 		\Vert u_{h}(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & 7T^{2}\tau^{2}\max\Vert u_{h}^{(4)}\Vert_{W}+7T\tau^{2}\max\Vert u_{h}'''\Vert_{W}\\
@@ -78,6 +82,8 @@ The following two assumptions are made in \cite{BV13}.
 	\end{eqnarray*}
 	for each $t\in(0,\ T)$.
 \end{DC_Thm5}
+
+As mentioned before, the authors use Finite Element Analysis to obtain an error estimate for $e$. What follows is a discussion of the approach used in \cite{BV13}.
 
 \subsection{System of ordinary differential equations}
 Consider the standard FEM matrices defined by
@@ -88,33 +94,39 @@ Consider the standard FEM matrices defined by
 	F_{i}(t) & = & b(f(t), \phi_i)_X
 \end{eqnarray*}
 
-Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary differential equations.
+Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary differential equations denoted by Problem ODE.
 \subsubsection*{Problem ODE}
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}^h_0 \textrm{ and }  \bar{u}(1) = \bar{u}^h_1 \label{ODE}
 \end{eqnarray}
-The function $F(t)$ is the interpolation of the function $f(x,t)$ into the discrete space $S^h$. \\
+The function $F$ is the interpolation of the function $f$ into the discrete space $S^h$.\\
 
-The following propositions are given in \cite{BV13}. The proof of Theorem 1 follows from these two propositions.
+The following propositions for Problem ODE are given in \cite{BV13}.
 
 \newtheorem{DC_Prop2}{Proposition}
 \begin{DC_Prop2}
-	Suppose $M, K, C, F,\bar{d}$  and $\bar{v}$ are defined as above. Then, the function $u_{h}$ is a solution of Problem $G^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
+	If $F\in C(J)$, then Problem ODE has a unique solution for each pair of vectors $\bar{d}$ and $\bar{v}.$
 \end{DC_Prop2}
 
-Since the matrix $M$ is invertible, \eqref{ODE} can be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} = M^{-1}F(t)$. Using the theory of linear differential equations, a unique solution for Problem ODE can be found. This proves Proposition 2.
+Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ is a linearly independent basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$. Therefore, the matrix $M$ is invertible. The equation \eqref{ODE} of Problem ODE can be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} = M^{-1}F(t)$. Using the theory of linear differential equations, a unique solution for Problem ODE can be found. This proves Proposition 1.\\
+
+Proposition 2 provides a link between the solution of Problem ODE and the solution of Problem GVar$^h$.
 
 \newtheorem{DC_Prop3}[DC_Prop2]{Proposition}
 \begin{DC_Prop3}
-	If $F\in C(J)$, then Problem ODE has a unique solution for each pair of vectors $\bar{d}$ and $\bar{v}.$
+	Suppose $M, K, C, F,\bar{d}$ and $\bar{v}$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
-The \cite{BV13}, the authors first investigate a semi-discrete Galerkin approximation. In this semi-discrete approximation, $x$ is discretised and $t$ remains continuous. Results for the semi-discrete approximation are required for the results of the fully-discrete approximation.\\
+Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.\\
 
-The results for the semi-discrete problem are necessary, since later in \eqref{error_e} it will be shown that the error $e(t)$ can be split up into a semi-discrete term and a fully-discrete term.
+The error $e(t)$, can now be expressed as
+\begin{eqnarray}
+	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
+\end{eqnarray}
 
-\sout{Before the fully discrete Galerkin Scheme is investigated, a result from \cite{BV13} on semi-discrete error estimates is required.}\\
+In \eqref{error_e}, the authors divide the error $e$ into a semi-discrete term and a fully discrete term. The two terms are investigated separately in \cite{BV13}.
+
 \subsection{Semi-discrete error estimate}
 
 Define the projection $P$ such that for any function $u$, 
