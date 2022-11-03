@@ -118,9 +118,7 @@ Now we look at the main results of \cite{BV13}.
 \end{DC_Thm5}
 
 \subsection{Obtaining the error estimate}
-In this section we will show how the error estimate in Theorem 2 is obtained in \cite{BV13}.\\
-
-The following two assumptions are made in \cite{BV13}.
+In this section we will show how the error estimate in Theorem 2 is obtained in \cite{BV13}.The following two assumptions are made in \cite{BV13}.
 
 \subsubsection*{Assumptions}
 \begin{itemize}
@@ -167,7 +165,8 @@ Using this proposition, the authors of \cite{BV13} derive a generalized error es
 \begin{lem_1}
 	If $u$ is the solution of Problem GVar and $u$ satisfies assumption \textbf{B1}, then
 	\begin{eqnarray}
-		\Vert e(t)\Vert_{W} \leq \sqrt{2} \left( \Vert e(0) \Vert_W + 3T\Vert e'_h(0) \Vert_W + 3 \int_o^T \Vert e'_p(t)\Vert_W + 3K_\alpha T \Vert e_h(0) \Vert_W + 3K_\alpha \int_0^T \Vert e_p(t) \Vert_W \right).
+		\Vert e(t)\Vert_{W} &\leq& \sqrt{2} \biggl( \Vert e(0) \Vert_W + 3T\Vert e'_h(0) \Vert_W + 3 \int_o^T \Vert e'_p(t)\Vert_W\nonumber \\ 
+		&& + 3K_\alpha T \Vert e_h(0) \Vert_W + 3K_\alpha \int_0^T \Vert e_p(t) \Vert_W \biggr). \label{fundamental_estimate}
 	\end{eqnarray}
 \end{lem_1}
 
@@ -177,13 +176,16 @@ In chapter 2, it was explained that the models of this dissertation have weak da
 \begin{col_1}
 	If $u$ is the solution of Problem GVar with $a = 0$ and $u$ satisfies assumption \textbf{B1}, then
 	\begin{eqnarray}
-		\Vert e(t)\Vert_{W} \leq \sqrt{2} \Vert e(0) \Vert_W + 4\sqrt{T}\max_{t \in [0,T]} \Vert e'_p(t) \Vert_W.
+		\Vert e(t)\Vert_{W} \leq \sqrt{2} \Vert e(0) \Vert_W + 2T||e'_h(0)||_W + 4\sqrt{T}\max_{t \in [0,T]} \Vert e'_p(t) \Vert_W.
 	\end{eqnarray}
 \end{col_1}
 
-\subsection{Semi-discrete problem}
-
-
+\subsubsection{Semi-discrete problem}
+The estimate \eqref{fundamental_estimate} in Lemma 1 is equivalent to
+\begin{eqnarray*}
+	\Vert u(t) - u_h(t) \Vert_{W} &\leq& \sqrt{2} \biggl( \Vert u(0) - u_h(0) \Vert_W + 3T\Vert e'_h(0) \Vert_W + 3 \int_o^T \Vert e'_p(t)\Vert_W\nonumber \\ 
+	&& + 3K_\alpha T \Vert e_h(0) \Vert_W + 3K_\alpha \int_0^T \Vert e_p(t) \Vert_W \biggr).
+\end{eqnarray*}
 
 
 Define the projection $P$ such that for any function $u$, 
