@@ -17,7 +17,7 @@ Define a function u with domain $J$, an interval of real numbers. The range of $
 	u(t)(x) = \langle w(x,t), \phi(x,t) \rangle \label{def_of_u}
 \end{eqnarray}
 
-A derivative $u'$ for $u$ may be defined by 
+A derivative $u'$ for $u$ may be defined by
 \begin{eqnarray*}
 	||\left(h^{-1} u(t+h)-u(t)\right)-u'(t)||_X \rightarrow 0.
 \end{eqnarray*} Then $u''$ is defined by $u'' = (u')'$. Sometimes the derivatives are denoted by $\dot{u}$ and $\ddot{u}$.\\
@@ -25,13 +25,13 @@ A derivative $u'$ for $u$ may be defined by
 Using the bilinear forms, $b$ and $c$ from Section 1.4, Problem T-2V can be rewritten in the following form
 \begin{eqnarray}
 	c(\ddot{u}(t),v) + b(u(t),v) & = & (Q(t),v) \label{eq:existence:PreWV}
-\end{eqnarray} for each $v \in T[0,1]$.\\ 
+\end{eqnarray} for each $v \in T[0,1]$.\\
 
 To apply the theory from \cite{VV02}, complete function spaces are required. It is known that $L^2(0,1)$ is a complete function space and hence $X$ is complete.\\
 
- The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\\
- 
-  The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$. The product space {$V(0,1)\times V(0,1)$} is denoted by $V$ and is complete. $V$ is called the energy space.\\
+The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\\
+
+The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$. The product space {$V(0,1)\times V(0,1)$} is denoted by $V$ and is complete. It is called the energy space.\\
 
 Using these complete product spaces and \eqref{eq:existence:PreWV}, the weak variational problem for the cantilever Timoshenko beam is defined as Problem T-2W.
 
@@ -40,9 +40,9 @@ Find a function $u$ such that $\forall \ t \in J$, $u(t) \in V$, $\ddot{u}(t) \i
 \begin{eqnarray*}
 	c(\ddot{u}(t),v) + b(u(t),v) & = & (Q(t),v)
 \end{eqnarray*}
-for all $v\in V$.\\
+for all $v\in V$. The initial conditions $u(0) = u_0$ and $\dot{u}(0)=u_1$ must be specified.\\
 
- The space X with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.\\
+The space X with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.\\
 
 In the next section, the theory of the article \cite{VV02} is presented. In Section 2.3 the theory is applied to Problem T-2W.
 
@@ -61,7 +61,7 @@ Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace o
 
 The following notation is important for the theory that follows.\\
 
-Let $J$ be a interval of real numbers containing zero. It can have one of the following forms $[0,\ T)$, $[0,\ \infty)$ or an arbitrary open interval. For any function $u$ on the interval $J$ and range in a Hilbert space Z, derivatives can be defined. A derivative $u'$ for $u$ may be defined by 
+Let $J$ be a interval of real numbers containing zero. It can have one of the following forms $[0,\ T)$, $[0,\ \infty)$ or an arbitrary open interval. For any function $u$ on the interval $J$ and range in a Hilbert space Z, derivatives can be defined. A derivative $u'$ for $u$ may be defined by
 \begin{eqnarray*}
 	||(h^{-1} u(t+h)-u(t))-u'(t)||_Z \rightarrow 0.
 \end{eqnarray*} Then $u''$ is defined by $u'' = (u')'$.\\
@@ -70,9 +70,9 @@ Let $J$ be a interval of real numbers containing zero. It can have one of the fo
 \textbf{Notation}
 \begin{itemize}
 	\item[] $u\in C(J,Z)$ if $u$ is continuous on $J$ with respect to the norm of $Z$;
-	
+
 	\item[] $u'(t)\in Z$ if $u$ is differentiable with respect to the norm of $Z$;
-	
+
 	\item[] $u\in C^{k}(J,Z)$ if $u^{(k)}\in C(J,Z)$ .
 \end{itemize}
 
@@ -84,7 +84,7 @@ Let $a$, $b$ and $c$ be bilinear forms where $a$ and $b$ are defined on $V$ and 
 
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-	Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
 \begin{eqnarray}
 	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
 \end{eqnarray}
@@ -96,11 +96,11 @@ This general variational form is applicable in all the models in this dissertati
 The following assumptions are made in \cite{VV02} for the existence results.
 \begin{itemize}
 	\item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
-	
+
 	\item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$ and $c(\cdot,\ \cdot) =(\cdot,\ \cdot)_{W}$.
-	
+
 	\item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$ and $b(\cdot,\ \cdot) =(\cdot,\ \cdot)_{V}$.
-	
+
 	\item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
 \end{itemize}
 
@@ -111,13 +111,13 @@ In general, the bilinear form $a$ in \textbf{A4} is defined on $V$. However it i
 \end{eqnarray} This is called \textbf{weak damping}. Note that \eqref{weak_damping} is trivially satisfied if $a = 0$.
 
 
- 
+
 \subsection{Main results for existence and uniqueness}\label{ssec:existence:MainResultsExistence}
 To start, the main results of \cite{VV02} are presented. There are three existence theorems but Theorem 2 is important for this dissertation.
 
 \newtheorem{Thmx}{Theorem}
 \begin{Thmx}[{Main Result}]
-	Suppose assumptions \textbf{A1}-\textbf{A4} hold. If, for $u_0 \in V$ and $u_1 \in V$, there exists some $y \in W$ such that 
+	Suppose assumptions \textbf{A1}-\textbf{A4} hold. If, for $u_0 \in V$ and $u_1 \in V$, there exists some $y \in W$ such that
 	\begin{eqnarray}
 		b(u_0,v) + a(u_1,v) = c(y,v) \ \ \ \ \textrm{ for all } \ v \in V, \label{bilinear_equation}
 	\end{eqnarray}
@@ -127,12 +127,12 @@ To start, the main results of \cite{VV02} are presented. There are three existen
 This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.\\
 
 
- In \cite{VV02} the authors consider a special case of weak damping. Define a space $E_b \subset V$ where \[ E_b = \left\{x \in V \ | \ \textrm{there exists a } y \in W \textrm{ such that } c(y,v) = b(x,v) \textrm{ for all } v \in V\right\}.\] It is proved in \cite{VV02}  that $D(A) = E_b \times V$. Consequently if $u_1 \in V$ and $u_0 \in E_b$ the pair $u_0$, $u_1$ is admissible.
+In \cite{VV02} the authors consider a special case of weak damping. Define a space $E_b \subset V$ where \[ E_b = \left\{x \in V \ | \ \textrm{there exists a } y \in W \textrm{ such that } c(y,v) = b(x,v) \textrm{ for all } v \in V\right\}.\] It is proved in \cite{VV02}  that $D(A) = E_b \times V$. Consequently if $u_1 \in V$ and $u_0 \in E_b$ the pair $u_0$, $u_1$ is admissible.
 
 
 \newtheorem{Thm2n}[Thmx]{Theorem}
 \begin{Thm2n}[Weak Damping]
-	If $a$ is bounded with respect to the norm in $W$, then there exists a unique solution $u\in C^1(J,V)\cap C^2(J,W)$ for Problem GVar for each $u_0 \in E_b$. each $u_1 \in V$ and each $f\in C^1(J,X)$. 
+	If $a$ is bounded with respect to the norm in $W$, then there exists a unique solution $u\in C^1(J,V)\cap C^2(J,W)$ for Problem GVar for each $u_0 \in E_b$. each $u_1 \in V$ and each $f\in C^1(J,X)$.
 \end{Thm2n}
 
 \textbf{Remark} In general, the bilinear form $a$ is non-negative. However it is possible for $a$ to be positive definite on the space $V$ with respect to the norm $||\cdot||_V$, i.e. there exists a $c_a > 0$ so that
@@ -157,7 +157,7 @@ This variational form is rewritten as a first order system of differential equat
 	(x,y)_H := b(x_1,y_1) + c(x_1,y_1) \ \textrm{for all} \ x,y \in H.
 \end{eqnarray*}
 
-Then the authors define an operator $\Lambda$ as a mapping on $H$ by $\Lambda y = -x$ when $-x_2 = y_1$ and $x_1 \in V$ such that 
+Then the authors define an operator $\Lambda$ as a mapping on $H$ by $\Lambda y = -x$ when $-x_2 = y_1$ and $x_1 \in V$ such that
 \begin{eqnarray}
 	b(x_1,v) + a(x_2,v) = c(y_2,v) \ \textrm{ for each } \ v \in V. \label{author_mapping}
 \end{eqnarray}
@@ -165,7 +165,7 @@ The operator $A$ is defined in \cite{VV02} as $A = \Lambda^{-1}$ with $D(A) = \m
 
 From a result in \cite{VV02}, $x \in D(A)$ if and only if $x_1 \in V$, $x_2 \in V$ and there exists a $z \in W$ such that $b(x_1,v) + a(x_2,v) = c(z,v)$ for all $v \in V$. Furthermore $y = Ax$ if $y_1 = -x_2$ and \[b(x_1,v) + a(x_2,v) = c(y_2,v)\  \textrm{ for all } v \in V.\]
 
- This operator is used to rewrite the equation \eqref{eq:existence:ProblemGVar} of Problem GVar as a first order differential equation in the form
+This operator is used to rewrite the equation \eqref{eq:existence:ProblemGVar} of Problem GVar as a first order differential equation in the form
 \begin{eqnarray}
 	x' & = & Ax + f. \label{Cauchy}
 \end{eqnarray}
@@ -180,7 +180,7 @@ Given a function $F:J\rightarrow H$, find a function $U\in C(J,\ H)$ such that f
 	U(0) & = & U_0.
 \end{eqnarray*}
 
- To link Problem IVP and Problem GVar, consider the following lemma from \cite{VV02}. 
+To link Problem IVP and Problem GVar, consider the following lemma from \cite{VV02}.
 
 \newtheorem*{Prop}{Lemma 1}
 \begin{Prop}
@@ -193,18 +193,11 @@ Given a function $F:J\rightarrow H$, find a function $U\in C(J,\ H)$ such that f
 
 Semi-group theory is used in \cite{VV02} to investigate the solvability of Problem IVP and obtain a solution for Problem IVP. It is also important to mention that in \cite{VV02}, the authors provide the necessary result that shows the function $F$ is uniquely defined by $f$.\\
 
-As mentioned before, if $a = 0$ then the inequalities in \eqref{weak_damping} hold trivially. However, the operator A is defined by the operator $\Lambda$ and in the definition of $\Lambda$, the form $a$ is used (see \eqref{author_mapping}).\\
+As mentioned before, if $a = 0$ then the inequality in \eqref{weak_damping} hold trivially. However, the operator A is defined by the operator $\Lambda$ and in the definition of $\Lambda$, the form $a$ is used (see \eqref{author_mapping}). It is proved in \cite{VV02} that equation \eqref{author_mapping} is uniquely solvable and hence $\Lambda$ is well defined. The proof remains unchanged as presented for $a$ identically zero.\\
 
-\vspace{10mm}
- derivation of this linear operator remains unchanged as presented in \cite{VV02} for $a$ identically zero.\\
- \vspace{10mm}
- 
-  To apply Theorem 2, the admissible initial conditions are $u_0 \in E_b$ and $u_1 \in V$. As mentioned $\langle u_0, u_1 \rangle \in D(A)$. From semigroup theory, it follows that $u(t) \in D(A)$ for each $t$. Therefore $u(t) \in E_b$ and $u'(t) \in V$ for each $t$.\\
+To apply Theorem 2, the admissible initial conditions are $u_0 \in E_b$ and $u_1 \in V$. As mentioned above, this implies $\langle u_0, u_1 \rangle \in D(A)$. From semigroup theory, it follows that $U(t) \in D(A)$ for each $t$. Therefore $u(t) \in E_b$ and $u'(t) \in V$ for each $t$.\\
 
-
-\textcolor{red}{Volgende Rondte}\\
- Using the assumptions \textbf{A1}-\textbf{A4}, they prove that this linear operator $A$ is an infinitesimal generator of a $C_0$-semigroup of contractions and the domain of $A$ is dense in $H$.
-
+Using the assumptions \textbf{A1}-\textbf{A4}, it is proved in \cite{VV02} that the linear operator $A$ is an infinitesimal generator of a $C_0$-semigroup of contractions and the domain of $A$ is dense in $H$ (see Section \ref{sec:existence:ModalAnalysis}).
 
 \section{Application: Timoshenko beam model}\label{sec:existence:Application}
 In this section the theory of \cite{VV02} (presented in Section \ref{sec:existence:ExistenceAndUniqueness}) is applied to Problem T-2W. This is an continuation of the example from section \ref{sec:existence}.\\
@@ -216,33 +209,27 @@ Recall the spaces defined in Section \ref{sec:existence}:
 	\item[] $V  = V(0,1)\times V(0,1)$ with inner product $b$ and induced norm $||\cdot||_V$.
 \end{itemize}
 
-\textcolor{red}{ALLES NOG NIE BEWYS NIE - moet nog doen}
+To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A4} and the initial values must be admissible. We must show that the assumptions are satisfied.\\
 
- To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A4} and the initial values must be admissible. 
+To prove \textbf{Assumption A1}, observe that $W$ is dense in $X$. (The set $W = X$).\\
 
-\subsubsection{Assumption A1}\label{sssec:existence:AssumptionA1}
-It is clear that $W$ is dense in $X$. (The set $W = X$).\\
+Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\\
 
-Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$.\\
-
-So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.
-
-\subsubsection{Assumption A2}\label{sssec:existence:AssumptionA2}
-	From the definition of the bilinear form $c$, 
+Consider \textbf{Assumption A2}. From the definition of the bilinear form $c$,
 \begin{eqnarray*}
 	c(f,f) & = & \int_0^1  (f_1)^2 + \frac{1}{\alpha}\int_0^1  (f_2)^2 = ||f_1||^2 + \frac{1}{\alpha}||f_2||^2.\\
 \end{eqnarray*}
-From this, the following inequalities can be obtained: 
+From this, the following inequalities can be obtained:
 \begin{eqnarray*}
 	\min\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2 \leq	c(f,f)	\leq \max\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2.\\
 \end{eqnarray*}
 
 Since $c$ is a bilinear form and by the inequality above, $c$ is a inner-product for $W$. The norm of $W$ can be defined as $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$. Let $C_1 = \min\left\{1, \frac{1}{\alpha}\right\}$ and $C_2 = \max\left\{1, \frac{1}{\alpha}\right\}$. Then
 \begin{eqnarray}
-C_1||x||_X \leq ||x||_W \leq C_2||x||_X \label{C}
+	C_1||x||_X \leq ||x||_W \leq C_2||x||_X \label{C}
 \end{eqnarray} for all $x \in X$.\\
 
- To prove \textbf{Assumption A3}, some preparation is required. Consider the following proposition for a Poincar\'e-Type inequality for the one-dimensional case.
+To prove \textbf{Assumption A3}, some preparation is required. Consider the following proposition for a Poincar\'e-Type inequality for the one-dimensional case.
 \newtheorem*{Poincare}{Proposition 1}
 \begin{Poincare}
 	Suppose that $f \in C^1[a,b]$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$
@@ -252,53 +239,59 @@ C_1||x||_X \leq ||x||_W \leq C_2||x||_X \label{C}
 	\begin{eqnarray*}
 		|f(x)| = \left|\int_0^x f'(s) \ ds\right| \leq \int_0^x |f'(s)| \ ds.
 	\end{eqnarray*}
-	Since $x$ is arbitrary, 
-		\begin{eqnarray*}
-		||f||_{\sup} \leq \int_0^1 |f'(s)| ds. 
+	Since $x$ is arbitrary,
+	\begin{eqnarray*}
+		||f||_{\sup} \leq \int_0^1 |f'(s)| ds.
 	\end{eqnarray*}
-Also for $f,g \in C^1(0,1)$,
+	Also for $f,g \in C^1(0,1)$,
 	\begin{eqnarray}
-	\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
+		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
 	\end{eqnarray}
 	Choose $g = 1$ then since $||f|| \leq ||f||_{\sup} \sqrt{b-a}$, the result follows.
 \end{proof}
 
 \newtheorem*{Poincare_2}{Corollary}
 \begin{Poincare_2}
-	Suppose that $f \in H^1(a,b)$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$
+	Suppose that $f \in H^1(a,b)$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$.
 \end{Poincare_2}
+\begin{proof}
+a
+\end{proof}
 
-To show that assumption \textbf{A3} holds, it is required to show that there exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.\\
 
-Let $f \in V$, then $f_1(0) = f_2(0) = 0$.
-\begin{eqnarray}
-	b(f,f) & = &   \int_0^1 (f_1'-f_2)^2 + \frac{1}{\beta}\int_0^1  (f_2')^2 \nonumber\\
-	& = & ||f_1' - f_2||^2 + \frac{1}{\beta}||f_2'||^2 \nonumber\\
-	& \geq & \min\left\{1 ,\ \frac{1}{\beta} \right\} \left( ||f_1' - f_2||^2 + ||f_2'||^2\right) \label{b}
-\end{eqnarray}
+There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+\begin{proof}
+	Let $f \in V$, then $f_1(0) = f_2(0) = 0$. Using the Corollary, and from the definition of the norm $||\cdot||_X$, the following inequality for the norm $||\cdot||_X$ can be obtained.
+	\begin{eqnarray*}
+		||f||_X^2 & \leq & ||f_1'||^2 + ||f_2'||^2 \\
+		& = & ||f_1'||^2 -||f_2||^2 + ||f_2'||^2 +||f_2||^2\\
+		& \leq & 2||f_1'-f_2||^2 + 2||f_2'||^2.
+	\end{eqnarray*}
 
- Using the Corollary, and from the definition of the norm $||\cdot||_X$, the following Poincar\'e-Type inequality for the norm $||\cdot||_X$ can be obtained.
-\begin{eqnarray*}
-	||f||_X^2 & \leq & ||f_1'||^2 + ||f_2'||^2 \\
-	& = & ||f_1'||^2 -||f_2||^2 + ||f_2'||^2 +||f_2||^2\\
-	& \leq & 2||f_1'-f_2||^2 + 2||f_2'||^2.
-\end{eqnarray*} \sout{by Proposition 2 and the reverse triangle inequality.}\\
+	It follow from the inequality \eqref{C} that
+	\begin{eqnarray}
+		\Vert f \Vert_{W}^2 \leq 2C_2||f_1'-f_2||^2 + 2C_2||f_2'||^2. \label{f}
+	\end{eqnarray}
 
-Using \eqref{b} and the inequality above, it follows that
-\begin{eqnarray}		
-	b(f,f)	& \geq & \frac{1}{2}\min\left \{1, \frac{1}{\beta}\right \} ||f||_{X}^2. \label{b2}
-\end{eqnarray} for all $f \in V$.\\
+	\begin{eqnarray}
+		b(f,f) & = &   \int_0^1 (f_1'-f_2)^2 + \frac{1}{\beta}\int_0^1  (f_2')^2 \nonumber\\
+		& = & ||f_1' - f_2||^2 + \frac{1}{\beta}||f_2'||^2 \nonumber\\
+		& \geq & \min\left\{1 ,\ \frac{1}{\beta} \right\} \left( ||f_1' - f_2||^2 + ||f_2'||^2\right) \label{b}
+	\end{eqnarray}
 
-Since $b$ is the bilinear form for $V$ and $W = X$, \eqref{b2} is equivalent to \[||v||^2_V \geq C^{\frac{1}{2}}_V ||v||^2_W\] for all $v \in V$ with $\displaystyle C^{\frac{1}{2}}_V = \frac{1}{2}\min\left \{1, \frac{1}{\beta}\right \} > 0$. It follows that $\displaystyle||v||_W \leq C_V||v||_V$ for all $v \in V$.\\ 
+	Now combine the inequalities \eqref{f} and \eqref{b},
+	\begin{eqnarray*}
+		||f||_W^2 \leq Kb(f,f)
+	\end{eqnarray*} for all $f \in V$.
+\end{proof}
 
-\sout{Since $b$ is a bilinear form and from the inequality above, $b$ is a inner-product for $V$. Using the inequality \eqref{C} results in $||v||^2_V \geq  C_3 ||w||_{W}^2$ for all $v \in V$, $w \in W$. With $C_3 =\frac{1}{2}\min\left \{1, \frac{1}{\beta}\right \} > 0$. The result follows by taking the square on both sides of the inequality.}\\
 
-Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear form $a$ is identically zero. As mentioned before... \textcolor{red}{As mentioned before, if $a = 0$, the weak damping as well as assumption \textbf{A4} is satisfied.}\\
+Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear form $a$ is identically zero. As mentioned before, if $a = 0$, the weak damping as well as assumption \textbf{A4} is satisfied. Also, as explained in Section \ref{sec:existence:ExistenceAndUniqueness} the constuction of the operator $A$ is not affected.\\
 
 
 \section{Modal analysis}\label{sec:existence:ModalAnalysis}
 \subsection{Timoshenko beam}
-In this dissertation, the eigenvalues and eigenvectors of the models presented are required. To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1.\\
+ To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1. \textcolor{red}{******* WHY NOT T-2???}\\
 
 Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}).
 \begin{eqnarray*}
@@ -314,7 +307,7 @@ The boundary conditions of the moments can be written in terms of $\phi$ using t
 \begin{eqnarray*}
 	\partial_{x}\phi(0,t) = 0, & & \partial_{x}\phi(1,t) = 0. \label{MA_4}
 \end{eqnarray*}
-Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ with $\phi(x,t) = T(t)\tilde{\phi}(x)$. Simple substitution confirms that this trial solution satisfies the partial differential equations and the boundary conditions for Problem T-1.\\
+Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ with $\phi(x,t) = T(t)\tilde{\phi}(x)$. \\
 
 The method of separation of variables leads to an eigenvalue problem. For the pinned-pinned beam, this eigenvalue problem is referred to as Problem T-1E.
 \subsubsection*{Problem T-1E}\label{sssec:1D_Model:Problem:T1E}
@@ -326,6 +319,19 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 
 The solution to Problem T-1E is a pair of functions $\langle \tilde{w} \ \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$.\\
 
+Suppose the function $T$ satisfies the following differential equation
+\begin{eqnarray}
+	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
+\end{eqnarray} with $\lambda$ an eigenvalue.\\
+
+Simple substitution confirms that the trial solution satisfies the partial differential equations and the boundary conditions for Problem T-1.\\
+
+Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
+\begin{eqnarray}
+	T_n(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
+\end{eqnarray}
+(with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.\\
+
 The eigenvalues for the pinned-pinned beam model is the first example in [VV06]. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In [VV06] the authors proved the following theorem.
 
 \newtheorem{ThmVV06}{Theorem}
@@ -333,10 +339,7 @@ The eigenvalues for the pinned-pinned beam model is the first example in [VV06].
 	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
 \end{ThmVV06}
 
-Suppose the function $T$ satisfies the following differential equation
-\begin{eqnarray}
-	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
-\end{eqnarray} with $\lambda$ an eigenvalue.\\
+
 
 The variational eigenvalue problem for Problem T-1E can be obtained using similar steps to how Problem T-1V is obtained. This variational eigenvalue problem is referred to as Problem T-1EV
 
@@ -347,19 +350,6 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 	\int_0^1 \lambda \tilde{\phi} \psi &=& -\int_0^1\alpha \tilde{w}' \psi + \int_0^1\alpha \tilde{\phi} \psi - \int_0^1\frac{1}{\gamma}\tilde{\phi}' \psi'.
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.\\
 
-\textcolor{red}{Res moet dalk out of skuif.*******************************}\\
-It is now possible to test the trial solutions $w(x,t) = T(t)\tilde{w}(x)$ and $\phi(x,t) = T(t)\tilde{\phi}(x)$. Consider the right hand side of the variational form of Problem T-1V with $Q=0$. Then substituting the pair of trial solutions:
-\begin{eqnarray*}
-	-\int_{0}^{1}\partial_x w v'  + \int_{0}^{1} \phi v' &=& -T\int_{0}^{1} \tilde{w}' v'  + T\int_{0}^{1} \tilde{\phi} v',\\
-	- \int_{0}^{1} \alpha \partial_x w \psi + \int_{0}^{1} \alpha \phi \psi - \frac{1}{\gamma} \int_{0}^{1}\partial_x \phi \psi' &=& - T\int_{0}^{1} \alpha \tilde{w}' \psi + T\int_{0}^{1} \alpha \tilde{\phi} \psi - \frac{1}{\gamma} T\int_{0}^{1} \tilde{\phi}' \psi'.
-\end{eqnarray*}
-Similarly for the left hand side and using \eqref{eq:1D_Model:ModalAnalysisT}:
-\begin{eqnarray*}
-	\int_{0}^{1} \partial_{t}^{2} w v &= \int_0^1 \ddot{T} \tilde{w} v &= T\int_0^1 \lambda \tilde{w} v,\\
-	\int_{0}^{1} \partial_{t}^{2} \phi \psi &= \int_0^1 \ddot{T} \tilde{\phi} \psi &= T \int_0^1 \lambda \tilde{\phi} \psi.
-\end{eqnarray*}
-
-This shows that the pair of trial solutions $\langle {w} \ {\phi} \rangle$ are solutions of the variational problem Problem T-1V with $\langle \tilde{w} \ \tilde{\phi} \rangle$ the eigenvalues with corresponding eigenvalue $\lambda$ from the variational eigenvalue problem Problem T-1EV. This was accomplished without using the method of separation of variables and thus avoiding any contention on division by zero.\\
 
 It is well known that the eigenvalue problem like Problem T-1EV has infinitely many solutions $\langle \tilde{w}_n \ \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For Problem T-1 (Problem T-2 and Problem T-4 also), $\lambda_n > 0$ for all $n > 0$. A convenient reference is [VV06].\\
 
@@ -376,7 +366,7 @@ As a consequence, the system of partial differential equations of Problem T-1 ha
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).,
 \end{eqnarray*} satisfying the boundary conditions. These solutions are referred to as the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.\\
 
-The formal series solution for Problem T-1 is 
+The formal series solution for Problem T-1 is
 \begin{eqnarray*}
 	\langle u \ \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x) \ \psi_n(x)\rangle.
 \end{eqnarray*}
@@ -385,16 +375,11 @@ The article [VV06] provides a rigorous method to solving the eigenvalue problem 
 
 \subsection{General vibration problem}
 
-	\textbf{********* MOET [CVV18] in bronnelys sit}\\
+\textbf{********* MOET [CVV18] in bronnelys sit}\\
 
-Consider Problem XX in Section 2.2 \textbf{*** Sy reference is \eqref{GV_PB1}}\\
+Consider Problem GVar in Section 2.2.\\
 
-Given $g \in C((a,b);W)$, find $u$ such that for each $t > 0$, $u(t) \in V$, $u \in C^2((a,b);W)$ and
-\begin{eqnarray*}
-	c(u''(t),v) + b(u(t),v) = c(g(t),v).
-\end{eqnarray*}
-
-Now suppose there exists $\lambda$ and $x \in V$, $x \neq 0$ such that
+Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
 \begin{eqnarray*}
 	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
 \end{eqnarray*}
@@ -405,7 +390,7 @@ Then, $u(t) = T(t)x$ is a solution of the homogeneous problem
 \end{eqnarray*}
 if and only if
 \begin{eqnarray}
-T''  + \lambda T = 0.
+	T''  + \lambda T = 0.
 \end{eqnarray}
 
 General solution $T(t) = c_1 \sin(\omega t) + c_2 \cos(\omega t)$ with $\omega = \sqrt{\lambda}$.\\
@@ -434,16 +419,16 @@ Using these complete product spaces, \eqref{def_of_u} and the variational form \
 	\begin{eqnarray}
 		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
 	\end{eqnarray}
-	
+
 	Suppose that $x^*$ is the zero of $u$ on the interval $[a,b]$. Then since $u \in C^1[0,1]$, by the Fundamental Theorem of Calculus
 	\begin{eqnarray*}
 		u(x) = \int_{x^*}^x u' \ \ \ \ \textrm{or} \ \ \ \ \ u(x) = -\int^{x^*}_x u'
 	\end{eqnarray*}
-	
+
 	So by \eqref{CSI} with $g = 1$, it follows that $|u(x)| \leq ||u'||\sqrt{b-a}$. So it is clear that $||u'||\sqrt{b-a}$ is an upper bound for $|u|$, hence
 	\begin{eqnarray}
 		||u||_{\sup} \leq ||u'||\sqrt{b-a} \label{sup}
 	\end{eqnarray}
-	
+
 	It is easy to show that $||u|| \leq \sqrt{b-a} ||u||_{\sup}$. It then follows from \eqref{sup} that $||u|| \leq (b-a) ||u'||$.
 \end{proof}
