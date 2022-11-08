@@ -1,13 +1,13 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-In this chapter, the Finite Element Method (FEM) is applied to the two- and three-dimensional cantilever beams as well as a Reissner-Mindlin cantilever plate. The aim of this chapter is to obtain a numerical formula to calculate the eigenvalues and eigenvectors for these models. This chapter serves as preparation for Chapter 6.\\
+In this chapter, the Finite Element Method (FEM) is applied to the two- and three-dimensional cantilever beams as well as a Reissner-Mindlin cantilever plate. The aim of this chapter is to obtain a numerical formula to calculate the eigenvalues and eigenvectors for these models. This chapter is preparation for Chapter 6.\\
 
 The outline of the chapter is as follows.
 \begin{itemize}
-	\item[] Section \ref{sec:FEM:2D} is the FEM for a two-dimensional cantilever body.
-	\item[] Section \ref{sec:FEM:3D} is the FEM for a three-dimensional cantilever body. 
-	\item[] Section \ref{sec:FEM:Plate} is the FEM for A Reissner-Mindlin cantilever plate model. 
+	\item[] Section \ref{sec:FEM:2D} FEM for a two-dimensional cantilever body.
+	\item[] Section \ref{sec:FEM:3D} FEM for a three-dimensional cantilever body. 
+	\item[] Section \ref{sec:FEM:Plate} FEM for A Reissner-Mindlin cantilever plate model. 
 \end{itemize}
 
 \section{Two-dimensional cantilever body} \label{sec:FEM:2D}
@@ -33,7 +33,7 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 \end{minipage}
 
 \subsubsection{Cantilever elastic body}
-Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries This is referred to as Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
+Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries This is Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
 \FloatBarrier
 \begin{figure}[h!]
 	\centering
@@ -86,7 +86,8 @@ Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0
 \end{figure} 
 \FloatBarrier
 
-In section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is defined by Problem 2D-1V. For convenience, the relevant results from section \ref{ssec:2D_Model:VariationalForm} are repeated.
+In section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is defined by Problem 2D-1V. For convenience, some results from section \ref{ssec:2D_Model:VariationalForm} are repeated here.
+
 \subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1VChp5}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
@@ -122,8 +123,6 @@ Using the definition of the reference configuration, the constitutive equations 
 	& + & \frac{1}{2\gamma(1+\nu)}\int_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
 \end{align}
 
-This form of the bilinear form $b$ is more useful than the general form in \eqref{eq:2D_Model:BilinearChp5} to apply the Finite Element Method.
-
 \subsection{Weak variational form}
 Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
 
@@ -144,12 +143,12 @@ The functions in this set that satisfies the conditions of the test function spa
 
 Define the space
 \begin{eqnarray*}
-S^h & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k \right\} \right)
+S^h & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k \right\} \right).
 \end{eqnarray*}
 
 For each function $u^h \in S^h$, $u^h$ can be expressed as
 \begin{eqnarray*}
-	u^h = \sum_{i = 1}^{k} u_i(t) \delta_{i}(x)
+	u^h = \sum_{i = 1}^{k} u_i(t) \delta_{i}(x).
 \end{eqnarray*}
 
 Problem 2D-1V can now be rewritten into a Galerkin Approximation, denoted by Problem 2D-1G.
@@ -157,12 +156,12 @@ Problem 2D-1V can now be rewritten into a Galerkin Approximation, denoted by Pro
 \subsubsection{Problem 2D-1G}
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
-	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
+	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I, \phi_i)
 \end{eqnarray*} for $i = 1,2,...,k$.\\
 
 \textbf{Remarks:}
 \begin{itemize}
-	\item[] $Q^I$ is scalar vector that is the result of interpolating the function $Q$ over the rectangular grid. i.e. $Q^I_{i,j} = Q(x_i,x_j)$ for $i = 1,2,...,n_1$ and $j = 1,2,...,n_2$.
+	\item[] $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j} = Q(x_i,x_j)$ for $i = 1,2,...,n_1$ and $j = 1,2,...,n_2$.
 \end{itemize}
 
 \subsection{System of differential equations}\label{ssec:2DFEM:DE}
