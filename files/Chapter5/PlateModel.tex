@@ -4,11 +4,11 @@
 Consider a rectangular cantilever Reissner-Mindlin plate.
 
 \subsubsection{Reference configuration for a rectangular plate}
-Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate, 
+Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in R_2 \ | \ 0 \leq x_1 \leq 1, \ 0 \leq x_2 \leq b \right \}.
-\end{eqnarray*} 
-Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omega$ can be divided into four distinct lines.\\
+\end{eqnarray*}
+Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omega$ can be divided into four distinct lines.
 
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
@@ -23,9 +23,7 @@ Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omeg
 	\end{eqnarray*}
 \end{minipage}\\
 
-\textcolor{red}{*****************************}\\
-Since the plate is a rectangular shape in $R^2$, one would easily try to use the reference configuration as the two-dimensional elastic body in section 5.2. However for the plate model, the space $R^2$ can be considered perpendicular to the space for the two-dimensional elastic body in section 5.2.\\
-\textcolor{red}{*****************************}
+\textbf{Remark} The mathematical definition of $R_2$ is the same as the two-dimensional beam. Practically, it is not the same. The plate model is a horisontal two-dimensional plane, and the two-dimensional beam is a vertical two-dimensional plane.
 
 \subsubsection{Cantilever plate model}
 Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$. The plate is free hanging on the remaining edges and there is not external force acting on the plate. The plate is be modelled using the Reissner-Mindlin plate theory that is presented in section \ref{ssec:P_Model:ModelProblems} as Problem P-1.\\
@@ -33,14 +31,14 @@ Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$
 \begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
-		
+
 		\draw[line width = 0.3mm] (-0.8,-0.1) -- (6.2,-0.1);
 		\draw[line width = 0.3mm] (0.8,0.7) -- (7.8,0.7);
 		\draw[line width = 0.3mm] (-0.8,-0.1) -- (0.8,0.7);
 		\draw[line width = 0.3mm] (6.2,-0.1) -- (7.8,0.7);
-		
-		
-		
+
+
+
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+4});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3.5});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3});
@@ -48,10 +46,10 @@ Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1.5});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1});
-		
+
 		\draw[scale=0.5, domain=-3:-1.5, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+0.5});
 		\draw[scale=0.5, domain=2:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+0.5});
-		
+
 		\draw[scale=0.5, domain=-3:-0.5, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x});
 		\draw[scale=0.5, domain=-3:0.5, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-0.5});
 		\draw[scale=0.5, domain=-3:1.5, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-1});
@@ -61,30 +59,37 @@ Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3.5});
 		\draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-4});
-		
-		
+
 		\node at (7.2,0.1) {$b$};
-		\node at (3.2,-0.27) {$\ell = 1$};
-		
+		\draw[-stealth] (7.25,0.2) -- (8.1,0.7);
+		\draw (8,0.7) -- (8.2,0.7);
+		\draw[-stealth] (7,0.05) -- (6.7,-0.15);
+		\draw (6.6,-0.15) -- (6.8,-0.15);
+
+		\node at (3.2,-0.3) {$1$};
+		\draw[stealth-] (-0.8,-0.3) -- (3,-0.3);
+		\draw[stealth-] (6.2,-0.3) -- (3.3,-0.3);
+		\draw (6.2,-0.2) -- (6.2,-0.4);
+
 		%\node at (6.5,0.3) {$\Sigma_1$};
 		%\node at (0.51,0.3) {$\Sigma_0$};
 		%\node at (3.2,0.05) {$\Gamma_0$};
 		%\node at (3.6,0.5) {$\Gamma_1$};
 		%\node at (-0.7,-0.3) {$(0,0)$};
-		
+
 		\draw[line width = 0.1mm,->] (9,1) -- (10,1.6);
 		\draw[line width = 0.1mm,->] (9,1) -- (10.3,1);
 		\node at (9.2,1.4) {$e_2$};
 		\node at (9.6,0.8) {$e_1$};
-		
-		
+
+
 		\draw[line width = 0.2mm] (0.8,0.7) -- (7.8,0.7);
 		\draw[line width = 0.2mm] (-0.8,-0.1) -- (0.8,0.7);
 		\draw[line width = 0.2mm] (6.2,-0.1) -- (7.8,0.7);
-		
+
 	\end{tikzpicture}
 	\caption{Two-dimensional Cantilever Plate}
-\end{figure} 
+\end{figure}
 \FloatBarrier
 
 In section \ref{ssec:P_Model:ModelProblems} the variational problem for the cantilever Reissner-Mindlin plate is defined by Problem P-1V. For convenience, the relevant results from section \ref{ssec:P_Model:ModelProblems} are repeated.
@@ -97,7 +102,7 @@ Find a function $u = \langle w, \psi \rangle$, such that for all $t>0$, $u \in T
 
 With the test function spaces
 \begin{eqnarray*}
-	T_1(\bar{\Omega}) & = & \left \{v \in C^1(\bar{\Omega})\ | \ v = 0 \textrm{ on } \Sigma_0\right\},\\ 
+	T_1(\bar{\Omega}) & = & \left \{v \in C^1(\bar{\Omega})\ | \ v = 0 \textrm{ on } \Sigma_0\right\},\\
 	T_2(\bar{\Omega}) & = & \left \{ \phi = \left[ \phi_1 \ \phi_2 \right]^T \ | \ \phi_1, \phi_2 \in C^1(\bar{\Omega}), \ \phi_1 = \phi_2 = 0 \textrm{ on } \Sigma_0 \right\}.
 \end{eqnarray*}
 
@@ -119,7 +124,6 @@ Using the definition of the reference configuration, the constitutive equations 
 	M_{11} & = & \frac{1}{2\beta(1-\nu^2)} \left[ 2(\partial_2 \psi_2 + \nu \partial_1 \psi_1)\right] \label{eq:P_Model:CE4D}
 \end{eqnarray}
 
-\textcolor{red}{CHECK!!!}
 \subsubsection{Bilinear Form}
 \begin{eqnarray*}
 b(u,\phi) & = & \int_\Omega \boldsymbol{Q} \cdot \nabla v \ dA + \int_{\Omega} \textrm{Tr}(M\Phi) \ dA,\\
@@ -171,7 +175,7 @@ Divide the reference configuration $\Omega$ into a rectangular grid of elements,
 
 For the plate model, two different definitions for basis functions are required.\\
 
-First consider a set of $n$-dimensional linear independent basis functions, defined by the set 
+First consider a set of $n$-dimensional linear independent basis functions, defined by the set
 \begin{eqnarray*}
 	\left\{\delta^*_1, \delta^*_2, ..., \delta^*_n\right\}.
 \end{eqnarray*}
@@ -203,8 +207,6 @@ Find a function $u^h = \langle w^h, \psi^h \rangle$, such that for all $t>0$, $u
 \begin{eqnarray}
 	c(u^h,\phi_{i,j}) &=& -b(u^h,\phi_{i,j}) + (Q^I,\phi_{i,j}), \label{eq:P_Model:ProblemP1V1}
 \end{eqnarray} with $\phi_{i,j} = \langle v_i, \phi_j \rangle$ for $i = 1,2,...,k_1$ and $j = 1,2,...,k_2$
-
-\textcolor{red}{INTERPOLATION TERM}
 
 \subsection{System of ordinary differential equations}
 The standard FEM matrices $K_{11}$ to $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. In addition, the following standard FEM matrices are also required.
@@ -353,7 +355,7 @@ Fix $b =1$. Table 5.1 shows examples of the eigenvalues. The greater the ratio b
 		\multicolumn{4}{|l|}{Cantilever Plate Eigenvalues with $b = 1$.} \\ \hline
 		i        & $h = 1/10$       & $h  = 1/20$      & $h = 1/30$      \\ \hline
 		1        & 0.0336           & 0.00845          & 0.00381         \\
-		2        & 0.186            & 0.0496           & 0.0224          \\ 
+		2        & 0.186            & 0.0496           & 0.0224          \\
 		3        & 1.15             & 0.313            & 0.142          \\
 		4        & 1.86             & 0.506            & 0.230           \\
 		5        & 2.28             & 0.643            & 0.294            \\
