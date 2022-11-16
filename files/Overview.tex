@@ -3,77 +3,88 @@
 
 
 \section{Comparison of models}
-\subsection{Introduction}
 \subsection{Model problem for a three-dimensional elastic solid}
-\subsubsection{Equations of motion and constitutive equations}
-\textbf{Equation of motion}
-\subsubsection{Dimensionless form}
-\subsubsection{Model problems}
-\textbf{Problem 3D-1}\\
-\textbf{Problem 3D-2}
-\subsubsection{Variational form}
-\textbf{Bilinear forms and integral}\\
-\textbf{Test functions}\\
-\textbf{Problem 3D-1V}
-\subsubsection{Plane stress}
+
+Models for a three-dimensional elastic solid is presented. These models are a cantilever and a free-free elastic body. A dimensionless variational form of the cantilever model is derived. General plane stress is discussed.
+
 \subsection{Two-dimensional model problem for an elastic solid}
-\subsubsection{Introduction}
-\subsubsection{Equations of motion and constitutive equations}
-\textbf{Equation of motion}\\
-\textbf{Constitutive equation}
-\subsubsection{Model problem}
-\textbf{Problem 2D-1}
-\subsubsection{Variational form}
-\textbf{Bilinear forms and integral}\\
-\textbf{Test functions for problem 2D-1}\\
-\textbf{Problem 2D-1V}
+
+A model for a two-dimensional elastic solid is presented. The model is a cantilever elastic body. This model is a special case of plane stress of a three-dimensional elastic body. The model is given in a dimensionless variational form by simplification of the three-dimensional model.
+
 \subsection{Timoshenko beam models}
-\subsubsection{Equations of motion and constitutive equations}
-\subsubsection{Boundary conditions}
-\subsubsection{Boundary value problems}
-\subsubsection{Variational form}
-\textbf{Function spaces}\\
-\textbf{Test function spaces for different problems}\\
-\textbf{Bilinear forms}
+
+Models for a one-dimensional beam are presented using the Timoshenko beam theory. Four different models are presented. The models are a cantilever, free-free, pinned-pinned and a suspended beam. A dimensionless variational form for the models are derived.
+
 \subsection{Reissner-Mindlin Plate Model}
-\subsubsection{Equations of Motion and Constitutive Equations}
-\subsubsection{Dimensionless Form}
-\textbf{Remark}\\
-\textbf{Dimensionless Equations of Motion}\\
-\textbf{Dimensionless Constitutive Equations}
-\subsubsection{Boundary Conditions}
-\subsubsection{Model Problems}
-\textbf{Problem P-1}\\
-\textbf{Problem P-2}
-\subsubsection{Variational Form}
-\textbf{Bilinear Forms and integral}\\
-\textbf{Test Functions for Problem P-1}\\
-\textbf{Problem P-1V}
+
+Models for a Reissner-Mindlin plate are presented. The models are a cantilever and a rigidly clamped plate. A dimensionless variational form for the cantilever model is derived.
+
 \subsection{Rod Theory}
+**************
+
 \section{Mathematical analysis of vibration problems}
-\subsection{Introduction}
-\textbf{Problem T-2W}
+
+This chapter is a discussion and example of application of the theory presented in \cite{VV02}. This article concerns the existence and uniqueness of solutions of second order hyperbolic type problems. Like the models in this dissertation.\\
+
+As an example to explain the theory, the a weak variational form of a cantilever Timoshenko beam is used.\\
+
+This chapter also concerns the idea of modal analysis. This is a method to find the natural frequencies of a system. This method is used later in the dissertation.
+
 \subsection{Existence and uniqueness of solutions}
+
 \subsubsection{The variational approach}
+
+A general variational problem is defined. Specific Hilbert spaces are defined as well as notation. The four assumptions from \cite{VV02} is given. 
+
 \subsubsection{Main results for existence and uniqueness}
+The main results from \cite{VV02} is presented. This includes cases for strong and weak damped systems. The models in this dissertation all have weak damping.
+
 \subsubsection{First order system}
+The general variational problem is rewritten for a first order system. To obtain this first order system, a operator $A$ is defined. The authors prove that this operator is a infinitesimal generator of a $C_0$-semigroup of contractions with a domain in the Hilbert space $H$.\\
+
+The existence and uniqueness results for the first order system is easily proven with an initial value problem. The authors also prove that a solution of the first order system is also a solution to the general variational problem.
+
 \subsection{Application: Timoshenko beam model}
+The theory is applied to a cantilever Timoshenko beam model. Using the weak variational form, the four assumptions from \cite{VV02} is proven.
+
 \subsection{Modal analysis}
+*****************************************************************
+
 \subsubsection{Timoshenko beam}
 \subsubsection{General vibration problem}
 \section{Finite element theory}
-\subsection{Introduction}
+
 \subsection{Convergence of the Galerkin approximation}
+In this chapter, two convergence results relating to the Finite Element Method is presented. The first result is a convergence result for the Galerkin approximation of a second order hyperbolic type problem. This is presented in \cite{BV13}.\\
+
+The second result is from the textbook \cite{SF97}. This results concerns the convergence of the eigenvalues and eigenfunctions of a one-dimensional second order hyperbolic type problem when using the Finite Element Method.
+
 \subsubsection{Galerkin approximation}
+The general variational problem is identical to the one in \cite{VV02} presented in chapter 2. It is assumed that the the general variational problem has a unique solution.\\
+
+The Galerkin approximation for the general variational problem is derived. Uniqueness of a solution to the Galerkin approximation is proven if $f$ is continuous.\\
+
+
 \subsubsection{System of ordinary differential equations}
+
+Continuing with to apply the Finite Element Method, the Galerkin approximation is rewritten as a system of ordinary differential equations. The system is a linear system.\\
+
 \subsubsection{Error estimates}
+Suppose $u$ is a solution to the general variational problem and $u^h$ is a solution to the Galerkin approximation. The goal of \cite{BV13} is to prove that $u^h$ converges to $u$ in $H$ as $h\rightarrow 0$.\\
+
+A error estimate is defined by the authors. The error estimate is split into two parts. A semi-discrete part and a fully discrete part. The two parts are investigated separately.\\
+
 \subsubsection{Main result}
+
+The main result of \cite{BV13} is presented. Two assumptions of \cite{BV13} are also given.
+
 \subsubsection{Obtaining the error estimate}
-\textbf{Semi-discrete problem}
-\subsubsection{Fully discrete Galerkin finite element approximation}
-\textbf{Notation}\\
-\textbf{Error estimate for the fully discrete problem}
+
+In this subsection, the approach of the authors are discussed. First a error estimate for the semi-discrete problem is obtained.*****\\
+
 \subsection{Convergence of eigenvalues in Finite Element Analysis}
+*****************************************************************
+
 \subsubsection{Eigenvalue problem for vibration problem}
 \textbf{Problem GVarE}
 \subsubsection{Interpolation theorem}
@@ -87,26 +98,37 @@
 \subsubsection{Weak variational form}
 \textbf{Problem 2D-1W}
 \section{Timoshenko beam model}
-\subsection{Introduction}
+
+In this chapter, the Timoshenko beam theory is explored further. 
+
+
 \subsection{Eigenvalue problem}
+In the first three sections, the idea of modal analysis is applied to the Timoshenko beam theory. The first section follows the work of \cite{VV06}. In this article, the authors present a method of calculating the eigenvalues and eigenfunctions. 
 \textbf{General eigenvalue problem}\\
 \textbf{Case $\bm {\lambda <\alpha }$}\\
 \textbf{Case $\bm { \lambda =\alpha }$}\\
 \textbf{Case $\bm {\lambda >\alpha }$}
 \subsection{Cantilever beam}
+This is an example of the application of the theory on a cantilever Timoshenko beam.
 \subsubsection{Calculating the eigenvalues}
 \subsubsection{Example of mode shapes}
 \subsection{Free-free timoshenko beam}
+
+This is an example of the application of the theory on a free-free Timoshenko beam.
+
 \subsubsection{Calculating the eigenvalues}
 \subsubsection{Example of mode shapes}
 \subsection{Suspended beam model}
+The idea of a suspended Timoshenko is also discuss briefly.\\
 \textbf{Variational problem}
 \subsection{SP06}
+In the next section, an empirical study of the Timoshenko beam is discussed. In the article \cite{SP06} the authors obtained the eigenvalues of a Timoshenko beam, by analyzing the natural frequencies of a real world beam. Their findings are compared to various theoretical models.\\
 \subsubsection{Mathematical models}
 \textbf{Problem 3D-2}
 \subsubsection{Experimental setup}
 \subsubsection{Results from SP06}
 \subsection{Cantilever Timoshenko beam with tip-body}
+Last an example of the Timoshenko beam in application is presented. This section is a study of a technical report on a cantilever Timoshenko beam with elastic interfaces and a tip body.
 \subsubsection{The model problem}
 \textbf{Boundary conditions}\\
 \textbf{Remark}
@@ -124,7 +146,6 @@
 \textbf{Case: Decrease $\mu $}\\
 \textbf{Case: Increase $m$}
 \section{Finite element method}
-\subsection{Introduction}
 \subsection{Two-dimensional cantilever body}
 \textbf{Reference configuration for rectangular cross-section}\\
 \textbf{Cantilever elastic body}\\
@@ -174,7 +195,6 @@
 \subsubsection{Eigenvalue problem}
 \textbf{Problem P-1E}
 \section{Validity of cantilever beam and plate models}
-\subsection{Introduction}
 \textbf{Parameters}
 \subsection{Validity of the Timoshenko beam model}
 \subsubsection{The models}
@@ -208,7 +228,226 @@
 \textbf{Properties of Type One}\\
 \textbf{Properties of Type Two}\\
 \textbf{Properties}
-\subsection{Introduction}
+\textbf{Different Research Approaches}\\
+\textbf{Motivation}
+\subsection{NRF Research Proposal}
+\subsection{Modelling a Suspension Bridge: A Brief History}
+\subsection{Modelling a suspension bridge: An Engineering Example}
+\subsection{Simplified Mathematical Model for a Suspended Beam}
+\subsubsection{Reference Configuration}
+\subsubsection{System of Equations}
+\textbf{Equations of Motion}\\
+\textbf{Constitutive Equations}\\
+\textbf{Dimensionless Equations}
+\subsubsection{Boundary Conditions}
+\subsection{Analysis of a Thermoelastic Timoshenko Beam Model}
+\textbf{Dimensionless Equations}
+\subsection{An Elastically Clamped Beam Model}
+\textbf{Boundary Conditions}\\
+\textbf{Hooke's law in two-dimensions}
+
+
+******************************************************************\\
+
+\section{Comparison of models}
+\subsection{Model problem for a three-dimensional elastic solid}
+\subsubsection{Equations of motion and constitutive equations}
+\textbf{Equation of motion}
+\subsubsection{Dimensionless form}
+\subsubsection{Model problems}
+\textbf{Problem 3D-1}\\
+\textbf{Problem 3D-2}
+\subsubsection{Variational form}
+\textbf{Bilinear forms and integral}\\
+\textbf{Test functions}\\
+\textbf{Problem 3D-1V}
+\subsubsection{Plane stress}
+\subsection{Two-dimensional model problem for an elastic solid}
+\subsubsection{Equations of motion and constitutive equations}
+\textbf{Equation of motion}\\
+\textbf{Constitutive equation}
+\subsubsection{Model problem}
+\textbf{Problem 2D-1}
+\subsubsection{Variational form}
+\textbf{Bilinear forms and integral}\\
+\textbf{Test functions for problem 2D-1}\\
+\textbf{Problem 2D-1V}
+\subsection{Timoshenko beam models}
+\subsubsection{Equations of motion and constitutive equations}
+\subsubsection{Boundary conditions}
+\subsubsection{Boundary value problems}
+\subsubsection{Variational form}
+\textbf{Function spaces}\\
+\textbf{Test function spaces for different problems}\\
+\textbf{Bilinear forms}
+\subsection{Reissner-Mindlin Plate Model}
+\subsubsection{Equations of Motion and Constitutive Equations}
+\subsubsection{Dimensionless Form}
+\textbf{Remark}\\
+\textbf{Dimensionless Equations of Motion}\\
+\textbf{Dimensionless Constitutive Equations}
+\subsubsection{Boundary Conditions}
+\subsubsection{Model Problems}
+\textbf{Problem P-1}\\
+\textbf{Problem P-2}
+\subsubsection{Variational Form}
+\textbf{Bilinear Forms and integral}\\
+\textbf{Test Functions for Problem P-1}\\
+\textbf{Problem P-1V}
+\subsection{Rod Theory}
+\section{Mathematical analysis of vibration problems}
+\textbf{Problem T-2W}
+\subsection{Existence and uniqueness of solutions}
+\subsubsection{The variational approach}
+\subsubsection{Main results for existence and uniqueness}
+\subsubsection{First order system}
+\subsection{Application: Timoshenko beam model}
+\subsection{Modal analysis}
+\subsubsection{Timoshenko beam}
+\subsubsection{General vibration problem}
+\section{Finite element theory}
+\subsection{Convergence of the Galerkin approximation}
+\subsubsection{Galerkin approximation}
+\subsubsection{System of ordinary differential equations}
+\subsubsection{Error estimates}
+\subsubsection{Main result}
+\subsubsection{Obtaining the error estimate}
+\textbf{Semi-discrete problem}
+\subsubsection{Fully discrete Galerkin finite element approximation}
+\textbf{Notation}\\
+\textbf{Error estimate for the fully discrete problem}
+\subsection{Convergence of eigenvalues in Finite Element Analysis}
+\subsubsection{Eigenvalue problem for vibration problem}
+\textbf{Problem GVarE}
+\subsubsection{Interpolation theorem}
+\subsubsection{Eigenvalue problem for our models*********}
+\textbf{Notation}
+\subsubsection{Convergence of the eigenvalues}
+\subsubsection{Convergence of the eigenfunctions}
+\subsection{Example}
+\textbf{Problem 2D-1V}\\
+\textbf{Test functions}
+\subsubsection{Weak variational form}
+\textbf{Problem 2D-1W}
+\section{Timoshenko beam model}
+\subsection{Eigenvalue problem}
+\textbf{General eigenvalue problem}\\
+\textbf{Case $\bm {\lambda <\alpha }$}\\
+\textbf{Case $\bm { \lambda =\alpha }$}\\
+\textbf{Case $\bm {\lambda >\alpha }$}
+\subsection{Cantilever beam}
+\subsubsection{Calculating the eigenvalues}
+\subsubsection{Example of mode shapes}
+\subsection{Free-free timoshenko beam}
+\subsubsection{Calculating the eigenvalues}
+\subsubsection{Example of mode shapes}
+\subsection{Suspended beam model}
+\textbf{Variational problem}
+\subsection{SP06}
+\subsubsection{Mathematical models}
+\textbf{Problem 3D-2}
+\subsubsection{Experimental setup}
+\subsubsection{Results from SP06}
+\subsection{Cantilever Timoshenko beam with tip-body}
+\subsubsection{The model problem}
+\textbf{Boundary conditions}\\
+\textbf{Remark}
+\subsubsection{Variational form}
+\textbf{Remark}\\
+\textbf{Interface equation}\\
+\textbf{Problem Var}
+\subsubsection{Galerkin approximation}
+\textbf{Problem G}
+\subsubsection{System of ordinary differential equations}
+\textbf{Problem ODE}
+\subsubsection{Numerical results}
+\textbf{Case: Control}\\
+\textbf{Case: Decrease $\gamma $}\\
+\textbf{Case: Decrease $\mu $}\\
+\textbf{Case: Increase $m$}
+\section{Finite element method}
+\subsection{Two-dimensional cantilever body}
+\textbf{Reference configuration for rectangular cross-section}\\
+\textbf{Cantilever elastic body}\\
+\textbf{Problem 2D-1V}\\
+\textbf{Constitutive equations:}\\
+\textbf{Bilinear form:}
+\subsubsection{Weak variational form}
+\textbf{Problem 2D-1WV}
+\subsubsection{Galerkin approximation}
+\textbf{Problem 2D-1G}
+\subsubsection{System of differential equations}
+\textbf{FEM matrices}\\
+\textbf{Problem 2D-1ODE}\\
+\textbf{Remark}
+\subsubsection{Eigenvalue problem}
+\textbf{Problem 2D-1E}
+\subsection{Three-dimensional elastic model}
+\textbf{Reference configuration for rectangular cross-section}\\
+\textbf{Cantilever elastic body}\\
+\textbf{Problem 3D-1V}\\
+\textbf{Bilinear Form}
+\subsubsection{Weak variational form}
+\textbf{Bilinear form}\\
+\textbf{Problem 3D-1W}
+\subsubsection{Galerkin approximation}
+\textbf{Problem 3D-1G}
+\subsubsection{System of ordinary differential equations}
+\textbf{FEM matrices}\\
+\textbf{Problem 3D-1ODE}
+\subsubsection{Eigenvalue problem}
+\textbf{Problem 3D-1E}
+\subsection{Cantilever plate model}
+\textbf{Reference configuration for a rectangular plate}\\
+\textbf{Cantilever plate model}\\
+\textbf{Problem P-1V}\\
+\textbf{Constitutive Equations}\\
+\textbf{Bilinear Form}
+\subsubsection{Weak variational form}
+\textbf{Bilinear forms}\\
+\textbf{Problem Plate-1W}\\
+\textbf{Existence and uniqueness}
+\subsubsection{Galerkin approximation}
+\textbf{Problem P-1G}
+\subsubsection{System of ordinary differential equations}
+\textbf{FEM matrices}\\
+\textbf{Problem P-1ODE}
+\subsubsection{Eigenvalue problem}
+\textbf{Problem P-1E}
+\section{Validity of cantilever beam and plate models}
+\textbf{Parameters}
+\subsection{Validity of the Timoshenko beam model}
+\subsubsection{The models}
+\subsubsection{Accuracy of the numerical eigenvalues}
+\subsubsection{Comparing the shape of the eigenfunctions}
+\textbf{Shapes relating to beam-type eigenvalues}\\
+\textbf{Shapes relating to non-beam type eigenvalues}\\
+\textbf{Shapes of the cross-section}\\
+\textbf{Direct comparison of mode shapes}\\
+\textbf{Remark}
+\subsubsection{Comparing the eigenvalues}
+\textbf{Results of [LVV09]}
+\subsubsection{Comparison of the eigenvalues}
+\subsection{Validity of the two-dimensional elastic model}
+\subsubsection{The models}
+\subsubsection{Accuracy of the numerical eigenvalues}
+\subsubsection{Comparing the mode shapes}
+\textbf{Mode shapes relating to beam type eigenvalues.}\\
+\textbf{Mode shapes relating to non-beam type eigenvalues that are present in the two-dimensional model.}\\
+\textbf{Mode shapes relating to non-beam type eigenvalues that are not present in the two-dimensional model.}
+\subsubsection{Comparing the eigenvalues}
+\subsubsection{$b > h$}
+\subsection{Validity of the Reissner-Mindlin plate model}
+\subsubsection{Comparing the mode shapes}
+\subsubsection{Comparing the eigenvalues}
+\section{Overview}
+\subsection{Overview}
+\section{Conclusion}
+\subsection{Overview}
+\textbf{Properties}\\
+\textbf{Properties of Type One}\\
+\textbf{Properties of Type Two}\\
+\textbf{Properties}
 \textbf{Different Research Approaches}\\
 \textbf{Motivation}
 \subsection{NRF Research Proposal}
