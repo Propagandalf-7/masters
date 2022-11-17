@@ -109,91 +109,41 @@ In the first three sections, the idea of modal analysis is applied to the Timosh
 \textbf{Case $\bm { \lambda =\alpha }$}\\
 \textbf{Case $\bm {\lambda >\alpha }$}
 \subsection{Cantilever beam}
-This is an example of the application of the theory on a cantilever Timoshenko beam.
-\subsubsection{Calculating the eigenvalues}
-\subsubsection{Example of mode shapes}
+This is an example of the application of the theory on a cantilever Timoshenko beam. In this example some results in \cite{VV06} is verified and examples of the mode shapes are given.\\
+
 \subsection{Free-free timoshenko beam}
 
-This is an example of the application of the theory on a free-free Timoshenko beam.
+This is an example of the application of the theory on a free-free Timoshenko beam.In this example some results in \cite{VV06} is verified and examples of the mode shapes are given.\\
 
-\subsubsection{Calculating the eigenvalues}
-\subsubsection{Example of mode shapes}
 \subsection{Suspended beam model}
 The idea of a suspended Timoshenko is also discuss briefly.\\
-\textbf{Variational problem}
+
 \subsection{SP06}
 In the next section, an empirical study of the Timoshenko beam is discussed. In the article \cite{SP06} the authors obtained the eigenvalues of a Timoshenko beam, by analyzing the natural frequencies of a real world beam. Their findings are compared to various theoretical models.\\
-\subsubsection{Mathematical models}
-\textbf{Problem 3D-2}
-\subsubsection{Experimental setup}
-\subsubsection{Results from SP06}
+
 \subsection{Cantilever Timoshenko beam with tip-body}
-Last an example of the Timoshenko beam in application is presented. This section is a study of a technical report on a cantilever Timoshenko beam with elastic interfaces and a tip body.
-\subsubsection{The model problem}
-\textbf{Boundary conditions}\\
-\textbf{Remark}
-\subsubsection{Variational form}
-\textbf{Remark}\\
-\textbf{Interface equation}\\
-\textbf{Problem Var}
-\subsubsection{Galerkin approximation}
-\textbf{Problem G}
-\subsubsection{System of ordinary differential equations}
-\textbf{Problem ODE}
-\subsubsection{Numerical results}
-\textbf{Case: Control}\\
-\textbf{Case: Decrease $\gamma $}\\
-\textbf{Case: Decrease $\mu $}\\
-\textbf{Case: Increase $m$}
+Last an example of the Timoshenko beam in application is presented. This section is a study of a technical report on a cantilever Timoshenko beam with elastic interfaces and a tip body.\\
+
+The variational form is derived. Then the Galerkin apporximation is given and a numerical formula for calculting the solution of the problem is given as a resut of the Finite Element Method.\\
+
+The numerical results in this section give some assurance that the model behaves as expected. The numerical results also contribute to the technical report. Various parameters are manipluated to see how the model behaves. The results are given in tables and figures.\\
+
 \section{Finite element method}
+This chapter is preparation for the last chapter in this dissertation. The finite element method is applied to a cantilever version of each of the models in this dissertation. The goal of the chapter is to get a numerical formula to solve the eigenvalue problem for each model. The Timoshenko beam model is excluded from this chapter since an exact methd is already presented in chapter 4.\\
+
 \subsection{Two-dimensional cantilever body}
-\textbf{Reference configuration for rectangular cross-section}\\
-\textbf{Cantilever elastic body}\\
-\textbf{Problem 2D-1V}\\
-\textbf{Constitutive equations:}\\
-\textbf{Bilinear form:}
-\subsubsection{Weak variational form}
-\textbf{Problem 2D-1WV}
-\subsubsection{Galerkin approximation}
-\textbf{Problem 2D-1G}
-\subsubsection{System of differential equations}
-\textbf{FEM matrices}\\
-\textbf{Problem 2D-1ODE}\\
-\textbf{Remark}
-\subsubsection{Eigenvalue problem}
-\textbf{Problem 2D-1E}
+
+The model is assumed to have a rectangular cross-section and is in a cantilever configuration. The Galerkin approximation is derived and applying the finite element method, a numerical formula for solving the model problem is given.\\
+
+In this numerical formula, the model problem is a system of linear equations. This system can be changed to obtain a numerical formula for teh eigenvalue problem.\\
+
+
 \subsection{Three-dimensional elastic model}
-\textbf{Reference configuration for rectangular cross-section}\\
-\textbf{Cantilever elastic body}\\
-\textbf{Problem 3D-1V}\\
-\textbf{Bilinear Form}
-\subsubsection{Weak variational form}
-\textbf{Bilinear form}\\
-\textbf{Problem 3D-1W}
-\subsubsection{Galerkin approximation}
-\textbf{Problem 3D-1G}
-\subsubsection{System of ordinary differential equations}
-\textbf{FEM matrices}\\
-\textbf{Problem 3D-1ODE}
-\subsubsection{Eigenvalue problem}
-\textbf{Problem 3D-1E}
+Similar to above.
+
 \subsection{Cantilever plate model}
-\textbf{Reference configuration for a rectangular plate}\\
-\textbf{Cantilever plate model}\\
-\textbf{Problem P-1V}\\
-\textbf{Constitutive Equations}\\
-\textbf{Bilinear Form}
-\subsubsection{Weak variational form}
-\textbf{Bilinear forms}\\
-\textbf{Problem Plate-1W}\\
-\textbf{Existence and uniqueness}
-\subsubsection{Galerkin approximation}
-\textbf{Problem P-1G}
-\subsubsection{System of ordinary differential equations}
-\textbf{FEM matrices}\\
-\textbf{Problem P-1ODE}
-\subsubsection{Eigenvalue problem}
-\textbf{Problem P-1E}
+Similar to above.
+
 \section{Validity of cantilever beam and plate models}
 \textbf{Parameters}
 \subsection{Validity of the Timoshenko beam model}
