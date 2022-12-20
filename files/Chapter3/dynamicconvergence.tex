@@ -6,7 +6,7 @@ In this chapter, two convergence results for the Finite Element Method (FEM) is 
 \section{Convergence of the Galerkin approximation}
 In the article \cite{BV13}, the authors investigate the convergence of the Galerkin approximation for second order hyperbolic type problems. The article \cite{BV18} extends \cite{BV13} by including general damping and damping at the endpoints. For the models in Chapter 1, \cite{BV13} is sufficient and \cite{BV18} was read for more insight and improved notation.\\
 
-In Section 2.2, a general variational problem Problem GVar from \cite{VV02} is given. The authors of \cite{BV13} use the same general variational problem.
+In Section 2.2, a general variational problem, called Problem GVar, which is identical to the one in \cite{VV02} is given. From this model, a Galerkin Approximation can be derived.
 
 \subsubsection*{Problem GVar}
 Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
@@ -17,7 +17,7 @@ while $u(0)=u_{0}$, $u'(0)=u_{1}$.\\
 
 It is assumed that the assumptions \textbf{A1}-\textbf{A4} from Section 2.2 are satisfied such that Problem GVar has a unique solution.\\
 
-Before the theory of \cite{BV13} can be discussed, some preparation is required. First the Galerkin approximation is for Problem GVar is derived. Then a equivalent system of ordinary differential equations is derived using the Finite Element Method. The problem is then discussed followed by the solution of \cite{BV13}.\\
+Before the main theory of \cite{BV13} can be discussed, some preparation is required. First the Galerkin approximation is for Problem GVar is derived. Then a equivalent system of ordinary differential equations is derived using the Finite Element Method.\\
 
 \subsection{Galerkin approximation}
 Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in the Hilbert space $H$.\\
@@ -42,6 +42,8 @@ If the function $f$ is continuous, then Problem GVar$^h$ is equivalent to a syst
 \begin{DC_Thm2} \label{DC_THM2}
 	If $f \in C(J,X)$, then there exists a unique solution $u_h \in C^2(J)$ for Problem GVar$^h$ for each $u_0^h$ and $u_1^h$ in $S^h$. If $f = 0$ then $u_h \in C^2((-\infty, \infty))$.
 \end{DC_Thm2}
+
+This theorem is presented in \cite{BV13}.
 
 \subsection{System of ordinary differential equations}
 Consider the standard FEM matrices defined by
@@ -100,16 +102,14 @@ The error $e$, can now be expressed as
 
 In \eqref{error_e}, the authors divide the error $e$ into a semi-discrete term and a fully discrete term. The two terms are investigated as seperate problems in \cite{BV13}.\\
 
-
-Now we look at the main results of \cite{BV13}.
 \subsection{Main result}
 
-
+The main result proving the convergence of the solution of the Galerkin Approximation is given in \cite{BV13} as follows.
 
 \newtheorem*{DC_Thm5}{Theorem 2}
 \begin{DC_Thm5}
 	{Main Result}\\
-	If $f\in C^{2}([0,T],X)$, then
+	If $f\in C^{2}([0,T]4,X)$, then
 	\begin{eqnarray*}
 		\Vert u_{h}(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & 7T^{2}\tau^{2}\max\Vert u_{h}^{(4)}\Vert_{W}+7T\tau^{2}\max\Vert u_{h}'''\Vert_{W}\\
 		& & + \sqrt{2K_{a}}\tau^{4}\max\Vert u_{h}'''\Vert_{W}
@@ -117,9 +117,12 @@ Now we look at the main results of \cite{BV13}.
 	for each $t\in(0,\ T)$.
 \end{DC_Thm5}
 
-\subsection{Obtaining the error estimate}
-In this section we will show how the error estimate in Theorem 2 is obtained in \cite{BV13}.The following two assumptions are made in \cite{BV13}.
+The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the constant defined in assumption \textbf{A4} of Section 2.2.1.
 
+\subsection{Obtaining the error estimate}
+In this section we will show how the error estimate in Theorem 2 is obtained by the authors of \cite{BV13}.\\
+
+The following two assumptions are made in \cite{BV13}.
 \subsubsection*{Assumptions}
 \begin{itemize}
 	\item[] \textbf{B1} - The solution $u \in C(J,V)$ of Problem GVar$^h$ has the property that $(Pu) \in C^2(J)$.
@@ -129,7 +132,7 @@ In this section we will show how the error estimate in Theorem 2 is obtained in 
 
 The projection $P$ in section \eqref{e_est} is defined in \cite{BV13} as
 \begin{eqnarray*}
-	b(u-P_hu,v) = 0 \ \ \ \textrm{ for all } v \in V.
+	b(u-Pu,v) = 0 \ \ \ \textrm{ for all } v \in V.
 \end{eqnarray*}
 
 From assumption \textbf{B1}, $Pu \in C^2(J)$ and by the definition $P$, $P$ is a projection with respect to the inner product $b$.\\
@@ -153,7 +156,6 @@ In \cite{BV13}, this is presented as a proposition.
 \newtheorem{DC_Prop1}{Proposition}
 \begin{DC_Prop1}
 	If $u$ is the solution of Problem GVar and $u$ satisfies assumption \textbf{B1}, then
-
 	\begin{eqnarray}
 		c(e''(t),v) + a(e'(t),v) + b(e(t),v) = 0 \ \ \ \textrm{ for all } v \in V.
 	\end{eqnarray}
