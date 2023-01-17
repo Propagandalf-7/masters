@@ -11,3 +11,5 @@
 *.xml
 *.synctex.gz
 *.toc
+*.synctex
+*.synctex(busy)
