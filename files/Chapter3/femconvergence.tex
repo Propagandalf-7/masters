@@ -1,46 +1,55 @@
-s\documentclass[../../main.tex]{subfiles}
+\documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Convergence of eigenvalues in Finite Element Analysis}
-This section looks at the work of the authors of the textbook [SF97].
+In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed.\\
 
-\subsection{Eigenvalue problem for vibration problem}
-Consider the general variational problem Problem GVar from section 2.2.1
-\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-	Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
-\begin{eqnarray}
-	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
-\end{eqnarray}
-while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\\
+Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.
 
-\textcolor{red}{Haal uit**********************************}\\
-The following spaces are also defined in section 2.2.1:
+\subsection{General eigenvalue problem}
+Find a function $u \in H$ and number $\lambda \in \mathcal{R}$ such that
+\begin{equation}
+	b(u,v) = \lambda (u,v) \label{GEVP}
+\end{equation} for some $v \in V$.
+
+\subsection{Preparatory theory and notation}
+Some theory is required that is presented in \cite{SF73}.\\
+
+\textbf{Rayleigh quotient}
+\begin{equation*}
+	R(v) = \frac{b(v,v)}{(v,v)} \ \text { for } v \in V.
+\end{equation*}
+
+\textbf{minmax Principle}\\
+Let T denote the class of subspaces of $V$ that jas dimension $j$. Then
+\begin{equation*}
+	\lambda_j = \min_{s\in T}\max_{v \in S} R(v).
+\end{equation*}
+
+\textbf{Rayleigh-Ritz Projection}\\
+If $u \in V$, then $Pu$ is its component in the subspace $S^h$.
+\begin{equation*}
+	b(u-Pu,v^h) = 0 \ \text{ for all } v \in S^h.
+\end{equation*}
+
+Consider a interpolation operator $\Pi$. This projection is linear, i.e.
+\begin{align*}
+	\Pi(f + g) & = \Pi f + \Pi g,\\
+	\Pi(\alpha f) & = \alpha \Pi f \ \text{ for a constant } \alpha. 
+\end{align*}
+
+Define the interval $I_e = [a, a+h]$. A necessary condition is for the operator $\Pi$ is that when $\Pi u$ is restricted to the interval $I_e$, this must equal the projection of $u$ restricted to the interval $I_e$. This can be written as
+\begin{equation*}
+	\left[ \Pi u \right]_{I_{e}} = \Pi_e [u]_{I_{e}}.
+\end{equation*}
+
+The following notation is introduced.
 \begin{itemize}
-	\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
-	\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
-	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
-\end{itemize} The inner product of the function space $L^2$ is given by $(\cdot, \cdot)$ with induced norm $||\cdot||_{L^2}$.\\
+	\item[] $\mathcal{P}_j(I_e)$: Is the set of all polynomials on the interval $I_e$ of degree at most $j$.
+	\item[] $r(\Pi_e)$: If the range of $\Pi_e$ is contained in $\mathcal{P}_j(I_e)$ and $k<j$ is the largest integer such that $\Pi_e f = f$ for each $f \in \mathcal{P}_j(I_e)$, then $r(\Pi_e) = k$.
+	\item[] $s(\Pi_e)$: Is a integer and the largest order derivative used in the definition of $\Pi_e$.
+\end{itemize}
 
-Define a Hilbert space $H = V \times W$, with inner product defined by
-\begin{eqnarray*}
-	(x,y)_H := b(x_1,y_1) + c(x_1,y_1) \ \ \ \ \textrm{for all} \ x,y \in H.
-\end{eqnarray*} $V$ is obviously a linear subspace of $H$, and it is assumed that $(\cdot,\cdot)_V  = b(\cdot,\cdot)$. $V$ is also the closure of the test function space $T$.\\
-\textcolor{red}{**********************************}\\
-
-
-Recall form Section 2.2, $V$ is the energy space with inner-product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$. For the Timoshenko beam theory, $V$ is the closure of the test-function space $T$. It is assumed that $b(\cdot,\cdot) = (\cdot,\cdot)_V$.\\
-
-Denote the eigenvalue problem of Problem GVar by Problem GVarE. This eigenvalue problem can be formulated as follow
-
-\subsubsection{Problem GVarE} Find $\lambda \in \mathbb{R}$ and $u \in V$ such that
-\begin{eqnarray*}
-	b(u(t),v) = \lambda c( u(t), v ) \ \ \ \ \textrm{ for all  } v\in V.
-\end{eqnarray*}
-
-\subsection{Interpolation theorem}
-Consider the Interpolation Theorem for Finite Elements from the textbook [ORXX].\\
-
-\sout{Consider the following theorem for Finite Elements from the textbook [ORXX]. This theorem is called The Interpolation Theorem for Finite Elements.}
-
+From the textbook \cite{ORXX}, the following approximation for finite elements is given verbatim:
 \newtheorem*{Interpolation}{Theorem}
 \begin{Interpolation}[The Interpolation Theorem for Finite Elements] 
 	Let $\Omega$ be an open bounded domain in $\mathcal{R}^n$ satisfying the cone condition. Let $k$ be a fixed integer and $m$ an integer such that $0\leq m \leq k+1$. Let $\Pi \in L(H^{k+1}(\Omega), H^{m}(\Omega))$ be such that
@@ -52,116 +61,141 @@ Consider the Interpolation Theorem for Finite Elements from the textbook [ORXX].
 	    ||u - \Pi u||_{H^m(\Omega)} \leq C \frac{h^{k+1}}{p^m} |u|_H^{k+1}(\Omega)
 	\end{eqnarray}
 	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
-\end{Interpolation} ************what is p?
+\end{Interpolation}
 
-This theorem provides an error estimate for the projection of $u$ in a Sobolev space. By proving this theorem, the authors in [ORXX] show the accuracy of the finite element interpolations of functions $u$ defined in a Sobolev space $H^{k+1}(\Omega)$ into a finite dimensional subspace $S^h(\Omega)$, with the projection defined by $\Pi u$.\\
+For the requirements of this dissertation, this is too general and can be simplified with assumptions. The first assumption is a reiteration that the eigenvalue problem is one-dimensional. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
+\newtheorem{Interpolation_2}{Theorem}
+\begin{Interpolation_2}
+	Suppose there exists an integer $k$ such that for each element
+	\begin{equation*}
+		s(\Pi_e) + 1 \leq k \leq r(\Pi_e) +1.
+	\end{equation*}
+	Then there exists a constant $C$ such that for any $u \in C^k_+(I)$,
+	\begin{equation*}
+		||(\Pi u)^(m) - u^(m)|| \leq C h^{k-m} || u^(k)|| \ \text{ for } m = 0,1,...,k.
+	\end{equation*}
+\end{Interpolation_2}
 
-\subsection{Eigenvalue problem for our models*********}
-For this dissertation, the result can be simplified and need not be so general. The basis functions used in this dissertation are called Hermite-Cubic basis functions. Therefore the focus can be restricted to functions in an n-dimensional polynomial space.\\
-**********Wys hoe function spaces H, V, W verander na polynomial spcaes!!************
+It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.\\
 
-\subsubsection{Notation}
-Define the linear interpolation operator as
-\begin{eqnarray*}
-	\Pi f &=& f_{I},
-\end{eqnarray*} such that
-\begin{eqnarray*}
-	\Pi (f+g) &=& \Pi f + \Pi g, \\
-	\Pi (\alpha f) &=& \alpha \Pi f.
-\end{eqnarray*}
-%\newpage
+Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.\\
 
-Define the reference interval $I_{e} = [a, a+h]$. The following notation,
-\begin{eqnarray*}
-	\left[\Pi u \right]_{I_{e}} &=& \Pi_{e} \left[u\right]_{I_{e}},
-\end{eqnarray*} implies that $\Pi u$ restricted to the interval $I_{e}$ must equal $\Pi_{e} u$.\\
+Fix $m \in \mathbb{N}$. Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.\\
 
-Define the following set and integers.
-\begin{itemize}
-	\item[] $\mathcal{P}_{j}(I_{e}):$ the set of all polynomials on the interval $I_{e}$ of degree at most $j$.\\
+Since $S^h$ is finite dimensional, the ordering of the eigenvalues still hold. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.\\
+
+The space $S^h$ is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
+\begin{equation}
+	\lambda_i \leq \lambda_i^h.
+\end{equation}
+
+
+\subsection{Estimating the eigenvalues.}
+Let $E_j \in V$ denote the eigenspace spanned by the exact eigenvalues $\left\{u_1,u_2,...,u_j \right\}$ for $j = 1,2,...,m$.\\
+
+Then consider the subspace $S_j$ where
+\begin{equation*}
+	S_j = PE_j \ \text{ for } j = 1,2,...,m.
+\end{equation*} The elements $Py_i$ are the projections of the eigenfunctions $u_i$ into the space $S^h$. These projections $Py_i$ are not necessarily equal to $u^h_j \in S^h$, but it can be shown that they are close.\\
+
+Let $B_m = \left\{u \in e_m \ | \ ||u|| = 1 \right\}$ and define $\mu_m = \inf\left\{(Pu,Pu \ | \ u \in B_m)\right\}$.\\
+
+The next steps in the textbook \cite{SF73} contains proofs with multiple results. In an attempt to better understand the results, the proofs are broken up into smaller proofs.\\
+
+The first step to obtain estimates for the eigenvalues, it to show that the elements of $B_m$ are linearly independent.
+
+\newtheorem{Prop_1}{Proposition}
+\begin{Prop_1}
+ $\mu_{m} > 0$ if and only if $\dim S_{m} = m$.
+\end{Prop_1}
+\begin{proof}
+	To show that the dimension of $S_m = m$, suppose that the elements of $B_m$ are linearly dependent. Then there exists a $u \in B_m$ such that $Pu = 0$ and consequently $\mu_m = 0$. The result follows from the contra-positive.
+\end{proof}
+
+\newtheorem{Prop_2}[Prop_1]{Proposition}
+\begin{Prop_2}
+	$\lambda^{h}_{m} \leq \max R(Pu) \ \text{ for } u \in B_{m}$\\
+\end{Prop_2}
+\begin{proof}
+	Since $\dim S_{m} = m$, following from the minmax principle
+	\begin{equation*}
+		\lambda_m^h \leq \max R(v) \ \text{ for } v \in S_m.
+	\end{equation*}
+
+	Take an arbitrary nonzero $v \in S_m$. Then there exists a $Py \in E_m$ such that $v = Py$.\\
+ 
+	Now we take an arbitrary $v \in S_{m}$, $v \neq 0$. Then there exists a $u \in E_{m}$ such that $Py = v$. This $Py$ is the projection into $S_m$ of some $u \in E_m$ (which is also $\displaystyle \frac{1}{||u||}u \in B_m$).\\
 	
-	\item[] $r(\Pi_{e})$: If the range of $\Pi_{e}$ is contained in $\mathcal{P}_{j}(I_{e})$ and $k\leq j$ is the largest integer such that $\Pi_{e} f = f$ for each $f\in\mathcal{P}_{j}(I_{e})$, then $r(\Pi_{e}) = k$.\\
-	
-	\item[] $s(\Pi_{e})$: the integer $s(\Pi_{e})$ is the largest order derivative used in the definition of $\Pi_{e}$.
-\end{itemize}
-\textbf{Interpolation Theorem} Suppose there exists an integer $k$ such that for each element
-\begin{eqnarray*}
-	s(\Pi_{e}) + 1 \leq & k & \leq r(\Pi_{e}) + 1
-\end{eqnarray*}
-Then there exists a constant C such that for any $u\in C^{k}_{+}(I)$ we have
-\begin{eqnarray*}
-	||(\Pi u)^{(m)} - u^{(m)}|| & \leq & Ch^{k-m}||u^{(k)}|| \ \ \textrm{ for } m = 0,1,...,k
-\end{eqnarray*}
+	Next a linearity property for $R$ can be proven. 
+	\begin{eqnarray*}
+	R(\frac{1}{||u||}u) &=& \frac{b\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)}{\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)},\\
+						&=& \frac{b(u,u)}{(u,u)},\\
+						&=& R(u).
+	\end{eqnarray*}
+	So finally,
+	\begin{eqnarray*}
+	\lambda_{m}^{h} &\leq & \max R(v) \ \text{ for } \ v \in S_{m},\\
+						&=& \max R(Pu) \ \text{ for } \ u \in E_{m},\\
+						&=& \max R(Pu) \ \text{ for } \ u \in B_{m}.
+	\end{eqnarray*}
+\end{proof}
 
-In this form, the theory of convergence of the eigenvalues for our models can be investigated. For this theory, consider another textbook [SF73]. In this textbook, the authors prove the convergence of of the eigenvalues using the interpolation theorem. The results of the authors of [SF73] is discussed here, in the notation followed in throughout this dissertation.
-
-\subsection{Convergence of the eigenvalues}
-From the brief introduction of modal analysis in section 1.xxx, it is clear that the solution of the eigenvalue problem is an infinite sequence of eigenvalues with corresponding eigenfunctions (eigenvectors in this case). Therefore assume the eigenvalues can be ordered, i.e. $\lambda_{1} \leq \lambda_{2} \leq \lambda_{3} \leq ...$. Denote the corresponding eigenvectors by $u_{i}$ and scale the eigenvectors such that $||u_{i}|| = 1$ for all $i$. Fix $m\in\mathbb{N}$ and consider a finite dimensional ordered subset of the eigenvalues $\lambda_{1} \leq \lambda_{2} \leq \lambda_{3} \leq ... \leq \lambda_{m}$.\\
-
-For each of the models in this dissertation, the set of test functions are defined as $T$. Now take the set of admissible basis functions $\left\{ \phi_{i} \in T \ | \ i = 1,2,...,m\right\}$, and define a finite dimensional subspace $S^{h} := span(\left\{\phi_{i}\in T \ | \ i = 1,2,...,m\right\})$ of V. From this finite dimensional subspace, the following set of eigenvalues $\lambda^{h}_{1} \leq \lambda^{h}_{2} \leq \lambda^{h}_{3} \leq ... \leq \lambda^{h}_{m}$, also ordered, with corresponding normalized eigenvectors $u^{h}_{i}$ for each i are obtained.\\
-
-The following definitions from [SF73] are required for the theory.\\
-\textbf{Rayleigh Quotient:}
-\begin{align*}
-	R(v) = \frac{b(v,v)}{( v,v )}
-\end{align*}
-
-\textbf{minmax Principle:} Let T denote the class of subspaces of V that has dimension j. Then
-\begin{align*}
-\lambda_{j} = \min\limits_{s\in T} \max\limits_{v\in S}R(v)
-\end{align*}\\
-
-\textbf{Rayleigh-Ritz Projection:} If $u \in V$, then $Pu$ is its component in the subspace $S^{h}$:
-\begin{align*}
-b(u-Pu,v^{h}) = 0 \ \ \ \ \forall \ v^{h} \in S^{h}
-\end{align*}
-
-Now since the space $S^{h}$ is a finite subspace of T, any subspace of $S^{h}$ will also be a subspace of T. So the minmax principle applies to $S^{h}$. So we then get a lower bound for the approximate eigenvalues
-\begin{align*}
-\lambda_{i} \leq \lambda_{i}^{h}
-\end{align*}
-
-
-Let $E_{j} \subset T$ denote the eigenspace spanned by $\left\{u_{1},u_{2},...,u_{j}\right\}$ for $j = 1,2,...,m$. Then we consider the subspaces $S_{j}$ where
-\begin{align*}
-S_{j} = PE_{j} \ \ \textrm{ for } j = 1,2,...,m
-\end{align*}
-The elements $Py_{i}$ of $E_{j}$ are the projections of the exact eigenvectors to the space $S^{h}$ but are not necessarily equal to the eigenvector's approximations $u^{h}_{i}$. But it can proved that they are close.\\
-
-Let $B_{m} = \left\{u\in E_{m} \ | \ ||u|| = 1\right\}$ and define $\mu_{m} = \inf\left\{ ( Pu,Pu) \ | \ \in B_{m} \right\}$.\\
-
-\textbf{Proposition 7.1:} $\mu_{m} > 0$ if and only if $\dim S_{m} = m$\\
-
-\begin{comment}
-\textbf{Proof:} Suppose that $\dim S_{m} < m$, then the set of projected eigenvalues $\left\{Py_{1}, Py_{2},...,Py_{m}\right\}$ is a linearly dependent set. So then there exists a $u \in B_{m}$ such that $Pu = 0$. Then $\mu_{m} = 0$. So the result follows by the contra-positive. \qed \\
-
-
-So we from here on assume that $S^{h}$ is such that $\dim S_{m} = m$.\\
-\end{comment}
-
-\textbf{Proposition 7.2:} $\lambda^{h}_{m} \leq \max\left\{R(Pu) \ | \ u \in B_{m} \right\}$\\
-
-\begin{comment}
-\textbf{Proof:} The minmax principle gives $\lambda_{m}^{h} \leq \max\left\{R(v) \ | \ v \in S_{m} \right\}$ since $\dim S_{m} = m$.\\
-
-Now we take an arbitrary $v \in S_{m}$, $v \neq 0$. Then there exists a $u \in E_{m}$ such that $Py = v$. Since $u \in E_{m}$, we have that $\frac{1}{||u||}u \in B_{m}$ and
-
-\begin{eqnarray*}
-R(\frac{1}{||u||}u) &=& \frac{b\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)}{\left(\frac{1}{||u||}u,\frac{1}{||u||}u\right)}\\
-					&=& \frac{b(u,u)}{(u,u)}\\
-					&=& R(u)
-\end{eqnarray*}
-So then we have that
-\begin{eqnarray*}
-\lambda_{m}^{h} &\leq & \max\left\{R(v) \ | \ v \in S_{m} \right\}\\
-					&=& \max\left\{R(Pu) \ | \ u \in E_{m} \right\}\\
-					&=& \max\left\{R(Pu) \ | \ u \in B_{m} \right\}
-\end{eqnarray*}\qed
-\end{comment}
 %\newpage
+In the textbook, the authors show that the eigenfunctions are orthogonal. But they do so using matrix representations of the eigenvalue problem. A different method can be used to show this.\\
 
-\textbf{Lemma 7.1:} $\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}$\\
+Pick any $i,j \in \mathbb{N}$ such that $i,j \leq m$. Let $v_{i},v_{j} \in V$ be arbitrary, then
+\begin{eqnarray*}
+	b(u_{i},u_{i}) &=& \lambda_{i}( u_{i},u_{i}),\\
+	b(u_{j},u_{j}) &=& \lambda_{j}( u_{j},u_{j}).
+\end{eqnarray*}
+Now pick $u_{i} = u_{j}$ and $u_{j} = u_{i}$. Then
+\begin{eqnarray*}
+	b(u_{i},u_{j}) &=& \lambda_{i}( u_{i},u_{j}),\\
+	b(u_{j},u_{i}) &=& \lambda_{j}( u_{j},u_{i}).
+\end{eqnarray*}
+Then using the symmetry of $b(\cdot,\cdot)$ and $( \cdot, \cdot )$, and subtracting,
+\begin{eqnarray*}
+	0 &=& (\lambda_{i} - \lambda_{j})( u_{i}, u_{j} )
+\end{eqnarray*}
+So if $i \neq j$ then $\lambda_{i} \neq \lambda_{j}$.\\
 
+Therefore $u_{i}$ and $u_{j}$ must be orthogonal. And as mentioned previously, $||u|| = 1$.
+
+
+\newtheorem{Lem_1}{Lemma}
+\begin{Lem_1}
+	$\displaystyle \lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}$
+\end{Lem_1}
+\begin{proof}
+	Consider the linearity of the bilinear form $b$, and fact that any $u \in E_m$ can be expressed as a linear combination $u = \sum_{i=1}^{m} c_{i}u_{i}$. Then
+	\begin{eqnarray*}
+	b(u,u) &=& b\left(\sum_{i=1}^{m} c_{i}u_{i},\sum_{j=1}^{m} c_{j}u_{j}\right),\\
+			&=& \sum_{i=1}^{m} c_{i}\sum_{j=1}^{m} c_{j} b(u_{i},u_{j}).
+	\end{eqnarray*}
+
+	The summation parameters can be merged into a single parameter. Then
+	\begin{eqnarray*}
+		b(u,u)  & = & \sum_{i=1}^{m} c_{i}^{2} \lambda_{i} u_i,\\
+				& \leq & \lambda_{m}\sum_{i=1}^{m} c_{i}^{2} u_i,\\
+				& = & \lambda_{m}||u||^2.
+	\end{eqnarray*} for all $u \in B_m$.\\
+	
+	
+	$b(u,u) = \sum_{i=1}^{m} c_{i}^{2} \lambda_{i} \leq \lambda_{m}\sum_{i=1}^{m} c_{i}^{2} =\lambda_{m} ||u||^{2}$ for all $u \in E_{m}$.\\
+	And since $B_{m} \subset E_{m}$, we have $b(Pu,Pu) \leq \lambda_{m}$ for all $u\in B_{m}$\\
+	
+	
+	So now from the definition of $\mu_{m}^{h}$ and the Rayleigh quotient, we have
+	\begin{eqnarray*}
+		R(Pu) &=& \frac{b(Pu,Pu)}{(Pu,Pu)}\\
+			&=& \frac{b(Pu,Pu)}{||Pu||^{2}}\\
+			&\leq & \frac{\lambda_{m}}{\mu_{m}^{h}}
+	\end{eqnarray*}
+	This together with Proposition 7.1 gives
+	\begin{eqnarray*}
+		\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}
+	\end{eqnarray*}
+\end{proof}
 \begin{comment}
 \textbf{Proof:} Let $Y = \sum_{i=1}^{m} c_{i}u_{i}$.
 \begin{eqnarray*}
