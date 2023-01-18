@@ -112,7 +112,7 @@ The first step to obtain estimates for the eigenvalues, it to show that the elem
 	To show that the dimension of $S_m = m$, suppose that the elements of $B_m$ are linearly dependent. Then there exists a $u \in B_m$ such that $Pu = 0$ and consequently $\mu_m = 0$. The result follows from the contra-positive.
 \end{proof}
 
-\newtheorem{Prop_2}[Prop_1]{Proposition}
+\newtheorem{Prop_2}[Prop_1]{Proposition} \label{Prop_2}
 \begin{Prop_2}
 	$\lambda^{h}_{m} \leq \max R(Pu) \ \text{ for } u \in B_{m}$\\
 \end{Prop_2}
@@ -162,9 +162,9 @@ So if $i \neq j$ then $\lambda_{i} \neq \lambda_{j}$.\\
 Therefore $u_{i}$ and $u_{j}$ must be orthogonal. And as mentioned previously, $||u|| = 1$.
 
 
-\newtheorem{Lem_1}{Lemma}
+\newtheorem{Lem_1}{Lemma} \label{Lem_1}
 \begin{Lem_1}
-	$\displaystyle \lambda_{m}^{h} \leq \frac{\lambda_{m}}{\m`u_{m}^{h}}$
+	$\displaystyle \lambda_{m}^{h} \leq \frac{\lambda_{m}}{u_{m}^{h}}$
 \end{Lem_1}
 \begin{proof}
 	Consider the linearity of the bilinear form $b$, and fact that any $u \in E_m$ can be expressed as a linear combination $u = \sum_{i=1}^{m} c_{i}u_{i}$. Then
@@ -181,357 +181,301 @@ Therefore $u_{i}$ and $u_{j}$ must be orthogonal. And as mentioned previously, $
 	\end{eqnarray*} for all $u \in B_m$.\\
 	
 	
-	$b(u,u) = \sum_{i=1}^{m} c_{i}^{2} \lambda_{i} \leq \lambda_{m}\sum_{i=1}^{m} c_{i}^{2} =\lambda_{m} ||u||^{2}$ for all $u \in E_{m}$.\\
-	And since $B_{m} \subset E_{m}$, we have $b(Pu,Pu) \leq \lambda_{m}$ for all $u\in B_{m}$\\
+	And since $B_{m} \subset E_{m}$, $b(Pu,Pu) \leq \lambda_{m}$ for all $u\in B_{m}$\\
 	
-	
-	So now from the definition of $\mu_{m}^{h}$ and the Rayleigh quotient, we have
+	Using the Rayleigh quotient, and the definition of $\mu_{m}^{h}$, 
 	\begin{eqnarray*}
-		R(Pu) &=& \frac{b(Pu,Pu)}{(Pu,Pu)}\\
-			&=& \frac{b(Pu,Pu)}{||Pu||^{2}}\\
-			&\leq & \frac{\lambda_{m}}{\mu_{m}^{h}}
+		R(Pu) &=& \frac{b(Pu,Pu)}{(Pu,Pu)},\\
+			&=& \frac{b(Pu,Pu)}{||Pu||^{2}},\\
+			&\leq & \frac{\lambda_{m}}{\mu_{m}^{h}}.
 	\end{eqnarray*}
-	This together with Proposition 7.1 gives
+
+	Together with Proposition \ref{Prop_2} it follows that
 	\begin{eqnarray*}
-		\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}
+		\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}.
 	\end{eqnarray*}
 \end{proof}
-\begin{comment}
-\textbf{Proof:} Let $Y = \sum_{i=1}^{m} c_{i}u_{i}$.
-\begin{eqnarray*}
-b(u,u) &=& b\left(\sum_{i=1}^{m} c_{i}u_{i},\sum_{j=1}^{m} c_{j}u_{j}\right)\\
-		&=& \sum_{i=1}^{m} c_{i}\sum_{j=1}^{m} c_{j} b(u_{i},u_{j})
-\end{eqnarray*}
-\textbf{RTP:} $\left\{u_{1},u_{2},...,u_{m}\right\}$ is orthonormal.\\
-Pick any $i,j \in \mathbb{N}$ such that $i,j \leq m$. Let arbitrary $v_{i},v_{j} \in V$ be arbitrary, then
-\begin{eqnarray*}
-	b(u_{i},u_{i}) &=& \lambda_{i}( u_{i},u_{i})\\
-	b(u_{j},u_{j}) &=& \lambda_{j}( u_{j},u_{j})
-\end{eqnarray*}
-Now we pick $u_{i} = u_{j}$ and $u_{j} = u_{i}$. Then
-\begin{eqnarray*}
-	b(u_{i},u_{j}) &=& \lambda_{i}( u_{i},u_{j})\\
-	b(u_{j},u_{i}) &=& \lambda_{j}( u_{j},u_{i})
-\end{eqnarray*}
-Then using the symmetry of $b(\cdot,\cdot)$ and $( \cdot, \cdot )$, and subtracting, we get
-\begin{eqnarray*}
- 0 &=& (\lambda_{i} - \lambda_{j})( u_{i}, u_{j} )
-\end{eqnarray*}
-So if $i \neq j$, $\lambda_{i} \neq \lambda_{j}$. Thus we must have that $u_{i}$ and $u_{j}$ are orthogonal. And since by the way $u_{i}$ is defined, $||u_{i}|| = 1$. So thus $\left\{u_{1},u_{2},...,u_{m}\right\}$ is orthonormal.\\
 
-
-So then $b(u,u) = \sum_{i=1}^{m} c_{i}^{2} \lambda_{i} \leq \lambda_{m}\sum_{i=1}^{m} c_{i}^{2} =\lambda_{m} ||u||^{2}$ for all $u \in E_{m}$.\\
-And since $B_{m} \subset E_{m}$, we have $b(Pu,Pu) \leq \lambda_{m}$ for all $u\in B_{m}$\\
-
-
-So now from the definition of $\mu_{m}^{h}$ and the Rayleigh quotient, we have
+Following Lemma \ref{Lem_1}, and since $\lambda_{i}^{h} \geq \lambda_{i}$ it follows that $0 < \mu_{m}^{h} \leq 1$. It is now possible to define the error estimate as given in \cite{SF73}:
 \begin{eqnarray*}
-	R(Pu) &=& \frac{b(Pu,Pu)}{(Pu,Pu)}\\
-		&=& \frac{b(Pu,Pu)}{||Pu||^{2}}\\
-		&\leq & \frac{\lambda_{m}}{\mu_{m}^{h}}
-\end{eqnarray*}
-This together with Proposition 7.1 gives
-\begin{eqnarray*}
-	\lambda_{m}^{h} \leq \frac{\lambda_{m}}{\mu_{m}^{h}}
-\end{eqnarray*}\qed
-\end{comment}
-
-Now since $\lambda_{i}^{h} \geq \lambda_{i}$ and by Lemma 7.1, we must then have that $0 < \mu_{m}^{h} \leq 1$. Now define the error estimate as
-\begin{eqnarray*}
-\sigma_{m}^{h} = 1 - \mu_{m}^{h}
+	\sigma_{m}^{h} = 1 - \mu_{m}^{h}.
 \end{eqnarray*}
 
-%\newpage
 
-\textbf{Corollary 7.1:} $0 \leq \sigma_{m}^{h} < 1$ and $\lambda_{m}^{h} - \lambda_{m} \leq \lambda_{m}^{h}\sigma_{m}^{h}$\\
+\newtheorem{Cor_1}{Corollary}
+\begin{Cor_1}
+	$0 \leq \sigma_{m}^{h} < 1$ and $\lambda_{m}^{h} - \lambda_{m} \leq \lambda_{m}^{h}\sigma_{m}^{h}$
+\end{Cor_1}
+\begin{proof}
+	Starting with the result of Lemma \ref{Lem_1},
+	\begin{eqnarray*}
+		\lambda_{m}^{h} & \leq & \frac{\lambda_{m}}{\mu_{m}^{h}}\\
+		\lambda_{m}^{h}\mu_{m}^{h}& \leq & \lambda_{m} \\
+		-\lambda_{m}& \leq & -\lambda_{m}^{h}\mu_{m}^{h} \\
+		\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h} -\lambda_{m}^{h}\mu_{m}^{h}\\
+		\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h}\sigma_{m}^{h}
+		\end{eqnarray*}
+\end{proof}
 
-\begin{comment}
-\textbf{Proof:}
-\begin{eqnarray*}
-\lambda_{m}^{h} & \leq & \frac{\lambda_{m}}{\mu_{m}^{h}} \ \ \textrm { (by Lemma 7.1)} \\
-\lambda_{m}^{h}\mu_{m}^{h}& \leq & \lambda_{m} \\
--\lambda_{m}& \leq & -\lambda_{m}^{h}\mu_{m}^{h} \\
-\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h} -\lambda_{m}^{h}\mu_{m}^{h}\\
-\lambda_{m}^{h} -\lambda_{m}& \leq & \lambda_{m}^{h}\sigma_{m}^{h}
-\end{eqnarray*}\qed
-
-
-So from this Corollary 7.1, we see that to prove that our approximate eigenvalues converge to the exact eigenvalues. The only thing then left to prove is  that $\sigma_{m}^{h} \rightarrow 0$ as $h \rightarrow 0$.\\
-\\
-
-
-\textbf{Proposition 7.1} $\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \}$\\
+This corollary give a error estimate for the eigenvalues. To prove the convergence of the eigenvalues, it is necessary to prove that the error estimate $\sigma_{m}^{h}$ converges to zero as $h \rightarrow 0$.\\
 
 
-\textbf{Proof:}  Let $u \in B_{m}$. Then
-\begin{eqnarray*}
-||u - Pu||^{2} &=& ( u - Pu, u - Pu ) \\
-				&=& ( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ) \\
-				&=& 2( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ) - ( u, u )\\
-				&=& 2( u, u - Pu ) + ( Pu, Pu ) - ( u, u )\\
-( u, u ) - ( Pu, Pu )  & = & 2( u, u - Pu ) - ||u - Pu||^{2}	
-\end{eqnarray*}
-Now since $u \in B_{m}$, $<u,u> = 1$. So we have
-\begin{eqnarray*}
-1 - ||Pu||^{2}  & = & 2( u, u - Pu ) - ||u - Pu||^{2}	
-\end{eqnarray*}
-Now the right hand side, $1 - ||Pu||^{2} \leq 1 - \mu_{m}^{h} = \sigma_{m}^{h}$ for all $u \in B_{m}$. So then we must have that
-\begin{eqnarray*}
-\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \}
-\end{eqnarray*}\qed
-\end{comment}
+\newtheorem{Prop_3}[Prop_1]{Proposition} \label{Prop_3}
+\begin{Prop_3}
+	$\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right\}$
+\end{Prop_3}
+\begin{proof}
+	Let $u \in B_{m}$. Then
+	\begin{eqnarray*}
+		||u - Pu||^{2} &=& ( u - Pu, u - Pu ), \\
+						&=& ( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ), \\
+						&=& 2( u, u ) - 2 ( u, Pu ) + ( Pu, Pu ) - ( u, u ),\\
+						&=& 2( u, u - Pu ) + ( Pu, Pu ) - ( u, u ).\\
+	\end{eqnarray*}
+	Rewriting gives
+	\begin{eqnarray*}
+		( u, u ) - ( Pu, Pu )  & = & 2( u, u - Pu ) - ||u - Pu||^{2}.
+	\end{eqnarray*}
 
-Next we introduce some new notation to ease the writing. For any $u \in E_{m}$, let $u^{*} = \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}$ where $u = \sum_{i=1}^{m} c_{i}u_{i}$.\\
+	Since $u \in B_{m}$, $||u||^{2} = 1$. So then
+	\begin{eqnarray*}
+		1 - ||Pu||^{2}  & = & 2( u, u - Pu ) - ||u - Pu||^{2}.
+	\end{eqnarray*}
 
-%\newpage
+	On the right hand side, $1 - ||Pu||^{2} \leq 1 - \mu_{m}^{h} = \sigma_{m}^{h}$ for all $u \in B_{m}$. So then it must be that
+	\begin{eqnarray*}
+	\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \}
+	\end{eqnarray*}
+\end{proof}
 
-\textbf{Proposition 7.3:} For any $u \in E_{m}$
-\begin{eqnarray*}
-( u, u - Pu ) = b(u^{*} - Pu^{*}, u -Pu)
-\end{eqnarray*}
+Proposition \ref{Prop_3} is a result given in \cite{SF73} without explaining how it is derived.\\
 
-\begin{comment}
-\textbf{Proof:} For any $i = 1,2,...,m$, we have that
-\begin{eqnarray*}
-\lambda_{i}( u_{i},u-Pu ) &=&  b(u_{i}, u-Pu)\\
-									&=& b(u_{i}, u-Pu) - b(u-Pu,Pu_{i}) \ \textrm{ (by definition of Rayleigh-Ritz Projection)}\\
-									&=&  b(u_{i}, u-Pu) - b(Pu_{i},u-Pu)\\
-									&=&  b(u_{i}-Pu_{i}, u-Pu)
-\end{eqnarray*}
-So multiplying by $c_{i}\lambda_{i}^{-1}$ and summation over i gives:
-\begin{eqnarray*}
-\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}\lambda_{i}( u_{i},u-Pu ) &=& \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}b(u_{i}-Pu_{i}, u-Pu)\\
-									&=& b(\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}-\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}Pu_{i}, u-Pu)\\
-									&=& b(u^{*}-Pu^{*}, u-Pu)
-\end{eqnarray*}
-So $( u,u-Pu ) = b(u^{*}-Pu^{*}, u-Pu)$.\qed\\
-\end{comment}
+Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{*} = \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}$ where $u = \sum_{i=1}^{m} c_{i}u_{i}$.\\
 
-\textbf{Lemma 7.2:} $\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$\\
-
-\begin{comment}
-\textbf{Proof:} From Proposition 7.1, we have
-\begin{eqnarray*}
-\sigma_{m}^{h} &=& \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right \} \\
-				&\leq & \max\left\{ 2( u,u-Pu ) \ | \ u \in B_{m} \right \}
-\end{eqnarray*} since $||u-Pu||^{2} \geq 0$.\\
-\end{comment}
-
-Using Proposition 7.3
-\begin{eqnarray*}
-\sigma_{m}^{h} &\leq & \max\left\{ 2b(u^{*} - Pu^{*}, u -Pu) \ | \ u \in B_{m} \right \}			
-\end{eqnarray*}
-Now
-\begin{eqnarray*}
-b(u^{*} - Pu^{*}, u -Pu) & \leq & ||u^{*} - Pu^{*}||||u -Pu|| \ \textrm{ (Schwartz inequality)} \\
-\end{eqnarray*}
-Thus  $\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$. \qed
-
-%\newpage
-
-\textbf{Proposition 7.3:} For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
-\begin{eqnarray*}
-||u^{*} - Pu^{*}|| < \epsilon \ \textrm{ for each } u \in B_{m}\\
-||u - Pu|| < \epsilon \ \textrm{ for each } u \in B_{m}
-\end{eqnarray*}
-
-\begin{comment}
-\textbf{Proof:}
-Suppose we have a set of basis functions $\Phi \subset S^{h}$ such that each element in $\Phi$ has order k, i.e. for each $v \in \Phi$, $v^{(k)} = 0$. Now from the definition of the Rayleigh-Ritz Projection, we have that $Pu$ is the closest element in $S^{h}$ to $u$. In particular, $||u-Pu||\leq ||u-\Pi u||$, where $\Pi u$ is the interpolant of $u$ into $S^{h}$.\\
+\newtheorem{Prop_4}[Prop_1]{Proposition} \label{Prop_4}
+\begin{Prop_4}
+	For any $u \in E_{m}$
+		\begin{eqnarray*}
+		( u, u - Pu ) = b(u^{*} - Pu^{*}, u -Pu)
+		\end{eqnarray*}
+\end{Prop_4}
+\begin{proof}
+	For any $i = 1,2,...,m$,
+	\begin{eqnarray*}
+	\lambda_{i}( u_{i},u-Pu ) &=&  b(u_{i}, u-Pu),\\
+								&=& b(u_{i}, u-Pu) - b(u-Pu,Pu_{i}) \ \textrm{ (Rayleigh-Ritz Projection)},\\
+								&=&  b(u_{i}, u-Pu) - b(Pu_{i},u-Pu),\\
+								&=&  b(u_{i}-Pu_{i}, u-Pu).
+	\end{eqnarray*}
+	Multiplying by $c_{i}\lambda_{i}^{-1}$ and summation over i gives:
+	\begin{eqnarray*}
+	\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}\lambda_{i}( u_{i},u-Pu ) &=& \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}b(u_{i}-Pu_{i}, u-Pu),\\
+								&=& b(\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}-\sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}Pu_{i}, u-Pu),\\
+										&=& b(u^{*}-Pu^{*}, u-Pu).
+	\end{eqnarray*}
+	Therefore $( u,u-Pu ) = b(u^{*}-Pu^{*}, u-Pu)$.
+\end{proof}
 
 
-Now from, we use the Approximation Theorem, so that we have
-\begin{eqnarray*}
-||u - \Pi u|| \leq Ch^{k}||u^{(k)}||
-\end{eqnarray*}
-So for any $\epsilon > 0$, we can find a $\delta$ such that if $h<\delta$ then
-\begin{eqnarray*}
-||u - Pu|| \leq ||u - \Pi u|| \leq \epsilon
-\end{eqnarray*}
-A similar argument for $||u^{*} - Pu^{*}||$ proves the theorem.
-\qed
-\\
-\end{comment}
+\newtheorem{Lem_2}[Lem_1]{Lemma} \label{Lem_2}
+\begin{Lem_2}
+	$\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$
+\end{Lem_2}
+\begin{proof}
+	From Proposition \ref{Prop_3},
+	\begin{eqnarray*}
+		\sigma_{m}^{h} & = & \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right\}, \\
+					& \leq & \max\left\{ 2( u,u-Pu ) \ | \ u \in B_{m} \right\}. \\
+	\end{eqnarray*}
 
-\textbf{Lemma 7.4:} For any $\epsilon >0$ there exists a $\delta > 0$ such that
-\begin{eqnarray*}
-\sigma_{m}^{h} < \epsilon \ \textrm{ if } \ h < \delta
-\end{eqnarray*}
+	From Proposition \ref{Prop_4}, 
+	\begin{eqnarray*}
+		\sigma_{m}^{h} = \max\left\{ 2 b(u^{*}-Pu^{*}, u-Pu) \ | \ u \in B_{m} \right\}.
+	\end{eqnarray*}
 
-\begin{comment}
-\textbf{Proof:} For any $\epsilon > 0$ there exists a $\delta > 0$ such that if $h<\delta$, then
-\begin{eqnarray*}
-||u-Pu|| < \epsilon \ \textrm{ for each } \ u \in B_{m}
-\end{eqnarray*}
-This, together with Lemma 7.2 and Proposition 7.4 gives the result.\qed\\
-\end{comment}
+	Using the Schwartz inequality,
+	\begin{eqnarray*}
+		b(u^{*} - Pu^{*}, u -Pu) & \leq & ||u^{*} - Pu^{*}||||u -Pu||.
+	\end{eqnarray*}
 
-\textbf{Lemma 7.5:} There exists a $\delta > 0$ such that for $h < \delta$
-\begin{eqnarray*}
-\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}
-\end{eqnarray*}
+	Finally,
+	\begin{eqnarray*}
+		\sigma_{m}^{h} & \leq & \max\left\{ 2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}.
+	\end{eqnarray*}
+\end{proof}
 
-\begin{comment}
-\textbf{Proof:}
-Using Lemma 7.4, choose $\delta$ such that $\sigma_{m}^{h} < \frac{1}{2}$. Then by Lemma 7.1 gives that $\lambda_{m}^{h} < 2\lambda_{m}$. So we have that
-$\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}$.
-\qed
-\end{comment}
+\newtheorem{Prop_5}[Prop_1]{Proposition} \label{Prop_5}
+\begin{Prop_5}
+	For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
+	\begin{eqnarray*}
+	||u^{*} - Pu^{*}|| < \epsilon \ \textrm{ for each } u \in B_{m}\\
+	||u - Pu|| < \epsilon \ \textrm{ for each } u \in B_{m}
+	\end{eqnarray*}
+\end{Prop_5}
+\begin{proof}
+	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.\\ 
+
+	From the Rayleigh-Ritz Projection, $Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||\leq ||u-\Pi u||$, where $\Pi u$ is the interpolation of $u$ into $S^h$.\\
+	
+	From the Approximation Theorem, is follows that
+	\begin{eqnarray*}
+		||u - \Pi u|| \leq Ch^{k}||u^{(k)}||
+	\end{eqnarray*}
+
+	So for any $\epsilon > 0$, a $\delta$ can be found such that if $h<\delta$ then
+	\begin{eqnarray*}
+		||u - Pu|| \leq ||u - \Pi u|| \leq \epsilon
+	\end{eqnarray*}
+	A similar argument for $||u^{*} - Pu^{*}||$ proves the theorem.
+\end{proof}
+
+
+\newtheorem{Lem_3}[Lem_1]{Lemma} \label{Lem_3}
+\begin{Lem_3}
+	For any $\epsilon >0$ there exists a $\delta > 0$ such that
+	\begin{eqnarray*}
+	\sigma_{m}^{h} < \epsilon \ \textrm{ if } \ h < \delta
+	\end{eqnarray*}
+\end{Lem_3}
+\begin{proof}
+	For any $\epsilon > 0$ there exists a $\delta > 0$ such that if $h<\delta$, then
+	\begin{eqnarray*}
+	||u-Pu|| < \epsilon \ \textrm{ for each } \ u \in B_{m}
+	\end{eqnarray*}
+	This result, together with Lemma \ref{Lem_2} and Proposition \ref{Prop_5} gives the result.
+\end{proof}
+
+\newtheorem{Lem_4}[Lem_1]{Lemma} \label{Lem_4}
+\begin{Lem_4}
+	There exists a $\delta > 0$ such that for $h < \delta$
+	\begin{eqnarray*}
+	\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}
+	\end{eqnarray*}
+\end{Lem_4}
+\begin{proof}
+	Using Lemma \ref{Lem_3}, choose $\delta$ such that $\sigma_{m}^{h} < \frac{1}{2}$. Then by Lemma \ref{Lem_1} gives that $\lambda_{m}^{h} < 2\lambda_{m}$.\\
+	
+	So $\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}$.
+\end{proof}
+
+The convergence of the eigenvalues are now proved.\\
 
 \subsection{Convergence of the eigenfunctions}
-So from Lemma 7.4, it is that if $h \rightarrow 0$, we will get convergence in the eigenvalues. The next step is now to use this, to show convergence in the eigenvectors.\\
+The next step is to show the convergence of the eigenfunctions. First consider the following result.
 
+\newtheorem{Lem_5}[Lem_1]{Lemma} \label{Lem_5}
+\begin{Lem_5}
+	\begin{eqnarray*}
+		b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h} ) + \lambda_{m}^{h} - \lambda_{m}
+		\end{eqnarray*}
+\end{Lem_5}
+\begin{proof}
+	\begin{eqnarray*}
+		b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& b(u_{m},u_{m}) - 2b(u_{m},u^{h}_{m}) + b(u^{h}_{m},u^{h}_{m}) \\
+										&=& \lambda_{m} ( u_{m}, u_{m} ) - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h}( u_{m}^{h},u_{m}^{h} )\\
+										&=&  \lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} \\
+										&=& 2\lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} - \lambda_{m}\\
+										&=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) + \lambda_{m}^{h} - \lambda_{m}
+		\end{eqnarray*}
+\end{proof}
 
-\textbf{Lemma 7.6:}
-\begin{eqnarray*}
-b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h} ) + \lambda_{m}^{h} - \lambda_{m}
-\end{eqnarray*}
+It has been shown that the eigenvalues converge to the exact eigenvalues as $h \rightarrow 0$. So from this result, it only remains to show that $( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) \rightarrow 0$ as $h \rightarrow 0$.\\
 
-\begin{comment}
-\textbf{Proof:}
-\begin{eqnarray*}
-b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& b(u_{m},u_{m}) - 2b(u_{m},u^{h}_{m}) + b(u^{h}_{m},u^{h}_{m}) \\
-								&=& \lambda_{m} ( u_{m}, u_{m} ) - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h}( u_{m}^{h},u_{m}^{h} )\\
-								&=&  \lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} \\
-								&=& 2\lambda_{m} - 2\lambda_{m} ( u_{m}, u^{h}_{m} ) + \lambda_{m}^{h} - \lambda_{m}\\
-								&=& \lambda_{m}( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) + \lambda_{m}^{h} - \lambda_{m}
-\end{eqnarray*}
-\qed
-\end{comment}
+At this point, another assumption must be made. Assume that there are not eigenvalues with multiplicity more than 1. In other words, all the eigenvalues correspond only to one eigenfunction. In \cite{SF73}, the authors mention that for repeated eigenvalues, then the eigenfunctions can be chosen so that the main convergence results hold. This case is ommited in this dissertation.\\
 
-We have already shown that $\lambda_{m}^{h} \rightarrow \lambda_{m}$. So it remains only to show that $( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) \rightarrow 0$ as $h \rightarrow 0$
+\newtheorem{Lem_6}[Lem_1]{Lemma} \label{Lem_6}
+\begin{Lem_6}
+	For all m and j
+	\begin{eqnarray*}
+	(\lambda_{j}^{h} - \lambda_{m}) ( Pu_{m}, u_{j}^{h}) = \lambda_{m} ( u_{m}-Pu_{m},u_{j}^{h} )
+	\end{eqnarray*}
+\end{Lem_6}
+\begin{proof}
+	Since the term $\lambda_{m}( Pu,u^{h}_{j})$ appears on both sides of the equation, it is only required to show that
+	\begin{eqnarray*}
+		\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& \lambda_{m} ( u, u_{j}^{h} ).	
+	\end{eqnarray*}
+	Since both $u$ and $u_{j}^{h}$ are eigenfunctions, then
+	\begin{eqnarray*}
+		\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& b(Pu,u_{j}^{h})\\
+		\lambda_{m} ( u, u_{j}^{h} ) &=& b(u,u_{j}^{h})
+	\end{eqnarray*}
 
+	Then equality follows from the definitions of the projection P.
+\end{proof}
 
-Now we have the possibility that an eigenvalue, say $\lambda_{m}$ has multiplicity $r>1$. This implies that there are at least two eigenfunctions that correspond to this eigenvalue.\\
-
-The Euler-Bernoulli beam however, only has a repeated eigenvalue if we consider the free-free boundary conditions. Then the beam would have a zero eigenvalue with multiplicity more than 1. Our model, however, does not have repeated eigenvalues. So we may assume that all the eigenvalues has multiplicity $r=1$.\\
-
-
-\textbf{Lemma 7.7:} For all m and j
-\begin{eqnarray*}
-(\lambda_{j}^{h} - \lambda_{m}) ( Pu_{m}, u_{j}^{h}) = \lambda_{m} ( u_{m}-Pu_{m},u_{j}^{h} )
-\end{eqnarray*}
-
-\begin{comment}
-\textbf{Proof:}
-Since the term $\lambda_{m}( Pu,u^{h}_{j})$ appears on both sides of the equation, it is only required to show that
-\begin{eqnarray*}
-\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& \lambda_{m} ( u, u_{j}^{h} )
-\end{eqnarray*}
-Now
-\begin{eqnarray*}
-\lambda_{j}^{h}( Pu, u_{j}^{h} ) &=& b(Pu,u_{j}^{h})\\
-\lambda_{m} ( u, u_{j}^{h} ) &=& b(u,u_{j}^{h})
-\end{eqnarray*} Since $u$ and $u_{j}^{h}$ are both eigenfunctions.\\
-
-
-Then equality follows from the definitions of the projection P.
-\qed
-\end{comment}
-
-The set $\left\{u_{1}^{h},u_{2}^{h},...,u_{N}^{h}\right\}$ then forms an orthonormal basis for $S^{h}$. So we can then write a projection $Pu_{m}$ as:
+The set $\left\{u_{1}^{h},u_{2}^{h},...,u_{N}^{h}\right\}$ forms an orthonormal basis for $S^{h}$. The projection $Pu_{m}$ can be written as:
 \begin{eqnarray}
-Pu_{m} &=& \sum_{j=1}^{N} ( P u_{m} ,u_{j}^{h}) u_{j}^{h} \label{CV1}
+	Pu_{m} &=& \sum_{j=1}^{N} ( P u_{m} ,u_{j}^{h}) u_{j}^{h}. \label{CV1}
 \end{eqnarray}
 
 
-From Lemma 7.8, we see that $( P_{m},u_{j}^{h} )$ is small if $\lambda_{m}^{h}$ is not close to $\lambda_{j}$. So then (\ref{CV1}) tells us then that $Pu_{m}$ is close to $u_{m}^{h}$. This will allow us to estimate $Pu_{m} - u_{m}^{h}$.\\
+From Lemma \ref{Lem_6}, it follows that $( P_{m},u_{j}^{h} )$ is small if $\lambda_{m}^{h}$ is not close to $\lambda_{j}$. Therefore (\ref{CV1}) tells us that $Pu_{m}$ is close to $u_{m}^{h}$. The estimate for $Pu_{m} - u_{m}^{h}$ will follow from this result.\\
 
 
-Since we have convergence in our eigenvalues, it follows that $\exists \rho > 0$ and $\exists \delta > 0$ such that if $h<\delta$ we have that
+Following the convergence of the eigenvalues, $\exists \rho > 0$ and $\exists \delta > 0$ such that if $h<\delta$,
 \begin{eqnarray}
-|\lambda_{m} - \lambda_{j}^{h}| &>& \rho \ \ \textrm{ for all } \ j = 1,2,...,N
+|\lambda_{m} - \lambda_{j}^{h}| &>& \rho \ \ \textrm{ for all } \ j = 1,2,...,N.
 \end{eqnarray}
 Therefore
 \begin{eqnarray}
-\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|} &\leq & \rho \ \ \textrm{ for all } \ j = 1,2,...,N
+\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|} &\leq & \rho \ \ \textrm{ for all } \ j = 1,2,...,N.
 \end{eqnarray}
 
+\newtheorem{Lem_7}[Lem_1]{Lemma} \label{Lem_7}
+\begin{Lem_7}
+	\begin{eqnarray*}
+		||Pu - QPu||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
+	\end{eqnarray*}
+\end{Lem_7}
+\begin{proof}
 
-\textbf{Lemma 7.8:}
+Using Lemma \ref{Lem_6}:
 \begin{eqnarray*}
-||Pu - QPu||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
+||Pu - \beta u_{m}^{h}||^{2} &=& \sum_{j\neq m} \left(\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|}\right)^{2} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2},\\
+				&\leq & \rho^{2} \sum_{j\neq m} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}, \\
+				&\leq & \rho^{2} \sum_{j=1}^{N} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}, \\
+				& = & \rho^{2} ||u - Pu||^{2}.\\
 \end{eqnarray*}
-
-\begin{comment}
-\textbf{Proof:}
-
-Now using Lemma 7.7:
-\begin{eqnarray*}
-||Pu - \beta u_{m}^{h}||^{2} &=& \sum_{j\neq m} \left(\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|}\right)^{2} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}\\
-				&\leq & \rho^{2} \sum_{j\neq m} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2} \\
-				&\leq & \rho^{2} \sum_{j=1}^{N} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2} \\
-				& = & \rho^{2} ||u - Pu||^{2}\\
-\end{eqnarray*}
-\qed
-\end{comment}
-
-\textbf{Lemma 7.9:}
-\begin{eqnarray*}
-||u_{m} - \beta u_{m}^{h}|| &\leq & \left(1+\rho\right)||u_{m}-Pu_{m}||
-\end{eqnarray*}
-
-\begin{comment}
-\textbf{Proof:}
-\begin{eqnarray*}
-||u_{m} - \beta u_{m}^{h}|| & \leq & ||u_{m}-Pu_{m}|| + ||Pu_{m} - \beta u_{m}^{h}|| \\
-			& \leq & \left(1+\rho\right)||u_{m}-Pu_{m}|| \ \ \textrm{ (by Lemma 7.8)}
-\end{eqnarray*}
-\qed
-\end{comment}
+\end{proof}
 
 
+\newtheorem{Lem_8}[Lem_1]{Lemma} \label{Lem_8}
+\begin{Lem_8}
+	\begin{eqnarray*}
+		||u_{m} - \beta u_{m}^{h}|| &\leq & \left(1+\rho\right)||u_{m}-Pu_{m}||
+	\end{eqnarray*}
+\end{Lem_8}
+\begin{proof}
+	\begin{eqnarray*}
+	||u_{m} - \beta u_{m}^{h}|| & \leq & ||u_{m}-Pu_{m}|| + ||Pu_{m} - \beta u_{m}^{h}|| \\
+				& \leq & \left(1+\rho\right)||u_{m}-Pu_{m}|| \ \ \textrm{ (by Lemma \ref{Lem_7})}
+	\end{eqnarray*}
+\end{proof}
 
-So again using the Approximation Theorem, we have that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.\\
-
-
-\textbf{Proposition 7.4:}
-\begin{eqnarray*}
-||u_{m} -  u_{m}^{h}|| &\leq & 2||u_{m}-\beta u^{h}_{m}||
-\end{eqnarray*}
-
-\begin{comment}
-\textbf{Proof:}
-\begin{eqnarray*}
-||u_{m} - u_{m}^{h}|| &=& ||u_{m} - \beta u_{m}^{h} + \beta u_{m}^{h} - u_{m}^{h}|| \\
-					& \leq & ||u_{m} - \beta u_{m}^{h}|| + ||\beta u_{m}^{h} - u_{m}^{h}|| \\
-					& = & 2||u_{m} - \beta u_{m}^{h}||	
-\end{eqnarray*}
-\qed
-\end{comment}
-
-Therefore we have that $||u_{m} -  u_{m}^{h}|| \leq Ch^{k}||u^{k}||$. So for any $\epsilon >0$ , we can find a $\delta >0$ so that if $h < \delta$, we have that $||u_{m} -  u_{m}^{h}|| < \epsilon$.
-
-Finally, for elastic beam models like the Euler-Bernoulli beam model, the norm $||.||$ is the energy norm defined as
-\begin{eqnarray*}
-||u|| &=& \left(\int u^{2}\right)^{\frac{1}{2}}
-\end{eqnarray*}
+So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.\\
 
 
-So clearly then we have that $u_{m}^{h} \rightarrow u_{m}$ as $h \rightarrow 0$.
+\newtheorem{Lem_9}[Lem_1]{Lemma} \label{Lem_9}
+\begin{Lem_9}
+	\begin{eqnarray*}
+		||u_{m} -  u_{m}^{h}|| &\leq & 2||u_{m}-\beta u^{h}_{m}||
+	\end{eqnarray*}
+\end{Lem_9}
+\begin{proof}
+	\begin{eqnarray*}
+	||u_{m} - u_{m}^{h}|| &=& ||u_{m} - \beta u_{m}^{h} + \beta u_{m}^{h} - u_{m}^{h}||, \\
+						& \leq & ||u_{m} - \beta u_{m}^{h}|| + ||\beta u_{m}^{h} - u_{m}^{h}||, \\
+						& = & 2||u_{m} - \beta u_{m}^{h}||.	
+	\end{eqnarray*}
+\end{proof}
 
-\section{Example}
-What moet hier kom?\\
-
-dalk timoshenko beam sal beter wees met plaat of 2d model.\\
-
-Consider a variational problem for a cantilever two-dimensional beam, with a reference configuration $\Omega$. In section \ref{sssec:2D_Model:Problem2D1}, the derivation of this variational problem is referred to as Problem 2D-1V.
-
-\subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1V}
-Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
-\begin{align}
-	\int_{\Omega} (\partial_t^2 u)\cdot \phi \ dA = -b(u,\phi) - \int_{\Omega} Q\cdot\phi \ dA \label{eq:2D_Model:Problem2D1VEq}
-\end{align}
-for all $\phi \in T(\Omega)$.\\
-
-With the test function space defined as
-\subsubsection{Test functions}
-\begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
-\end{eqnarray*}
+Therefore t $||u_{m} -  u_{m}^{h}|| \leq Ch^{k}||u^{k}||$. So for any $\epsilon >0$ , a $\delta >0$ can be found such that if $h < \delta$, $||u_{m} -  u_{m}^{h}|| < \epsilon$.
 
 
-
+******************************\\
+WAT IS N en WAT IS $\beta$?\\
+********************************\\
 
 \subsection{Weak variational form}
 For all $f,g \in T(\Omega)$ and $h \in C(\Omega)$, define the bilinear forms
