@@ -1,9 +1,11 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Convergence of eigenvalues in Finite Element Analysis}
-In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed.\\
+In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for clarity.\\
 
-Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.
+Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.\\
+
+The following eigenvalue is given in \cite{SF73}. It is important to note that the problem is limited to one-dimensional problems.
 
 \subsection{General eigenvalue problem}
 Find a function $u \in H$ and number $\lambda \in \mathcal{R}$ such that
@@ -11,8 +13,8 @@ Find a function $u \in H$ and number $\lambda \in \mathcal{R}$ such that
 	b(u,v) = \lambda (u,v) \label{GEVP}
 \end{equation} for some $v \in V$.
 
-\subsection{Preparatory theory and notation}
-Some theory is required that is presented in \cite{SF73}.\\
+\subsection{Preliminary theory and notation}
+Some theory is required before the main results can be proven. The theory is from \cite{SF73}.\\
 
 \textbf{Rayleigh quotient}
 \begin{equation*}
@@ -30,6 +32,8 @@ If $u \in V$, then $Pu$ is its component in the subspace $S^h$.
 \begin{equation*}
 	b(u-Pu,v^h) = 0 \ \text{ for all } v \in S^h.
 \end{equation*}
+
+\subsubsection{The approximation theorem}
 
 Consider a interpolation operator $\Pi$. This projection is linear, i.e.
 \begin{align*}
@@ -49,7 +53,7 @@ The following notation is introduced.
 	\item[] $s(\Pi_e)$: Is a integer and the largest order derivative used in the definition of $\Pi_e$.
 \end{itemize}
 
-From the textbook \cite{ORXX}, the following approximation for finite elements is given verbatim:
+From the textbook \cite{ORXX}, the following approximation theorem for finite elements is given verbatim:
 \newtheorem*{Interpolation}{Theorem}
 \begin{Interpolation}[The Interpolation Theorem for Finite Elements] 
 	Let $\Omega$ be an open bounded domain in $\mathcal{R}^n$ satisfying the cone condition. Let $k$ be a fixed integer and $m$ an integer such that $0\leq m \leq k+1$. Let $\Pi \in L(H^{k+1}(\Omega), H^{m}(\Omega))$ be such that
@@ -63,7 +67,7 @@ From the textbook \cite{ORXX}, the following approximation for finite elements i
 	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
 \end{Interpolation}
 
-For the requirements of this dissertation, this is too general and can be simplified with assumptions. The first assumption is a reiteration that the eigenvalue problem is one-dimensional. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
+For the requirements of this dissertation, this can be simplified with assumptions. The first assumption is a reiteration that the eigenvalue problem is one-dimensional. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
 \newtheorem{Interpolation_2}{Theorem}
 \begin{Interpolation_2}
 	Suppose there exists an integer $k$ such that for each element
@@ -75,6 +79,10 @@ For the requirements of this dissertation, this is too general and can be simpli
 		||(\Pi u)^(m) - u^(m)|| \leq C h^{k-m} || u^(k)|| \ \text{ for } m = 0,1,...,k.
 	\end{equation*}
 \end{Interpolation_2}
+
+This will be referred to as the approximation theorem in this section.\\
+
+\subsubsection*{Properties of eigenvalues}
 
 It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.\\
 
@@ -361,7 +369,7 @@ Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{
 The convergence of the eigenvalues are now proved.\\
 
 \subsection{Convergence of the eigenfunctions}
-The next step is to show the convergence of the eigenfunctions. First consider the following result.
+The next step is to show the convergence of the eigenfunctions. The problem can be formulated using the following result.
 
 \newtheorem{Lem_5}[Lem_1]{Lemma} \label{Lem_5}
 \begin{Lem_5}
@@ -422,12 +430,15 @@ Therefore
 \frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|} &\leq & \rho \ \ \textrm{ for all } \ j = 1,2,...,N.
 \end{eqnarray}
 
+To simplify the notation, let $\beta = (Pu_m,Pu_m^h)$.
+
 \newtheorem{Lem_7}[Lem_1]{Lemma} \label{Lem_7}
 \begin{Lem_7}
 	\begin{eqnarray*}
-		||Pu - QPu||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
+		||Pu - \beta Pu^h_m||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
 	\end{eqnarray*}
 \end{Lem_7}
+\begin{comment}
 \begin{proof}
 
 Using Lemma \ref{Lem_6}:
@@ -435,10 +446,10 @@ Using Lemma \ref{Lem_6}:
 ||Pu - \beta u_{m}^{h}||^{2} &=& \sum_{j\neq m} \left(\frac{\lambda_{m}}{|\lambda_{m} - \lambda_{j}^{h}|}\right)^{2} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2},\\
 				&\leq & \rho^{2} \sum_{j\neq m} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}, \\
 				&\leq & \rho^{2} \sum_{j=1}^{N} ( u_{m} - Pu_{m} ,u_{j}^{h})^{2}, \\
-				& = & \rho^{2} ||u - Pu||^{2}.\\
+				& = & \rho^{2} ||u_m - Pu_m||^{2}.\\
 \end{eqnarray*}
 \end{proof}
-
+\end{comment}
 
 \newtheorem{Lem_8}[Lem_1]{Lemma} \label{Lem_8}
 \begin{Lem_8}
@@ -446,12 +457,16 @@ Using Lemma \ref{Lem_6}:
 		||u_{m} - \beta u_{m}^{h}|| &\leq & \left(1+\rho\right)||u_{m}-Pu_{m}||
 	\end{eqnarray*}
 \end{Lem_8}
+\begin{comment}
 \begin{proof}
 	\begin{eqnarray*}
 	||u_{m} - \beta u_{m}^{h}|| & \leq & ||u_{m}-Pu_{m}|| + ||Pu_{m} - \beta u_{m}^{h}|| \\
 				& \leq & \left(1+\rho\right)||u_{m}-Pu_{m}|| \ \ \textrm{ (by Lemma \ref{Lem_7})}
 	\end{eqnarray*}
 \end{proof}
+\end{comment}
+
+The proofs for lemma's \ref{Lem_7} and \ref{Lem_8} are given in \cite{SF73}.\\
 
 So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.\\
 
@@ -471,33 +486,4 @@ So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}
 \end{proof}
 
 Therefore t $||u_{m} -  u_{m}^{h}|| \leq Ch^{k}||u^{k}||$. So for any $\epsilon >0$ , a $\delta >0$ can be found such that if $h < \delta$, $||u_{m} -  u_{m}^{h}|| < \epsilon$.
-
-
-******************************\\
-WAT IS N en WAT IS $\beta$?\\
-********************************\\
-
-\subsection{Weak variational form}
-For all $f,g \in T(\Omega)$ and $h \in C(\Omega)$, define the bilinear forms
-\begin{eqnarray*}
-	c(f,g) & = & \iint_\Omega f \cdot g \ dA, \\
-\end{eqnarray*}
-and integral
-\begin{eqnarray*}
-	(h,g) & = & \iint_\Omega h \cdot g \ dA. \\
-\end{eqnarray*}
-Recall from section  that the bilinear form $b$ is defined as
-\begin{eqnarray*}
-	b(u,\phi) & = & \frac{1}{\gamma(1-\nu^2)}\iint_{\Omega} (\partial_1 u_1 \partial_1 \phi_1 + \partial_2 u_2 \partial _2 \phi_2 + \nu\partial_1 u_1 \partial_2\phi_2 + \nu \partial_2 u_2 \partial_1 \phi_1 ) \ dA \\
-	& + & \frac{1}{2\gamma(1+\nu)}\iint_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
-\end{eqnarray*}
-
-Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
-
-\subsubsection{Problem 2D-1W}
-Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, satisfying the following equation
-\begin{eqnarray}
-	c(u''(t),v) + b(u(t),v) & = & (Q(t),v)_X \ \ \ \textrm{ for each } v \in V.
-\end{eqnarray}
-
 \end{document}
