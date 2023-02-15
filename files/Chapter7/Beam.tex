@@ -1,17 +1,17 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Validity of the Timoshenko beam model}
-This section is a literature study of the article \cite{LVV09}. The goal of \cite{LVV09} to show that the one-dimensional Timoshenko beam theory, is a feasible model to use in practical applications of beams. In the real world, a beam is a complex three-dimensional model. Therefore it is important to validate the accuracy of a simlified theory like the Timoshenko beam theory for practical applications.\\
+This section is a literature study of the article \cite{LVV09}. The goal of \cite{LVV09} to show that the one-dimensional Timoshenko beam theory, is a feasible model to use in practical applications of beams. In the real world, a beam is a complex three-dimensional model. So a three-dimensional model would be a good approximation and better than a one-dimensional model. It is therefore important to validate the accuracy of a simlified theory like the Timoshenko beam theory.\\
 
-In mathematical terms, the validity of the Timoshenko beam theory is described as how well the solutions of the Timoshenko beam theory compare to more realistic, higher-dimensional models. It is obvious that a three-dimensional beam model is a better approximation of a real world beam. But the Timoshenko beam theory is less complex and more widely used.\\
+In the article, the authors validate the Timoshenko beam theory by comparing it to a more realistic, two-dimensional model. The authors use a cantilever beam as a model. Although a direct comparison to a three-dimensional beam would be preferred, the authors state that this would introduce complexities. The two-dimensional model is an intermediate step.\\
 
-The authors of \cite{LVV09} use a two-dimensional cantilever beam, to validate the use of a cantilever Timoshenko beam for practical importance. Although a direct comparison to a three-dimensional beam would be preferred, the authors state that this would introduce complexities. A two-dimensional model is therefore used as an intermediate step.\\
-
-Where \cite{LVV09} differs from most other research, is that the boundary conditions are also taken into consideration.\\
+Where \cite{LVV09} differs from most other research into the validity of the Timoshenko beam theory, is that the boundary conditions are also taken into consideration.\\
 
 To compare the two models, the authors compare the natural frequencies of the models. From modal analysis, it is known that a solution of a second order hyperbolic type problem is a linear combination of the eigenvalues and eigenfunctions of the model. Therefore it is sufficient to compare the eigenvalues and eigenfunctions to compare the solutions and comment on the validity of the models.\\
 
 \subsection{The models}
+In the article, the authors use a cantilever configuration for the two models. Therefore the models presented here are also cantilever models.\\
+
 Recall the cantilever Timoshenko beam model from section \ref{ssec:1D_Model:ModelProblems}, referred to as Problem T-2 and the cantilever two-dimensional beam model from section \ref{ssec:2D_Model:ModelProblem}, referred to as Problem 2D-1. In \cite{LVV09} it is assumed that the beams have a rectangular cross-section.\\
 
 Figure 6.1 shows the two beams side-by-side.
@@ -97,7 +97,7 @@ Figure 6.1 shows the two beams side-by-side.
 	}
 \end{figure}
 
-In Chapter 1, the following parameters were established. The parameter $h$ is the height of the two-dimensional beam and for the Timoshenko dimensionless constant $\displaystyle \alpha = \frac{A \ell^2}{I}$ was found.\\
+In Chapter 1, the following parameters were defined. The parameter $h$ is the height of the two-dimensional beam and for the Timoshenko dimensionless constant $\displaystyle \alpha = \frac{A \ell^2}{I}$ was found.\\
 
 For the Timoshenko beam model with a rectangular cross-section, the area moment of inertial is calculated as
 \begin{eqnarray*}
@@ -125,6 +125,48 @@ A different approach is needed for the two-dimensional beam. In section \ref{sec
 		}
 	\end{center}	
 \end{figure}
+
+\begin{tikzpicture}
+\begin{axis}[width=0.9\textwidth,
+			 xlabel=Iteration Number,
+			 ylabel=Error,
+			 ymode=log,
+			 legend pos=south east]
+\addplot[color=blue, mark=o] coordinates {
+    (1,0.1)
+    (2,0.05)
+    (3,0.01)
+    (4,0.005)
+};
+\addlegendentry{$h=1/5$}
+
+\addplot[color=red, mark=o] coordinates {
+    (1,0.2)
+    (2,0.1)
+    (3,0.05)
+    (4,0.02)
+};
+\addlegendentry{$h=1/10$}
+
+\addplot[color=green, mark=o] coordinates {
+    (1,0.2)
+    (2,0.1)
+    (3,0.05)
+    (4,0.02)
+};
+\addlegendentry{$h=1/20$}
+
+\addplot[color=black, mark=o] coordinates {
+    (1,0.3)
+    (2,0.3)
+    (3,0.03)
+    (4,0.03)
+};
+\addlegendentry{$h=1/30$}
+
+\end{axis}
+\end{tikzpicture}
+
 
 Figure \ref{fig:conv} show the maximum relative error of the first 10 eigenvalues of the two-dimensional beam. In \cite{LVV09}, the authors use a grid size of $40 \times 10$ with $h= 1/10$ (or $\alpha = 1200$) and $h = 1/5$ (or $\alpha = 300$).\\
 
@@ -340,13 +382,11 @@ Overall, the relevant conclusions of \cite{LVV09} is verified. For practical app
  The short comings of \cite{LVV09} is that damping is not considered. This is mentioned by the authors of \cite{LVV09}, but will not be addressed in this dissertation. Further work is to extend \cite{LVV09} to a three-dimensional comparison. This is investigated further in this chapter.\\
 
 \section{Validity of the two-dimensional elastic model}
-In this section, the validity of a two-dimensional cantilever beam is investigated. This is a natural extension of the work in \cite{LVV09}. The authors mentioned this.\\
+In this section, the validity of a two-dimensional cantilever beam is investigated. This is an extension of the work in \cite{LVV09}, as mentioned in the article.\\
 
-The model that will be considered is the two-dimensional elastic body defined in Chapter 1. The investigation will focus on the results relating to beam type problems.
+As explained before, the two-dimensional model is used as a intermediate step between the Timoshenko and three-dimensional beam. The same method as in \cite{LVV09} will be used to investigate the validity of the two-dimensional model.\\
 
-
-
-and eigenfunctions of the models to determine the validity of the two-dimensional model. This investigation remains focussed on beam type problems.
+The models for the two-dimensional and three-dimensional beams are defined in section \ref{ssec:2D_Model:ModelProblem} and \ref{ssec:3D_Model:ModelProblems} respectively. These models are elastic bodies and not specifically beam models. Therefore it is expected to find eigenvalue and eigenfunction pairs that does not relate to beam type problems. This was already seen with the two-dimensional model in the previous section. These not beam type eigenvalues are calculated in this section, however the focus still remains on beam type problems.\\
 
 \subsection{The models}
 Recall a cantilever two-dimensional beam, referred to as Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem} and a cantilever three-dimensional beam, referred to as Problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.\\
@@ -451,17 +491,59 @@ Figure \ref{fig:2Dv3D} shows the two beams side-by-side.
 \end{figure}
 \FloatBarrier
 
-For both models the parameter $h$ represents the width of the beams. The three-dimensional model also have depth $b$. Intuitively, the two-dimensional beam should compare well the the three-dimensional beam if $b$ is small.
+For both models the parameter $h$ represents the width of the beams. The three-dimensional model also have depth $b$. Intuitively, from the figure, the two-dimensional beam should compare better to the three-dimensional beam for smaller $b$.
 
 \subsection{Accuracy of the numerical eigenvalues}
-In the previous section, the accuracy of the two-dimensional beam's eigenvalues were investigated. This can be done similarly for the three-dimensional beam. The eigenvalues are also calculated using the Finite Element Method. Using piecewise tri-cubic basis functions, the following results were obtained.\\
+Similar to how the eigenvalues and eigenfunctions of the two-dimensional model calculated in the previous section, the eigenvalues and eigenfunctions can be calculated for the three-dimensional model. The numerical formula to calculate the eigenvalues and eigenfunctions are derived in section \ref{sec:FEM:3D}.\\
 
-For different values of $h$ and $b$, the first 30 eigenvalues are calculated with increasing grid sizes. The maximum relative error between the sets of eigenvalues are then calculated and graphed.\\
+Using piecewise tri-cubic basis functions, the following results were obtained.\\
 
-****************INSERT GRAPHIC**************\\
+\begin{tikzpicture}
+	\begin{axis}[width=0.9\textwidth,
+				 xlabel=Iteration Number,
+				 ylabel=Error,
+				 ymode=log,
+				 legend pos=south east]
+	\addplot[color=blue, mark=o] coordinates {
+		(1,0.1)
+		(2,0.05)
+		(3,0.01)
+		(4,0.005)
+	};
+	\addlegendentry{$h=1/5$}
+	
+	\addplot[color=red, mark=o] coordinates {
+		(1,0.2)
+		(2,0.1)
+		(3,0.05)
+		(4,0.02)
+	};
+	\addlegendentry{$h=1/10$}
+	
+	\addplot[color=green, mark=o] coordinates {
+		(1,0.2)
+		(2,0.1)
+		(3,0.05)
+		(4,0.02)
+	};
+	\addlegendentry{$h=1/20$}
+	
+	\addplot[color=black, mark=o] coordinates {
+		(1,0.3)
+		(2,0.3)
+		(3,0.03)
+		(4,0.03)
+	};
+	\addlegendentry{$h=1/30$}
+	
+	\end{axis}
+	\end{tikzpicture}
+
 
 \subsection{Comparing the mode shapes}
-In this section, the mode shapes of the two dimensional and three-dimensional beam are compared. Recall that beam-type eigenvalues are defined by \cite{LVV09} as any eigenvalue for which it's corresponding mode shape is similar to the mode shapes obtained in the Timoshenko beam theory.
+Identical to the method used in \cite{LVV09} and the previous section, the eigenvalues of the two models can be matched by comparing the mode shapes. As mentioned earlier, it is expected that there will be mode shapes not related to beam type problems, and also mode shapes that the three-dimensional model do not share with the two-dimensional model.\\
+
+In this section, examples of the different mode shapes are shown. 
 
 \subsubsection{Mode shapes relating to beam type eigenvalues.}
 Figure \ref{fig:beam-2dv3d} show some examples of beam type mode shapes for the displacement $u$.
@@ -533,12 +615,12 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 			\centering
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{3DNonBeam10.png}
-				\subcaption{Non-2D Type - $\lambda_{10} = xx$}
+				\subcaption{Non-2D Type - $\lambda_{10}$}
 				\label{fig:minipage2}
 			\end{minipage}
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{3DNonBeam11.png}
-				\subcaption{Non-2D Type - $\lambda_{11} = xx$}
+				\subcaption{Non-2D Type - $\lambda_{11}$}
 				\label{fig:minipage11}
 			\end{minipage}
 			\caption{Mode shapes of the displacement $w$ with $\alpha = 4800$.}
@@ -550,11 +632,15 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 Figure \ref{fig:minipage11} looks similar to the beam type eigenvalues, however the shape is in the $x-z$ axis.\\
 
 \subsection{Comparing the eigenvalues}
-The eigenvalues can now be compared. In the upcoming tables, the eigenvalues of the two-dimensional beam are compared to the eigenvalues of the three-dimensional beam. For each case of $h$, different values of $b$ are given.\\
+The eigenvalues can now be compared. In the tables of this subsection, the eigenvalues of the two-dimensional beam are compared to the eigenvalues of the three-dimensional beam. Since there are two parameters to consider, $h$ and $b$, only a few cases are considered.\\
 
-Eigenvalues relating to non-beam type eigenvalues that are present in both the two-dimensional and three-dimensional beam, are highlighted in grey. The other non-beam type eigenvalues that are only found in the three-dimensional beam, are omitted from the tables. The original numbering is maintained.\\
+The three-dimensional beam has more eigenvalues than the two-dimensional beam for the range considered in this investigation. Since the interest is in the comparison of the two models, the eigenvalues of the three-dimensional that are not present in the two-dimensional beam are omitted from the tables.\\
 
-The two cases for $h$ are $h = 1/5$ for a short beam and $1/20$ for a slender beam. For now, the investigation is restricted to values where $b \leq h$.
+The eigenvalues for beam type problems, the main focus of this investigation, are highlighted in the tables.\\
+
+The cases considered are similar to the cases in \cite{LVV09}, a short beam and a slender beam. For the short beam, $h = 1/5$ and for the slender beam, $h = 1/20$. The parameter $b$ will be varied to test the accuracy. For now the results are restricted to $b \leq h$. The other cases will be discussed later.\\
+
+\subsubsection*{Case $b < h$:}
 
 \begin{table}[htbp]
 	\scalebox{.8}{
