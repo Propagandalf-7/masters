@@ -1,5 +1,6 @@
 import numpy
 import sympy
+import time
 
 A = sympy.Symbol('A')
 B = sympy.Symbol('B')
@@ -87,6 +88,7 @@ class TimoshenkoBeam(object):
             return L
         
     def determinant(self, L):
+        L = L.simplify()
         return L.det()
             
 class CantileverTimoshenkoBeam(TimoshenkoBeam):
@@ -96,8 +98,13 @@ class CantileverTimoshenkoBeam(TimoshenkoBeam):
         self.p_0 = 0
 
 if __name__ == "__main__":
+    start_time = time.time()
     cantileverbeam = CantileverTimoshenkoBeam(alpha = 1200)
     L = cantileverbeam.calculate_matrix()
-    function = cantileverbeam.determinant(L)
+    L.simplify()
+    #function = cantileverbeam.determinant(L)
+    print('Time taken: ', time.time()-start_time)
+    function = numpy.prod(list(L.eigenvals().keys()))
+    print('Time taken: ', time.time()-start_time)
     print(function)
     
