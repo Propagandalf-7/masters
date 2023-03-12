@@ -1,0 +1,57 @@
+\usepackage[margin=1.5in]{geometry}
+\usepackage{subfiles}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{enumitem}
+\usepackage{kantlipsum,graphicx}
+\usepackage{caption,subcaption}
+\usepackage{multicol,colortbl,multirow}
+\usepackage{pgfplots,booktabs,xfrac,floatrow}
+\usepackage{xcolor,cancel,bm,tikz}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{placeins}
+\usepackage{comment}
+\usepackage[normalem]{ulem}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+
+% Set up hyperref
+\hypersetup{
+  colorlinks=true,
+  allcolors=black,
+  pdftitle={Your Title Here},
+}
+
+% Set up theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Set up equation numbering
+\numberwithin{equation}{section}
+
+% Define custom commands
+\newcommand{\hcancel}[2][black]{%
+  \setbox0=\hbox{$#2$}%
+  \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2%
+}
+
+% Define paired delimiters
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\ang}{\langle}{\rangle}
+
+% Additional packages
+\usepackage{cleveref}
+\usepackage{csquotes}
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
