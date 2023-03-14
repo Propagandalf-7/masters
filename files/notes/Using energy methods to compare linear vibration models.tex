@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{natbib}
+
+
+\begin{document}
+\section*{Using energy methods to compare linear vibration models}
+
+\textbf{Article: CVV18}\\
+
+\subsection*{Notes:}
+
+In section 2.4.2, we have the series solution for a general vibration problem.\\ 
+
+Consider the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
+\begin{eqnarray*}
+	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
+\end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.\\
+
+
+\textbf{Question:} When is the formal series solution valid with the initial conditions \[u(0) = u_0, \quad u'(1) = u_1 ?\]\\
+
+The article CVV18 gives the answer to this question using energy norms. But what do we actually want to prove?\\
+
+We have existence of solutions, but now we need to show that later on in the dissertation, we can compare the eigenvalues and eigenvectors of two different dimensional models (actually to compare the solutions of the two models and determine how `close' they are.).\\
+
+If we can show that the series solution is valid with the initial conditions, then it should be possible to compare the two models. Because given a exact position and force applied, the series solution exists. (The models have been disturbed in the exact same way, and the series-solution is valid for this disturbance, hence they can be compared.)\\
+
+Are we trying to prove that we'll be able to compare two different dimensional models (required later on in the dissertation)?\\
+\end{document}
