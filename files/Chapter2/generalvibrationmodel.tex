@@ -406,7 +406,66 @@ Consider the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
 	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
 \end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.\\
 
-\textbf{Assumption A5} The embedding of $V$ into $W$ is compact.
+\textbf{Assumption A5} The embedding of $V$ into $W$ is compact.\\
+
+
+\textcolor{red}{************************************}\\
+\textcolor{red}{VOORSTEL:}
+
+Consider Problem GVar defined in Section 2.2.\\
+
+Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
+\begin{eqnarray}
+	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V. \label{eq:1D_Model:ModalAnalysisEquation}
+\end{eqnarray}
+
+\textcolor{red}{Following the method of seperation of variables,} $u(t) = T(t)x$ is a solution of the homogeneous problem
+\begin{eqnarray}
+	c(u''(t),v) + b(u(t),v) = 0
+\end{eqnarray}
+if and only if
+\begin{eqnarray}
+	T''  + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
+\end{eqnarray}
+
+\textcolor{red}{A general solution for \eqref{eq:1D_Model:ModalAnalysisT} is} $T(t) = c_1 \sin(\omega t) + c_2 \cos(\omega t)$ with $\omega = \sqrt{\lambda}$.\\
+
+The function $u$ is a natural mode of vibration and $\omega$ natural angular frequency. Natural frequency is $\frac{\omega}{2 \pi}$.\\
+
+From \cite{CVV18}, it follows that a formal series solution for \eqref{eq:1D_Model:ModalAnalysisEquation} can be expressed as
+\begin{eqnarray}
+	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n \label{eq:1D_Model:ModalAnalysisSeriesSolution}
+\end{eqnarray}
+
+The following question is considered: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, consider \cite{CVV18}.\\
+
+\subsubsection{Validity of series solution}
+Consider the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
+\begin{eqnarray*}
+	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
+\end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.\\
+
+In \cite{CVV18}, the validity of the series solution is proved using the energy norms. The energy $\mathcal{E}$ a function $u$ given by
+\begin{eqnarray}
+	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
+\end{eqnarray}
+
+The partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.\\
+
+In \cite{CVV18}, a error function is defined $u^E_N = u - u^N$. Following the initial conditions, $u^E_N = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.\\
+
+Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. In \cite{CVV18} it is proven that $\mathcal{E}(t) \leq \mathcal{E}(0)$. Using this inequality it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W \leq ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
+
+The authors of \cite{CVV18} prove that $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.\\
+
+It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.\\
+
+
+\subsubsection{Comparison of models}
+In a later chapter of this dissertation, different dimensional models are compared with each other. Since the formal series solution is a linear combination of eigenvalues and eigenfunctions, it is only required to compare the eigenvalues and eigenfunctions of the different models.\\
+
+Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for both models, and hence the eigenvalues and eigenfunctions can be used to compare the models.\\
+
 
 \end{document}
 
