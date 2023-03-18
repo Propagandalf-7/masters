@@ -1,89 +1,34 @@
 \documentclass[12pt]{report}
-%\usepackage[margin=1.5in]{geometry}
-%Packages
-\usepackage{subfiles}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{enumitem}
-\usepackage{amsfonts}
-\usepackage{kantlipsum,graphicx}
-\usepackage{graphicx} 
-\usepackage{comment}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{multicol}
-\usepackage{colortbl}
-\usepackage{multirow}
-\usepackage{pgfplots}
-\usepackage{comment}
-\usepackage{booktabs}
-\usepackage{xfrac}
-\usepackage{floatrow}
-\usepackage{placeins}
-\usepackage{multicol}
-\usepackage{xcolor,cancel}
-\usepackage{float}
-\usepackage{bm}
-\usepackage{tikz}
-\usepackage{hyperref}
-\usepackage{flafter}
-\usetikzlibrary{angles}
-\usepackage[export]{adjustbox}
-\hypersetup{
-    colorlinks = true,
-    allcolors = black,
-    pdftitle = {Masters_Rudi}
-}
-\usepackage[normalem]{ulem}
-\setlength\parindent{0pt}
 
-\usepackage[
-backend=biber,
-style=alphabetic,
-]{biblatex}
-
-\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$}%
-\rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2} 
+\input{preamble.tex}
 
 \begin{document}
-\numberwithin{equation}{section}
-  \begin{titlepage}
-    \centering
-    \vspace*{0.3in} 
-    \bgroup
-    \Huge\bfseries Finite element analysis of multi-dimensional and simplified models for beams and plates \par
-    \egroup
-    \vspace{0.5in}
-    \bgroup
-    \Large Rudi du Toit\\[0.1in]
-    \egroup
-    Mathematics and Applied Mathematics \par
-    \vspace{0.5in}
-    \bgroup
-    \Large University of Pretoria\\
-    \vspace{0.2in}
-    \includegraphics[width=6cm]{images/logo-up.jpg}
-    \egroup
-    \par
-    \vspace{0.5in}
-    {\LARGE\bfseries Abstract}
-    \par
-    \vspace{0.1in}
-    \hrule
-    \vspace{0.1in}
-    \begin{minipage}{0.9\textwidth}
-     abstract here
-    \end{minipage}
-    \vspace{0.1in}
-    \hrule
-    \vfill
-    \today
-  \end{titlepage}
-%  \bibliographystyle{plainmma}%{alpha}
-\newpage
+\begin{titlepage}
+  \centering
+  \vspace*{0.3in}
+  {\Huge\bfseries Finite element analysis of multi-dimensional and simplified models for beams and plates\par}
+  \vspace{0.5in}
+  {\Large Rudi du Toit\\[0.1in]}
+  Mathematics and Applied Mathematics\par
+  \vspace{0.5in}
+  {\Large University of Pretoria\\
+    \includegraphics[width=6cm]{images/logo-up.jpg}\par}
+  \vspace{0.5in}
+  {\LARGE\bfseries Abstract\par}
+  \vspace{0.1in}
+  \hrule
+  \vspace{0.1in}
+  \begin{minipage}{0.9\textwidth}
+    Abstract here
+  \end{minipage}
+  \vspace{0.1in}
+  \hrule
+  \vfill
+  \today
+\end{titlepage}
+
 \subfile{summary.tex}
-\newpage
+
 \tableofcontents
 
 \chapter{Comparison of models}
@@ -100,10 +45,9 @@ style=alphabetic,
 \chapter{Finite element theory}
 \subfile{files/Chapter3/dynamicconvergence.tex}
 \subfile{files/Chapter3/femconvergence.tex}
-\
 
 \chapter{Timoshenko beam model}
-\subfile{files/Chapter4/ModalAnalysisTimo.tex} 
+\subfile{files/Chapter4/ModalAnalysisTimo.tex}
 \subfile{files/Chapter4/CantileverBeam.tex}
 \subfile{files/Chapter4/FreeFreeTimo.tex}
 \subfile{files/Chapter4/SuspendedBeamModel.tex}
@@ -123,22 +67,10 @@ style=alphabetic,
 \chapter{Conclusion}
 \subfile{files/Overview.tex}
 
-% \chapter{Conclusion}
-% \subfile{files/Overview.tex}
-
 \printbibliography
-\subfile{References.tex}
 
 \chapter*{Appendix}
 \subfile{AppendixA.tex}
 \subfile{AppendixB.tex}
-
-% \chapter*{Archive}
-% \subfile{files/Introduction.tex}
-% \subfile{files/Archive/Introduction.tex}
-% \subfile{files/Archive/NRF.tex}
-% %\subfile{files/Archive/suspendedbeam.tex}
-% \subfile{files/Archive/ThermoElasticBeam.tex}
-
 
 \end{document}
