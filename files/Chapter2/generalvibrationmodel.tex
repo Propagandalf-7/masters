@@ -320,12 +320,19 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 
 The solution to Problem T-1E is a pair of functions $\langle \tilde{w} \ \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$.\\
 
+Kan sien met substituting, meer 
+
+MODAL solution\\
+
+
 Suppose the function $T$ satisfies the following differential equation
 \begin{eqnarray}
 	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
 \end{eqnarray} with $\lambda$ an eigenvalue.\\
 
-Simple substitution confirms that the trial solution satisfies the partial differential equations and the boundary conditions for Problem T-1.\\
+Simple substitution confirms that the trial solution satisfies the partial differential equations and the boundary conditions for Problem T-1.\\ 
+
+As w en phi kan 2.4.1 en () dan sal .... nie nodig nie. Probeer so ver as moontlik nie seperation of variables gebruik nie. Se eerder oof w en phi is sin en cos\\
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -334,6 +341,9 @@ Corresponding to this sequence of eigenvalues, we have a sequence of solutions $
 (with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.\\
 
 The eigenvalues for the pinned-pinned beam model is the first example in [VV06]. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In [VV06] the authors proved the following theorem.
+
+
+Los voorlopig hier.\\
 
 \newtheorem{ThmVV06}{Theorem}
 \begin{ThmVV06}
@@ -374,9 +384,10 @@ The formal series solution for Problem T-1 is
 
 The article [VV06] provides a rigorous method to solving the eigenvalue problem for Timoshenko beam models of different boundary conditions. This method and examples form [VV06] is discussed in Chapter 4.
 
-\subsection{General vibration problem}
+\subsection{General vibration problem new}
+\subsection{General vibration problem old}
 
-\textcolor{red}{CVV18 moet in die subsection verwys word.}\\
+\textcolor{red}{CVV18 word verwys, kyk onder}\\
 
 Consider Problem GVar in Section 2.2.\\
 
@@ -419,6 +430,7 @@ Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
 	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V. \label{eq:1D_Model:ModalAnalysisEquation}
 \end{eqnarray}
 
+nie seperation of variables nie, eers question dan cvv. Kry modal solutions, kan ons dit nou gebruik om algemene solution te kry?
 \textcolor{red}{Following the method of seperation of variables,} $u(t) = T(t)x$ is a solution of the homogeneous problem
 \begin{eqnarray}
 	c(u''(t),v) + b(u(t),v) = 0
@@ -462,6 +474,9 @@ It follows that the partial series solution converges to the solution $u$ as the
 
 
 \subsubsection{Comparison of models}
+Hele disseratoin gaan oor comparison of models. \\
+
+
 In a later chapter of this dissertation, different dimensional models are compared with each other. Since the formal series solution is a linear combination of eigenvalues and eigenfunctions, it is only required to compare the eigenvalues and eigenfunctions of the different models.\\
 
 Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for both models, and hence the eigenvalues and eigenfunctions can be used to compare the models.\\
