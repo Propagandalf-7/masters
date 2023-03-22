@@ -257,10 +257,15 @@ To prove \textbf{Assumption A3}, some preparation is required. Consider the foll
 	Suppose that $f \in H^1(a,b)$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$.
 \end{Poincare_2}
 \begin{proof}
-	\textcolor{red}{Inlas 41A. Inlas 41B. Theorem 1.}
+	\textcolor{red}{Inlas 41A.}
 \end{proof}
 
+
+\newtheorem{Theorem_1}{Theorem}
+\begin{Theorem_1}
 There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+\end{Theorem_1}
+
 \begin{proof}
 	Let $f \in V$, then $f_1(0) = f_2(0) = 0$. Using the Corollary, and from the definition of the norm $||\cdot||_X$, the following inequality for the norm $||\cdot||_X$ can be obtained.
 	\begin{eqnarray*}
@@ -292,7 +297,7 @@ Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear 
 
 \section{Modal analysis}\label{sec:existence:ModalAnalysis}
 \subsection{Timoshenko beam}
-To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1. \textcolor{red}{******* WHY NOT T-2???}\\
+To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as it is easy to illustrate the idea of modal analysis.\\
 
 Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}).
 \begin{eqnarray*}
@@ -318,21 +323,12 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.\\
 
-The solution to Problem T-1E is a pair of functions $\langle \tilde{w} \ \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$.\\
-
-Kan sien met substituting, meer 
-
-MODAL solution\\
-
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w} \ \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are modal solutions of the differential equations and satisfy the boundary conditions.\\
 
 Suppose the function $T$ satisfies the following differential equation
 \begin{eqnarray}
 	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
 \end{eqnarray} with $\lambda$ an eigenvalue.\\
-
-Simple substitution confirms that the trial solution satisfies the partial differential equations and the boundary conditions for Problem T-1.\\ 
-
-As w en phi kan 2.4.1 en () dan sal .... nie nodig nie. Probeer so ver as moontlik nie seperation of variables gebruik nie. Se eerder oof w en phi is sin en cos\\
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -385,6 +381,16 @@ The formal series solution for Problem T-1 is
 The article [VV06] provides a rigorous method to solving the eigenvalue problem for Timoshenko beam models of different boundary conditions. This method and examples form [VV06] is discussed in Chapter 4.
 
 \subsection{General vibration problem new}
+In the previous section In this subsection, is an investigation of the validity of a series solution for a general vibration problem. Specifically, the validity of the series solution given some initial conditions.\\
+
+Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
+\begin{eqnarray*}
+	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
+\end{eqnarray*}
+
+
+
+
 \subsection{General vibration problem old}
 
 \textcolor{red}{CVV18 word verwys, kyk onder}\\
