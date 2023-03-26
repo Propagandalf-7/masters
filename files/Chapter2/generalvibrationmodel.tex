@@ -257,9 +257,8 @@ To prove \textbf{Assumption A3}, some preparation is required. Consider the foll
 	Suppose that $f \in H^1(a,b)$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$.
 \end{Poincare_2}
 \begin{proof}
-	\textcolor{red}{Inlas 41A.}
+	\textcolor{red}{Inlas 41A. Nie seker wat 41A verwys in die veranderinge nie. Kom die ander deel reg maak}
 \end{proof}
-
 
 \newtheorem{Theorem_1}{Theorem}
 \begin{Theorem_1}
@@ -292,54 +291,81 @@ There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\
 \end{proof}
 
 
-Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear form $a$ is identically zero. As mentioned before, if $a = 0$, the weak damping as well as assumption \textbf{A4} is satisfied. Also, as explained in Section \ref{sec:existence:ExistenceAndUniqueness} the constuction of the operator $A$ is not affected.\\
+Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear form $a$ is identically zero. As mentioned before, if $a = 0$, the weak damping as well as assumption \textbf{A4} is satisfied. Also, as explained in Section \ref{sec:existence:ExistenceAndUniqueness} the constuction of the operator $A$ is not affected.
 
 
 \section{Modal analysis}\label{sec:existence:ModalAnalysis}
 \subsection{Timoshenko beam}
-To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as it is easy to illustrate the idea of modal analysis.\\
+To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as it is easy to illustrate the idea of modal analysis.
 
-Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}).
+Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}):
 \begin{eqnarray*}
 	\partial^{2}_{t} w &=& \partial_{x}(\partial_{x} w - \phi), \label{eq:1D_Model:ModalPDE1}\\
 	\gamma \partial^{2}_{t} \phi &=& \beta (\partial_{x} w - \phi) + \partial_{x}(\partial_{x}\phi),\label{eq:1D_Model:ModalPDE2}
 \end{eqnarray*}
 with boundary conditions
 \begin{eqnarray*}
-	w(0,t) = 0, & &	\	 w(1,t) = 0. \label{eq:1D_Model:ModalBC1}\\
-	M(0,t) = 0, & &	\	M(1,t) = 0, \label{eq:1D_Model:ModalBC2}
+	w(0,t) = 0, & &	\	 w(1,t) = 0, \label{eq:1D_Model:ModalBC1}\\
+	M(0,t) = 0, & &	\	M(1,t) = 0. \label{eq:1D_Model:ModalBC2}
 \end{eqnarray*}
 The boundary conditions of the moments can be written in terms of $\phi$ using the constitutive equation \eqref{eq:1D_Model:ConstitutiveEquations1D}:
 \begin{eqnarray*}
 	\partial_{x}\phi(0,t) = 0, & & \partial_{x}\phi(1,t) = 0. \label{MA_4}
 \end{eqnarray*}
-Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ with $\phi(x,t) = T(t)\tilde{\phi}(x)$. \\
+Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ with $\phi(x,t) = T(t)\tilde{\phi}(x)$.
 
-The method of separation of variables leads to an eigenvalue problem. For the pinned-pinned beam, this eigenvalue problem is referred to as Problem T-1E.
+\textcolor{red}{Commonly at this point, the method of seperation of variables is applied. This splits the partial differential equation into an eigenvalue problem and a differential equation. Instead of using this method, a formulation of the eigenvalue problem and differential equation will be assumed and we'll show that they satisfy the trial solutions.}\sout{The method of separation of variables leads to an eigenvalue problem.}
+
+For the pinned-pinned beam, the eigenvalue problem is referred to as Problem T-1E.
 \subsubsection*{Problem T-1E}\label{sssec:1D_Model:Problem:T1E}
 Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
 \begin{eqnarray*}
 	-\tilde{w}'' + \tilde{\phi}' &=& \lambda \tilde{w}, \label{eq:1D_Model:ProblemT1E1}\\
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
-\end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.\\
+\end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
-Solutions to Problem T-1E is a pair of functions $\langle \tilde{w} \ \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are modal solutions of the differential equations and satisfy the boundary conditions.\\
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. \textcolor{red}{Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are solutions of the differential equations and satisfy the boundary conditions.}
 
 Suppose the function $T$ satisfies the following differential equation
 \begin{eqnarray}
 	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
-\end{eqnarray} with $\lambda$ an eigenvalue.\\
+\end{eqnarray} with $\lambda$ an eigenvalue.
+
+\textcolor{red}{Die deel copy vanaf later in die section}
+
+\textcolor{red}{********************************************************}
+
+It is well known that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
-	T_n(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
+	T_k(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
 \end{eqnarray}
-(with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.\\
+(with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.
 
-The eigenvalues for the pinned-pinned beam model is the first example in [VV06]. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In [VV06] the authors proved the following theorem.
+Combining these solutions give solutions in the form the trial solutions:
+\begin{eqnarray*}
+	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
+	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).
+\end{eqnarray*} 
+Substitution show that these solutions does indeed satisfy the differential equations with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
+
+Therefore the formal series solution for Problem T-1 is
+\begin{eqnarray*}
+	\langle u, \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x), \phi_n(x)\rangle.
+\end{eqnarray*}
+
+**********Conclusion of the section**********
 
 
-Los voorlopig hier.\\
+
+\textcolor{red}{********************************************************}
+
+
+The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
+
+
+\textcolor{red}{Los theorem voorlopig hier. Alles onder die theorem is soortgelyk aan wat hier bo is. Was gedoen op die variational form van Problem T1.}\\
 
 \newtheorem{ThmVV06}{Theorem}
 \begin{ThmVV06}
@@ -358,7 +384,7 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.\\
 
 
-It is well known that the eigenvalue problem like Problem T-1EV has infinitely many solutions $\langle \tilde{w}_n \ \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For Problem T-1 (Problem T-2 and Problem T-4 also), $\lambda_n > 0$ for all $n > 0$. A convenient reference is [VV06].\\
+It is well known that the eigenvalue problem like Problem T-1EV has infinitely many solutions $\langle \tilde{w}_n \ \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For Problem T-1 (Problem T-2 and Problem T-4 also), $\lambda_n > 0$ for all $n > 0$. A convenient reference is \cite{VV06}.\\
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -371,24 +397,77 @@ As a consequence, the system of partial differential equations of Problem T-1 ha
 \begin{eqnarray*}
 	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).,
-\end{eqnarray*} satisfying the boundary conditions. These solutions are referred to as the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.\\
+\end{eqnarray*} satisfying the boundary conditions. These solutions are referred to as the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
 
 The formal series solution for Problem T-1 is
 \begin{eqnarray*}
 	\langle u \ \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x) \ \psi_n(x)\rangle.
 \end{eqnarray*}
 
-The article [VV06] provides a rigorous method to solving the eigenvalue problem for Timoshenko beam models of different boundary conditions. This method and examples form [VV06] is discussed in Chapter 4.
+The article \cite{VV06} provides a rigorous method to solving the eigenvalue problem for Timoshenko beam models of different boundary conditions. This method and examples form \cite{VV06} is discussed in Chapter 4.
 
 \subsection{General vibration problem new}
-In the previous section In this subsection, is an investigation of the validity of a series solution for a general vibration problem. Specifically, the validity of the series solution given some initial conditions.\\
+Using the pinned-pinned beam as an example, in the previous section it was shown that a formal series solution can be derived that satisfies the boundary conditions. In this section, a more general vibration problem is considered that also includes initial conditions.
 
 Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
 \begin{eqnarray*}
 	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
 \end{eqnarray*}
 
+Then, $u(t) = T(t)x$ is a solution of the homogeneous problem
+\begin{eqnarray*}
+	c(u''(t),v) + b(u(t),v) = 0
+\end{eqnarray*}
+if and only if
+\begin{eqnarray}
+	T''  + \lambda T = 0.
+\end{eqnarray}
 
+Then the formal series solution for the boundary value problem is
+\begin{eqnarray}
+	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
+\end{eqnarray}
+
+This is a generalisation of the formal series solution for Problem T-1. This also means that the formal series solution satisfies the partial differential equation and the boundary conditions. However, it is not yet known if the formal series solution satisfies the initial conditions.
+
+\subsubsection{Validity of series solution}
+Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, consider the article \cite{CVV18}.
+
+Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
+\begin{eqnarray*}
+	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
+\end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.
+
+In \cite{CVV18}, the validity of the series solution is proved using the energy norms, where the energy $\mathcal{E}$ a function $u$ given by
+\begin{eqnarray}
+	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
+\end{eqnarray}
+
+The partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
+
+In \cite{CVV18}, a error function is defined $u^E_N = u - u^N$. Following the initial conditions, $u^E_N = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
+
+Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. In \cite{CVV18} it is proven that $\mathcal{E}(t) \leq \mathcal{E}(0)$. Using this inequality it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W \leq ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
+
+The authors of \cite{CVV18} prove that $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.
+
+It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
+
+
+\subsubsection{Comparison of models}
+In this dissertation, we are trying to compare different models for use in applications. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.\\
+
+The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution is valid, and therefore the comparison can be made.
+
+
+\textcolor{red}{****************OLD*************}
+
+Hele dissertation gaan oor comparison of models.
+
+
+In a later chapter of this dissertation, different dimensional models are compared with each other. Since the formal series solution is a linear combination of eigenvalues and eigenfunctions, it is only required to compare the eigenvalues and eigenfunctions of the different models.\\
+
+Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for b
 
 
 \subsection{General vibration problem old}
@@ -443,7 +522,7 @@ nie seperation of variables nie, eers question dan cvv. Kry modal solutions, kan
 \end{eqnarray}
 if and only if
 \begin{eqnarray}
-	T''  + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
+	T''  + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT1}
 \end{eqnarray}
 
 \textcolor{red}{A general solution for \eqref{eq:1D_Model:ModalAnalysisT} is} $T(t) = c_1 \sin(\omega t) + c_2 \cos(\omega t)$ with $\omega = \sqrt{\lambda}$.\\
