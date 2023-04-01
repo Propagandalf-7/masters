@@ -299,10 +299,10 @@ Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear 
 To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as it is easy to illustrate the idea of modal analysis.
 
 Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}):
-\begin{eqnarray*}
-	\partial^{2}_{t} w &=& \partial_{x}(\partial_{x} w - \phi), \label{eq:1D_Model:ModalPDE1}\\
-	\gamma \partial^{2}_{t} \phi &=& \beta (\partial_{x} w - \phi) + \partial_{x}(\partial_{x}\phi),\label{eq:1D_Model:ModalPDE2}
-\end{eqnarray*}
+\begin{eqnarray}
+	  \partial^2_{x} w - \partial_{x}\phi &=& \partial^{2}_{t} w, \label{eq:1D_Model:ModalPDE1}\\
+	  \alpha\partial_{x} w - \alpha\phi + \frac{1}{\gamma}\partial^2_{x}\phi &=&  \partial^{2}_{t} \phi,\label{eq:1D_Model:ModalPDE2}
+\end{eqnarray}
 with boundary conditions
 \begin{eqnarray*}
 	w(0,t) = 0, & &	\	 w(1,t) = 0, \label{eq:1D_Model:ModalBC1}\\
@@ -312,11 +312,23 @@ The boundary conditions of the moments can be written in terms of $\phi$ using t
 \begin{eqnarray*}
 	\partial_{x}\phi(0,t) = 0, & & \partial_{x}\phi(1,t) = 0. \label{MA_4}
 \end{eqnarray*}
-Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ with $\phi(x,t) = T(t)\tilde{\phi}(x)$.
+Consider a trial solution $w(x,t) = T(t)\tilde{w}(x)$ and $\phi(x,t) = T(t)\tilde{\phi}(x)$. Substituting these trial solutions in \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} yields
+\begin{eqnarray*}
+	T(t)\tilde{w}''(x) - T(t)\tilde{\phi}'(x) &=& T''(t)\tilde{w}(x),\\
+	  \alpha T(t)\tilde{w}'(x) - \alpha T(t)\tilde{\phi}(x) + \frac{1}{\gamma}T(t)\tilde{\phi}''(x) &=&  T''(t)\tilde{\phi}(x).
+\end{eqnarray*}
+Dividing by $T(t)$,
+\begin{eqnarray*}
+	\tilde{w}''(x) - \tilde{\phi}'(x) &=& \frac{T''(t)}{T(t)}\tilde{w}(x),\\
+	  \alpha \tilde{w}'(x) - \alpha \tilde{\phi}(x) + \frac{1}{\gamma}\tilde{\phi}''(x) &=&  \frac{T''(t)}{T(t)}\tilde{\phi}(x).
+\end{eqnarray*}
 
-\textcolor{red}{Commonly at this point, the method of seperation of variables is applied. This splits the partial differential equation into an eigenvalue problem and a differential equation. Instead of using this method, a formulation of the eigenvalue problem and differential equation will be assumed and we'll show that they satisfy the trial solutions.}\sout{The method of separation of variables leads to an eigenvalue problem.}
+Therefore $\displaystyle \frac{T''(t)}{T(t)}$ must be a constant. Suppose $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. Then the function $T$ satisfies the following differential equation
+\begin{eqnarray}
+	\ddot{T} + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
+\end{eqnarray}
 
-For the pinned-pinned beam, the eigenvalue problem is referred to as Problem T-1E.
+The following problem is also obtained and is called an eigenvalue problem. \sout{For the pinned-pinned beam, this eigenvalue problem is referred to as Problem T-1E.}
 \subsubsection*{Problem T-1E}\label{sssec:1D_Model:Problem:T1E}
 Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
 \begin{eqnarray*}
@@ -324,18 +336,9 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
-Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. \textcolor{red}{Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are solutions of the differential equations and satisfy the boundary conditions.}
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are solutions of the differential equations and satisfy the boundary conditions.
 
-Suppose the function $T$ satisfies the following differential equation
-\begin{eqnarray}
-	\ddot{T} + \lambda T = 0, \label{eq:1D_Model:ModalAnalysisT}
-\end{eqnarray} with $\lambda$ an eigenvalue.
-
-\textcolor{red}{Die deel copy vanaf later in die section}
-
-\textcolor{red}{********************************************************}
-
-It is well known that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
+\sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -355,72 +358,44 @@ Therefore the formal series solution for Problem T-1 is
 	\langle u, \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x), \phi_n(x)\rangle.
 \end{eqnarray*}
 
-**********Conclusion of the section**********
-
-
-
-\textcolor{red}{********************************************************}
-
-
 The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
 
-
-\textcolor{red}{Los theorem voorlopig hier. Alles onder die theorem is soortgelyk aan wat hier bo is. Was gedoen op die variational form van Problem T1.}\\
 
 \newtheorem{ThmVV06}{Theorem}
 \begin{ThmVV06}
 	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
 \end{ThmVV06}
 
-
-
 The variational eigenvalue problem for Problem T-1E can be obtained using similar steps to how Problem T-1V is obtained. This variational eigenvalue problem is referred to as Problem T-1EV
 
 \subsubsection*{Problem T-1EV}\label{sssec:1D_Model:ProblemT1EV}
 Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$, $\langle \tilde{w}\ \tilde{\phi}\rangle \in  T[0,1]$ and satisfying the equations
 \begin{eqnarray*}
-	\int_0^1 \lambda \tilde{w} v &=& -\int_0^1 \tilde{w}'v'  + \int_0^1 \tilde{\phi} v',\\
-	\int_0^1 \lambda \tilde{\phi} \psi &=& -\int_0^1\alpha \tilde{w}' \psi + \int_0^1\alpha \tilde{\phi} \psi - \int_0^1\frac{1}{\gamma}\tilde{\phi}' \psi'.
-\end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.\\
-
-
-It is well known that the eigenvalue problem like Problem T-1EV has infinitely many solutions $\langle \tilde{w}_n \ \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For Problem T-1 (Problem T-2 and Problem T-4 also), $\lambda_n > 0$ for all $n > 0$. A convenient reference is \cite{VV06}.\\
-
-Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
-\begin{eqnarray}
-	T_n(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
-\end{eqnarray}
-(with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.\\
-
-
-As a consequence, the system of partial differential equations of Problem T-1 has a sequence of solutions $(w_n,\phi_n)$ such that
-\begin{eqnarray*}
-	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
-	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).,
-\end{eqnarray*} satisfying the boundary conditions. These solutions are referred to as the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
-
-The formal series solution for Problem T-1 is
-\begin{eqnarray*}
-	\langle u \ \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x) \ \psi_n(x)\rangle.
-\end{eqnarray*}
-
-The article \cite{VV06} provides a rigorous method to solving the eigenvalue problem for Timoshenko beam models of different boundary conditions. This method and examples form \cite{VV06} is discussed in Chapter 4.
+	 -\int_0^1 \tilde{w}'v'  + \int_0^1 \tilde{\phi} v' &=& \int_0^1 \lambda \tilde{w} v ,\\
+	 -\int_0^1\alpha \tilde{w}' \psi + \int_0^1\alpha \tilde{\phi} \psi - \int_0^1\frac{1}{\gamma}\tilde{\phi}' \psi' &=& \int_0^1 \lambda \tilde{\phi} \psi .
+\end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.
 
 \subsection{General vibration problem new}
-Using the pinned-pinned beam as an example, in the previous section it was shown that a formal series solution can be derived that satisfies the boundary conditions. In this section, a more general vibration problem is considered that also includes initial conditions.
+\textcolor{red}{Introduction***}
 
-Suppose there exists a number $\lambda$ and $x \in V$, $x \neq 0$ such that
-\begin{eqnarray*}
-	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-\end{eqnarray*}
+Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing.
 
-Then, $u(t) = T(t)x$ is a solution of the homogeneous problem
-\begin{eqnarray*}
-	c(u''(t),v) + b(u(t),v) = 0
-\end{eqnarray*}
-if and only if
+\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
+Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
 \begin{eqnarray}
-	T''  + \lambda T = 0.
+	c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+\end{eqnarray}
+with $u(0)=u_{0}$, $u'(0)=u_{1}$.\\
+
+Consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$.
+
+Similar to the example of the pinned-pinned beam in the previous section, substitution shows that this trial solution is a solution to \eqref{eq:existence:ProblemGVarHom} if and only if you can find a real number $\lambda$ such that 
+\begin{eqnarray}
+	T''  + \lambda T = 0,
+\end{eqnarray}
+and there exists a $x \in V$ with $x \neq 0$ such that
+\begin{eqnarray}
+	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
 \end{eqnarray}
 
 Then the formal series solution for the boundary value problem is
