@@ -328,7 +328,7 @@ Therefore $\displaystyle \frac{T''(t)}{T(t)}$ must be a constant. Suppose $\disp
 	\ddot{T} + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
 \end{eqnarray}
 
-The following problem is also obtained and is called an eigenvalue problem. \sout{For the pinned-pinned beam, this eigenvalue problem is referred to as Problem T-1E.}
+If such a $\lambda$ exists, it leads to the following problem called an eigenvalue problem.
 \subsubsection*{Problem T-1E}\label{sssec:1D_Model:Problem:T1E}
 Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
 \begin{eqnarray*}
@@ -338,7 +338,28 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 
 Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are solutions of the differential equations and satisfy the boundary conditions.
 
+\textcolor{red}{Due to this periodicity of these solutions for} the eigenvalue problem Problem T-1E, it has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. The vector $\langle 0, 1 \rangle$ also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
+
+A systematic approach to get the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in in Section 4.2. The following theorem is derived from \cite{VV06} and confirms the validity of our trial solutions for the eigenvalue problem.
+
+\newtheorem{ThmVV06}{Theorem}
+\begin{ThmVV06}
+	If $\langle u \ \phi\rangle$ is a non-constant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues. The solution $\langle 0, 1 \rangle$ is a constant solution of Problem T-1E.
+\end{ThmVV06}
+
+
+\textcolor{red}{**************OLD VERSION******************}
+
 \sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
+
+The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
+
+\newtheorem{ThmVV06_2}{Theorem}
+\begin{ThmVV06_2}
+	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
+\end{ThmVV06_2}
+
+\textcolor{red}{********************************} 
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -346,7 +367,7 @@ Corresponding to this sequence of eigenvalues, we have a sequence of solutions $
 \end{eqnarray}
 (with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.
 
-Combining these solutions give solutions in the form the trial solutions:
+Combining the solutions of the eigenvalue problem with the solution \eqref{eq:1D_Model:ModalAnalysisTn} yields:
 \begin{eqnarray*}
 	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).
@@ -358,13 +379,9 @@ Therefore the formal series solution for Problem T-1 is
 	\langle u, \phi \rangle = \sum_{n=1}^{\infty} T_n(t)\langle u_n(x), \phi_n(x)\rangle.
 \end{eqnarray*}
 
-The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
 
 
-\newtheorem{ThmVV06}{Theorem}
-\begin{ThmVV06}
-	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
-\end{ThmVV06}
+
 
 The variational eigenvalue problem for Problem T-1E can be obtained using similar steps to how Problem T-1V is obtained. This variational eigenvalue problem is referred to as Problem T-1EV
 
