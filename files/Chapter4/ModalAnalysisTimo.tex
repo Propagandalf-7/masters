@@ -1,21 +1,11 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-
-
+An example of modal analysis on a Timoshenko beam is given in section \ref{sec:existence:ModalAnalysis}. In this section, more general theory for modal analysis of te Timoshenko beam theory is discuss, as well as some more examples of the application of the theory.
 \section{Eigenvalue problem}\label{sec:Timo:EigenvalueProblem}
-In section \ref{ssec:1D_Model:Modal} the idea of modal analysis is explored using a Timoshenko beam as an example. In this section, we look at the work of the authors of [VV06]. The authors gives a method to calculate the eigenvalues and eigenfunctions for the Timoshenko beam theory.\\
+This section is a discussion of a systematic method to solve the eigenvalue problem for the Timoshenko beam theory. The article discussed is \cite{VV06}.
 
-Consider a general eigenvalue problem for the Timoshenko beam theory.
-
-\sout{The next step is to find a method to {easily} calculate the eigenvalues and eigenvectors for the Timoshenko beam models {theory}}.\\
-
-\sout{For this section, the work of the authors of [VV06] is discussed. {Consider the article [VV06].} In this article the authors present a method to calculate the exact eigenvalues and eigenvectors for the Timoshenko beam theory}.\\
-
-\sout{To discuss the work of [VV06], a general eigenvalue problem is required. So consider only the differential equations of an eigenvalue problem for a Timoshenko beam. The reader can refer to Problem T-1E in section \ref{ssec:1D_Model:Modal} for a more specific example of the derivation of the eigenvalue problems for the Timoshenko beam theory.}
-
-\sout{In section \ref{ssec:1D_Model:Modal}, the eigenvalue for Problem T-1 is given as Problem T-1E. }
-\textcolor{red}{Probleem se naam verander vanaf Differential equations for the eigenvalue problem}
+Consider a general eigenvalue problem for a Timoshenko beam Problem.
 \subsubsection{General eigenvalue problem} \label{sssec:Timo:EigenvalueProblem}
 Find functions $u$ and $\phi$ and a real number $\lambda$ satisfying the following equations
 \begin{eqnarray}
@@ -23,14 +13,13 @@ Find functions $u$ and $\phi$ and a real number $\lambda$ satisfying the followi
 -\alpha u' + \alpha\phi - \frac{1}{\gamma}\phi'' &=& \lambda\phi.\label{eq:Timo:EigenvalueProblem2}
 \end{eqnarray}
 
-Recall from section \ref{sec:1D_Model}, $u$ represents the transverse motion of the beam, $\phi$ is the angle of rotation of the cross-section of the beam, $\alpha$ and $\gamma$ are dimensionless constants defined in section 1.5 and $\lambda$ represents the eigenvalue. \\
+Recall from section \ref{sec:1D_Model}, $u$ represents the transverse motion of the beam, $\phi$ is the angle of rotation of the cross-section of the beam, $\alpha$ and $\gamma$ are dimensionless constants defined in section 1.5 and $\lambda$ represents the eigenvalue. 
 
-The authors of [VV06] first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In [VV06] the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in \mathbb{R}$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
+The authors of \cite{VV06} first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In \cite{VV06} the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in \mathbb{R}$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
 \begin{eqnarray*}
 -m^{2}e^{mx}w_{1}+me^{mx}w_{2}&=&\lambda e^{mx}w_{1},\\
 -\frac{1}{\gamma}m^{2}e^{mx}w_{2}-\alpha me^{mx}w_{1}+\alpha e^{mx}w_{2}&=&\lambda e^{mx}w_{2}.
 \end{eqnarray*}
-
 
 From these equations it can be concluded that $e^{mx}\bar{w}$ is a solution of the system if and only if the pair $\langle m,\bar{w} \rangle$ is a solution of the linear system:
 
@@ -79,14 +68,14 @@ In  this case it is easy to find two linearly independent solutions:
 
 
 
-Now if $m^{2} \neq 0$, we consider the system $A\bar{w}=0$ with $w_{1} = m$ and $w_{2} = m^{2} + \lambda$. From [VV06], the parameters $\omega$, $\mu$ and $\theta$ are uniquely determined by $\lambda$.
+Now if $m^{2} \neq 0$, we consider the system $A\bar{w}=0$ with $w_{1} = m$ and $w_{2} = m^{2} + \lambda$. From \cite{VV06}, the parameters $\omega$, $\mu$ and $\theta$ are uniquely determined by $\lambda$.
 \begin{eqnarray}
 	\omega^2 & = & \frac{1}{2}\lambda(1+\gamma)(\Delta^{\frac{1}{2}}+1) \ \textrm{ for } \lambda >0\\
 	\mu^2 & = & \frac{1}{2}\lambda(1+\gamma)(\Delta^{\frac{1}{2}}-1) \ \textrm{ for } \lambda < \alpha\\
 	\theta^2 & = & \frac{1}{2}\lambda(1+\gamma)(1-\Delta^{\frac{1}{2}}) \ \textrm{ for } \lambda > \alpha
 \end{eqnarray}
 
- The three cases $\lambda < \alpha$, $\lambda = \alpha$ and $\lambda > \alpha$ are considered separately by the authors of [VV06]. The general solution from [VV06] for each case is presented below.
+ The three cases $\lambda < \alpha$, $\lambda = \alpha$ and $\lambda > \alpha$ are considered separately by the authors of \cite{VV06}. The general solution from \cite{VV06} for each case is presented below.
 
 \subsubsection{Case $\boldsymbol{\lambda<\alpha}$}
 
@@ -177,7 +166,7 @@ D
 \end{bmatrix}.\label{T10}
 \end{eqnarray*}
 
-The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in [VV06] using an example. A summary of the strategy is presented here.\\
+The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in \cite{VV06} using an example. A summary of the strategy is presented here.\\
 
 From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions of the model problem. The boundary conditions at $x=0$ reduces the solution space of four dimensions to a solution space of dimension at least two. The boundary condition at $x=1$ is then substituted which results in a homogeneous system of linear equations.
 \begin{eqnarray*}
@@ -188,7 +177,12 @@ A \bar{b} = \bar{0}
  
  For each eigenvalue, a unique solution for the pair $\bar{b}$ can be obtained. A eigenfunction for $u$ and $\phi$ is obtained using $\bar{b}$ and corresponds to the relevant eigenvalue.\\
 
-The following two sections provide examples of this strategy applied to beam models. These examples are also in [VV06].
+
+In \cite{VV06}, the steps are explained using the example of a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}. For $\lambda < \alpha$ the general solution reduces to $\langle u , \phi \rangle = \langle \sin, \cos \rangle$. For $\lambda > \alpha$, the general solution also reduces to $\langle u , \phi \rangle = \langle \sin, \cos \rangle$. For $\lambda = \alpha$, the general solution reduces to $\langle u , \phi \rangle = \langle 0, 1 \rangle$.\\
+
+This is proved rigourously in \cite{VV06} and also proved Theorem 1 in section \ref{subsec:Timoshenko_Modal_Analsis}.
+
+The following two sections provide examples of this strategy applied to beam models. These examples are also in \cite{VV06}.
 
 **sluit af***
 ******NB Verduidelik $\alpha$
