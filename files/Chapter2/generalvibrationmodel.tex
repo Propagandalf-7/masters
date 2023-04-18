@@ -323,7 +323,7 @@ Dividing by $T(t)$,
 	  \alpha \tilde{w}'(x) - \alpha \tilde{\phi}(x) + \frac{1}{\gamma}\tilde{\phi}''(x) &=&  \frac{T''(t)}{T(t)}\tilde{\phi}(x).
 \end{eqnarray*}
 
-Therefore $\displaystyle \frac{T''(t)}{T(t)}$ is a constant. Suppose $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. This can also be written as the following differential equation
+Therefore $\displaystyle \frac{T''(t)}{T(t)}$ is a constant. Suppose $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. This can also be written as the following differential equation,
 \begin{eqnarray}
 	\ddot{T} + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
 \end{eqnarray}
@@ -336,15 +336,15 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
-Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are solutions of the differential equations and satisfy the boundary conditions.
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are possible solutions of the differential equations and satisfy the boundary conditions.
 
-\textcolor{red}{Due to this periodicity of these solutions for} the eigenvalue problem Problem T-1E, it has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. The vector $\langle 0, 1 \rangle$ also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
+Due to this periodicity of these solutions for the eigenvalue problem Problem T-1E, it has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. The vector $\langle 0, 1 \rangle$ also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
 
-A systematic approach to get the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in in Section 4.2. The following theorem is derived from \cite{VV06} and confirms the validity of our trial solutions for the eigenvalue problem.
+A systematic approach to obtain the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in in Section 4.2. From \cite{VV06}, the following theorem can be derived and confirms the validity of our trial solutions for the eigenvalue problem.
 
 \newtheorem{ThmVV06}{Theorem}
 \begin{ThmVV06}
-	If $\langle u \ \phi\rangle$ is a non-constant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues. The solution $\langle 0, 1 \rangle$ is a constant solution of Problem T-1E.
+	If $\langle u, \phi\rangle$ is a non-constant eigenfunction of Problem T-1E, then $\langle u, \phi\rangle = \langle\sin k \pi x, A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. If $\langle u, \phi\rangle$ is a constant eigenfunction of Problem T1-E, then  $\langle u, \phi\rangle = \langle 0, 1 \rangle$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
 \end{ThmVV06}
 
 
@@ -394,15 +394,15 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing.
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+Find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
 \begin{eqnarray}
 	c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
 \end{eqnarray}
-with $u(0)=u_{0}$, $u'(0)=u_{1}$.\\
+with $u(0)=u_{0}$, $u'(0)=u_{1}$.
 
 Consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$.
 
-Similar to the example of the pinned-pinned beam in the previous section, substitution shows that this trial solution is a solution to \eqref{eq:existence:ProblemGVarHom} if and only if you can find a real number $\lambda$ such that 
+Substitution shows that this trial solution is a solution to \eqref{eq:existence:ProblemGVarHom} if and only if you can find a real number $\lambda$ such that 
 \begin{eqnarray}
 	T''  + \lambda T = 0,
 \end{eqnarray}
@@ -417,6 +417,8 @@ Then the formal series solution for the boundary value problem is
 \end{eqnarray}
 
 This is a generalisation of the formal series solution for Problem T-1. This also means that the formal series solution satisfies the partial differential equation and the boundary conditions. However, it is not yet known if the formal series solution satisfies the initial conditions.
+
+\textcolor{red}{*************** Need to check everything below this ******************}
 
 \subsubsection{Validity of series solution}
 Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, consider the article \cite{CVV18}.

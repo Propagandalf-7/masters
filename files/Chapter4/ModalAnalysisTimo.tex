@@ -166,21 +166,26 @@ D
 \end{bmatrix}.\label{T10}
 \end{eqnarray*}
 
-The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in \cite{VV06} using an example. A summary of the strategy is presented here.\\
+The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in \cite{VV06} using an example. A summary of the strategy is presented here.
 
 From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions of the model problem. The boundary conditions at $x=0$ reduces the solution space of four dimensions to a solution space of dimension at least two. The boundary condition at $x=1$ is then substituted which results in a homogeneous system of linear equations.
 \begin{eqnarray*}
 A \bar{b} = \bar{0}
 \end{eqnarray*}
 
- This system has either the zero solution or infinitely many solutions. To ensure a non-zero solution, the determinant of the coefficient matrix $A$ of the system of equations is set equal to 0. The equation $\textrm{det}(A) = 0$ is called the frequency equation. The frequency equation has infinitely many solutions and each solution corresponds to an eigenvalue.\\
+ This system has either the zero solution or infinitely many solutions. To ensure a non-zero solution, the determinant of the coefficient matrix $A$ of the system of equations is set equal to 0. The equation $\textrm{det}(A) = 0$ is called the frequency equation. The frequency equation has infinitely many solutions and each solution corresponds to an eigenvalue.
  
- For each eigenvalue, a unique solution for the pair $\bar{b}$ can be obtained. A eigenfunction for $u$ and $\phi$ is obtained using $\bar{b}$ and corresponds to the relevant eigenvalue.\\
+ For each eigenvalue, a unique solution for the pair $\bar{b}$ can be obtained. A eigenfunction for $u$ and $\phi$ is obtained using $\bar{b}$ and corresponds to the relevant eigenvalue.
 
+\textcolor{red}{Die moet net op die regte plek gesit word.}
 
-In \cite{VV06}, the steps are explained using the example of a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}. For $\lambda < \alpha$ the general solution reduces to $\langle u , \phi \rangle = \langle \sin, \cos \rangle$. For $\lambda > \alpha$, the general solution also reduces to $\langle u , \phi \rangle = \langle \sin, \cos \rangle$. For $\lambda = \alpha$, the general solution reduces to $\langle u , \phi \rangle = \langle 0, 1 \rangle$.\\
+\textcolor{red}{**********************************************}
 
-This is proved rigourously in \cite{VV06} and also proved Theorem 1 in section \ref{subsec:Timoshenko_Modal_Analsis}.
+In \cite{VV06}, the steps are explained using the example of a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}. The authors  For $\lambda < \alpha$ the general solution reduces to $\langle u(x) , \phi(x) \rangle = \langle \sin(k \pi x), A_k \cos(k \pi x) \rangle$. For $\lambda > \alpha$, the general solution also reduces to $\langle u(x) , \phi(x) \rangle = \langle \sin(k \pi x), A_k  \cos(k \pi x) \rangle$. For $\lambda = \alpha$, the general solution reduces to $\langle u(x) , \phi(x) \rangle = \langle 0, 1 \rangle$.
+
+This is proved rigourously in \cite{VV06} and also proves Theorem 1 in section \ref{subsec:Timoshenko_Modal_Analsis}.
+
+\textcolor{red}{**********************************************}
 
 The following two sections provide examples of this strategy applied to beam models. These examples are also in \cite{VV06}.
 
