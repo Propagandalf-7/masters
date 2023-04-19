@@ -391,16 +391,81 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \subsection{General vibration problem new}
 \textcolor{red}{Introduction***}
 
-Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing.
+Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. In this section, assume there is no damping and no forcing.
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-Find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
 \begin{eqnarray}
-	c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
 \end{eqnarray}
-with $u(0)=u_{0}$, $u'(0)=u_{1}$.
+with initial conditions $u(0)=u_{0}$ and $u'(0)=u_{1}$.
 
-Consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$.
+To try and find a solution to this problem, consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$. Substituting this trial solution into \eqref{eq:existence:ProblemGVarHom} results in
+\begin{eqnarray*}
+	b(T(t)x,v) = - c(T''(t)x,v).  \label{eq:existence:ProblemGVarHom:Substitution}
+\end{eqnarray*}
+
+Due to the linearity of the bilinear form, this equation can be rewritten as
+\begin{eqnarray*}
+	T(t)b(x,v) = - T''(t)c(x,v).
+\end{eqnarray*}
+
+Dividing both sides by $T(t)$ gives
+\begin{eqnarray*}
+	b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
+\end{eqnarray*}
+
+Therefore $\frac{T''(t)}{T(t)}$ must be a constant. Suppose that $\frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. To investigate the existence of such a $\lambda$, consider the following eigenvalue problem.
+
+Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
+\begin{eqnarray*}
+	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
+\end{eqnarray*}
+
+A solution to the eigvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
+
+The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption is satisfied:
+
+\begin{itemize}
+	\item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
+\end{itemize}
+
+(Note that this assumption expands on the assumptions already made in Section 2.2.)
+
+Buidling on assumption \textbf{A5}, the authors of \cite{CVV18} prove that there exists a eigenvalue $\lambda$ and a corresponding eigenvector $x$ such that the eigenvalue problem has a solution. The authors also prove that the eigenvalues are positive, and the corresponding eigenvectors are orthogonal in $W$ (the bilinear form $c$). In fact it is also orthogonal with respect to the bilinear form $b$, hence
+\begin{eqnarray*}
+	b(x_i, x_j) = \lambda_i c(x_i, x_j) = 0, \ \ \ \ \textrm{ for each } \ i \neq j.
+\end{eqnarray*}
+
+The sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. The sequence of eigenvectors ${x_i}$ forms an orthogonal basis in $W$, which means that any element of $W$ can be represented as a linear combination of the eigenvectors.
+
+\textcolor{red}{Onseker oor die volgede deel oor die Fourier Coefficients. Moet net nog daaroor dink.}
+
+Following this result, the authors explain that any $u \in V$ can be represented as a linear combination of the eigenvectors $x_i$ with coefficients $a_i$. These coefficients are Fourier coefficients of $u$ with respect to the basis $x_i$. Therefore, for any $u \in V$,
+\begin{eqnarray*}
+	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i
+\end{eqnarray*}
+
+
+Now that the eigenvalue problem has a solution, the following ordinary differentiable equation can be considered,
+\begin{eqnarray*}
+	T'' + \lambda T = 0. 
+\end{eqnarray*}
+
+Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
+\begin{flalign*}
+	T_n(t) &= e^{-r_nt}\left[ A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \right],\\
+	T_n(t) &= e^{-r_nt}\left[ A_n + B_n t) \right],\\
+	T_n(t) &= e^{-r_nt}\left[ A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \right].
+\end{flalign*}
+
+Then the formal series solution for the boundary value problem is
+\begin{eqnarray}
+	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
+\end{eqnarray}
+
+
+***********************************************
 
 Substitution shows that this trial solution is a solution to \eqref{eq:existence:ProblemGVarHom} if and only if you can find a real number $\lambda$ such that 
 \begin{eqnarray}
