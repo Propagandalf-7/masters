@@ -415,7 +415,7 @@ Dividing both sides by $T(t)$ gives
 	b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
 \end{eqnarray*}
 
-Therefore $\frac{T''(t)}{T(t)}$ must be a constant. Suppose that $\frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. To investigate the existence of such a $\lambda$, consider the following eigenvalue problem.
+Therefore $\frac{T''(t)}{T(t)}$ must be a constant. Suppose that $\frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
 
 Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
 \begin{eqnarray*}
@@ -430,18 +430,16 @@ The article \cite{CVV18} is a convenient reference to show that the eigenvalue p
 	\item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
 \end{itemize}
 
-(Note that this assumption expands on the assumptions already made in Section 2.2.)
+This assumption expands on the assumptions \textbf{A1}-\textbf{A4} already made in Section 2.2.
 
-Buidling on assumption \textbf{A5}, the authors of \cite{CVV18} prove that there exists a eigenvalue $\lambda$ and a corresponding eigenvector $x$ such that the eigenvalue problem has a solution. The authors also prove that the eigenvalues are positive, and the corresponding eigenvectors are orthogonal in $W$ (the bilinear form $c$). In fact it is also orthogonal with respect to the bilinear form $b$, hence
+Building these assumptions, the authors of \cite{CVV18} prove that there exists a eigenvalue $\lambda$ and a corresponding eigenvector $x$ such that the eigenvalue problem has a solution. The authors also prove that the eigenvalues are positive, and the corresponding eigenvectors are orthogonal in $W$ (the bilinear form $c$). In fact it is also orthogonal with respect to the bilinear form $b$, hence
 \begin{eqnarray*}
 	b(x_i, x_j) = \lambda_i c(x_i, x_j) = 0, \ \ \ \ \textrm{ for each } \ i \neq j.
 \end{eqnarray*}
 
-The sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. The sequence of eigenvectors ${x_i}$ forms an orthogonal basis in $W$, which means that any element of $W$ can be represented as a linear combination of the eigenvectors.
+The sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. The sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis in $W$, which means that the sequence is complete (or total) in $W$.
 
-\textcolor{red}{Onseker oor die volgede deel oor die Fourier Coefficients. Moet net nog daaroor dink.}
-
-Following this result, the authors explain that any $u \in V$ can be represented as a linear combination of the eigenvectors $x_i$ with coefficients $a_i$. These coefficients are Fourier coefficients of $u$ with respect to the basis $x_i$. Therefore, for any $u \in V$,
+Following this result, the authors explain that any $u \in V$, the eigenvector series for $u$ converges to $u$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the basis $x_i$. Therefore, for any $u \in V$,
 \begin{eqnarray*}
 	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i
 \end{eqnarray*}
@@ -464,26 +462,6 @@ Then the formal series solution for the boundary value problem is
 	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
 \end{eqnarray}
 
-
-***********************************************
-
-Substitution shows that this trial solution is a solution to \eqref{eq:existence:ProblemGVarHom} if and only if you can find a real number $\lambda$ such that 
-\begin{eqnarray}
-	T''  + \lambda T = 0,
-\end{eqnarray}
-and there exists a $x \in V$ with $x \neq 0$ such that
-\begin{eqnarray}
-	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-\end{eqnarray}
-
-Then the formal series solution for the boundary value problem is
-\begin{eqnarray}
-	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
-\end{eqnarray}
-
-This is a generalisation of the formal series solution for Problem T-1. This also means that the formal series solution satisfies the partial differential equation and the boundary conditions. However, it is not yet known if the formal series solution satisfies the initial conditions.
-
-\textcolor{red}{*************** Need to check everything below this ******************}
 
 \subsubsection{Validity of series solution}
 Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, consider the article \cite{CVV18}.
