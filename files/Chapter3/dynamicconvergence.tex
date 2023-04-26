@@ -1,28 +1,28 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-In this chapter, two convergence results for the Finite Element Method (FEM) is discussed. The first result is the convergence of the Galerkin approximation for second order hyperbolic type problems, from the article \cite{BV13}. The second result is from the textbook \cite{SF97} regarding the convergence of the eigenvalues and eigenfunctions for a one-dimensional vibration problem, using the Finite Element Method.
+In this chapter, two important convegence results of the Finite Element Method (FEM) is discussed. The first result looks at the convergence of the Galerkin approximation for second order hyperbolic type problems, as presented in \cite{BV13}. The second result, from the textbook \cite{SF97}, examines the convergence of eigenvalues and eigenfunctions for a one-dimensional vibration problem, using the Finite Element Method.
 
 \section{Convergence of the Galerkin approximation}
-In the article \cite{BV13}, the authors investigate the convergence of the Galerkin approximation for second order hyperbolic type problems. The article \cite{BV18} extends \cite{BV13} by including general damping and damping at the endpoints. For the models in Chapter 1, \cite{BV13} is sufficient and \cite{BV18} was read for more insight and improved notation.\\
+In the article \cite{BV13}, the authors investigate the convergence of the Galerkin approximation for second order hyperbolic type problems. The article \cite{BV18} extends the work of \cite{BV13} by including general damping and damping at the endpoints. For the models in Chapter 1, \cite{BV13} is sufficient while \cite{BV18} provides more insight and improved notation.
 
-In Section 2.2, a general variational problem, called Problem GVar, which is identical to the one in \cite{VV02} is given. From this model, a Galerkin Approximation can be derived.
+In Section 2.2, Problem GVar is presented and identical to the problem in \cite{BV13}. The problem is repeated here for convenience.
 
 \subsubsection*{Problem GVar}
 Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
 \begin{eqnarray}
 	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{GV_PB1}
 \end{eqnarray}
-while $u(0)=u_{0}$, $u'(0)=u_{1}$.\\
+while $u(0)=u_{0}$, $u'(0)=u_{1}$.
 
-It is assumed that the assumptions \textbf{A1}-\textbf{A4} from Section 2.2 are satisfied such that Problem GVar has a unique solution.\\
+Assume that the assumptions \textbf{A1}-\textbf{A4} from Section 2.2 are satisfied ensuring that Problem GVar has a unique solution.
+ 
+Before the theory of \cite{BV13} can be discussed, some preliminary work is necessary. The structure of this section is as follows. First the Galerkin approximation is for Problem GVar is derived. Then a equivalent system of ordinary differential equations is derived using the Finite Element Method. Finally, the convergence of the Galerkin approximation is discussed using the work of the article \cite{BV13}.
 
-Before the main theory of \cite{BV13} can be discussed, some preparation is required. First the Galerkin approximation is for Problem GVar is derived. Then a equivalent system of ordinary differential equations is derived using the Finite Element Method.\\
+\subsection{Galerkin approximation of Problem GVar}
+Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in the Hilbert space $H$.
 
-\subsection{Galerkin approximation}
-Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in the Hilbert space $H$.\\
-
-Suppose $S^h$ is a finite n-dimensional subspace of V. Let $\{\phi_1, \ \phi_2,...,\phi_n\}$ be a set of linear independent basis functions such that $S^h = \textrm{span}(\{\phi_1, \phi_2, ..., \phi_n \})$ and $\phi_i \in C^{(1)}$ for all $i$.\\
+Suppose $S^h$ is a finite n-dimensional subspace of V. Let $\{\phi_1, \ \phi_2,...,\phi_n\}$ be a set of linear independent basis functions such that $S^h = \textrm{span}(\{\phi_1, \phi_2, ..., \phi_n \})$ and $\phi_i \in C^{(1)}$ for all $i$.
 
 For any function $w_h$ in $S^h$, $w_h$ can be expressed as a linear combination
 \begin{eqnarray*}
@@ -34,7 +34,7 @@ Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J)$ such tha
 \begin{eqnarray}
 	c(u_h''(t),v)+a(u_h'(t),v)+b(u_h(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in S^h, \label{DC_E2}
 \end{eqnarray}
-with the initial values $u_h(0)=u^h_{0}$ and $u'_h(0)=u^h_{1}$. The initial conditions $u^h_{0}$ and $u^h_{1}$ are projections of $u_0$ and $u_1$ into the finite dimensional space $S^h$.\\
+with the initial values $u_h(0)=u^h_{0}$ and $u'_h(0)=u^h_{1}$. The initial conditions $u^h_{0}$ and $u^h_{1}$ are projections of $u_0$ and $u_1$ into the finite dimensional space $S^h$.
 
 If the function $f$ is continuous, then Problem GVar$^h$ is equivalent to a system of second order differential equations. The following theorem from \cite{BV13} proves that if $f$ is continuous, then problem Problem GVar$^h$ has a unique solution.
 
@@ -43,7 +43,7 @@ If the function $f$ is continuous, then Problem GVar$^h$ is equivalent to a syst
 	If $f \in C(J,X)$, then there exists a unique solution $u_h \in C^2(J)$ for Problem GVar$^h$ for each $u_0^h$ and $u_1^h$ in $S^h$. If $f = 0$ then $u_h \in C^2((-\infty, \infty))$.
 \end{DC_Thm2}
 
-This theorem is presented in \cite{BV13}.
+This theorem is presented and proved in \cite{BV13}.
 
 \subsection{System of ordinary differential equations}
 Consider the standard FEM matrices defined by
@@ -60,31 +60,32 @@ Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}^h_0 \textrm{ and }  \bar{u}(1) = \bar{u}^h_1 \label{ODE}
 \end{eqnarray}
-The function $F$ is the interpolation of the function $f$ into the discrete space $S^h$.\\
+The function $F$ is the interpolation of the function $f$ into the discrete space $S^h$.
 
-The following propositions for Problem ODE are given in \cite{BV13}.
+The following propositions related to Problem ODE are given in \cite{BV13}.
 
 \newtheorem{DC_Prop2}{Proposition}
 \begin{DC_Prop2}
 	If $F\in C(J)$, then Problem ODE has a unique solution for each pair of vectors $\bar{u}^h_0$ and $\bar{u}^h_1$
 \end{DC_Prop2}
 
-Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ is a linearly independent basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$. Therefore, the matrix $M$ is invertible. The equation \eqref{ODE} of Problem ODE can be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} = M^{-1}F(t)$. Using the theory of linear differential equations, a unique solution for Problem ODE can be found. This proves Proposition 1.\\
-
-Proposition 2 provides a link between the solution of Problem ODE and the solution of Problem GVar$^h$.
-
 \newtheorem{DC_Prop3}[DC_Prop2]{Proposition}
 \begin{DC_Prop3}
 	Suppose $M, K, C, F,\bar{u}^h_0$ and $\bar{u}^h_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
-\subsection{Error estimates}\label{e_est}
-Given that the assumptions \textbf{A1}-\textbf{A4} of Section 2 is satisfied, and $f$ is continuous, there exists unique solutions for  Problem GVar and Problem GVar$^h$. It remains only to show that the solution of Problem GVar$^h$ denoted by $u^h$ converges to the solution of Problem GVar denoted by $u$ as $h$ is decreased.\\
+Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ forms a linearly independent basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$. Consequently, the matrix $M$ is invertible. The equation \eqref{ODE} can therefore be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} = M^{-1}F(t)$. Using the theory of linear differential equations, a unique solution for Problem ODE can be found, proving Proposition 1.
 
-Suppose $u$ is a solution of Problem GVar and $u^h$ is a solution of Problem GVar$^h$. Define the error $e^h$ by
-\begin{eqnarray*}
-	e^h(t) = u(t) - u^h(t).
-\end{eqnarray*}
+Proposition 2 provides a link between the solution of Problem ODE and the solution of Problem GVar$^h$.
+
+\subsection{Error estimates}\label{e_est}
+Given that the assumptions \textbf{A1}-\textbf{A4} of Section 2 is satisfied, and $f$ is continuous, there exists unique solutions for  Problem GVar and Problem GVar$^h$. It remains only to show that the solution of Problem GVar$^h$ denoted by $u^h$ converges to the solution of Problem GVar denoted by $u$.
+
+Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$. The authors of \cite{BV13} define the following error,
+
+\begin{eqnarray}
+	e^h(t) = u(t) - u^h(t). \label{Error}
+\end{eqnarray}
 
 In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is then split using this projection. Let $e(t) = Pu(t)- u_h(t)$ and $e_p(t) = u(t) - Pu(t)$ so that
 \begin{eqnarray}

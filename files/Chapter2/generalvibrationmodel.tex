@@ -389,9 +389,7 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.
 
 \subsection{General vibration problem new}
-\textcolor{red}{Introduction***}
-
-Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. In this section, assume there is no damping and no forcing.
+This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. The authors of \cite{CVV18} do take damping into consideration, which is not covered in this dissertation. Assume there is no damping and no forcing. 
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
 Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
@@ -422,7 +420,7 @@ Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
 	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
 \end{eqnarray*}
 
-A solution to the eigvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
+A solution to the eigenvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
 
 The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption is satisfied:
 
@@ -450,14 +448,17 @@ Now that the eigenvalue problem has a solution, the following ordinary different
 	T'' + \lambda T = 0. 
 \end{eqnarray*}
 
-Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
-\begin{flalign*}
-	T_n(t) &= e^{-r_nt}\left[ A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \right],\\
-	T_n(t) &= e^{-r_nt}\left[ A_n + B_n t) \right],\\
-	T_n(t) &= e^{-r_nt}\left[ A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \right].
-\end{flalign*}
+Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions as given in \cite{CVV18}:
+\begin{flalign}
+	T_n(t) &= e^{-r_nt}\left[ A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \right] \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
+	T_n(t) &= e^{-r_nt}\left[ A_n + B_n t \right] \quad \textrm{ if } \lambda = 0, \label{lambda_2}\\
+	T_n(t) &= e^{-r_nt}\left[ A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \right] \quad \textrm{ if } \lambda < 0. \label{lambda_3}
+\end{flalign}
 
-Then the formal series solution for the boundary value problem is
+From assumptions \textbf{A2} and \textbf{A3}, the bilinear forms $b$ and $c$ are positive definite. And since we assumed that there is no damping ($a=0$), $\lambda$ cannot be negative. Therefore, the only possible solutions for $T_n(t)$ is \eqref{lambda_1} and \eqref{lambda_2}.
+
+
+Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
 \begin{eqnarray}
 	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
 \end{eqnarray}

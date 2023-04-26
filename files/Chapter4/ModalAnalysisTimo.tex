@@ -1,7 +1,8 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-An example of modal analysis on a Timoshenko beam is given in section \ref{sec:existence:ModalAnalysis}. In this section, more general theory for modal analysis of te Timoshenko beam theory is discuss, as well as some more examples of the application of the theory.
+An example of modal analysis on a Timoshenko beam is given in section \ref{sec:existence:ModalAnalysis}. In this chapter, more general theory for modal analysis of te Timoshenko beam theory is discussed, as well as some more examples of the application of the theory.
+
 \section{Eigenvalue problem}\label{sec:Timo:EigenvalueProblem}
 This section is a discussion of a systematic method to solve the eigenvalue problem for the Timoshenko beam theory. The article discussed is \cite{VV06}.
 
@@ -166,18 +167,59 @@ D
 \end{bmatrix}.\label{T10}
 \end{eqnarray*}
 
+\textcolor{red}{*****************SUGGESTION****************************}
+
+\subsubsection*{Stragety for determining the eigenvalues and eigenvectors}
+
+The authors of \cite{VV06} provide a detailed example of the application of the above strategy to for determining the eigenvalues and eigenvectors. The example used is a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}.
+
+The strategy can be summarized as follows:
+
+From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions at $x=0$ to reduce the solution space of four dimensions to a solution space of dimension at least two. 
+
+The boundary condition at $x=1$ is then substituted which results in a homogeneous system of linear equations of the form
+\begin{eqnarray*}
+A \bar{b} = \bar{0}.
+\end{eqnarray*} 
+
+This system either has the zero solution or infinitely many solutions. To ensure the zero solution, the determinant of the matrix $A$ is set to zero. This equation $\textrm{det}(A) = 0$ is called the frequency equation.
+
+The frequency equation has infinitely many solutions. Each of the solutions corresponds to a eigenvalue with a unique vector $\bar{b}$. The eigefunctions can then be obtained by substituting the vector $\bar{b}$ into the general solution for $u$ and $\phi$.
+
+\subsubsection*{Pinned-pinned beam}
+
+Returning back to the example of the pinned-pinned beam, we present some of the results from \cite{VV06}:
+
+For $\lambda < \alpha$ the general solution reduces to $\langle u(x) , \phi(x) \rangle = \langle \sin(k \pi x), A_k \cos(k \pi x) \rangle$. 
+
+For $\lambda = \alpha$, the general solution reduces to $\langle u(x) , \phi(x) \rangle = \langle 0, 1 \rangle$.
+
+For $\lambda > \alpha$, the general solution also reduces to $\langle u(x) , \phi(x) \rangle = \langle \sin(k \pi x), A_k  \cos(k \pi x) \rangle$. 
+
+
+A rigourous proof of the above results can be found in \cite{VV06}. These results also prove the Theorem 1 presented in section \ref{subsec:Timoshenko_Modal_Analsis}.
+
+
+
+\textcolor{red}{*****************OLD alles onder moontlik weg vat****************************}
+
 The next step is to determine the solution of the general eigenvalue problem. The strategy to obtain the eigenvalues and eigenvectors are described in detail in \cite{VV06} using an example. A summary of the strategy is presented here.
 
-From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions of the model problem. The boundary conditions at $x=0$ reduces the solution space of four dimensions to a solution space of dimension at least two. The boundary condition at $x=1$ is then substituted which results in a homogeneous system of linear equations.
+From the general solutions for $u$ and $\phi$, the eigenvalues and eigenfunctions can be determined by imposing the boundary conditions at $x=0$ to reduce the solution space of four dimensions to a solution space of dimension at least two. 
+
+The boundary conditions at $x=1$ is then substituted which results in a homogeneous system of linear equations of the form
 \begin{eqnarray*}
 A \bar{b} = \bar{0}
 \end{eqnarray*}
+This system either has the zero
+
 
  This system has either the zero solution or infinitely many solutions. To ensure a non-zero solution, the determinant of the coefficient matrix $A$ of the system of equations is set equal to 0. The equation $\textrm{det}(A) = 0$ is called the frequency equation. The frequency equation has infinitely many solutions and each solution corresponds to an eigenvalue.
  
  For each eigenvalue, a unique solution for the pair $\bar{b}$ can be obtained. A eigenfunction for $u$ and $\phi$ is obtained using $\bar{b}$ and corresponds to the relevant eigenvalue.
 
 \textcolor{red}{Die moet net op die regte plek gesit word.}
+
 
 \textcolor{red}{**********************************************}
 
