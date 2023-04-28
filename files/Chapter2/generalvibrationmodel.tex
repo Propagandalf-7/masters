@@ -448,15 +448,12 @@ Now that the eigenvalue problem has a solution, the following ordinary different
 	T'' + \lambda T = 0. 
 \end{eqnarray*}
 
-Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions as given in \cite{CVV18}:
+Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
 \begin{flalign}
-	T_n(t) &= e^{-r_nt}\left[ A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \right] \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
-	T_n(t) &= e^{-r_nt}\left[ A_n + B_n t \right] \quad \textrm{ if } \lambda = 0, \label{lambda_2}\\
-	T_n(t) &= e^{-r_nt}\left[ A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \right] \quad \textrm{ if } \lambda < 0. \label{lambda_3}
+	T_n(t) &=  A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
+	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda = 0, \label{lambda_2}\\
+	T_n(t) &=  A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \quad \textrm{ if } \lambda < 0. \label{lambda_3}
 \end{flalign}
-
-From assumptions \textbf{A2} and \textbf{A3}, the bilinear forms $b$ and $c$ are positive definite. And since we assumed that there is no damping ($a=0$), $\lambda$ cannot be negative. Therefore, the only possible solutions for $T_n(t)$ is \eqref{lambda_1} and \eqref{lambda_2}.
-
 
 Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
 \begin{eqnarray}
