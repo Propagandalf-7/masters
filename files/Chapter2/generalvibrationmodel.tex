@@ -296,7 +296,7 @@ Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear 
 
 \section{Modal analysis}\label{sec:existence:ModalAnalysis}
 \subsection{Timoshenko beam}\label{subsec:Timoshenko_Modal_Analsis}
-To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as it is easy to illustrate the idea of modal analysis.
+To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as the boundary conditions makes it easy to illustrate the idea of modal analysis. A systematic approach to modal analysis for the Timoshenko beam theory is discussed in Chapter 4.
 
 Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}):
 \begin{eqnarray}
@@ -336,30 +336,23 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
-Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution confirms that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are possible solutions of the differential equations and satisfy the boundary conditions.
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution  that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are possible solutions of the differential equations and satisfy the boundary conditions.
 
-Due to this periodicity of these solutions for the eigenvalue problem Problem T-1E, it has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. The vector $\langle 0, 1 \rangle$ also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
+Due to the periodicity of these solutions, the eigenvalue problem has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. Another solution is the vector $\langle 0, 1 \rangle$ which also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
 
-A systematic approach to obtain the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in in Section 4.2. From \cite{VV06}, the following theorem can be derived and confirms the validity of our trial solutions for the eigenvalue problem.
+A systematic approach to obtain the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in more detail in Section \ref{sec:Timo:EigenvalueProblem}. To verify the trial solutions for Problem T-1E, the following theorem can be derived from \cite{VV06}.
 
 \newtheorem{ThmVV06}{Theorem}
 \begin{ThmVV06}
 	If $\langle u, \phi\rangle$ is a non-constant eigenfunction of Problem T-1E, then $\langle u, \phi\rangle = \langle\sin k \pi x, A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. If $\langle u, \phi\rangle$ is a constant eigenfunction of Problem T1-E, then  $\langle u, \phi\rangle = \langle 0, 1 \rangle$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
 \end{ThmVV06}
 
+\begin{proof}
+	See Section 4.2.
+\end{proof}
 
-\textcolor{red}{**************OLD VERSION******************}
 
-\sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
 
-The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
-
-\newtheorem{ThmVV06_2}{Theorem}
-\begin{ThmVV06_2}
-	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
-\end{ThmVV06_2}
-
-\textcolor{red}{********************************} 
 
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
@@ -388,8 +381,22 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 	 -\int_0^1\alpha \tilde{w}' \psi + \int_0^1\alpha \tilde{\phi} \psi - \int_0^1\frac{1}{\gamma}\tilde{\phi}' \psi' &=& \int_0^1 \lambda \tilde{\phi} \psi .
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.
 
+
+\textcolor{red}{**************OLD VERSION******************}
+
+\sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
+
+The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
+
+\newtheorem{ThmVV06_2}{Theorem}
+\begin{ThmVV06_2}
+	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
+\end{ThmVV06_2}
+
+\textcolor{red}{********************************} 
+
 \subsection{General vibration problem new}
-This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. The authors of \cite{CVV18} do take damping into consideration, which is not covered in this dissertation. Assume there is no damping and no forcing. 
+This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing. 
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
 Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
@@ -450,9 +457,9 @@ Now that the eigenvalue problem has a solution, the following ordinary different
 
 Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
 \begin{flalign}
-	T_n(t) &=  A_n \cos(\omega_n t) + B_n \sin(\omega_n t) \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
+	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
 	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda = 0, \label{lambda_2}\\
-	T_n(t) &=  A_n \cosh(\mu_n t) + B_n \sinh(\mu_n t) \quad \textrm{ if } \lambda < 0. \label{lambda_3}
+	T_n(t) &=  A_n \cosh(\sqrt{-\lambda_n} t) + B_n \sinh(\sqrt{-\lambda_n} t) \quad \textrm{ if } \lambda < 0. \label{lambda_3}
 \end{flalign}
 
 Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
