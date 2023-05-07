@@ -469,33 +469,35 @@ Then combining the solutions of the eigenvalue problem and the differential equa
 
 
 \subsubsection{Validity of series solution}
-Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, consider the article \cite{CVV18}.
+Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we refer to the article \cite{CVV18}.
+
+In article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by
+\begin{eqnarray}
+	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
+\end{eqnarray}
+
+The authors also prove that for all $t>0$, $\mathcal{E}(t) \leq \mathcal{E}(0)$.
 
 Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
 \begin{eqnarray*}
 	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
 \end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.
 
-In \cite{CVV18}, the validity of the series solution is proved using the energy norms, where the energy $\mathcal{E}$ a function $u$ given by
-\begin{eqnarray}
-	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
-\end{eqnarray}
+Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
 
-The partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
+The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies Problem GVar, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
 
-In \cite{CVV18}, a error function is defined $u^E_N = u - u^N$. Following the initial conditions, $u^E_N = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
+Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W \leq ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
 
-Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. In \cite{CVV18} it is proven that $\mathcal{E}(t) \leq \mathcal{E}(0)$. Using this inequality it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W \leq ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
-
-The authors of \cite{CVV18} prove that $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.
+The authors of \cite{CVV18} prove that both $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.
 
 It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
 
-
 \subsubsection{Comparison of models}
-In this dissertation, we are trying to compare different models for use in applications. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.\\
 
-The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution is valid, and therefore the comparison can be made.
+In this dissertation, we are trying to compare different models for use in applications. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
+
+The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a fair comparison can be made.
 
 
 \textcolor{red}{****************OLD*************}
