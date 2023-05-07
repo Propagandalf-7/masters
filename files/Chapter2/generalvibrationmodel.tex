@@ -382,21 +382,10 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.
 
 
-\textcolor{red}{**************OLD VERSION******************}
-
-\sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
-
-The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
-
-\newtheorem{ThmVV06_2}{Theorem}
-\begin{ThmVV06_2}
-	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
-\end{ThmVV06_2}
-
-\textcolor{red}{********************************} 
-
 \subsection{General vibration problem new}
-This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing. 
+This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. 
+
+Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing. 
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
 Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
@@ -457,9 +446,9 @@ Now that the eigenvalue problem has a solution, the following ordinary different
 
 Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
 \begin{flalign}
-	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda > 0, \label{lambda_1}\\
-	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda = 0, \label{lambda_2}\\
-	T_n(t) &=  A_n \cosh(\sqrt{-\lambda_n} t) + B_n \sinh(\sqrt{-\lambda_n} t) \quad \textrm{ if } \lambda < 0. \label{lambda_3}
+	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}\\
+	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda_n = 0, \label{lambda_2}\\
+	T_n(t) &=  A_n \cosh(\sqrt{-\lambda_n} t) + B_n \sinh(\sqrt{-\lambda_n} t) \quad \textrm{ if } \lambda_n < 0. \label{lambda_3}
 \end{flalign}
 
 Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
@@ -499,15 +488,32 @@ In this dissertation, we are trying to compare different models for use in appli
 
 The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a fair comparison can be made.
 
+\end{document}
 
-\textcolor{red}{****************OLD*************}
+\textcolor{red}{Voorstel:}\\
+\textcolor{red}{*********************}\\
+Using these complete product spaces, \eqref{def_of_u} and the variational form \eqref{var_form_timo} defined in Section \ref{ssec:1D_Model:VariationalForm}, the weak variational form for the cantilever Timoshenko beam is defined as Problem T-2W.\\
+\textcolor{red}{*********************}
 
-Hele dissertation gaan oor comparison of models.
+\begin{proof}
+	Suppose $f,g \in \mathbb{R}[a,b]$. Then
+	\begin{eqnarray}
+		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
+	\end{eqnarray}
 
+	Suppose that $x^*$ is the zero of $u$ on the interval $[a,b]$. Then since $u \in C^1[0,1]$, by the Fundamental Theorem of Calculus
+	\begin{eqnarray*}
+		u(x) = \int_{x^*}^x u' \ \ \ \ \textrm{or} \ \ \ \ \ u(x) = -\int^{x^*}_x u'
+	\end{eqnarray*}
 
-In a later chapter of this dissertation, different dimensional models are compared with each other. Since the formal series solution is a linear combination of eigenvalues and eigenfunctions, it is only required to compare the eigenvalues and eigenfunctions of the different models.\\
+	So by \eqref{CSI} with $g = 1$, it follows that $|u(x)| \leq ||u'||\sqrt{b-a}$. So it is clear that $||u'||\sqrt{b-a}$ is an upper bound for $|u|$, hence
+	\begin{eqnarray}
+		||u||_{\sup} \leq ||u'||\sqrt{b-a} \label{sup}
+	\end{eqnarray}
 
-Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for b
+	It is easy to show that $||u|| \leq \sqrt{b-a} ||u||_{\sup}$. It then follows from \eqref{sup} that $||u|| \leq (b-a) ||u'||$.
+\end{proof}
+
 
 
 \subsection{General vibration problem old}
@@ -597,6 +603,15 @@ The authors of \cite{CVV18} prove that $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $
 
 It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.\\
 
+\textcolor{red}{****************OLD*************}
+
+Hele dissertation gaan oor comparison of models.
+
+
+In a later chapter of this dissertation, different dimensional models are compared with each other. Since the formal series solution is a linear combination of eigenvalues and eigenfunctions, it is only required to compare the eigenvalues and eigenfunctions of the different models.\\
+
+Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for b
+
 
 \subsubsection{Comparison of models}
 Hele disseratoin gaan oor comparison of models. \\
@@ -607,28 +622,15 @@ In a later chapter of this dissertation, different dimensional models are compar
 Using the results of this subsection, it can be shown that for specific initial conditions, the formal series solution is valid for the different models. So if the two models are disturbed in the exact same way, the formal series solution is valid for both models, and hence the eigenvalues and eigenfunctions can be used to compare the models.\\
 
 
-\end{document}
+\textcolor{red}{**************OLD VERSION******************}
 
-\textcolor{red}{Voorstel:}\\
-\textcolor{red}{*********************}\\
-Using these complete product spaces, \eqref{def_of_u} and the variational form \eqref{var_form_timo} defined in Section \ref{ssec:1D_Model:VariationalForm}, the weak variational form for the cantilever Timoshenko beam is defined as Problem T-2W.\\
-\textcolor{red}{*********************}
+\sout{It is well known} that the eigenvalue problem like Problem T-1E has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. For the pinned-pinned beam (Problem T-1), $\lambda_n > 0$ for all $n > 0$ (this is also true for Problem T-2 and Problem T-4). A convenient reference is \cite{VV06}.
 
-\begin{proof}
-	Suppose $f,g \in \mathbb{R}[a,b]$. Then
-	\begin{eqnarray}
-		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
-	\end{eqnarray}
+The eigenvalues for the pinned-pinned beam model is the first example in \cite{VV06}. In this dissertation, the pinned-pinned model problem is referred to as Problem T-1 (eigenvalue problem Problem T-1E). Obviously, since $\langle 0 \ 1\rangle$ satisfies the boundary conditions, it is an eigenfunction with corresponding eigenvalue $\alpha$. In \cite{VV06} the authors proved the following theorem.
 
-	Suppose that $x^*$ is the zero of $u$ on the interval $[a,b]$. Then since $u \in C^1[0,1]$, by the Fundamental Theorem of Calculus
-	\begin{eqnarray*}
-		u(x) = \int_{x^*}^x u' \ \ \ \ \textrm{or} \ \ \ \ \ u(x) = -\int^{x^*}_x u'
-	\end{eqnarray*}
+\newtheorem{ThmVV06_2}{Theorem}
+\begin{ThmVV06_2}
+	If $\langle u \ \phi\rangle$ is a nonconstant eigenfunction of Problem T-1E, then $\langle u \ \phi\rangle = \langle\sin k \pi x \ A_k \cos k \pi x\rangle$ which satisfies the boundary conditions. $A_k$ is a constant depending on the integer $k$ and the eigenvalue $\lambda_k$. Also all eigenvalues less than $\alpha$ are simple eigenvalues.
+\end{ThmVV06_2}
 
-	So by \eqref{CSI} with $g = 1$, it follows that $|u(x)| \leq ||u'||\sqrt{b-a}$. So it is clear that $||u'||\sqrt{b-a}$ is an upper bound for $|u|$, hence
-	\begin{eqnarray}
-		||u||_{\sup} \leq ||u'||\sqrt{b-a} \label{sup}
-	\end{eqnarray}
-
-	It is easy to show that $||u|| \leq \sqrt{b-a} ||u||_{\sup}$. It then follows from \eqref{sup} that $||u|| \leq (b-a) ||u'||$.
-\end{proof}
+\textcolor{red}{********************************} 
