@@ -296,15 +296,16 @@ Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear 
 
 \section{Modal analysis}\label{sec:existence:ModalAnalysis}
 \subsection{Timoshenko beam}\label{subsec:Timoshenko_Modal_Analsis}
-To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as the boundary conditions makes it easy to illustrate the idea of modal analysis. A systematic approach to modal analysis for the Timoshenko beam theory is discussed in Chapter 4.
+To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as the boundary conditions makes it easy to illustrate the idea of modal analysis. A detailed approach to modal analysis for the Timoshenko beam theory is discussed in Chapter 4.
 
-Consider the partial differential equations of a pinned-pinned Timoshenko beam (obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}):
+
+Consider the partial differential equations of a pinned-pinned Timoshenko beam, obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}:
 \begin{eqnarray}
 	  \partial^2_{x} w - \partial_{x}\phi &=& \partial^{2}_{t} w, \label{eq:1D_Model:ModalPDE1}\\
 	  \alpha\partial_{x} w - \alpha\phi + \frac{1}{\gamma}\partial^2_{x}\phi &=&  \partial^{2}_{t} \phi,\label{eq:1D_Model:ModalPDE2}
 \end{eqnarray}
 with boundary conditions
-\begin{eqnarray*}
+\begin{eqnarray*} 
 	w(0,t) = 0, & &	\	 w(1,t) = 0, \label{eq:1D_Model:ModalBC1}\\
 	M(0,t) = 0, & &	\	M(1,t) = 0. \label{eq:1D_Model:ModalBC2}
 \end{eqnarray*}
@@ -351,9 +352,6 @@ A systematic approach to obtain the eigenvalues and eigenfunctions is given in \
 	See Section 4.2.
 \end{proof}
 
-
-
-
 Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
 	T_k(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
@@ -382,7 +380,7 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$.
 
 
-\subsection{General vibration problem new}
+\subsection{General vibration problem}
 This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. 
 
 Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing. 
@@ -409,7 +407,7 @@ Dividing both sides by $T(t)$ gives
 	b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
 \end{eqnarray*}
 
-Therefore $\frac{T''(t)}{T(t)}$ must be a constant. Suppose that $\frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
+Therefore $\displaystyle -\frac{T''(t)}{T(t)}$ must be a non-negative constant. Suppose that $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
 
 Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
 \begin{eqnarray*}
@@ -435,7 +433,7 @@ The sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_
 
 Following this result, the authors explain that any $u \in V$, the eigenvector series for $u$ converges to $u$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the basis $x_i$. Therefore, for any $u \in V$,
 \begin{eqnarray*}
-	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i
+	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i.
 \end{eqnarray*}
 
 
@@ -447,8 +445,7 @@ Now that the eigenvalue problem has a solution, the following ordinary different
 Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
 \begin{flalign}
 	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}\\
-	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda_n = 0, \label{lambda_2}\\
-	T_n(t) &=  A_n \cosh(\sqrt{-\lambda_n} t) + B_n \sinh(\sqrt{-\lambda_n} t) \quad \textrm{ if } \lambda_n < 0. \label{lambda_3}
+	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda_n = 0. \label{lambda_2}
 \end{flalign}
 
 Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
@@ -458,7 +455,7 @@ Then combining the solutions of the eigenvalue problem and the differential equa
 
 
 \subsubsection{Validity of series solution}
-Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we refer to the article \cite{CVV18}.
+Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we can again refer to the article \cite{CVV18}.
 
 In article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by
 \begin{eqnarray}
@@ -484,7 +481,7 @@ It follows that the partial series solution converges to the solution $u$ as the
 
 \subsubsection{Comparison of models}
 
-In this dissertation, we are trying to compare different models for use in applications. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
+In this dissertation, we are trying to compare different models for use in applications. These comparisons are made in Chapter 4 and 6. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
 
 The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a fair comparison can be made.
 
