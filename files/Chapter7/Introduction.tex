@@ -1,26 +1,34 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-This chapter is an investigation into the validity of a cantilever Timoshenko beam and a cantilever Reissner-Mindlin plate. Validity in this context refer to how well the solutions compare to the solutions of more realistic higher dimensional models.\\
+This chapter is an investigation into the validity of a cantilever Timoshenko beam and a cantilever Reissner-Mindlin plate model for practical applications. Validity in this context refers to how well the solutions of the model compare to the solutions of more realistic higher-dimensional model.
 
 The chapter consists of three main parts.
 
-\begin{itemize}
-	\item[-] Section 7.2: Comparison between the cantilever Timoshenko beam and cantilever two-dimensional beam.
-	\item[-] Section 7.3: Comparison between the cantilever two-dimensional beam and cantilever three-dimensional beams.
-	\item[-] Section 7.4: Comparison between the cantilever Reissner-Mindlin plate and cantilever three-dimensional plate.
-\end{itemize}
+Section 7.2 is a discussion and a verification of numerical results of the work done in \cite{LVV09} In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. We also include some extra results for different values of the parameter $\alpha$.
 
-In Section 7.2, the work in \cite{LVV09} is discussed and the numerical results are verified. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. More results not given in  [LVV09] are also calculated, to be used in the sections following.\\
+Section 7.3 is a natural extension of the article \cite{LVV09} which is mentioned by the authors. In this section, the validity of the two-dimensional beam model use in Section 7.2 is investigated. The results of the two-dimensional beam are compared to a three-dimensional beam. 
 
-Section 7.3 is a natural extension of the article \cite{LVV09}. In this section, the validity of a two-dimensional beam model is investigated. The results of the two-dimensional beam are compared to a three-dimensional beam. The two-dimensional beam thus serves are an intermediate step to validate the Timoshenko beam model.\\
+The two-dimensional beam is an intermediate step to validate the Timoshenko beam model. A direct comparison between the one and three dimensional would be preferred, but the authors of \cite{LVV09} mention that this will introduce complexities, which will be discussed in more detail in the numerical results.
 
-
-Section 7.4 extends the work of \cite{LVV09} to plate models. Specifically a comparison of a cantilever two-dimensional Reissner-Mindlin plate to a cantilever three-dimensional plate.\\
+Section 7.4 extends the work of \cite{LVV09} further to plate models. Specifically a comparison of a cantilever two-dimensional Reissner-Mindlin plate to a cantilever three-dimensional plate. 
 
 \subsubsection{Global parameters}
 All the models in this dissertation are made of the same isotropic material and have square cross-section. Therefore for all the models, the elastic modulus $\displaystyle G = \frac{E}{2(1+\nu)}$. The shear correction factor is chosen as $\kappa^2 = 5/6$ and Poisson's ratio $\nu = 0.3$.\\
- 
+
+
+\subsubsection{Global Parameters}
+The models in this Chapter (and this dissertation) assume the use of an identical isotropic material with, a rectangular cross-section. These are defined in global parameters shared by all the models. The parameters are as follows:
+
+\begin{itemize}
+    \item Elastic modulus ($G$): This is calculated using the formula $G = \frac{E}{2(1+\nu)}$, where $E$ is the modulus of elasticity and $\nu$ is Poisson's ratio. 
+
+    \item Shear correction factor ($\kappa^2$): This is set to $5/6$, which is common for rectangular cross-sections.
+
+    \item Poisson's ratio ($\nu$): This is set to $0.3$, a typical value for materials like steel used in engineering.
+\end{itemize}
+
+The consistent use of these parameters across all models helps to ensure that any differences in the results can be attributed to the model structures themselves, rather than variations in the material or geometric properties.
 \end{document}
 
 

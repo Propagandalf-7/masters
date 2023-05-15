@@ -79,7 +79,7 @@ Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ forms a linearly independent bas
 Proposition 2 provides a link between the solution of Problem ODE and the solution of Problem GVar$^h$.
 
 \subsection{Error estimates}\label{e_est}
-Given that the assumptions \textbf{A1}-\textbf{A4} of Section 2 is satisfied, and $f$ is continuous, there exists unique solutions for  Problem GVar and Problem GVar$^h$. It remains only to show that the solution of Problem GVar$^h$ denoted by $u^h$ converges to the solution of Problem GVar denoted by $u$.
+Under the assumptions \textbf{A1}-\textbf{A4} of Section 2 and continuity of $f$, there exists unique solutions for Problem GVar and Problem GVar$^h$. The next step is to show that the solution of Problem GVar$^h$ converges to the solution of Problem GVar. This is proven the main result of \cite{BV13}.
 
 Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$. The authors of \cite{BV13} define the following error,
 
@@ -92,9 +92,9 @@ In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is the
 	e^h(t) = e_p(t) +e(t) \label{Error}
 \end{eqnarray}
 
-The authors of \cite{BV13} use interpolation theory to determine the error $e_p$. However to obtain an error estimate for $e$ is not trivial. The approach of the authors is to use Finite Element Analysis to obtain an error estimate for $e$.
+The authors of \cite{BV13} mention that interpolation theory can be used to determine the error $e_p$. However to obtain an error estimate for $e$ is not as trivial. This is where the authors use the Finite Element Analysis, which is used to obtain an error estimate for $e$.
 
-Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.\\
+Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.
 
 The error $e$, can now be expressed as
 \begin{eqnarray}
