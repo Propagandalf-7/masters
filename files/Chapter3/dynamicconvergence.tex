@@ -1,12 +1,24 @@
 \documentclass[../../main.tex]{subfiles}
+\insubfile{\AtEndDocument{\bibliography{../../references.bib}}}
+
 \begin{document}
 \section{Introduction}
-In this chapter, two important convegence results of the Finite Element Method (FEM) is discussed. The first result looks at the convergence of the Galerkin approximation for second order hyperbolic type problems, as presented in \cite{BV13}. The second result, from the textbook \cite{SF97}, examines the convergence of eigenvalues and eigenfunctions for a one-dimensional vibration problem, using the Finite Element Method.
+In this chapter, two important convergence results of the Finite Element Method
+(FEM) is discussed. The first result looks at the convergence of the Galerkin
+approximation for second order hyperbolic type problems, as presented
+in~\cite{BV13}. The second result, from the textbook~\cite{SF97}, examines the
+convergence of eigenvalues and eigenfunctions for a one-dimensional vibration
+problem, using the Finite Element Method.
 
-\section{Convergence of the Galerkin approximation}
-In the article \cite{BV13}, the authors investigate the convergence of the Galerkin approximation for second order hyperbolic type problems. The article \cite{BV18} extends the work of \cite{BV13} by including general damping and damping at the endpoints. For the models in Chapter 1, \cite{BV13} is sufficient while \cite{BV18} provides more insight and improved notation.
+\section{Convergence of the Galerkin approximation}\label{sec:convergence-of-the-galerkin-approximation}
+In the article \cite{BV13}, the authors investigate the convergence of the
+Galerkin approximation for second order hyperbolic type problems. The article
+\cite{BV18} extends the work of \cite{BV13} by including general damping and
+damping at the endpoints. For the models in Chapter 1, \cite{BV13} is
+sufficient while \cite{BV18} provides more insight and improved notation.
 
-In Section 2.2, Problem GVar is presented and identical to the problem in \cite{BV13}. The problem is repeated here for convenience.
+In Section 2.2, Problem GVar is presented and identical to the problem in
+\cite{BV13}. The problem is repeated here for convenience.
 
 \subsubsection*{Problem GVar}
 Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
@@ -15,14 +27,24 @@ Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $
 \end{eqnarray}
 while $u(0)=u_{0}$, $u'(0)=u_{1}$.
 
-Assume that the assumptions \textbf{A1}-\textbf{A4} from Section 2.2 are satisfied ensuring that Problem GVar has a unique solution.
- 
-Before the theory of \cite{BV13} can be discussed, some preliminary work is necessary. The structure of this section is as follows. First the Galerkin approximation is for Problem GVar is derived. Then a equivalent system of ordinary differential equations is derived using the Finite Element Method. Finally, the convergence of the Galerkin approximation is discussed using the work of the article \cite{BV13}.
+Assume that the assumptions \textbf{A1}-\textbf{A4} from Section 2.2 are
+satisfied ensuring that Problem GVar has a unique solution.
 
-\subsection{Galerkin approximation of Problem GVar}
-Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in the Hilbert space $H$.
+Before the theory of \cite{BV13} can be discussed, some preliminary work is
+necessary. The structure of this section is as follows. First the Galerkin
+approximation is for Problem GVar is derived. Then a equivalent system of
+ordinary differential equations is derived using the Finite Element Method.
+Finally, the convergence of the Galerkin approximation is discussed using the
+work of the article \cite{BV13}.
 
-Suppose $S^h$ is a finite n-dimensional subspace of V. Let $\{\phi_1, \ \phi_2,...,\phi_n\}$ be a set of linear independent basis functions such that $S^h = \textrm{span}(\{\phi_1, \phi_2, ..., \phi_n \})$ and $\phi_i \in C^{(1)}$ for all $i$.
+\subsection{Galerkin approximation of Problem GVar}\label{subsec:galerkin-approximation-of-problem-gvar}
+Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in
+the Hilbert space $H$.
+
+Suppose $S^h$ is a finite n-dimensional subspace of V. Let $\{\phi_1, \
+	\phi_2,...,\phi_n\}$ be a set of linear independent basis functions such that
+$S^h = \textrm{span}(\{\phi_1, \phi_2, ..., \phi_n \})$ and $\phi_i \in
+	C^{(1)}$ for all $i$.
 
 For any function $w_h$ in $S^h$, $w_h$ can be expressed as a linear combination
 \begin{eqnarray*}
@@ -36,7 +58,10 @@ Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J)$ such tha
 \end{eqnarray}
 with the initial values $u_h(0)=u^h_{0}$ and $u'_h(0)=u^h_{1}$. The initial conditions $u^h_{0}$ and $u^h_{1}$ are projections of $u_0$ and $u_1$ into the finite dimensional space $S^h$.
 
-If the function $f$ is continuous, then Problem GVar$^h$ is equivalent to a system of second order differential equations. The following theorem from \cite{BV13} proves that if $f$ is continuous, then problem Problem GVar$^h$ has a unique solution.
+If the function $f$ is continuous, then Problem GVar$^h$ is equivalent to a
+system of second order differential equations. The following theorem from
+\cite{BV13} proves that if $f$ is continuous, then problem Problem GVar$^h$ has
+a unique solution.
 
 \newtheorem{DC_Thm2}{Theorem}
 \begin{DC_Thm2} \label{DC_THM2}
@@ -54,8 +79,8 @@ Consider the standard FEM matrices defined by
 	F_{i}(t) & = & b(f(t), \phi_i)
 \end{eqnarray*}
 
-Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary differential equations denoted by Problem ODE.
-\subsubsection*{Problem ODE}
+Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary
+differential equations denoted by Problem ODE. \subsubsection*{Problem ODE}
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}^h_0 \textrm{ and }  \bar{u}(1) = \bar{u}^h_1 \label{ODE}
@@ -74,20 +99,29 @@ The following propositions related to Problem ODE are given in \cite{BV13}.
 	Suppose $M, K, C, F,\bar{u}^h_0$ and $\bar{u}^h_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
-Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ forms a linearly independent basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$. Consequently, the matrix $M$ is invertible. The equation \eqref{ODE} can therefore be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} = M^{-1}F(t)$. Using the theory of linear differential equations, a unique solution for Problem ODE can be found, proving Proposition 1.
+Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ forms a linearly independent
+basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$.
+Consequently, the matrix $M$ is invertible. The equation \eqref{ODE} can
+therefore be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} =
+	M^{-1}F(t)$. Using the theory of linear differential equations, a unique
+solution for Problem ODE can be found, proving Proposition 1.
 
-Proposition 2 provides a link between the solution of Problem ODE and the solution of Problem GVar$^h$.
+Proposition 2 provides a link between the solution of Problem ODE and the
+solution of Problem GVar$^h$.
 
 \subsection{Error estimates}\label{e_est}
 Under the assumptions \textbf{A1}-\textbf{A4} of Section 2 and continuity of $f$, there exists unique solutions for Problem GVar and Problem GVar$^h$. The next step is to show that the solution of Problem GVar$^h$ converges to the solution of Problem GVar. This is proven the main result of \cite{BV13}.
 
-Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$. The authors of \cite{BV13} define the following error,
+Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem
+GVar$^h$. The authors of \cite{BV13} define the following error,
 
 \begin{eqnarray}
 	e^h(t) = u(t) - u^h(t). \label{Error}
 \end{eqnarray}
 
-In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is then split using this projection. Let $e(t) = Pu(t)- u_h(t)$ and $e_p(t) = u(t) - Pu(t)$ so that
+In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is
+then split using this projection. Let $e(t) = Pu(t)- u_h(t)$ and $e_p(t) = u(t)
+	- Pu(t)$ so that
 \begin{eqnarray}
 	e^h(t) = e_p(t) +e(t) \label{Error}
 \end{eqnarray}
@@ -101,11 +135,14 @@ The error $e$, can now be expressed as
 	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
 \end{eqnarray}
 
-In \eqref{error_e}, the authors divide the error $e$ into a semi-discrete term and a fully discrete term. The two terms are investigated as seperate problems in \cite{BV13}.\\
+In \eqref{error_e}, the authors divide the error $e$ into a semi-discrete term
+and a fully discrete term. The two terms are investigated as seperate problems
+in \cite{BV13}.\\
 
 \subsection{Main result}
 
-The main result proving the convergence of the solution of the Galerkin Approximation is given in \cite{BV13} as follows.
+The main result proving the convergence of the solution of the Galerkin
+Approximation is given in \cite{BV13} as follows.
 
 \newtheorem*{DC_Thm5}{Theorem 2}
 \begin{DC_Thm5}
@@ -118,10 +155,12 @@ The main result proving the convergence of the solution of the Galerkin Approxim
 	for each $t\in(0,\ T)$.
 \end{DC_Thm5}
 
-The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the constant defined in assumption \textbf{A4} of Section 2.2.1.
+The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the
+constant defined in assumption \textbf{A4} of Section 2.2.1.
 
 \subsection{Obtaining the error estimate}
-In this section we will show how the error estimate in Theorem 2 is obtained by the authors of \cite{BV13}.\\
+In this section we will show how the error estimate in Theorem 2 is obtained by
+the authors of \cite{BV13}.\\
 
 The following two assumptions are made in \cite{BV13}.
 \subsubsection*{Assumptions}
@@ -136,19 +175,22 @@ The projection $P$ in section \eqref{e_est} is defined in \cite{BV13} as
 	b(u-Pu,v) = 0 \ \ \ \textrm{ for all } v \in V.
 \end{eqnarray*}
 
-From assumption \textbf{B1}, $Pu \in C^2(J)$ and by the definition $P$, $P$ is a projection with respect to the inner product $b$.\\
+From assumption \textbf{B1}, $Pu \in C^2(J)$ and by the definition $P$, $P$ is
+a projection with respect to the inner product $b$.\\
 
 Subtracting \eqref{GV_PB1} from \eqref{DC_E2} gives
 \begin{eqnarray*}
 	c(u''(t)-u''_h(t),v) + a(u'(t)-u'_h(t),v) + b(u(t)-u_h(t),v) = 0
 \end{eqnarray*}
 
-Using the definition of the error $e^h$ while also adding and subtracting $Pu(t)$ in the bilinear form $b$, we can write
+Using the definition of the error $e^h$ while also adding and subtracting
+$Pu(t)$ in the bilinear form $b$, we can write
 \begin{eqnarray*}
 	c(e''(t),v) + a(e'(t),v) + b(u(t) - Pu(t),v) + b(Pu(t) +u_h(t),v)- = 0
 \end{eqnarray*}
 
-It then follows from the definitions of the error $e$ and the projection $P$ that
+It then follows from the definitions of the error $e$ and the projection $P$
+that
 \begin{eqnarray*}
 	c(e''(t),v) + a(e'(t),v) + b(e(t),v) = 0
 \end{eqnarray*}
@@ -162,7 +204,8 @@ In \cite{BV13}, this is presented as a proposition.
 	\end{eqnarray}
 \end{DC_Prop1}
 
-Using this proposition, the authors of \cite{BV13} derive a generalized error estimate for the error $e = Pu - u_h$.
+Using this proposition, the authors of \cite{BV13} derive a generalized error
+estimate for the error $e = Pu - u_h$.
 
 \newtheorem{lem_1}{Lemma}
 \begin{lem_1}
@@ -173,7 +216,9 @@ Using this proposition, the authors of \cite{BV13} derive a generalized error es
 	\end{eqnarray}
 \end{lem_1}
 
-In chapter 2, it was explained that the models of this dissertation have weak damping, i.e. $a = 0$. Therefore, the error estimate in Lemma 1 can be simplified. This is given in \cite{BV13} as a corollary.
+In chapter 2, it was explained that the models of this dissertation have weak
+damping, i.e. $a = 0$. Therefore, the error estimate in Lemma 1 can be
+simplified. This is given in \cite{BV13} as a corollary.
 
 \newtheorem{col_1}{Corollary}
 \begin{col_1}
@@ -190,19 +235,19 @@ The estimate \eqref{fundamental_estimate} in Lemma 1 is equivalent to
 	&& + 3K_\alpha T \Vert e_h(0) \Vert_W + 3K_\alpha \int_0^T \Vert e_p(t) \Vert_W \biggr).
 \end{eqnarray*}
 
-
 Define the projection $P$ such that for any function $u$,
 \begin{eqnarray*}
 	(Pu)(t) = Pu(t) \ \ \ \textrm{ for all } t \in (0,T).
 \end{eqnarray*}
 
-
-
-From Theorem 1, it follows that the solution $u$ of Problem GVar satisfies $u \in C^1([0,T]; V) \cap C^2((0,T);V)$. \textcolor{red}{This is a weak assumption made in \cite{BV13}.}\\
+From Theorem 1, it follows that the solution $u$ of Problem GVar satisfies $u
+	\in C^1([0,T]; V) \cap C^2((0,T);V)$. \textcolor{red}{This is a weak assumption
+	made in \cite{BV13}.}\\
 
 \sout{The following is a weak assumption in \cite{BV13}: The solution $u$ of Problem GVar satisfies $u \in C^1([0,T]; V) \cap C^2((0,T);V)$. This follows from Theorem 1 and is a necessary assumption in [BSV17].}\\
 
-Let $\Pi$ denote the interpolation operator such that $u_0^h = \Pi u_0$ and $u_1^h = \Pi u_1$.
+Let $\Pi$ denote the interpolation operator such that $u_0^h = \Pi u_0$ and
+$u_1^h = \Pi u_1$.
 
 \newtheorem*{DC_Thm4}{Theorem 2}
 \begin{DC_Thm4}
@@ -214,10 +259,11 @@ Let $\Pi$ denote the interpolation operator such that $u_0^h = \Pi u_0$ and $u_1
 	\end{eqnarray*} for each $t\in[0, T].$
 \end{DC_Thm4}
 
-
 \subsection{Fully discrete Galerkin finite element approximation}
-Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.\\
-
+Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length
+$\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for
+$k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \
+			t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.\\
 
 \sout{The goal the fully-discrete approximation as given by \cite{BV13} is to find an estimate between Problem GVar and Problem GVar$^h$, which can be expressed as}
 
@@ -226,8 +272,12 @@ The error $e(t)$, can now be expressed as
 	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
 \end{eqnarray}
 
-
-From Theorem 2 of the semi-discrete problem an error estimate for $[u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $[u_h(t_k) - u^h_k]$. Since the dimension of $S^h$ is not fixed, the equivalence of norms cannot be used, and therefore this error estimate for $[u_h(t_k) - u^h_k]$ should also be with respect to the norm of $W$.
+From Theorem 2 of the semi-discrete problem an error estimate for
+$[u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors
+of \cite{BV13} then proceed to obtain an error estimate for $[u_h(t_k) -
+			u^h_k]$. Since the dimension of $S^h$ is not fixed, the equivalence of norms
+cannot be used, and therefore this error estimate for $[u_h(t_k) - u^h_k]$
+should also be with respect to the norm of $W$.
 
 \sout{In Theorem 2, Section 3.1.3 it is shown that \cite{BV13} obtained an error estimate for $[u(t_k)-u_h(t_k)]$ with respect to the norm of $W$. The authors explain that an estimate for $[u_h(t_k) - u^h_k]$ should also be with respect to the norm $W$ since the dimension of $S^h$ is not fixed and hence the equivalence of the relevant norms cannot be used.}\\
 
@@ -239,14 +289,13 @@ For any sequence $\{x_k\} \in R_n$,
 \end{eqnarray*}
 
 Let Problem GVar$^h$-D denote the fully discrete form of Problem GVar$^h$.
-\subsubsection*{Problem GVar$^\mathbf{{h}}$-D}
-Find a sequence $\{u_{k}^{h}\}\subset S^{h}$ such that for $k=0,1,2$, . . . , $N-1,$
+\subsubsection*{Problem GVar$^\mathbf{{h}}$-D} Find a sequence
+$\{u_{k}^{h}\}\subset S^{h}$ such that for $k=0,1,2$, . . . , $N-1,$
 \begin{eqnarray}
 	\delta_{t}u_{k}^{h}\ & = & v_{k+\frac{1}{2}},\\
 	c(\delta_{t}v_{k},\ \psi)+a(v_{k+\frac{1}{2}},\ \psi)+b(u_{k+\frac{1}{2}}^{h},\ \psi) & = & \frac{1}{2}([f(t_{k})+f(t_{k+1})],\ \psi)_{X} \nonumber \\ \label{PP}
 \end{eqnarray}
 for each $\psi\in S^{h}$, while $u_{0}^{h}=u_{h}(0)=d^{h}$ and $v_{0}=u_{h}'(0)=v^{h}$.\\
-
 
 \textcolor{red}{Haal uit************************************************}\\
 The article \cite{BV13} proves the following proposition. This proposition proves that Problem GVar$^h$-D is well defined.
@@ -256,17 +305,23 @@ The article \cite{BV13} proves the following proposition. This proposition prove
 	Problem $GVar^{h}-D$ has a unique solution for any pair of vectors $d^{h}$ and $v^{h}$ in $S^{h}$.
 \end{DC_Prop4}
 
-In the proof of Proposition 3, the authors of \cite{BV13} show that \eqref{PP} in Problem GVar$^h$-D can be rewritten as
+In the proof of Proposition 3, the authors of \cite{BV13} show that \eqref{PP}
+in Problem GVar$^h$-D can be rewritten as
 \begin{eqnarray}
 	c(v_k+1,\phi) + \frac{\tau}{2} a(v_{k+1},\phi) + \frac{\tau^2}{4} a(v_{k+1},\phi) & = & c(v_k,\phi) - \frac{\tau}{2} a(v_k,\phi) \nonumber \\  &&
 	- \frac{\tau^2}{4}b(v_k,\phi) - \tau b(u_k,\phi) \nonumber\\
 	&&+\frac{\tau}{2}([f(t_k)+f(t_{k+1})],\phi)_X.\nonumber \\ \label{PPP}
 \end{eqnarray} for each $\phi \in S^h$.\\
 
-Using \eqref{PPP} and the definition of the standard finite element matrices, Problem GVar$^h$-D can be reformulated into a algorithm for the Finite Element Method. This is the fully discrete form of Problem GVar and is represented in Problem FD.\\
+Using \eqref{PPP} and the definition of the standard finite element matrices,
+Problem GVar$^h$-D can be reformulated into a algorithm for the Finite Element
+Method. This is the fully discrete form of Problem GVar and is represented in
+Problem FD.\\
 \textcolor{red}{******************************************************}\\
 
-Further results and the standard Finite Element Matrices, let the authors of \cite{BV13} rewrite Problem GVar$^\mathbf{{h}}$-D into an algorithm for the Finite Element Method. This is represented as Problem FD
+Further results and the standard Finite Element Matrices, let the authors of
+\cite{BV13} rewrite Problem GVar$^\mathbf{{h}}$-D into an algorithm for the
+Finite Element Method. This is represented as Problem FD
 
 \subsubsection*{Problem FD}
 Find a sequence $\{\bar{u}_{k}\}\subset R_{n}$ such that for each $k,$
@@ -276,7 +331,8 @@ Find a sequence $\{\bar{u}_{k}\}\subset R_{n}$ such that for each $k,$
 \end{eqnarray*}
 with $\bar{u}_{0}=\bar{d}$ and $\bar{v}_{0}=\bar{v}.$\\
 
-In this form, the problem is fully discrete. This form also allow the authors of \cite{BV13} to obtain an error estimate for the fully-discrete problem.
+In this form, the problem is fully discrete. This form also allow the authors
+of \cite{BV13} to obtain an error estimate for the fully-discrete problem.
 
 \subsubsection{Error estimate for the fully discrete problem}
 
@@ -307,26 +363,25 @@ The authors in \cite{BV13} denote the following errors
 Using this lemma, \cite{BV13} proves the following error estimate.\\
 \textcolor{red}{*************************************}
 
-Recall that $\displaystyle \tau = \frac{T}{N}$. The error estimate for the term $[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors of \cite{BV13} is presented here as Theorem 3.
+Recall that $\displaystyle \tau = \frac{T}{N}$. The error estimate for the term
+$[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors
+of \cite{BV13} is presented here as Theorem 3.
 
-
-
-Finally, Theorem 2 of the semi-discrete problem and Theorem 3 of the fully discrete problem gives an error estimate for the error $e(t)$. Consequently, the error estimate $e^h(t) = u(t) - u^h(t)$ is obtained.
-
+Finally, Theorem 2 of the semi-discrete problem and Theorem 3 of the fully
+discrete problem gives an error estimate for the error $e(t)$. Consequently,
+the error estimate $e^h(t) = u(t) - u^h(t)$ is obtained.
 
 \end{document}
 
-
-
-
-
-Define the error $e_h$ as the error between the solutions of Problem GVar and Problem GVar$^h$, i.e.
+Define the error $e_h$ as the error between the solutions of Problem GVar and
+Problem GVar$^h$, i.e.
 \begin{eqnarray}
 	e_h(t) = u(t)-u_h(t). \label{Error}
 \end{eqnarray}
 
-
-Since $u$ is unknown, the error $e_h$ cannot be calculated directly. Instead the authors of \cite{BV13} derive estimate for this error using projections.***  \\
+Since $u$ is unknown, the error $e_h$ cannot be calculated directly. Instead
+the authors of \cite{BV13} derive estimate for this error using projections.***
+\\
 
 Define a projection operator $P_h$ by
 \begin{eqnarray*}
@@ -338,7 +393,9 @@ Define the projection $P$ such that for any function $u$,
 	(Pu)(t) = Pu(t) \ \ \ \textrm{ for all } t \in (0,T).
 \end{eqnarray*}
 
-Same a \cite{BV13}, $P_h$ is renamed to $P$ for convenience. $P_h$ will be used when it is needed to differentiate between $P$ and $P_h$. Define the following errors $e_p$ and $e$ by
+Same a \cite{BV13}, $P_h$ is renamed to $P$ for convenience. $P_h$ will be used
+when it is needed to differentiate between $P$ and $P_h$. Define the following
+errors $e_p$ and $e$ by
 \begin{eqnarray*}
 	e(t) & = & Pu(t) - u_h(t),\\
 	e_p(t) & = & u(t) - Pu(t).
@@ -348,7 +405,10 @@ Then \eqref{Error} can be rewritten as
 	e_h(t) = e(t) - e_p(t).
 \end{eqnarray*}
 
-Estimates for the norm of $e_p$ is obtained in \cite{BV13} using approximation theory. It is only left to find an estimate for $e(t)$. The approach of \cite{BV13} is to estimate the error $e$ using the projection error $e_p$ and errors for the initial conditions.
+Estimates for the norm of $e_p$ is obtained in \cite{BV13} using approximation
+theory. It is only left to find an estimate for $e(t)$. The approach of
+\cite{BV13} is to estimate the error $e$ using the projection error $e_p$ and
+errors for the initial conditions.
 
 \subsubsection*{Assumptions}
 The following assumptions are made in \cite{BV13} for the convergence results.
@@ -361,8 +421,8 @@ The following assumptions are made in \cite{BV13} for the convergence results.
 \subsubsection{Remark}
 - Assumption \textbf{E2} is a weak assumption and follows from the existence theorem, Theorem 1 of Section 2.2. In [BSV17], \textbf{E2} is no longer a weak assumption but a necessary assumption. *****\\
 
-From this Proposition in \cite{BV13} the general variational problem in terms of the errors $e_h$ and $e$.
-\newtheorem{DC_Prop1}{Proposition}
+From this Proposition in \cite{BV13} the general variational problem in terms
+of the errors $e_h$ and $e$. \newtheorem{DC_Prop1}{Proposition}
 \begin{DC_Prop1}
 	If $u$ is a solution of Problem GVar and satisfies Assumption E1, then
 	\begin{eqnarray*}
@@ -370,12 +430,9 @@ From this Proposition in \cite{BV13} the general variational problem in terms of
 	\end{eqnarray*}
 \end{DC_Prop1}
 
-
-
-
 \subsection{Fundamental estimate}
-The authors of \cite{BV13} use the form of Proposition 1, to give a generalization of an estimate for the error $e(t)= Pu(t)- u_h(t)$.
-
+The authors of \cite{BV13} use the form of Proposition 1, to give a
+generalization of an estimate for the error $e(t)= Pu(t)- u_h(t)$.
 
 \newtheorem{DC_Lem2}{Lemma}
 \begin{DC_Lem2}
@@ -386,7 +443,8 @@ The authors of \cite{BV13} use the form of Proposition 1, to give a generalizati
 	\end{eqnarray*}
 \end{DC_Lem2}
 
-Similarly, for $a = 0$ (weak damping as explained in Section 2.2), the following corollary is obtained in a similar proof to Lemma 1.
+Similarly, for $a = 0$ (weak damping as explained in Section 2.2), the
+following corollary is obtained in a similar proof to Lemma 1.
 \newtheorem{DC_Cor1}{Corollary}
 \begin{DC_Cor1}
 	If the solution $u$ of Problem $GVar$ with $a=0$ satisfies Assumption $El$, then for $t\in[0, T],$
@@ -395,13 +453,10 @@ Similarly, for $a = 0$ (weak damping as explained in Section 2.2), the following
 	\end{eqnarray*}
 \end{DC_Cor1}
 
-
-
-
 \subsection{Convergence and error estimated for the semi-discrete approximation}
-Consider Problem GVar$^h$ with discretised space and continuous time variables. This is known as a semi-discrete problem. This is a natural intermediate step between a continuous and a fully discrete problem.\\
-
-
+Consider Problem GVar$^h$ with discretised space and continuous time variables.
+This is known as a semi-discrete problem. This is a natural intermediate step
+between a continuous and a fully discrete problem.\\
 
 \newtheorem*{DC_Thm3}{Theorem 2}
 \begin{DC_Thm3}
@@ -416,11 +471,16 @@ Consider Problem GVar$^h$ with discretised space and continuous time variables. 
 \begin{proof}
 	From (3.2), $\Vert u(t)-u_{h}(t)\Vert_{W}\leq\Vert e_{p}(t)\Vert_{W}+\Vert e(t)\Vert_{W}$.\\
 
-	The result follows from Lemma 4.1 since $\Vert Pu_{0}-u_{0}^{h}\Vert_{W}\leq\Vert Pu_{0}-u_{0}\Vert+\Vert u_{0}-u_{0}^{h}\Vert.$
+	The result follows from Lemma 4.1 since $\Vert
+		Pu_{0}-u_{0}^{h}\Vert_{W}\leq\Vert Pu_{0}-u_{0}\Vert+\Vert
+		u_{0}-u_{0}^{h}\Vert.$
 \end{proof}
 \end{comment}
 
-To be able to use Theorem in application, it is necessary to be able to estimate an element in $V$ with an element in $S^h$. Suppose $h$ is related to the dimension n of $S^h$ such that $h \rightarrow 0$ as $n \rightarrow \infty$.\\
+To be able to use Theorem in application, it is necessary to be able to
+estimate an element in $V$ with an element in $S^h$. Suppose $h$ is related to
+the dimension n of $S^h$ such that $h \rightarrow 0$ as $n \rightarrow
+	\infty$.\\
 
 Another assumption is introduced by \cite{BV13}.
 
@@ -446,4 +506,3 @@ Using this assumption, the projection errors in Theorem 2 can be expressed as
 		& & +3T|||u_{1}|||_{H}) ,
 	\end{eqnarray*} for each $t\in[0, T].$
 \end{DC_Thm4}
-

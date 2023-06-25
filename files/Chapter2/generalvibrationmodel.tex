@@ -33,7 +33,7 @@ To apply the theory from \cite{VV02}, complete function spaces are required. It 
 
 The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\\
 
-The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$. The product space {$V(0,1)\times V(0,1)$} is denoted by $V$ and is complete. It is called the energy space.\\
+The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$} denoted by $V$ is complete. It is called the energy space.\\
 
 Using these complete product spaces and \eqref{eq:existence:PreWV}, the weak variational problem for the cantilever Timoshenko beam is defined as Problem T-2W.
 
@@ -80,9 +80,7 @@ Let $J$ be a interval of real numbers containing zero. It can have one of the fo
 
 \textbf{Remark} For Problem T-2, $Z$ can be $X$, $W$ or $V$.\\
 
-Let $a$, $b$ and $c$ be bilinear forms where $a$ and $b$ are defined on $V$ and $c$ is defined on $W$. For the models in this dissertation, the bilinear form $b$ is symmetric.
-
-
+Let $a$, $b$ and $c$ be bilinear forms where $a$ and $b$ are defined on $V$ and $c$ is defined on $W$. For the models in this dissertation, the bilinear forms $b$ and $c$ are symmetric. Furthermore, $b(\cdot, \cdot) = (\cdot, \cdot)_V$ and $c(\cdot, \cdot) = (\cdot, \cdot)_W$.
 
 
 \subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
@@ -99,9 +97,9 @@ The following assumptions are made in \cite{VV02} for the existence results.
 \begin{itemize}
 	\item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
 
-	\item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$ and $c(\cdot,\ \cdot) =(\cdot,\ \cdot)_{W}$.
+	\item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
 
-	\item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$ and $b(\cdot,\ \cdot) =(\cdot,\ \cdot)_{V}$.
+	\item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
 
 	\item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
 \end{itemize}
@@ -129,7 +127,7 @@ To start, the main results of \cite{VV02} are presented. There are three existen
 This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.\\
 
 
-In \cite{VV02} the authors consider a special case of weak damping. Define a space $E_b \subset V$ where \[ E_b = \left\{x \in V \ | \ \textrm{there exists a } y \in W \textrm{ such that } c(y,v) = b(x,v) \textrm{ for all } v \in V\right\}.\] It is proved in \cite{VV02}  that $D(A) = E_b \times V$. Consequently if $u_1 \in V$ and $u_0 \in E_b$ the pair $u_0$, $u_1$ is admissible.
+In \cite{VV02} the authors consider a special case of weak damping. Define a space $E_b \subset V$ where \[ E_b = \left\{x \in V \ | \ \textrm{there exists a } y \in W \textrm{ such that } c(y,v) = b(x,v) \textrm{ for all } v \in V\right\}.\] It is proved in \cite{VV02}  that condition (2.2.3) is satisfied if $u_1 \in V$ and $u_0 \in E_b$ (the pair $u_0$, $u_1$ is admissible).
 
 
 \newtheorem{Thm2n}[Thmx]{Theorem}
@@ -226,7 +224,7 @@ From this, the following inequalities can be obtained:
 	\min\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2 \leq	c(f,f)	\leq \max\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2.\\
 \end{eqnarray*}
 
-Since $c$ is a bilinear form and by the inequality above, $c$ is a inner-product for $W$. The norm of $W$ can be defined as $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$. Let $C_1 = \min\left\{1, \frac{1}{\alpha}\right\}$ and $C_2 = \max\left\{1, \frac{1}{\alpha}\right\}$. Then
+Since $c$ is a bilinear form and by the inequality above, $c$ is an inner-product for $W$. The norm of $W$ is defined as $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$. Let $C_1 = \min\left\{1, \frac{1}{\alpha}\right\}$ and $C_2 = \max\left\{1, \frac{1}{\alpha}\right\}$. Then
 \begin{eqnarray}
 	C_1||x||_X \leq ||x||_W \leq C_2||x||_X \label{C}
 \end{eqnarray} for all $x \in X$.\\
@@ -234,18 +232,18 @@ Since $c$ is a bilinear form and by the inequality above, $c$ is a inner-product
 To prove \textbf{Assumption A3}, some preparation is required. Consider the following proposition for a Poincar\'e-Type inequality for the one-dimensional case.
 \newtheorem*{Poincare}{Proposition 1}
 \begin{Poincare}
-	Suppose that $f \in C^1[a,b]$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$
+	Suppose that $f \in C^1[a,b]$, and $f(a) = 0$. Then\\ $\displaystyle ||f|| \leq (b-a)||f'||$.
 \end{Poincare}
 \begin{proof}
-	Let $f \in C^1(0,1)$ such that $f(0) = 0$. By the Fundamental Theorem of Calculus,
+	Let $f \in C^1(a,b)$ such that $f(a) = 0$. By the Fundamental Theorem of Calculus,
 	\begin{eqnarray*}
-		|f(x)| = \left|\int_0^x f'(s) \ ds\right| \leq \int_0^x |f'(s)| \ ds.
+		|f(x)| = \left|\int_a^x f'(s) \ ds\right| \leq \int_a^x |f'(s)| \ ds.
 	\end{eqnarray*}
 	Since $x$ is arbitrary,
 	\begin{eqnarray*}
-		||f||_{\sup} \leq \int_0^1 |f'(s)| ds.
+		||f||_{\sup} \leq \int_a^b |f'(s)| ds.
 	\end{eqnarray*}
-	Also for $f,g \in C^1(0,1)$,
+	Also for $f,g \in C^1(a,b)$,
 	\begin{eqnarray}
 		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
 	\end{eqnarray}
@@ -254,10 +252,12 @@ To prove \textbf{Assumption A3}, some preparation is required. Consider the foll
 
 \newtheorem*{Poincare_2}{Corollary}
 \begin{Poincare_2}
-	Suppose that $f \in H^1(a,b)$, and $f(0) = 0$. Then $||f|| \leq (b-a)||f'||$.
+	Suppose that $f \in H^1(a,b)$, and $f(a) = 0$. Then $||f|| \leq (b-a)||f'||$.
 \end{Poincare_2}
 \begin{proof}
-	\textcolor{red}{Inlas 41A. Nie seker wat 41A verwys in die veranderinge nie. Kom die ander deel reg maak}
+	There exists a sequence $(g_n) \subset C^1[a,b]$ such that $||g_n -f|| \rightarrow 0$ and $||g'_n-f'||\rightarrow 0$.
+
+	Therefore $\displaystyle \frac{||f||}{||f'||} = \lim_{n\ \rightarrow \infty} \frac{||g_n||}{||g'_n||} \leq (b-a)$.
 \end{proof}
 
 \newtheorem{Theorem_1}{Theorem}
@@ -266,11 +266,17 @@ There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\
 \end{Theorem_1}
 
 \begin{proof}
-	Let $f \in V$, then $f_1(0) = f_2(0) = 0$. Using the Corollary, and from the definition of the norm $||\cdot||_X$, the following inequality for the norm $||\cdot||_X$ can be obtained.
+	Let $f \in V$, then $f_1(0) = f_2(0) = 0$. Following from the corollary, $||f_1|| \leq ||f_1'||$ and $||f_2|| \leq ||f_2'||$. Therefore,
 	\begin{eqnarray*}
-		||f||_X^2 & \leq & ||f_1'||^2 + ||f_2'||^2 \\
-		& = & ||f_1'||^2 -||f_2||^2 + ||f_2'||^2 +||f_2||^2\\
-		& \leq & 2||f_1'-f_2||^2 + 2||f_2'||^2.
+		||f_1'|| & = & ||f_1 + f_2 - f_2||,\\
+				 & \leq & ||f_1 + f_2|| + ||f_2||.\\
+		||f_1'||^2 & \leq & 2||f_1 + f_2||^2 +||f_2'||^2.
+	\end{eqnarray*}
+	
+	Hence from the definition of the norm $||\cdot||_X$, and again from the corollary,
+	\begin{eqnarray*}
+		||f||_X^2 & = & ||f_1||^2 + ||f_2||^2,\\
+				  & \leq & 2||f_1 + f_2||^2 + 2||f_2'||^2.
 	\end{eqnarray*}
 
 	It follow from the inequality \eqref{C} that
@@ -278,15 +284,16 @@ There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\
 		\Vert f \Vert_{W}^2 \leq 2C_2||f_1'-f_2||^2 + 2C_2||f_2'||^2. \label{f}
 	\end{eqnarray}
 
+	But we also have
 	\begin{eqnarray}
-		b(f,f) & = &   \int_0^1 (f_1'-f_2)^2 + \frac{1}{\beta}\int_0^1  (f_2')^2 \nonumber\\
-		& = & ||f_1' - f_2||^2 + \frac{1}{\beta}||f_2'||^2 \nonumber\\
-		& \geq & \min\left\{1 ,\ \frac{1}{\beta} \right\} \left( ||f_1' - f_2||^2 + ||f_2'||^2\right) \label{b}
+		b(f,f) & = &   \int_0^1 (f_1'-f_2)^2 + \frac{1}{\beta}\int_0^1  (f_2')^2, \nonumber\\
+		& = & ||f_1' - f_2||^2 + \frac{1}{\beta}||f_2'||^2, \nonumber\\
+		& \geq & \min\left\{1 ,\ \frac{1}{\beta} \right\} \left( ||f_1' - f_2||^2 + ||f_2'||^2\right). \label{b}
 	\end{eqnarray}
 
 	Now combine the inequalities \eqref{f} and \eqref{b},
 	\begin{eqnarray*}
-		||f||_W^2 \leq Kb(f,f)
+		||f||_W^2 \leq Kb(f,f),
 	\end{eqnarray*} for all $f \in V$.
 \end{proof}
 
@@ -324,7 +331,7 @@ Dividing by $T(t)$,
 	  \alpha \tilde{w}'(x) - \alpha \tilde{\phi}(x) + \frac{1}{\gamma}\tilde{\phi}''(x) &=&  \frac{T''(t)}{T(t)}\tilde{\phi}(x).
 \end{eqnarray*}
 
-Therefore $\displaystyle \frac{T''(t)}{T(t)}$ is a constant. Suppose $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. This can also be written as the following differential equation,
+Therefore $\displaystyle \frac{T''(t)}{T(t)}$ is constant. Suppose $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. This can also be written as the following differential equation,
 \begin{eqnarray}
 	\ddot{T} + \lambda T = 0. \label{eq:1D_Model:ModalAnalysisT}
 \end{eqnarray}
@@ -337,9 +344,9 @@ Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such 
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
-Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution  that $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ are possible solutions of the differential equations and satisfy the boundary conditions.
+Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution of $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ show that they are solutions of the differential equations and satisfy the boundary conditions.
 
-Due to the periodicity of these solutions, the eigenvalue problem has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding sequence of eigenvalues $\lambda_n$. Another solution is the vector $\langle 0, 1 \rangle$ which also satisfies the eigenvalue problem with boundary conditions. This solution is called the constant solution.
+Clearly the eigenvalue problem has infinitely many solutions $\langle \tilde{w}_n, \tilde{\phi}_n \rangle$ and corresponding eigenvalues $\lambda_n$. Another solution is the vector $\langle \tilde{w}, \tilde{\phi} \rangle= \langle 0, 1 \rangle$ which also satisfies the eigenvalue problem with boundary conditions.
 
 A systematic approach to obtain the eigenvalues and eigenfunctions is given in \cite{VV06}. This is discussed in more detail in Section \ref{sec:Timo:EigenvalueProblem}. To verify the trial solutions for Problem T-1E, the following theorem can be derived from \cite{VV06}.
 
@@ -352,9 +359,9 @@ A systematic approach to obtain the eigenvalues and eigenfunctions is given in \
 	See Section 4.2.
 \end{proof}
 
-Corresponding to this sequence of eigenvalues, we have a sequence of solutions $(T_n(t))$:
+Corresponding to this sequence of eigenfunctions, we have a sequence of solutions $(T_n(t))$:
 \begin{eqnarray}
-	T_k(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
+	T_n(t)=A_n\cos(\sqrt{\lambda_n}t)+B_n\sin(\sqrt{\lambda_n}t), \label{eq:1D_Model:ModalAnalysisTn}
 \end{eqnarray}
 (with $A_n$ and $B_n$ arbitrary constants) for the ordinary differential equation \eqref{eq:1D_Model:ModalAnalysisT}.
 
@@ -363,7 +370,7 @@ Combining the solutions of the eigenvalue problem with the solution \eqref{eq:1D
 	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).
 \end{eqnarray*} 
-Substitution show that these solutions does indeed satisfy the differential equations \ref{eq:1D_Model:ModalPDE1} and \ref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
+Substitution show that these solutions does indeed satisfy the differential equations \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
 
 Therefore the formal series solution for Problem T-1 is
 \begin{eqnarray*}
@@ -381,7 +388,7 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 
 
 \subsection{General vibration problem}
-This section is a discussion of a general vibration problem. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. 
+This section is a discussion of the general vibration problem GVar. The discussion will refer to the article \cite{CVV18}. In this article, the authors take damping into consideration, which is not covered in this dissertation. 
 
 Consider Problem GVar defined in Section \ref{ssec:existence:VariationlApproach}. Assume there is no damping and no forcing. 
 
@@ -390,7 +397,7 @@ Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respec
 \begin{eqnarray}
 c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
 \end{eqnarray}
-with initial conditions $u(0)=u_{0}$ and $u'(0)=u_{1}$.
+with initial conditions $u_{0}$ and $u_{1}$.
 
 To try and find a solution to this problem, consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$. Substituting this trial solution into \eqref{eq:existence:ProblemGVarHom} results in
 \begin{eqnarray*}
@@ -407,7 +414,7 @@ Dividing both sides by $T(t)$ gives
 	b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
 \end{eqnarray*}
 
-Therefore $\displaystyle -\frac{T''(t)}{T(t)}$ must be a non-negative constant. Suppose that $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
+Therefore $\displaystyle -\frac{T''(t)}{T(t)}$ must be constant. Suppose that $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
 
 Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
 \begin{eqnarray*}
@@ -416,36 +423,34 @@ Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
 
 A solution to the eigenvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
 
-The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption is satisfied:
+The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption, aditional to \textbf{A1}, \textbf{A2}, \textbf{A3} and \textbf{A4},  is satisfied:
 
 \begin{itemize}
 	\item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
 \end{itemize}
 
-This assumption expands on the assumptions \textbf{A1}-\textbf{A4} already made in Section 2.2.
+(This assumption expands on the assumptions \textbf{A1}-\textbf{A4} already made in Section 2.2.)
 
-Building these assumptions, the authors of \cite{CVV18} prove that there exists a eigenvalue $\lambda$ and a corresponding eigenvector $x$ such that the eigenvalue problem has a solution. The authors also prove that the eigenvalues are positive, and the corresponding eigenvectors are orthogonal in $W$ (the bilinear form $c$). In fact it is also orthogonal with respect to the bilinear form $b$, hence
+Using these assumptions, the authors of \cite{CVV18} prove that there exists a complete orthonormal sequence of eigenvectors for the eigenvalue problem with a corresponding sequence of eigenvalues. These eigenvalues are positive and the orthogonality is with respect to the bilinear form $c$. In fact it is also orthogonal with respect to the bilinear form $b$,
 \begin{eqnarray*}
 	b(x_i, x_j) = \lambda_i c(x_i, x_j) = 0, \ \ \ \ \textrm{ for each } \ i \neq j.
 \end{eqnarray*}
 
-The sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. The sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis in $W$, which means that the sequence is complete (or total) in $W$.
+Also the sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis in $W$ and sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. 
 
-Following this result, the authors explain that any $u \in V$, the eigenvector series for $u$ converges to $u$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the basis $x_i$. Therefore, for any $u \in V$,
+Following these results from \cite{CVV18}, for any $u \in V$, $\displaystyle u = \sum_{i=1}^{\infty} a_i x_i$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the eigenvectors $x_i$. Therefore, for any $u \in V$,
 \begin{eqnarray*}
 	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i.
 \end{eqnarray*}
 
-
-Now that the eigenvalue problem has a solution, the following ordinary differentiable equation can be considered,
+Now that the eigenvalue problem has many solutions, the following ordinary differentiable equation can be considered,
 \begin{eqnarray*}
-	T'' + \lambda T = 0. 
+	T_n'' + \lambda T_n = 0. 
 \end{eqnarray*}
 
-Since this differential equation is a simple second order differential equation, T(t) has the following possible solutions:
+Since this differential equation is a simple second order differential equation, $T_n(t)$ has the following possible solutions:
 \begin{flalign}
-	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}\\
-	T_n(t) &=  A_n + B_n t \quad \textrm{ if } \lambda_n = 0. \label{lambda_2}
+	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}
 \end{flalign}
 
 Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
@@ -455,12 +460,41 @@ Then combining the solutions of the eigenvalue problem and the differential equa
 
 
 \subsubsection{Validity of series solution}
-Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we can again refer to the article \cite{CVV18}.
+Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we again refer to the article \cite{CVV18}.
 
-In article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by
+In the article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by
 \begin{eqnarray}
 	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
 \end{eqnarray}
+
+
+*****************Voorstel*****************************
+
+Then,
+\begin{eqnarray*}
+	\mathcal{E}'(t) & = & b(u(t), u'(t)) + c(u'(t), u''(t)),\\
+					& = & 0 \ \ \ \ \ \ \ \textrm{ following from \eqref{eq:existence:ProblemGVarHom}}. 
+\end{eqnarray*}
+
+Therfore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
+
+Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
+\begin{eqnarray*}
+	u_0^{N} = \sum_{n=1}^{N} T_n(0) w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} T'_n(0) w_n.
+\end{eqnarray*}
+
+Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
+
+The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies Problem GVar, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
+
+Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$ it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W = ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
+
+\textcolor{red}{Nie seker wat ek hier moet doen met die Fourier coefficients nie.}
+
+
+*****************************************************
+
+\textcolor{red}{**************** OU WEERGAWE******************************}
 
 The authors also prove that for all $t>0$, $\mathcal{E}(t) \leq \mathcal{E}(0)$.
 
@@ -477,11 +511,15 @@ Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathc
 
 The authors of \cite{CVV18} prove that both $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.
 
+\textcolor{red}{**********************************************}
+
+
+
 It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
 
 \subsubsection{Comparison of models}
 
-In this dissertation, we are trying to compare different models for use in applications. These comparisons are made in Chapter 4 and 6. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
+In this dissertation, the stated objectives were to compare different models for use in applications. These comparisons are made in Chapter 4 and 6. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
 
 The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a fair comparison can be made.
 
