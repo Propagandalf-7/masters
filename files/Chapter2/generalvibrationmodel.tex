@@ -33,7 +33,7 @@ To apply the theory from \cite{VV02}, complete function spaces are required. It 
 
 The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\\
 
-The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$} denoted by $V$ is complete. It is called the energy space.\\
+The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$}, denoted by $V$, is complete. It is called the energy space.\\
 
 Using these complete product spaces and \eqref{eq:existence:PreWV}, the weak variational problem for the cantilever Timoshenko beam is defined as Problem T-2W.
 
@@ -268,20 +268,21 @@ There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\
 \begin{proof}
 	Let $f \in V$, then $f_1(0) = f_2(0) = 0$. Following from the corollary, $||f_1|| \leq ||f_1'||$ and $||f_2|| \leq ||f_2'||$. Therefore,
 	\begin{eqnarray*}
-		||f_1'|| & = & ||f_1 + f_2 - f_2||,\\
-				 & \leq & ||f_1 + f_2|| + ||f_2||.\\
-		||f_1'||^2 & \leq & 2||f_1 + f_2||^2 +||f_2'||^2.
-	\end{eqnarray*}
-	
-	Hence from the definition of the norm $||\cdot||_X$, and again from the corollary,
-	\begin{eqnarray*}
-		||f||_X^2 & = & ||f_1||^2 + ||f_2||^2,\\
-				  & \leq & 2||f_1 + f_2||^2 + 2||f_2'||^2.
+		||f_1'|| & = & ||f_1' - f_2 + f_2||,\\
+				 & \leq & ||f_1' - f_2|| + ||f_2||,\\
+				 & \leq & ||f_1' - f_2|| + ||f_2'||.
 	\end{eqnarray*}
 
-	It follow from the inequality \eqref{C} that
+	It follows that $||f_1'||^2 \leq 2||f_1' - f_2||^2 + 2||f_2'||^2$, since $\displaystyle (a+b)^2 \leq 2a^2 + 2b^2$. Hence, from the definition of the norm $||\cdot||_X$, and again from the corollary,
+	\begin{eqnarray*}
+		||f||_X^2 & = & ||f_1||^2 + ||f_2||^2,\\
+				  & \leq & ||f_1'||^2 + ||f_2'||^2,\\
+				  & \leq & 2||f_1' - f_2||^2 + 3||f_2'||^2.
+	\end{eqnarray*}
+
+	It follows from the inequality \eqref{C} that
 	\begin{eqnarray}
-		\Vert f \Vert_{W}^2 \leq 2C_2||f_1'-f_2||^2 + 2C_2||f_2'||^2. \label{f}
+		\Vert f \Vert_{W}^2 \leq 2C_2||f_1'-f_2||^2 + 3C_2||f_2'||^2. \label{f}
 	\end{eqnarray}
 
 	But we also have
@@ -291,9 +292,9 @@ There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\
 		& \geq & \min\left\{1 ,\ \frac{1}{\beta} \right\} \left( ||f_1' - f_2||^2 + ||f_2'||^2\right). \label{b}
 	\end{eqnarray}
 
-	Now combine the inequalities \eqref{f} and \eqref{b},
+	Now combine the inequalities \eqref{f} and \eqref{b}. There exists a positive constant $C_V$ such that
 	\begin{eqnarray*}
-		||f||_W^2 \leq Kb(f,f),
+		||f||_W^2 \leq C_V b(f,f),
 	\end{eqnarray*} for all $f \in V$.
 \end{proof}
 
@@ -370,7 +371,7 @@ Combining the solutions of the eigenvalue problem with the solution \eqref{eq:1D
 	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).
 \end{eqnarray*} 
-Substitution show that these solutions does indeed satisfy the differential equations \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
+Substitution show that these solutions does indeed satisfy the differential equations \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (and consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
 
 Therefore the formal series solution for Problem T-1 is
 \begin{eqnarray*}
@@ -397,7 +398,7 @@ Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respec
 \begin{eqnarray}
 c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
 \end{eqnarray}
-with initial conditions $u_{0}$ and $u_{1}$.
+with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
 
 To try and find a solution to this problem, consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$. Substituting this trial solution into \eqref{eq:existence:ProblemGVarHom} results in
 \begin{eqnarray*}
@@ -467,9 +468,6 @@ In the article, the validity of the series solution is proved using energy norms
 	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
 \end{eqnarray}
 
-
-*****************Voorstel*****************************
-
 Then,
 \begin{eqnarray*}
 	\mathcal{E}'(t) & = & b(u(t), u'(t)) + c(u'(t), u''(t)),\\
@@ -478,50 +476,33 @@ Then,
 
 Therfore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
 
-Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
+Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Ideally
 \begin{eqnarray*}
-	u_0^{N} = \sum_{n=1}^{N} T_n(0) w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} T'_n(0) w_n.
+	u_0^{N} = \sum_{n=1}^{N} T_n(0) w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} T'_n(0) w_n,
 \end{eqnarray*}
+but $T_n$ is not uniquely defined by the differential equation.
 
-Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
+Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions for \eqref{eq:existence:ProblemGVarHom} in Problem GVar.
 
-The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies Problem GVar, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
+The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies \eqref{eq:existence:ProblemGVarHom}, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
 
-Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$ it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W = ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
+Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$ it follows that, 
+\begin{eqnarray}
+	||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W = ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \label{eq:inequality}
+\end{eqnarray}
 
-\textcolor{red}{Nie seker wat ek hier moet doen met die Fourier coefficients nie.}
+Now, $u_0$ and $u_1$ are given in Problem GVar. Therefore the generalized Fourier coefficients for $u_0$ and $u_1$ must be used to compute $u_0^N$ and $u_1^N$. These Fourier coefficients are $\displaystyle u_0^N = \sum_{n=1}^{N} b(u_0, w_n)w_n$ and $\displaystyle u_1^N = \sum_{n=1}^{N} c(u_1, w_n)w_n$.
 
-
-*****************************************************
-
-\textcolor{red}{**************** OU WEERGAWE******************************}
-
-The authors also prove that for all $t>0$, $\mathcal{E}(t) \leq \mathcal{E}(0)$.
-
-Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Let
-\begin{eqnarray*}
-	u_0^{N} = \sum_{n=1}^{N} A^*_n w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} B^*_n w_n
-\end{eqnarray*} where $A^*_n = T_n(0)$ and $B^*_n = T'_n(0)$.
-
-Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions to Problem GVar.
-
-The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies Problem GVar, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
-
-Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ it follows that, \[||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W \leq ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \]
-
-The authors of \cite{CVV18} prove that both $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$.
-
-\textcolor{red}{**********************************************}
+Then $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$ by \eqref{eq:inequality}.
 
 
-
-It follows that the partial series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
+It follows that the partial sums of the series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
 
 \subsubsection{Comparison of models}
 
-In this dissertation, the stated objectives were to compare different models for use in applications. These comparisons are made in Chapter 4 and 6. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models.
+In this dissertation, the stated objectives were to compare different models for use in applications. These comparisons are made in Chapter 4 and 6. Being able to express the solutions of the models as a formal series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models. This is explained in detail in \cite{CVV18}.
 
-The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a fair comparison can be made.
+The validity of the formal series solution with initial conditions is required to investigate the vibration of the models. This ensured that if the models are disturbed in the exact same way, the formal series solution remains valid, and a comparison can be made.
 
 \end{document}
 

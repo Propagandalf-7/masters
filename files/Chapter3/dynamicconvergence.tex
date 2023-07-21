@@ -1,6 +1,4 @@
 \documentclass[../../main.tex]{subfiles}
-\insubfile{\AtEndDocument{\bibliography{../../references.bib}}}
-
 \begin{document}
 \section{Introduction}
 In this chapter, two important convergence results of the Finite Element Method
@@ -21,7 +19,8 @@ In Section 2.2, Problem GVar is presented and identical to the problem in
 \cite{BV13}. The problem is repeated here for convenience.
 
 \subsubsection*{Problem GVar}
-Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to
+$\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
 \begin{eqnarray}
 	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{GV_PB1}
 \end{eqnarray}
@@ -37,19 +36,8 @@ ordinary differential equations is derived using the Finite Element Method.
 Finally, the convergence of the Galerkin approximation is discussed using the
 work of the article \cite{BV13}.
 
-\subsection{Galerkin approximation of Problem GVar}\label{subsec:galerkin-approximation-of-problem-gvar}
 Recall from Chapter 2 that $V$ is the closure of the test function space $T$ in
 the Hilbert space $H$.
-
-Suppose $S^h$ is a finite n-dimensional subspace of V. Let $\{\phi_1, \
-	\phi_2,...,\phi_n\}$ be a set of linear independent basis functions such that
-$S^h = \textrm{span}(\{\phi_1, \phi_2, ..., \phi_n \})$ and $\phi_i \in
-	C^{(1)}$ for all $i$.
-
-For any function $w_h$ in $S^h$, $w_h$ can be expressed as a linear combination
-\begin{eqnarray*}
-	w_h = \sum_{j=1}^n w_j \phi_j.
-\end{eqnarray*} Define a vector valued function $\bar{w} = \langle w_1,w_2,...,w_n \rangle$ for each $w_h \in S^h$. The problem of solving the Galerkin Approximation is denoted by Problem GVar$^h$.
 
 \subsubsection*{Problem GVar$^h$}
 Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J)$ such that for each $t\in J$
@@ -115,6 +103,8 @@ Under the assumptions \textbf{A1}-\textbf{A4} of Section 2 and continuity of $f$
 Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem
 GVar$^h$. The authors of \cite{BV13} define the following error,
 
+Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$.
+ The authors of \cite{BV13} define the following error,
 \begin{eqnarray}
 	e^h(t) = u(t) - u^h(t). \label{Error}
 \end{eqnarray}
@@ -123,10 +113,12 @@ In \cite{BV13}, a projection $P$ is defined so that $Pu \in V$. The error is
 then split using this projection. Let $e(t) = Pu(t)- u_h(t)$ and $e_p(t) = u(t)
 	- Pu(t)$ so that
 \begin{eqnarray}
-	e^h(t) = e_p(t) +e(t) \label{Error}
+	e^h(t) = e_p(t) +e(t). \label{Error}
 \end{eqnarray}
 
-The authors of \cite{BV13} mention that interpolation theory can be used to determine the error $e_p$. However to obtain an error estimate for $e$ is not as trivial. This is where the authors use the Finite Element Analysis, which is used to obtain an error estimate for $e$.
+According to the authors of~\cite{BV13}, interpolation theory can be used to determine the error $e_p$. However to obtain an error estimate for $e$ is not as trivial. This is where the use of the Finite Element Analysis comes in.
+
+To simplify the proof, the problem is divided into a semi-discrete problem and a fully discrete problem.
 
 Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.
 
@@ -186,7 +178,7 @@ Subtracting \eqref{GV_PB1} from \eqref{DC_E2} gives
 Using the definition of the error $e^h$ while also adding and subtracting
 $Pu(t)$ in the bilinear form $b$, we can write
 \begin{eqnarray*}
-	c(e''(t),v) + a(e'(t),v) + b(u(t) - Pu(t),v) + b(Pu(t) +u_h(t),v)- = 0
+	c(e_h''(t),v) + a(e_h'(t),v) + b(u(t) - Pu(t),v) + b(Pu(t) +u_h(t),v)- = 0.
 \end{eqnarray*}
 
 It then follows from the definitions of the error $e$ and the projection $P$
@@ -195,12 +187,12 @@ that
 	c(e''(t),v) + a(e'(t),v) + b(e(t),v) = 0
 \end{eqnarray*}
 
-In \cite{BV13}, this is presented as a proposition.
+This equation \eqref{DC_E3} is presented in \cite{BV13} as a proposition.
 \newtheorem{DC_Prop1}{Proposition}
 \begin{DC_Prop1}
 	If $u$ is the solution of Problem GVar and $u$ satisfies assumption \textbf{B1}, then
 	\begin{eqnarray}
-		c(e''(t),v) + a(e'(t),v) + b(e(t),v) = 0 \ \ \ \textrm{ for all } v \in V.
+		c(e_h''(t),v) + a(e_h'(t),v) + b(e(t),v) = 0 \ \ \ \textrm{ for all } v \in V.
 	\end{eqnarray}
 \end{DC_Prop1}
 
@@ -224,9 +216,34 @@ simplified. This is given in \cite{BV13} as a corollary.
 \begin{col_1}
 	If $u$ is the solution of Problem GVar with $a = 0$ and $u$ satisfies assumption \textbf{B1}, then
 	\begin{eqnarray}
-		\Vert e(t)\Vert_{W} \leq \sqrt{2} \Vert e(0) \Vert_W + 2T||e'_h(0)||_W + 4\sqrt{T}\max_{t \in [0,T]} \Vert e'_p(t) \Vert_W.
+		\Vert e_(t)\Vert_{W} \leq \sqrt{2} \Vert e(0) \Vert_W + 2T||e'_h(0)||_W + 4\sqrt{T}\max_{t \in [0,T]} \Vert e'_p(t) \Vert_W.
 	\end{eqnarray}
 \end{col_1}
+
+\begin{proof}
+	Assume that there is no damping other than the weak damping, i.e. $a = 0$. The the equation in proposition 1 becomes
+	\begin{eqnarray*}
+		c(e_h''(t),v) + b(e(t),v) = 0 \ \ \ \textrm{ for all } v \in V.
+	\end{eqnarray*}
+	
+	If $v \in S^h[0,T]$, then 
+	\begin{eqnarray*}
+		c(e_h''(t),v(t)) + b(e(t),v(t)) = 0.
+	\end{eqnarray*}
+
+	Let $v'(t) = c(t)$, then 
+	\begin{flalign}
+		\frac{d}{dt}\left[\frac{1}{2}c(e,e)-\frac{1}{2}b(v,v)-c(e_h,v) \right] &= c(e',e) - b(e,v)- c(e''_h, v)-c(e_h',v')\nonumber\\
+		&= c(e'_p,e). \label{DC_E4}
+	\end{flalign}
+
+	Choose $v(\tau) = 0$ for some $\tau \in [0,T]$, and integrate \eqref{DC_E4} between $0$ and $\tau$ to obtain
+	\begin{eqnarray*}
+		a
+	\end{eqnarray*}
+
+\end{proof}
+
 
 \subsubsection{Semi-discrete problem}
 The estimate \eqref{fundamental_estimate} in Lemma 1 is equivalent to
@@ -269,7 +286,7 @@ $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \
 
 The error $e(t)$, can now be expressed as
 \begin{eqnarray}
-	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
+	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_ek}
 \end{eqnarray}
 
 From Theorem 2 of the semi-discrete problem an error estimate for
@@ -282,6 +299,7 @@ should also be with respect to the norm of $W$.
 \sout{In Theorem 2, Section 3.1.3 it is shown that \cite{BV13} obtained an error estimate for $[u(t_k)-u_h(t_k)]$ with respect to the norm of $W$. The authors explain that an estimate for $[u_h(t_k) - u^h_k]$ should also be with respect to the norm $W$ since the dimension of $S^h$ is not fixed and hence the equivalence of the relevant norms cannot be used.}\\
 
 \subsubsection{Notation}
+For any sequence $\{x_k\} \in R_n$,
 For any sequence $\{x_k\} \in R_n$,
 \begin{eqnarray*}
 	\delta_{t}x_{k}& = &\tau^{-1}[x_{k+1}-x_{k}],\\
@@ -370,6 +388,10 @@ of \cite{BV13} is presented here as Theorem 3.
 Finally, Theorem 2 of the semi-discrete problem and Theorem 3 of the fully
 discrete problem gives an error estimate for the error $e(t)$. Consequently,
 the error estimate $e^h(t) = u(t) - u^h(t)$ is obtained.
+
+
+
+The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the constant defined in assumption \textbf{A4} of Section 2.2.1.
 
 \end{document}
 
