@@ -1,21 +1,14 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Validity of the Timoshenko beam model}
-In the article \cite{LVV09}, the authors show that the Timoshenko beam theory is a feasible model to use in practical applications of beams. In this section, the article is studied and the results are replicated.
+In the article \cite{LVV09}, the authors show that a cantilever Timoshenko beam model can be a feasible model to replace a more realistic two-dimensional model for use in application. They also show that the dimensions of the beam will determine how well the one-dimensional Timoshenko beam compares to the two-dimensional beam. In this section, the results of the article is discussed, replicated and extended with more testcases.
 
-Where \cite{LVV09} differs from most other research into the validity of the Timoshenko beam theory, is that the boundary conditions are also taken into consideration.
+Where \cite{LVV09} differs from most other research into the validity of the Timoshenko beam theory, is that the boundary conditions are also taken into consideration. The article serves as an intermediate step to comparing a Timoshenko beam to a three-dimensional beam.
 
-This section is a literature study of the article \cite{LVV09}. The goal of \cite{LVV09} to show that the one-dimensional Timoshenko beam theory, is a feasible model to use in practical applications of beams. In the real world, a beam is a complex three-dimensional model. So a three-dimensional model would be a good approximation and better than a one-dimensional model. It is therefore important to validate the accuracy of a simlified theory like the Timoshenko beam theory.
+The authors use a cantilever beam with rectangular cross-section.
 
-In the article, the authors validate the Timoshenko beam theory by comparing it to a more realistic, two-dimensional model. The authors use a cantilever beam as a model. Although a direct comparison to a three-dimensional beam would be preferred, the authors state that this would introduce complexities. The two-dimensional model is an intermediate step.\\
-
-
-
-To compare the two models, the authors compare the natural frequencies of the models. From modal analysis, it is known that a solution of a second order hyperbolic type problem is a linear combination of the eigenvalues and eigenfunctions of the model. Therefore it is sufficient to compare the eigenvalues and eigenfunctions to compare the solutions and comment on the validity of the models.\\
 
 \subsection{The models}
-In the article, the authors use a cantilever configuration for the two models. Therefore the models presented here are also cantilever models.\\
-
 Recall the cantilever Timoshenko beam model from section \ref{ssec:1D_Model:ModelProblems}, referred to as Problem T-2 and the cantilever two-dimensional beam model from section \ref{ssec:2D_Model:ModelProblem}, referred to as Problem 2D-1. In \cite{LVV09} it is assumed that the beams have a rectangular cross-section.\\
 
 Figure 6.1 shows the two beams side-by-side.
@@ -116,62 +109,20 @@ Using this relationship, $\alpha$ can be chosen in such a way that the beams hav
 
 
 \subsection{Accuracy of the numerical eigenvalues}
-The calculate the eigenvalues and eigenfunctions of the Timoshenko beam, the authors of \cite{LVV09} use the article \cite{VV06}. This article was discussed in section \ref{sec:Timo:EigenvalueProblem} in this dissertation. It is important to note that the method described in \cite{VV06} allows us to find the eigenvalues of a cantilever Timoshenko beam accurate to a desired level, using numerical methods like interval division.\\
+To calculate the eigenvalues and eigenfunctions of the Timoshenko beam, the authors of \cite{LVV09} use the article \cite{VV06}. This article was discussed in section \ref{sec:Timo:EigenvalueProblem} in this dissertation. Using this article, the eigenvalues for the Timoshenko beam model can be numerically calculated to a desired accuracy level. 
 
-A different approach is needed for the two-dimensional beam. In section \ref{sec:FEM:2D}, the Finite Element Method was used to obtain a numerical formula to solve the eigenvalue problem Problem 2D-1E. In \cite{LVV09} the authors used piecewise bi-cubic basis functions and a grid size large enough to ensure that the eigenvalues are accurate to 3 significant digits.\\
+A different approach is needed for the two-dimensional beam. The Finite Element Method is applied to the eigenvalue problem described in section \ref{sec:FEM:2D}. The following shows the rate of convergence of the first 20 eigenvalues using FEM and bi-cubic basis functions.
 
 \begin{figure}[H]
 	\begin{center}
 		\scalebox{1.4}{
-			\includegraphics[scale=0.4]{Convergence.png}
-			\caption{Maximum relative error of the first 10 eigenvalues of the two-dimensional beam.}
+			\includegraphics[scale=0.7]{Convergence.png}
+			\caption{Rate of convergence of the first 20 eigenvalues.}
 			\label{fig:conv}
 		}
 	\end{center}	
 \end{figure}
-
-\begin{tikzpicture}
-\begin{axis}[width=0.9\textwidth,
-			 xlabel=Iteration Number,
-			 ylabel=Error,
-			 ymode=log,
-			 legend pos=south east]
-\addplot[color=blue, mark=o] coordinates {
-    (1,0.1)
-    (2,0.05)
-    (3,0.01)
-    (4,0.005)
-};
-\addlegendentry{$h=1/5$}
-
-\addplot[color=red, mark=o] coordinates {
-    (1,0.2)
-    (2,0.1)
-    (3,0.05)
-    (4,0.02)
-};
-\addlegendentry{$h=1/10$}
-
-\addplot[color=green, mark=o] coordinates {
-    (1,0.2)
-    (2,0.1)
-    (3,0.05)
-    (4,0.02)
-};
-\addlegendentry{$h=1/20$}
-
-\addplot[color=black, mark=o] coordinates {
-    (1,0.3)
-    (2,0.3)
-    (3,0.03)
-    (4,0.03)
-};
-\addlegendentry{$h=1/30$}
-
-\end{axis}
-\end{tikzpicture}
-
-
+\textcolor{red}{FIX THIS}
 Figure \ref{fig:conv} show the maximum relative error of the first 10 eigenvalues of the two-dimensional beam. In \cite{LVV09}, the authors use a grid size of $40 \times 10$ with $h= 1/10$ (or $\alpha = 1200$) and $h = 1/5$ (or $\alpha = 300$).\\
 
  Figure \ref{fig:conv} show that this can be improved significantly. For each case of $h$, the grid size is calculated as $n \times \max\left\{\lceil\frac{n}{h}\rceil,10\right\}$. This ensures that the nodes are distributed somewhat evenly relative to the length-width ratio. For this chapter, the results of the Timoshenko beam and two-dimensional beam are given accurate up to 5 significant digits.
