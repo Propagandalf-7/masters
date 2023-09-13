@@ -7,18 +7,13 @@ The chapter consists of three main parts.
 
 Section 7.2 is a discussion and a replication of numerical results of the work done in the article \cite{LVV09}. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. Extra results are included in this section to verify the conclusions of the authors of \cite{LVV09}. The results of this section are also used as a reference for the rest of the chapter.
 
-Section 7.3 is a natural extension of the article \cite{LVV09} which is mentioned by the authors. In this section, the validity of the two-dimensional beam model use in Section 7.2 is investigated. The results of the two-dimensional beam are compared to a three-dimensional beam. 
+Section 7.3 is a extension of the article \cite{LVV09} to a comparison of a cantilever two-dimensional beam to a cantilever three-dimensional beam. This extension is mentioned by the authors of \cite{LVV09}. This is an investigation into the validity of a two-dimensional beam model, and is an intermediate step to validate the Timoshenko beam model against a three-dimensional beam model. A direct comparison is not considered due to the complexities involved, which is discussed in more detail in the numerical results.
 
-The two-dimensional beam is an intermediate step to validate the Timoshenko beam model. A direct comparison between the one and three dimensional would be preferred, but the authors of \cite{LVV09} mention that this will introduce complexities, which will be discussed in more detail in the numerical results.
-
-Section 7.4 extends the work of \cite{LVV09} further to plate models. Specifically a comparison of a cantilever two-dimensional Reissner-Mindlin plate to a cantilever three-dimensional plate. 
-
-\subsubsection{Global parameters}
-All the models in this dissertation are made of the same isotropic material and have square cross-section. Therefore for all the models, the elastic modulus $\displaystyle G = \frac{E}{2(1+\nu)}$. The shear correction factor is chosen as $\kappa^2 = 5/6$ and Poisson's ratio $\nu = 0.3$.\\
+Section 7.4 extends the work of \cite{LVV09} further to plate models. This extension follows the same idea as the previous sections, and originates from non-beam type behaviour observed in the three-dimensional beam models. In this section, a cantilever two-dimensional Reisner-Mindlin plate model is compared to a cantilever three-dimensional plate model.
 
 
-\subsubsection{Global Parameters}
-The models in this Chapter (and this dissertation) assume the use of an identical isotropic material with, a rectangular cross-section. These are defined in global parameters shared by all the models. The parameters are as follows:
+\subsection{Global parameters}
+All the models in this dissertation are assumed to be made of the same isotropic material and have a square cross-section. The parameters are as follows:
 
 \begin{itemize}
     \item Elastic modulus ($G$): This is calculated using the formula $G = \frac{E}{2(1+\nu)}$, where $E$ is the modulus of elasticity and $\nu$ is Poisson's ratio. 
@@ -28,7 +23,67 @@ The models in this Chapter (and this dissertation) assume the use of an identica
     \item Poisson's ratio ($\nu$): This is set to $0.3$, a typical value for materials like steel used in engineering.
 \end{itemize}
 
-The consistent use of these parameters across all models helps to ensure that any differences in the results can be attributed to the model structures themselves, rather than variations in the material or geometric properties.
+These paremeters are used in all the models, and their consistency helps to ensure that any differences in the results can be attributed to the model structures themselves, rather than variations in the material or geometric properties.
+
+Since our models are all dimensionless, all of the beams and plates have a length of $\ell = 1$. We'll use $h$ to describe the height of the beams and plates, and $b$ to describe the width of the beams and plates.
+
+\subsection{Model specific parameters}
+The following parameters are not shared over all the models. These parameters can be unique to a model, or can be shared between some models but not all. These parameters mostly affect the geometry of the models.
+
+\subsubsection{Timoshenko beam}
+In the derivation of the Timoshenko beam model in section \ref{subsec:equationsofmotion+constitutiveequation}, the parameter $\alpha$ is introduced.
+\begin{eqnarray*}
+	\alpha = \frac{A\ell^2}{I}
+\end{eqnarray*}
+
+The model is in a dimensionless form, therefore the length of the beam is $\ell = 1$. Since we assumed a square cross-section, the area of the cross-section can be calculated as $\displaystyle A = hb$. The area moment of inertia can also be calculated as $\displaystyle I = \frac{h^3b}{12}$.
+
+Substituting these values into the equation for $\alpha$ gives the following relationship between the height of the beam and the parameter $\alpha$
+\begin{eqnarray*}
+	\alpha & = & \frac{12}{h^2},
+\end{eqnarray*}
+or equivalently,
+\begin{eqnarray*}
+	h & = & \sqrt{\frac{12}{\alpha}}.
+\end{eqnarray*}
+
+Using this parameter, the height of the beam can be set to any value. Some examples of values for $\alpha$ and the corresponding height of the beam that can be expected in this chapter, are given in Table \ref{tab:alphaheight} below.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$\alpha$ & $h$\\
+		\hline
+		$100$ & $\approx 0.35$ \\
+		$300$ & $1/5$ \\
+		$1200$ & $1/10$ \\
+		$4800$ & $1/20$ \\
+		$9600$ & $\approx 0.035$ \\
+		$10800$ & $1/30$ \\
+		\hline
+	\end{tabular}
+	\caption{Values of $\alpha$ and the corresponding height of the beam.}
+	\label{tab:alphaheight}
+\end{table}
+
+\subsubsection{Two-dimensional beam}
+
+For the two-dimensional beam, only the height parameter $h$ is required. The width of the beam is assumed to be finite, constant and small. 
+
+\subsubsection{Three-dimensional beam}
+The three-dimensional beam is the most complex model and has two parameters to consider, the height $h$ and the width $b$.
+
+For beam type problems, one would assume that the width of the beam not much larger than the height of the beam. The numerical results will show that this guess is correct.
+
+For plate type problems, the width of the plate is assumed to be much larger than the height of the plate. This assumption is also verified in the numerical results.
+
+\subsubsection{Two-dimensional plate}
+The two-dimensional plate model is the most different model from the rest of the models. The two-dimensional plate model is a Reissner-Mindlin plate model, and is derived in section \ref{sec:reissnermindlinplate}. The model has two parameters, the height $h$ and the width $b$.
+
+% Need to explain the two parameters.
+
+
 \end{document}
 
 
