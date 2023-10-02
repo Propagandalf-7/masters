@@ -145,6 +145,97 @@ Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenv
 The number of elements can be chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
 
 \subsection{Comparing the mode shapes}
+\subsection{Comparing the mode shapes}
+\FloatBarrier
+\begin{figure}[h!]
+	\scalebox{.8}{
+		\makebox[\textwidth][c]{
+			\centering
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{Plate2.png}
+				\subcaption{Plate - $\lambda_5 = 0.643$}
+				\label{fig:minipage2}
+			\end{minipage}
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{3D2.png}
+				\subcaption{3D Model - $\lambda_5 = 0.645$}
+				\label{fig:minipage1}
+			\end{minipage}
+	}}
+	\scalebox{.8}{
+		\makebox[\textwidth][c]{
+			\centering
+			\begin{minipage}{.8\textwidth}
+				\centering
+				\includegraphics[width=1\linewidth]{Plate1.png}
+				\subcaption{Plate - $\lambda_6 = 1.92$}
+				\label{fig:minipage1}
+			\end{minipage}
+			\begin{minipage}{.8\textwidth}
+				\centering
+				\includegraphics[width=1\linewidth]{3D1.png}
+				\subcaption{3D Model - $\lambda_7 = 1.92$}
+				\label{fig:minipage2}
+			\end{minipage}
+	}}
+	\scalebox{.8}{
+		\makebox[\textwidth][c]{
+			\centering
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{Plate3.png}
+				\subcaption{Plate - $\lambda_8 = 2.74$}
+				\label{fig:minipage1}
+			\end{minipage}
+			\quad
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{3D3.png}
+				\subcaption{3D Model - $\lambda_8 = 2.74$}
+				\label{fig:minipage2}
+			\end{minipage}
+	}}
+	\scalebox{.8}{
+		\makebox[\textwidth][c]{
+			\centering
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{Plate4.png}
+				\subcaption{Plate - $\lambda_{12} = 8.96$ (Side view)}
+				\label{fig:minipage2}
+			\end{minipage}
+			\quad
+			\begin{minipage}[b]{0.8\linewidth}
+				\includegraphics[width=1\linewidth]{3D4.png}
+				\subcaption{3D Model - $\lambda_{14} = 9.01$ (Side view)}
+				\label{fig:minipage2}
+			\end{minipage}
+			\caption{Comparison of Mode Shapes of the 3D model and the plate model. $b = 1/20$, $d = 1$.}
+	}}
+\end{figure}
+
+\FloatBarrier
+
+
+Let $b= 1$ and $\alpha= 4800$ so that $h= \frac{1}{2}$.\\
+
+\begin{figure}[h!]
+	\scalebox{.8}{
+		\makebox[\textwidth][c]{
+			\centering
+			\begin{minipage}{.8\textwidth}
+				\centering
+				\includegraphics[width=1\linewidth]{3Dnp1.png}
+				\subcaption{3D Model - $\lambda_{6} = 1.35$ (Top view)}
+				\label{fig:minipage1}
+			\end{minipage}
+			\begin{minipage}{.8\textwidth}
+				\centering
+				\includegraphics[width=1\linewidth]{3Dnp2.png}
+				\subcaption{3D Model - $\lambda_{13} = 7.80$ (Top view)}
+				\label{fig:minipage2}
+			\end{minipage}
+	}}
+	\caption{Examples of non-plate mode shapes.}
+\end{figure}
+
 
 \subsection{Comparing the eigenvalues}
 
