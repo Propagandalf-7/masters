@@ -135,12 +135,11 @@ Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenv
 \begin{figure}[H]
     \centering
     \begin{adjustbox}{center}
-        \includegraphics[scale=0.7]{Convergence.png}
+        \includegraphics[scale=0.4]{Plate accuracy_no_legend.png}
     \end{adjustbox}
     \caption{Rate of convergence of the first 20 eigenvalues.}
     \label{fig:conv_3d_eig}
 \end{figure}
-\textcolor{red}{Update this figure.}
 
 The number of elements can be chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
 
@@ -336,6 +335,50 @@ The next table, table \ref{tab:Table_plate_2}, shows the comparison of the eigen
 \FloatBarrier
 
 Table \ref{tab:Table_plate_2} shows that the plate model compares slightly less well than the case where $b=0.25$, but the comparison is still very good. Again it seems that as $h$ decreases, the number of plate-type eigenvalues within the first 20 eigenvalues increases, and in this case there are more than the previous case.
+
+\FloatBarrier
+\begin{table}[htbp]
+	\scalebox{.8}{
+	\makebox[\textwidth]{
+		\caption{Comparison of eigenvalues with $b = 1.75$, with decreasing values of $h$.}
+		\begin{tabular}{|cccc||cccc||cccc||cccc|}
+			\hline
+			\multicolumn{16}{|c|}{Comparison of Eigenvalues, $b = 1.75$} \\
+			\hline\hline
+			\multicolumn{4}{|c||}{$h = 1/5$}       & \multicolumn{4}{c||}{$h =1/10$}      & \multicolumn{4}{c||}{$h = 1/20$}      & \multicolumn{4}{c|}{$h = 1/30$} \\
+			\hline
+			{i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} \\
+			\hline
+			1 & 0.13062 & 1 & 0.12939 & 1 & 0.034245 & 1 & 0.034079 & 1 & 0.0086697 & 1 & 0.32670086456 & 1 & 0.0038626 & 1 & 0.0038541\\
+			2 & 0.32016 & 2 & 0.31779 & 2 & 0.089872 & 2 & 0.089508 & 2 & 0.023395 & 2 & 0.023323 & 2 & 0.010507 & 2 & 0.010475\\
+			3 & 1.2496 & 3 & 1.2422 & 3 & 0.36964 & 3 & 0.36841 & 3 & 0.098072 & 3 & 0.097745 & 3 & 0.044239 & 3 & 0.044074\\
+			4 & 1.9808 &  & - & 4 & 1.2274 & 4 & 1.2188 & 4 & 0.33233 & 4 & 0.33118 & 4 & 0.15003 & 4 & 0.14964\\
+			5 & 3.7675 & 4 & 3.7086 & 5 & 1.352 & 5 & 1.3465 & 5 & 0.36764 & 5 & 0.36652 & 5 & 0.16657 & 5 & 0.16605\\
+			6 & 4.2021 & 5 & 4.1631 & 6 & 1.6994 & 6 & 1.6894 & 6 & 0.4647 & 6 & 0.4632 & 6 & 0.21059 & 6 & 0.21002\\
+			7 & 5.2022 & 6 & 5.1381 & 7 & 1.9763 &  & - & 7 & 0.79935 & 7 & 0.79606 & 7 & 0.3656 & 7 & 0.36423\\
+			8 & 7.6603 & 7 & 7.9399 & 8 & 2.8259 & 7 & 2.8076 & 8 & 1.2445 & 8 & 1.2411 & 8 & 0.56685 & 8 & 0.56529\\
+			9 & 8.0445 &  & - & 9 & 4.4507 & 8 & 4.4294 & 9 & 1.5708 & 9 & 1.563 & 9 & 0.72384 & 9 & 0.72032\\
+			10 & 9.0791 &  & - & 10 & 5.3923 & 9 & 5.3539 & 10 & 1.9739 &  & - & 10 & 1.1585 & 10 & 1.1545\\
+			11 & 10.135 &  & - & 11 & 7.6371 &  & 0 & 11 & 2.5137 & 10 & 2.5015 & 11 & 1.2513 & 11 & 1.2466\\
+			12 & 12.888 & 8 & 12.736 & 12 & 8.4707 & 10 & 8.3817 & 12 & 2.708 & 11 & 2.6947 & 12 & 1.4005 & 12 & 1.3927\\
+			13 & 14.506 & 9 & 14.302 & 13 & 9.0612 & 11 & 8.9704 & 13 & 3.0153 & 12 & 2.9984 & 13 & 1.4449 & 13 & 1.4393\\
+			14 & 14.892 &  & - & 14 & 9.0682 & 12 & 9.9347 & 14 & 3.137 & 13 & 3.1246 & 14 & 1.6806 & 14 & 1.6738\\
+			15 & 19.395 &  & - & 15 & 10.018 & 13 & 10.605 & 15 & 3.6118 & 14 & 3.5928 & 15 & 1.973 &  & -\\
+			16 & 21.265 & 10 & 20.79 & 16 & 10.131 &  & - & 16 & 5.1287 & 15 & 5.0977 & 16 & 2.4081 & 15 & 2.3958\\
+			17 & 22.512 & 11 & 22.038 & 17 & 10.683 &  & - & 17 & 5.6368 & 16 & 5.6009 & 17 & 2.6419 & 16 & 2.6253\\
+			18 & 25.193 & 12 & 24.775 & 18 & 11.806 & 14 & 11.682 & 18 & 6.5069 & 17 & 6.4687 & 18 & 3.0386 & 17 & 3.0189\\
+			19 & 27.783 & 13 & 27.322 & 19 & 14.893 &  & - & 19 & 7.6243 & 18 & 7.6617 & 19 & 3.6563 & 18 & 3.6342\\
+			20 & 28.461 & 14 & 27.851 & 20 & 16.275 & 15 & 16.1 & 20 & 7.7152 &  & - & 20 & 4.3466 & 19 & 4.3267\\
+			\hline
+			\multicolumn{2}{|c}{Max RE:} & \multicolumn{2}{c||}{3.6499\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{9.5565\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{0.63674\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c|}{0.64798\%} \\
+			\hline
+		\end{tabular}
+		\label{tab:Table_plate_3}
+	}}
+\end{table}
+\FloatBarrier
+
+Table \ref{tab:Table_plate_3} that for a wide plate with $b=1.75$, the models do compare very well. However it seems like the height of the plate does no longer have a significant effect on the accuracy of the eigenvalues. What can be seen is that as het height decreases, the number of plate type eigenvalues within the first 20 eigenvalues increases quite significant.
 
 
 \end{document}
