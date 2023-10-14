@@ -1,21 +1,23 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 
-\section{Three-dimensional elastic model}\label{sec:FEM:3D}
-Consider a three-dimensional cantilever elastic body, with a rectangular cross-section.
+In this section, a similar approach is applied to the three-dimensional elastic body.
+
+
+\section{A cantilever three-dimensional body}\label{sec:FEM:3D}
+Consider a cantilever three-dimensional elastic body, with a rectangular cross-section.
  
 \subsubsection{Reference configuration for rectangular cross-section}
-Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the elastic body as $\Omega \in R^3$ with $(0,0,0)$ the reference point. For a rectangular cross-section, $\Omega$ can be described as
+Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the elastic body as $\Omega \in R^3$ with $(0,0,0)$ the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as
 \begin{eqnarray*}
 	\Omega = \left\{ x \in R^3 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} , \ -\frac{b}{2} \leq x_3 \leq \frac{b}{2}\right \}
 \end{eqnarray*}
 Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ into the six distinct flat surfaces as follows:
 
-
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
-		\Sigma_0:& \quad x_1 &= 0\\
-		\Sigma_1:& \quad x_1 &= 1\\
+		\Sigma:& \quad x_1 &= 0\\
+		\Gamma_5:& \quad x_1 &= 1\\
 		\Gamma_1:& \quad x_3 &= -{b}/{2} 
 	\end{eqnarray*}
 \end{minipage}%
@@ -27,8 +29,10 @@ Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ 
 	\end{eqnarray*}
 \end{minipage}
 
+Using this notation, the boundary conditions are similar to the two-dimensional model in section \ref{sssec:2D_Model:RefConf}, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
+
 \subsubsection{Cantilever elastic body}
-Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma_0$ and free-hanging at all the other sides. This is referred to as Problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.
+Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.
 \FloatBarrier
 \begin{figure}[h!]
 	\centering
@@ -119,7 +123,7 @@ Consider a three-dimensional elastic body with rectangular cross-section, rigidl
 \end{figure} 
 \FloatBarrier
 
-In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. For convenience, some results from section \ref{ssec:3D_Model:VariationalForm} are repeated here.
+In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from section \ref{sec:3D_Mode} are repeated here.
 
 \subsubsection{Problem 3D-1V}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
@@ -142,8 +146,7 @@ The bilinear forms and integral function are defined by
 \end{eqnarray}
 with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.\\
 
-
-Using the definition of the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten as follows.
+Using the definition of the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten in the following model specific forms: 
 \subsubsection*{Constitutive equations}
 \begin{eqnarray*}
 	\sigma_{11} & = &  \frac{1}{\gamma(1+\nu)}\partial_1 u_1 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_3}\\
@@ -161,8 +164,6 @@ Using the definition of the reference configuration, the constitutive equations 
 	 &=  \int_{\Omega} \sigma_{11} \partial_1\phi_1 + \sigma_{12}\partial_1 \phi_2 + \sigma_{13}\partial_1 \phi_3 + \sigma_{21}\partial_2 \phi_1 + \sigma_{22}\partial_2\phi_2 + \sigma_{23}\partial_2 \phi_3 ~dV
 \end{align*}
 
-In this form, the bilinear form $b$ is more useful for applications than the general form.
-
 \subsection{Weak variational form}
 
 \subsubsection{Bilinear form}
@@ -174,19 +175,25 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, sa
 	c(u,v) + b(u,v) & = & (Q,v) \ \ \ \textrm{ for each } v \in V.
 \end{eqnarray}
 
+See chapter 2 for the existence theory.
+
 \subsection{Galerkin approximation}
-Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes. These rectangular prismatic elements are also known as brick shaped elements as described by \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.\\
+As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. This is model, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as brick shaped elements as described by \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.\
+
+Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
 
 Define a set of $n$-dimensional linear independent basis functions. For the three-dimensional model, the basis functions can be defined by the set
 \begin{eqnarray*}
- \{\langle\phi_1, 0 , 0\rangle, \langle\phi_2, 0, 0\rangle,...,\langle\phi_{n}, 0, 0 \rangle,\\
+ B = \{\langle\phi_1, 0 , 0\rangle, \langle\phi_2, 0, 0\rangle,...,\langle\phi_{n}, 0, 0 \rangle,\\
 	\langle 0,\phi_1 ,0 \rangle,\langle 0 ,\phi_2,0\rangle,...,\langle 0,\phi_{n},0\rangle,\\
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
+For the this three-dimensional model, tri-cubix basis functions are used. These basis functions are an extension of the Hermite cubic basis functions from the two-dimensional model. Although this is more complex than using tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.\\
+
 For this dissertation, we use tri-cubic functions $\phi_i$. For a simplification, tri-linear functions can also be used instead. For easier notation, denote each of the basis functions in the set by $\delta_i$.\\
 
-The functions that satisfy the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. The admissible basis functions for this model can be renumbered and expressed as the set $\left\{\delta_1, \delta_2, ..., \delta_k \right\}$ for some $k \leq 3n$.\\
+Similar to \ref{2d_FEM_G}, denote the admissible basis functions by $\delta_j$, where each $\delta_j$ is a unique element of $B$ satisfying all the conditions of the test function space $T(\Omega)$. The admissible basis functions are numbered and expressed as the set $A = \left\{\delta_1, \delta_2, ..., \delta_k \right\}$ for some $k \leq 3n$.\\
 
 Define the space
 \begin{eqnarray*}
@@ -198,14 +205,13 @@ For each function $u^h \in S^h$, $u^h$ can be expressed as
 	u^h = \sum_{i = 1}^{k} u_i(t) \delta_{i}(x)
 \end{eqnarray*}
 
-Problem 3D-1V can now be rewritten into a Galerkin Approximation, denoted by Problem 3D-1G.
-
+Substituting $u^h$ into Problem 3D-1V, results in the following Galerkin approximation, denoted by Problem 3D-1G.
 
 \subsubsection{Problem 3D-1G}
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
 	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
-\end{eqnarray*} for $i = 1,2,...,k$.\\
+\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
 
 \subsection{System of ordinary differential equations}
 Consider the following standard Finite Element Method matrices.
@@ -304,18 +310,18 @@ Using \eqref{eq:3DFEM:K+M} and \eqref{eq:3DFEM:M}, Problem 3D-1G is rewritten as
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I. \label{3D_M}
-\end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \langle u, \partial_1 u, \partial_2 u, \partial_3 u, \partial_{11} u, \partial_{12}u, \partial_{13}u,\partial_{22}u,\partial_{23}u, \partial_{33}u,$\\$ \partial_{111}u, \partial_{112}u, \partial_{113}u, \partial_{121}u, \partial_{122}u, \partial_{123}u, \partial_{133}u,\partial_{223}u,\partial_{233}u,\partial_{333}u \rangle$. \textcolor{red}{beter manier om voor te stel?}
+\end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \partial^i_1u \partial^j_2u \partial^k_3u$ for $i,j,k = 0,1,2,3$.
 
 \subsection{Eigenvalue problem}
-The equation \eqref{3D_M} is the same form as in section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem 3D-1 by Problem 3D-1E.
+The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in section \ref{2dFEM_EP}.
 
 \subsubsection{Problem 3D-1E}\label{3dFEM_EP}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\lambda{\bar{u}} & = & K\bar{u}.
 \end{eqnarray}
-\end{document}
 
+\end{document}
 
 Consider a set of $n$ linear independent three-dimensional scalar valued functions $\delta_i$. In this dissertation, these functions are tri-cubic basis functions (an extension of Hermite cubics from the two-dimensional model into three-dimensions). The functions $\delta_i$ satisfying the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Since there are a finite number if admissible basis functions, they can be numbered $\delta_1, \delta_2,...,\delta_k$.\\
 

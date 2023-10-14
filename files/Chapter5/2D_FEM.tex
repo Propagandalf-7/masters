@@ -1,28 +1,30 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-In this chapter, the Finite Element Method (FEM) is applied to the two- and three-dimensional cantilever beams as well as a Reissner-Mindlin cantilever plate. The aim of this chapter is to obtain a numerical formula to calculate the eigenvalues and eigenvectors for these models. This chapter is preparation for Chapter 6.\\
+In this chapter, the Finite Element Method (FEM) is applied to the models of this dissertation, presented in chapter 1. The goal of this chapter is to obtain numerical formulas that can be used to calculate the eigenvalues and eigenvectors for the models. This is in preperation of chapter 6, where the eigenvalues and eigenvectors of the models are compared.
+
+In chapter 4, a method was discussed to obtain the eigenvalues and eigenvectors for the Timoshenko beam model. Therefore it is not neccesary to apply the Finite Element Method on the Timoshenko model to obtain the eigenvalues and eigenvectors. The Finite Element Mehtod is applied to the two-dimensional and three-dimensional models.
 
 The outline of the chapter is as follows.
 \begin{itemize}
-	\item[] Section \ref{sec:FEM:2D} FEM for a two-dimensional cantilever body.
-	\item[] Section \ref{sec:FEM:3D} FEM for a three-dimensional cantilever body. 
-	\item[] Section \ref{sec:FEM:Plate} FEM for A Reissner-Mindlin cantilever plate model. 
+	\item[] Section \ref{sec:FEM:2D} FEM for a cantilever two-dimensional elastic body. This is problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
+	\item[] Section \ref{sec:FEM:3D} FEM for a cantilever three-dimensional elastic body. This is problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.
+	\item[] Section \ref{sec:FEM:Plate} FEM for a cantilever Reissner-Mindlin plate. This is problem P-1 in section \ref{ssec:P_Model:ModelProblems}.
 \end{itemize}
 
-\section{Two-dimensional cantilever body} \label{sec:FEM:2D}
-Consider a two-dimensional cantilever elastic body, with a rectangular cross-section.
+\section{A cantilever two-dimensional body} \label{sec:FEM:2D}
+Consider a cantilever two-dimensional elastic body, with a rectangular cross-section.
 
-\subsubsection{Reference configuration for rectangular cross-section}
-Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body by $\Omega \in R_2$, with $(0,0)$ as the reference point. For a rectangular cross-section, $\Omega$ can be described as
+\subsubsection{Reference configuration for rectangular cross-section}\label{sssec:2D_Model:RefConf}
+Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body by $\Omega \in R_2$, with $(0,0)$ as the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in E_2 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} \right \},
-\end{eqnarray*} where $\partial \Omega$ denotes the boundary of $\Omega$. The boundary $\partial \Omega$ can be divided into the four distinct lines as follows:
+\end{eqnarray*} where $\partial \Omega$ denotes the boundary of $\Omega$. The boundary $\partial \Omega$ can be divided into the four distinct lines (or edges) as follows:
 
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
-		\Sigma_0:& \quad x_1 &= 0\\
-		\Sigma_1:& \quad x_1 &= 1
+		\Sigma:& \quad x_1 &= 0\\
+		\Gamma_3:& \quad x_1 &= 1
 	\end{eqnarray*}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
@@ -32,8 +34,10 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 	\end{eqnarray*}
 \end{minipage}
 
+In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$.
+
 \subsubsection{Cantilever elastic body}
-Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries This is Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
+Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. Recall this is Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
 \FloatBarrier
 \begin{figure}[h!]
 	\centering
@@ -80,35 +84,46 @@ Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0
 		
 		\node at (-0.6,0) {$(0,0)$};
 		\node at (0,0)[circle,fill,inner sep=1.5pt]{};
+
+		% Add Σ at x_1 = 0
+		\node at (-1.4,0) {$\Sigma$};
+		
+		% Add Γ₁ at x_2 = -h/2
+		\node at (3.5,-1.2) {$\Gamma_1$};
+		
+		% Add Γ₂ at x_2 = h/2
+		\node at (3.5,0.9) {$\Gamma_2$};
+		
+		% Add Γ₃ at x_1 = 1
+		\node at (8,0) {$\Gamma_3$};
 		
 	\end{tikzpicture}
 	\caption{A cantilever two-dimensional elastic body.}
 \end{figure} 
 \FloatBarrier
 
-In section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is defined by Problem 2D-1V. For convenience, some results from section \ref{ssec:2D_Model:VariationalForm} are repeated here.
+In section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is derived and refered to as Problem 2D-1V. Some of the results from section \ref{sec:2D_Model} are repeated here for convenience. Using the reference configuration, these results are rewritten from a general form to a model specific form.
 
 \subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1VChp5}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
 	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEqChp5}
 \end{align}
-for all $\phi \in T(\Omega)$.\\
-
-With the test function space 
+for all $\phi \in T(\Omega)$. With the test function space 
 \begin{eqnarray*}
 	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
 \end{eqnarray*}
-The bilinear forms and integral function defined by
+
+The bilinear forms and integral function is defined by
 \begin{eqnarray}
 	b(u,\phi) & = & \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
 	\textrm{Tr}(\Phi) ~dA, \label{eq:2D_Model:BilinearChp5}\\
 	c(\partial_t^2 u,\phi) & = & \int_\Omega~ (\partial^2_t u) \cdot \phi~dA, \label{eq:2D_Model:Bilinear_cChp5}\\
 	(f,g) &=& \int_{\Omega} f\cdot g \ dA, \label{eq:2D_Model:Bilinear_intChp5}
 \end{eqnarray}
-with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.\\
+with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
 
-Using the definition of the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten as follows.
+Using the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten into a model specific form.
 
 \subsubsection{Constitutive equations:}
 \begin{eqnarray}
@@ -133,13 +148,18 @@ Find a function $u$ such that $\forall \ t > 0$, $u \in V$ with $\partial_t^2 u 
 \end{eqnarray*}
 for all $v\in V$.
 
+See chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}\label{2d_FEM_G}
-Divide the reference configuration $\Omega$ into a rectangular grid of elements, such that there are $n = n_1\times n_2$ nodes.\\
+To be able to apply the Finite Element Method to Problem 2D-1V, the body $\Omega$ needs to be discretised. This is done by dividing the body $\Omega$ into discrete shapes, called elements. There are various types of shapes of elements that can be used. Since the body $\omega$ is has a rectangular cross-section, rectangular are the simplist elements to use.
 
-Define a set of $n$-dimensional linear independent basis functions. For the two dimensional model, the basis functions can be defined by the set $$\left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.$$ For this dissertation, we use bi-cubic functions $\phi_i$, however simpler bi-linear functions can also be used. For easier notation, denote each of these basis functions by $\delta_i$.\\
+Divide the reference configuration $\Omega$ into a grid of rectangular elements, such that there are $n = n_1\times n_2$ nodes.
 
-The functions in this set that satisfies the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. The admissible basis functions for this model can be renumbered and expressed as the set $\left \{\delta_1, \delta_2,..., \delta_k \right\}$ for some $k \leq 2n$.\\
+Define a set of $n$-dimensional linear independent basis functions. For the two dimensional model, the basis functions can be defined by the set $$B = \left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.$$ 
+
+These functions are chosen as bi-cubic functions $\phi_i$. Simpler bi-linear functions can also be used, however the use of the bi-cubic basis functions results in faster convergence and also the benefit of obtaining the derivatives of the solution at the expense of more complexity.
+
+The subset of basis functions $B$ that satisfies all the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Denote the admissible basis functions by $\delta_j$, where each $\delta_j$ is a unique element of $B$. The admissible basis functions can be numbered and expressed as the set $A = \left \{\delta_1, \delta_2,..., \delta_k \right\}$ for some $k \leq 2n$.\\ 
 
 Define the space
 \begin{eqnarray*}
@@ -151,18 +171,13 @@ For each function $u^h \in S^h$, $u^h$ can be expressed as
 	u^h = \sum_{i = 1}^{k} u_i(t) \delta_{i}(x).
 \end{eqnarray*}
 
-Problem 2D-1V can now be rewritten into a Galerkin Approximation, denoted by Problem 2D-1G.
+Substitution of $u^h$ into Problem 2D-1V, results in the following Galerkin Approximation, denoted by Problem 2D-1G.
 
 \subsubsection{Problem 2D-1G}
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
 	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I, \phi_i)
-\end{eqnarray*} for $i = 1,2,...,k$.\\
-
-\textbf{Remarks:}
-\begin{itemize}
-	\item[] $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j} = Q(x_i,x_j)$ for $i = 1,2,...,n_1$ and $j = 1,2,...,n_2$.
-\end{itemize}
+\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j} = Q(x_i,x_j)$ for $i = 1,2,...,n_1$ and $j = 1,2,...,n_2$.
 
 \subsection{System of differential equations}\label{ssec:2DFEM:DE}
 
@@ -181,12 +196,14 @@ Consider the following standard Finite Element Method matrices
 		\mathbf{{K}_{21}}_{j,i} & = & \int_{\Omega} \partial_1\phi_i \partial_2\phi_j~dA
 	\end{eqnarray*}
 \end{minipage}
-for $i,j = 1,2,...,k$.\\
+for $i,j = 1,2,...,k$.
 
 And 
 \begin{eqnarray*}
 	{M_{F}}_{j,i} = \int_{\Omega}  \phi_i \phi_j~dA
-\end{eqnarray*} for $i = 1,2,...,k$ and for $j =1,2,...,2n$.\\
+\end{eqnarray*}
+
+for $i = 1,2,...,k$ and for $j =1,2,...,2n$.
 
 Define the following matrices:
 \begin{eqnarray*}
@@ -223,7 +240,7 @@ Using the standard FEM matrices and matrices $K_1$-$K_4$, the following concaten
 	\end{bmatrix}\label{eq:2DFEM:M}
 \end{eqnarray}
 
-The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathbf{M}$ and ${M_f}$ respectively.\\
+The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathbf{M}$ and ${M_f}$ respectively.
 
 Using \eqref{eq:2DFEM:K+M} and \eqref{eq:2DFEM:M}, Problem 2D-1G is rewritten as a system of ordinary differential equations. This system is referred to as Problem 2D-1ODE.
 
@@ -233,8 +250,7 @@ Find a function $\bar{u} \in S^h$ such that
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I.
 \end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \langle u, \partial_1 u, \partial_2 u, \partial_{12} u \rangle$.
 
-\subsubsection{Remark}
-This form of $\bar{u}$ is determined by the Hermite cubic basis functions.
+\textbf{Remark} This form of $\bar{u}$ is determined by the use of the bi-cubic basis functions.
 
 \subsection{Eigenvalue problem}\label{2dFEM_EP}
 For the eigenvalue problem, assume that $M_{f}Q^I = 0$ so that 
@@ -252,8 +268,6 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\lambda{\bar{u}} & = & K\bar{u}.
 \end{eqnarray}
-
-Now the eigenvalue problem can be solve using a finite difference method.
 
 \end{document}
 
