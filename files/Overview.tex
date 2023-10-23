@@ -1,6 +1,21 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
+\section{500-word summary}
+This dissertation is a literature study that investigates the validity of different linear models in application. Validity in this context refers to how well simplified lower dimensional models compare to more realistic higher dimensional models. This dissertation will investigate the validity of the Timoshenko beam theory and the Reissner-Mindlin plate theory. The higher dimensional models are a two- and three-dimensional beam and a three-dimensional plate. In the first chapter, the models are provided.
+
+Next, a discussion of the existence and uniqueness of solutions for a general vibration problem. The article discussed provide four assumptions, and prove there exists an infinitesimal generator of a $C_0$-semigroup of contractions, that rewrites the problem into an initial value problem, with a unique solution. The authors then prove this is also a solution of the general vibration problem. An application of this theory is demonstrated using a cantilever Timoshenko beam.
+
+Thereafter a discussion of two theoretical results for the Finite Element Method. The first result is from an article where the convergence of the Galerkin Approximation is proved. A Galerkin Approximation of the general vibration problem is derived. Using the Finite Element Method, this Galerkin Approximation is rewritten into an initial value problem, that has a unique solution. The authors show that there exists error estimates that approximate the error between the general vibration problem and the initial value problem. The next result is from a textbook on the convergence of the eigenvalues and eigenvectors of a one-dimensional vibration problem. This section rewrites the textbook's results with updated notation, aiming for greater clarity and understanding.
+
+The forth chapter discusses results for the Timoshenko beam theory. First an article is examined that provides a method to calculate the exact eigenvalues and eigenvectors. The method is then applied to a cantilever and a free-free beam model. Next is a discussion of an empirical study, that compares the natural frequencies of a physical free-free beam to the theoretical results of the Timoshenko beam theory. Finally an extension on a technical report of a cantilever Timoshenko beam with a tip-body and elastic interfaces. This model serves as an example of the application of the Timoshenko theory in a complex model and adds to the article by expanding the numerical results.
+
+In the fifth chapter, the Finite Element Method is applied to the two and three-dimensional models of this dissertation. The goal of this chapter is to obtain a numerical formula that can be used to calculate the eigenvalues and eigenvectors of the models in preparation for the final chapter where the models are compared.
+
+The last chapter compares the eigenvalues and eigenvectors of the models. The approach is based on an article where a cantilever Timoshenko beam model is compared to a cantilever two-dimensional model. The article is discussed and results replicated. The article is then extended to a comparison of a two-dimensional model to a three-dimensional model. Finally, a cantilever Reissner-Mindlin plate model is compared to a cantilever three-dimensional plate model.
+
+\textcolor{red}{493 Words}
+
 \section{Summary}
 
 \subsubsection{Chapter 1}
@@ -22,6 +37,8 @@ In this chapter, the Finite Element Method is applied to cantilever two-dimensio
 
 \subsubsection{Chapter 6}
 In this chapter, the main comparisons of the models are conducted. The first section is a discussion of the article \cite{LVV09}. Each section in this chapter follows the same structure as this article. In this article, the authors investigate the validity of a cantilever Timoshenko beam models, by comparing it to a two-dimensional cantilever Timoshenko beam model. To make this comparison, the authors compare the eigenvalues and eigenfunctions of the models. But since the two-dimensional model is more complex, there are `non-beam type' eigenvalues. These are eigenvalue that are not in the Timoshenko beam theory, and does not relate to beam type problems. To be able to find the beam type eigenvalues that can be compared, the authors compare the mode shapes. This allows the eigenvalues to be matched up. The results of the article show that the Timoshenko beam model compares very well to the two-dimensional beam. The comparison improves when the application is for a long and slender beam. The results of the article are verified and more results are added to extend the article and also to be using the the following sections. But in real-world applications, a beam is a three-dimensional model. Therefore it would be better to use a three-dimensional model to investigate the validity of the Timoshenko beam theory. The authors of \cite{LVV09} mentions this, and suggests using the two-dimensional model as an intermediate step to avoid complexities. So in the second section of this chapter, the validity of the two-dimensional model is investigated using the three-dimensional model as a reference. The results show that the two-dimensional model also compares very well to the three-dimensional model. Similar to the one-dimensional case, the results improve for a long and slender beam, and also if the width of the three-dimensional beam is not larger than the height of the beam. When increasing the width past the size of the height, the two-dimensional model is less accurate. This shape does however bring into question the use of a beam model, and something like a plate model might be better suited. In the last section, the validiy of the Reissner-Mindlin plate model is investigated. Similar to how the Timoshenko beam theory improves on the Euler-Bernoulli beam theory, the Reissner-Mindlin plate theory improves on the classical plate theory. The numerical results do show that this Reissner-Mindlin plate model compares well to a three-dimensional plate model, also when the dimensions of the models are realistic for application.
+
+
 
 \end{document}
 
