@@ -1,9 +1,9 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-In this chapter, the Finite Element Method (FEM) is applied to the models of this dissertation, presented in chapter 1. The goal of this chapter is to obtain numerical formulas that can be used to calculate the eigenvalues and eigenvectors for the models. This is in preperation of chapter 6, where the eigenvalues and eigenvectors of the models are compared.
+In this chapter, the Finite Element Method (FEM) is applied to the models of this dissertation, presented in Chapter 1. The goal of this chapter is to obtain an algorithm that can be used to calculate the eigenvalues and eigenvectors for the models. This is in preparation of chapter 6, where the eigenvalues and eigenvectors of the models are compared.
 
-In chapter 4, a method was discussed to obtain the eigenvalues and eigenvectors for the Timoshenko beam model. Therefore it is not neccesary to apply the Finite Element Method on the Timoshenko model to obtain the eigenvalues and eigenvectors. The Finite Element Mehtod is applied to the two-dimensional and three-dimensional models.
+In chapter 4, a method was discussed to obtain the eigenvalues and eigenvectors for the Timoshenko beam model. Therefore it is not necessary to apply the Finite Element Method on the Timoshenko model to obtain the eigenvalues and eigenvectors. The Finite Element Method is applied to the two-dimensional and three-dimensional models.
 
 The outline of the chapter is as follows.
 \begin{itemize}
@@ -37,7 +37,7 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$.
 
 \subsubsection{Cantilever elastic body}
-Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. Recall this is Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
+Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. This is Problem 2D-1 in section \ref{ssec:2D_Model:ModelProblem}.
 \FloatBarrier
 \begin{figure}[h!]
 	\centering
@@ -148,10 +148,10 @@ Find a function $u$ such that $\forall \ t > 0$, $u \in V$ with $\partial_t^2 u 
 \end{eqnarray*}
 for all $v\in V$.
 
-See chapter 2 for the existence theory.
+See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}\label{2d_FEM_G}
-To be able to apply the Finite Element Method to Problem 2D-1V, the body $\Omega$ needs to be discretised. This is done by dividing the body $\Omega$ into discrete shapes, called elements. There are various types of shapes of elements that can be used. Since the body $\omega$ is has a rectangular cross-section, rectangular are the simplist elements to use.
+To be able to apply the Finite Element Method to Problem 2D-1V, the body $\Omega$ needs to be discretised. This is done by dividing the body $\Omega$ into discrete shapes, called elements. There are various types of shapes of elements that can be used. Since the body $\omega$ is has a rectangular cross-section, rectangular elements are the simplest elements to use.
 
 Divide the reference configuration $\Omega$ into a grid of rectangular elements, such that there are $n = n_1\times n_2$ nodes.
 
@@ -253,11 +253,11 @@ Find a function $\bar{u} \in S^h$ such that
 \textbf{Remark} This form of $\bar{u}$ is determined by the use of the bi-cubic basis functions.
 
 \subsection{Eigenvalue problem}\label{2dFEM_EP}
-For the eigenvalue problem, assume that $M_{f}Q^I = 0$ so that 
+For the eigenvalue problem, assume that there is no external force, $M_{f}Q^I = 0$, so that 
 \begin{eqnarray}
 		M\ddot{\bar{u}} & = & K\bar{u}.\label{eq:2DFEM:M2}
 \end{eqnarray}
-It is known that a system of ordinary differential equations have a general solution of the form $e^{rt}$. Suppose that $\bar{w} = e^{\lambda t} \bar{u}$ is a solution for \eqref{eq:2DFEM:M2}. In this solution, $\lambda$ is an eigenvalue and $\bar{u}$ a corresponding eigenfunction. Substitution into \eqref{eq:2DFEM:M2} results in
+It is known that a system of ordinary differential equations has a general solution of the form $e^{rt}$. Suppose that $\bar{w} = e^{\lambda t} \bar{u}$ is a solution for \eqref{eq:2DFEM:M2}. In this solution, $\lambda$ is an eigenvalue and $\bar{u}$ a corresponding eigenfunction. Substitution into \eqref{eq:2DFEM:M2} results in
 \begin{eqnarray*}
 	M\lambda e^{\lambda t}\bar{u} & = & Ke^{\lambda t}\bar{u}.
 \end{eqnarray*}

@@ -123,7 +123,7 @@ Consider a three-dimensional elastic body with rectangular cross-section, rigidl
 \end{figure} 
 \FloatBarrier
 
-In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from section \ref{sec:3D_Mode} are repeated here.
+In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from section \ref{sec:3D_Model} are repeated here.
 
 \subsubsection{Problem 3D-1V}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
@@ -134,7 +134,7 @@ for all $\phi \in T(\Omega)$.\\
 
 With the test function space
 \begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C(\Omega) \ | \ \phi = 0 \ \textrm{ on } \ \Sigma_0 \right\}.
+	T(\Omega) & = & \left\{ \phi \in C(\Omega) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
 \end{eqnarray*}
 
 The bilinear forms and integral function are defined by
@@ -175,10 +175,10 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, sa
 	c(u,v) + b(u,v) & = & (Q,v) \ \ \ \textrm{ for each } v \in V.
 \end{eqnarray}
 
-See chapter 2 for the existence theory.
+See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. This is model, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as brick shaped elements as described by \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.\
+As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
 
 Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
 
@@ -189,11 +189,9 @@ Define a set of $n$-dimensional linear independent basis functions. For the thre
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
-For the this three-dimensional model, tri-cubix basis functions are used. These basis functions are an extension of the Hermite cubic basis functions from the two-dimensional model. Although this is more complex than using tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.\\
+For the this three-dimensional model, tri-cubix basis functions are used. These basis functions are an extension of the Hermite cubic basis functions from the two-dimensional model. Although this is more complex than using tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
 
-For this dissertation, we use tri-cubic functions $\phi_i$. For a simplification, tri-linear functions can also be used instead. For easier notation, denote each of the basis functions in the set by $\delta_i$.\\
-
-Similar to \ref{2d_FEM_G}, denote the admissible basis functions by $\delta_j$, where each $\delta_j$ is a unique element of $B$ satisfying all the conditions of the test function space $T(\Omega)$. The admissible basis functions are numbered and expressed as the set $A = \left\{\delta_1, \delta_2, ..., \delta_k \right\}$ for some $k \leq 3n$.\\
+Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
 Define the space
 \begin{eqnarray*}

@@ -1,10 +1,12 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Cantilever plate model}\label{sec:FEM:Plate}
-Consider a rectangular cantilever Reissner-Mindlin plate.
+Consider a rectangular cantilever Reissner-Mindlin plate model with a rectangular cross-section.
 
 \subsubsection{Reference configuration for a rectangular plate}
-Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate,
+Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Although this basis seems identical to the two-dimensional beam in section \ref{sssec:2D_Model:RefConf}, it is fact different. It would be more appropriate to use $e_1$ and $e_3$ for this plate model. However the use of $e_1$ and $e_2$ is kept to reiterate that this is in fact a two-dimensional model.
+
+Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in R_2 \ | \ 0 \leq x_1 \leq 1, \ 0 \leq x_2 \leq b \right \}.
 \end{eqnarray*}
@@ -12,8 +14,8 @@ Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omeg
 
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
-		\Sigma_0:& \quad x_1 &= 0\\
-		\Sigma_1:& \quad x_1 &= 1
+		\Sigma:& \quad x_1 &= 0\\
+		\Gamma_3:& \quad x_1 &= 1
 	\end{eqnarray*}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
@@ -21,12 +23,12 @@ Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omeg
 		\Gamma_0:& \quad x_2 &= 0\\
 		\Gamma_1:& \quad x_2 &= b
 	\end{eqnarray*}
-\end{minipage}\\
+\end{minipage}
 
-\textbf{Remark} The mathematical definition of $R_2$ is the same as the two-dimensional beam. Practically, it is not the same. The plate model is a horisontal two-dimensional plane, and the two-dimensional beam is a vertical two-dimensional plane.
+Similar to the two and three-dimensional cantilever models, this notation implies that the plate is clamped at $\Sigma$ and free hanging at $\Gamma$.
 
 \subsubsection{Cantilever plate model}
-Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$. The plate is free hanging on the remaining edges and there is not external force acting on the plate. The plate is be modelled using the Reissner-Mindlin plate theory that is presented in section \ref{ssec:P_Model:ModelProblems} as Problem P-1.\\
+Consider a rectangular Reissner-Mindlin plate clamped rigidly to a surface at $\Sigma$ and free hanging on the remaining edges. This plate model is presented in section \ref{ssec:P_Model:ModelProblems} as Problem P-1.
 
 \begin{figure}[h!]
 	\centering
@@ -88,7 +90,7 @@ Consider a rectangular plate clamped rigidly to a surface at the edge $\Sigma_0$
 		\draw[line width = 0.2mm] (6.2,-0.1) -- (7.8,0.7);
 
 	\end{tikzpicture}
-	\caption{Two-dimensional Cantilever Plate}
+	\caption{Two-dimensional cantilever Reissner-Mindlin plate}
 \end{figure}
 \FloatBarrier
 
@@ -133,6 +135,7 @@ b(u,\phi) & = & \int_\Omega \boldsymbol{Q} \cdot \nabla v \ dA + \int_{\Omega} \
 
 \subsection{Weak variational form}
 Similar to Section 2.1, the weak variational form for Problem P-1 can be derived from Problem P-1V.
+
 \subsubsection{Bilinear forms}
 From the bilinear form, we have
 \begin{eqnarray*}
@@ -159,38 +162,25 @@ Denote the space $X = L^2(0,1)\times L^2(0,1)^2$ as a setting for Problem P-1V. 
 Find a function $u$ such that for all $t>0$, $u(t) \in V$, $u'(t) \in V$ and $u''(t) \in W$, satisfying the following equation
 \begin{eqnarray}
 	c(u''(t),v) + b^*(u(t),v) & = & (f(t),v)_{\Omega} \ \ \ \textrm{ for each } v \in V,
-\end{eqnarray} with $u(0)= u_0 = \langle w_0, \boldsymbol\psi_0 \rangle$, and $u'(0)= u_1 = \langle w_1, \boldsymbol\psi_1 \rangle$.\\
+\end{eqnarray} with $u(0)= u_0 = \langle w_0, \boldsymbol\psi_0 \rangle$, and $u'(0)= u_1 = \langle w_1, \boldsymbol\psi_1 \rangle$.
 
-\subsubsection{Existence and uniqueness}
-\textcolor{red}{XXXXXXXXXXXXXXXXXXXXX}
-Section 2.2 provides the necessary theory for the existence and uniqueness of solutions for second order hyperbolic equations. The assumptions \textbf{A1}, \textbf{A2} and \textbf{A4} are similar to Section 2.3. So it is only required to show that $b$ is an inner product for $V$ and that there exists a positive number $C_V$ such that
-\begin{eqnarray*}
-	\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}
-\end{eqnarray*} for each $v \in V$.\\
-
-However, this is not as simple as the example in Section 2.4. ****Reference 'n article wat na dit kyk.***
+See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-Divide the reference configuration $\Omega$ into a rectangular grid of elements, such that there are $n = n_1 \times n_2$ nodes.\\
+To discretise the body $\Omega$, the same shapes as in section \ref{ssec:2D_Model:Galerkin} are used.
 
-For the plate model, two different definitions for basis functions are required.\\
+Divide the reference configuration $\Omega$ into a rectangular grid of elements, such that there are $n = n_1 \times n_2$ nodes.
 
-First consider a set of $n$-dimensional linear independent basis functions, defined by the set
-\begin{eqnarray*}
-	\left\{\delta^*_1, \delta^*_2, ..., \delta^*_n\right\}.
-\end{eqnarray*}
-In this set, each $\delta^*$ is a cubic function. The subset of functions that satisfies the conditions of the test function space $T_1(\bar{\Omega})$ are the admissible basis functions for $T_1(\bar{\Omega})$. These admissible basis functions can be renumbered and expressed as the set $\left\{\delta^*_1, \delta^*_2, ..., \delta^*_{k_1}\right\}$ for some $k_1 \leq 2n$.\\
+Define a set of $n$-dimensional linear independent basis functions. The basis functions can be defined by the set $$B = \left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.$$ 
 
-Next consider a set of $n$-dimensional linear independent basis functions, defined by the set
-\begin{eqnarray*}
-	\left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.
-\end{eqnarray*} These functions $\phi_j$ are cubic basis functions. Denote each element in this set by $\delta_i$. The subset of functions that satisfies the conditions of the test function space $T_2(\bar{\Omega})$ are the admissible basis functions for $T_2(\bar{\Omega})$. These admissible basis functions can be renumbered and expressed as the set $\left\{\delta_1, \delta_2, ..., \delta_{k_2}\right\}$ for some $k_2 \leq 2n$.\\
+These basis functions are bi-cubic basis functions.
 
+Since there are two test function spaces, $T_1(\Omega)$ and $T_2(\Omega)$, two different sets of admissible basis functions are required. Denote the admissible basis functions for $T_1(\Omega)$ by $\delta^1_j$ where each $\delta^1_j$ is a unique element of B. The set of admissible basis functions that satisfies $T_1(\Omega)$ can be defined as $A_1 = \left\{\delta^1_1, \delta^1_2,..., \delta^1_{k_1} \right\}$ for a $k_1 \leq 2n$. Similarly for $T_2(\Omega)$, the set of admissible basis functions can be defined as $A_2 = \left\{\delta^2_1, \delta^2_2,..., \delta^2_{k_2} \right\}$ for a $k_2 \leq 2n$.
 
 Define the two spaces
 \begin{eqnarray*}
-	S^h_1 & = & \textrm{span}\left(\left\{\delta^*_i \ | \ i = 1,2,...,k_1 \right\} \right),\\
-	S^h_2 & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k_2 \right\} \right).
+	S^h_1 & = & \textrm{span}\left(\left\{\delta^1_i \ | \ i = 1,2,...,k_1 \right\} \right),\\
+	S^h_2 & = & \textrm{span}\left(\left\{\delta^2_i \ | \ i = 1,2,...,k_2 \right\} \right).
 \end{eqnarray*}
 For each function $u^h \in S_1^h$ and each function $\psi^h \in S_2^h$, $u^h$ can be expressed as
 \begin{eqnarray*}
@@ -200,7 +190,7 @@ For each function $u^h \in S_1^h$ and each function $\psi^h \in S_2^h$, $u^h$ ca
 	\psi^h = \sum_{i = 1}^{k} \psi_i(t) \delta_{i}(x)
 \end{eqnarray*}
 
-Problem P1-V can now be rewritten into a Galerkin Approximation, denoted by Problem P-1G.
+Substitution of $u^h$ and $\psi^h$ into Problem P-1V, results in the following Galerkin approximation, denoted by Problem P-1G.
 
 \subsubsection{Problem P-1G}
 Find a function $u^h = \langle w^h, \psi^h \rangle$, such that for all $t>0$, $u^h \in S_1^h \times S_1^h$ and the following equations are satisfied
@@ -209,7 +199,9 @@ Find a function $u^h = \langle w^h, \psi^h \rangle$, such that for all $t>0$, $u
 \end{eqnarray} with $\phi_{i,j} = \langle v_i, \phi_j \rangle$ for $i = 1,2,...,k_1$ and $j = 1,2,...,k_2$
 
 \subsection{System of ordinary differential equations}
-The standard FEM matrices $K_{11}$ to $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. In addition, the following standard FEM matrices are also required.
+The standard FEM matrices $K_{11}$, $K_{12}$, $K_{21}$, $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. Even though the definition of $R_2$ is different in section \ref{sec:FEM:2D}, the definition of the matrices are the same and are not repeated here.
+
+In addition to these matrices, the following standard FEM matrices are also required.
 
 \subsubsection{FEM matrices}
 \noindent\begin{minipage}{.5\linewidth}
@@ -223,11 +215,10 @@ The standard FEM matrices $K_{11}$ to $K_{22}$ and $M_F$ where presented in sect
 	\end{eqnarray*}
 \end{minipage}
 
-for $i,j = 1,2,...,p$.\\
+for $i,j = 1,2,...,p$.
 
+Define the following matrices:
 
-
-Define the following matrices:\\
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
 		\mathbf{K11} & = & hK_{11}-hK_{22}\\
@@ -246,7 +237,7 @@ Define the following matrices:\\
 	\end{eqnarray*}
 \end{minipage}\\
 
-with $A = \frac{1}{\beta(1-\nu^2)}$ and $B = \frac{1}{2\beta(1+\nu)}$.\\
+with $A = \frac{1}{\beta(1-\nu^2)}$ and $B = \frac{1}{2\beta(1+\nu)}$.
 
 Using the standard FEM matrices and the matrices $\mathbf{K11}$ to $\mathbf{K33}$, the following concatenated matrices are defined.
 
@@ -289,15 +280,15 @@ Find function $\bar{u} \in S_1^h\times S_2^h$ such that
 \begin{eqnarray}
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I \label{Plate_FEM_M}
 \end{eqnarray}
-With $\bar{u}$ in the form $\bar{u} = \langle w, \partial_x w, \partial_y w, \partial_{xy} w, \psi_1, \partial_x \psi_1, \partial_y \psi_1, \partial_{xy} \psi_1, \psi_2, \partial_x \psi_2, \partial_y \psi_2, \partial_{xy} \psi_2 \rangle$.
+With $\bar{u}$ in the form $\bar{u} = \langle w, \partial_1 w, \partial_2 w, \partial_{12} w, \psi_1, \partial_1 \psi_1, \partial_2 \psi_1, \partial_{12} \psi_1, \psi_2, \partial_1 \psi_2, \partial_2 \psi_2, \partial_{12} \psi_2 \rangle$.
 
 \subsection{Eigenvalue problem}
 
 The equation \eqref{Plate_FEM_M} is the same form as in section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem P-1 by Problem P-1E.
 \subsubsection{Problem P-1E}
-Find a vector function $u$ and a number $\lambda$ such that
+Find a vector function $\bar{u}$ and a number $\lambda$ such that
 \begin{eqnarray}
-	K{u} & = & M\lambda{u}.
+	M\lambda{\bar{u}} & = & K\bar{u}.
 \end{eqnarray}
 
 
