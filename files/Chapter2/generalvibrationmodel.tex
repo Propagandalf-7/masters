@@ -3,16 +3,16 @@
 \begin{document}
 
 \section{Introduction} \label{sec:existence}
-The models in this dissertation concern vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. This chapter discusses theory for the existence and uniqueness of solutions for these type of problems. The theoretical basis for modal analysis is also presented.\\
+The models in this dissertation concern vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. This chapter discusses theory for the existence and uniqueness of solutions for these type of problems. The theoretical basis for modal analysis is also presented.
 
-In this chapter we consider the work done by the authors of \cite{VV02} and \cite{VS19}. In these articles the authors prove the existence and uniqueness of solutions for general second order hyperbolic type problems. The problems in Chapter 1 are examples. The article \cite{VV02} concerns the case of a symmetric bilinear form $b$. The article \cite{VS19} extends this work where $b$ need not be symmetric. The article \cite{VV02} is sufficient for the models of this dissertation, while \cite{VS19} is only used where the notation is more convenient and to gain more insight.\\
+In this chapter we consider the work done by the authors of \cite{VV02} and \cite{VS19}. In these articles the authors prove the existence and uniqueness of solutions for general second order hyperbolic type problems. The problems in Chapter 1 are examples. The article \cite{VV02} concerns the case of a symmetric bilinear form $b$. The article \cite{VS19} extends this work where $b$ need not be symmetric. The article \cite{VV02} is sufficient for the models of this dissertation, while \cite{VS19} is only used where the notation is more convenient and to gain more insight.
 
-Before the general theory is discussed, a model is presented to be used as an example to show the application of the theory. The model is a cantilever Timoshenko beam, denoted by Problem T-2 in Section \ref{ssec:1D_Model:ModelProblems}.\\
+Before the general theory is discussed, a model is presented to be used as an example to show the application of the theory. The model is a cantilever Timoshenko beam, denoted by Problem T-2 in Section \ref{ssec:1D_Model:ModelProblems}.
 
-In Section \ref{ssec:1D_Model:VariationalForm}, the variational problem for the pinned-pinned beam is derived. The derivation of the cantilever beam model is similar, with a different test function space. Recall the variational problem for the cantilever beam Problem T-2V, with the test function space $\displaystyle T[0,1] = F_1[0,1] \times F_1[0,1]$. To determine the solvability of the problem, the weak variational problem is considered first.\\
+In Section \ref{ssec:1D_Model:VariationalForm}, the variational problem for the pinned-pinned beam is derived. The derivation of the cantilever beam model is similar, with a different test function space. Recall the variational problem for the cantilever beam Problem T-2V, with the test function space $\displaystyle T[0,1] = F_1[0,1] \times F_1[0,1]$. To determine the solvability of the problem, the weak variational problem is considered first.
 
 
-To obtain the weak variational form of Problem T-2V some preparation is required. A natural setting for the problem is the product space $L^2(0,1)\times L^2(0,1)$, denoted by $X$. The inner product for $L^2(0,1)$ yields the inner product $\displaystyle (x_1,y_1) + (x_2,y_2)$ for $X$. The idea is to replace the pair $\langle w , \phi \rangle$ by a function $u$ ``of time only" and values $u(t)$ in the space $X$.\\
+To obtain the weak variational form of Problem T-2V some preparation is required. A natural setting for the problem is the product space $L^2(0,1)\times L^2(0,1)$, denoted by $X$. The inner product for $L^2(0,1)$ yields the inner product $\displaystyle (x_1,y_1) + (x_2,y_2)$ for $X$. The idea is to replace the pair $\langle w , \phi \rangle$ by a function $u$ ``of time only" and values $u(t)$ in the space $X$. \label{sym:Ln}
 
 Define a function u with domain $J$, an interval of real numbers. The range of $u$ is contained in $X$:
 \begin{eqnarray}
@@ -31,7 +31,7 @@ Using the bilinear forms, $b$ and $c$ from Section 1.4, Problem T-2V can be rewr
 
 To apply the theory from \cite{VV02}, complete function spaces are required. It is known that $L^2(0,1)$ is a complete function space and hence $X$ is complete.\\
 
-The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\\
+The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\label{sym:Hn}
 
 The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$}, denoted by $V$, is complete. It is called the energy space.\\
 
@@ -59,7 +59,7 @@ Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace o
 	\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
 	\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
 	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
-\end{itemize}
+\end{itemize} \label{sym:Xspace}\label{sym:Wspace}\label{sym:Vspace}\label{sym:norm}
 
 The following notation is important for the theory that follows.\\
 
@@ -88,7 +88,7 @@ Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $
 \begin{eqnarray}
 	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
 \end{eqnarray}
-while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\\
+while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\label{sym:a} \\
 
 This general variational form is applicable in all the models in this dissertation. In \cite{VV02}, a more general form is given that includes the possibility for damping terms in the models. Damping is not considered in this dissertation.
 
@@ -143,7 +143,7 @@ In \cite{VV02} the authors consider a special case of weak damping. Define a spa
 \newtheorem{Thm3n}[Thmx]{Theorem}
 \begin{Thm3n}[Strong Damping]
 	If $a$ is positive definite on $V$, there exists a unique solution $u \in C^1([0,\infty),V)\cap C^2((0,\infty),W)$ for Problem GVar for any $u_0 \in V$, $u_1 \in W$ and any $f$ which is Lipschitz on $V$. If $f=0$, then $u \in C^1([0,\infty),V)\cap C^2([0,\infty),W)\cap C^\infty((0,\infty),V)$.
-\end{Thm3n}
+\end{Thm3n} \label{Cinfty}
 
 As mentioned, in the models of this dissertation, the bilinear form $a$ is identically zero. This automatically satisfy the weak damping condition and hence Theorem 2 may be applied.
 
@@ -213,7 +213,7 @@ To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A
 
 To prove \textbf{Assumption A1}, observe that $W$ is dense in $X$. (The set $W = X$).\\
 
-Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\\
+Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\label{sym:Cinftyzero} \\
 
 Consider \textbf{Assumption A2}. From the definition of the bilinear form $c$,
 \begin{eqnarray*}

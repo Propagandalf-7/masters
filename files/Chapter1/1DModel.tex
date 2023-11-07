@@ -16,13 +16,13 @@
     \begin{align}
         \rho A \partial_t^2 w &=& \partial_x V + Q, \label{eq:1D_Model:EquationOfMotion1}\\
         \rho I\partial_t^2 \phi  &=& V + \partial_x M. \label{eq:1D_Model:EquationOfMotion2}
-    \end{align}
+    \end{align}\label{sym:A}\label{sym:V}\label{sym:Iinertia}\label{sym:M}\label{sym:phiT}
     In~\eqref{eq:1D_Model:EquationOfMotion1} and \eqref{eq:1D_Model:EquationOfMotion2} $\rho$ denotes the density, $A$ is the area of a cross section, $I$ is the area moment of inertia, $M$ is the moment, $V$ is the shear force and $Q$ is an external force acting on the beam.
 
     \subsubsection*{Constitutive equations}\label{sssec:1D_Model:ConstitutiveEquation}
     \begin{eqnarray}
         M &=& EI\partial_x \phi, \label{eq:1D_Model:ConstitutiveEquations1}\\
-        V &=& AG\kappa^2(\partial_x w - \phi), \label{eq:1D_Model:ConstitutiveEquations2}
+        V &=& AG\kappa^2(\partial_x w - \phi), \label{eq:1D_Model:ConstitutiveEquations2}\label{sym:kappa2T}
     \end{eqnarray}
     $E$ is Young's modulus, $G$ the shear modulus and $\kappa^2$ the shear correction factor.
 
@@ -39,7 +39,7 @@
     \begin{equation*}
         \alpha = \frac{A \ell^2}{I} \,\,\, \text{and} \,\,\, \beta
         =\frac{AG\kappa^2 \ell^2}{EI}.
-    \end{equation*}
+    \end{equation*}\label{sym:alphabeta}
 
     Interestingly, it turns out that
     \begin{eqnarray*}

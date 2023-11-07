@@ -14,16 +14,16 @@ vibration problem is given in section \ref{ssec:3D_Model:VariationalForm}.
 Plane stress is discussed in section \ref{ssec:3D_Model:PlaneStress}
 
 \subsection{Equations of motion and constitutive equations} \label{ssec:3D_Model:EquationofMotion+ConstitutiveEquation}
-Consider a vector valued function $u$ defined on domain $\Omega \subset {R}^3$
-where $u$ describes the displacement of $\Omega$ in ${R}^3$.
+Consider a vector valued function $u$ defined on domain $\Omega \subset {R}^3$ \label{sym:Omega} \label{sym:Rn}
+where $u$\label{sym:u} describes the displacement of $\Omega$ in ${R}^3$.
 \subsubsection{Equation of motion}\label{ssec:3D_Model:EquationOfMotion}
 \begin{eqnarray}
 	\rho\partial_t^2 u & = & \textrm{div}T + Q. \label{eq:3D_Model:EM}
-\end{eqnarray}
+\end{eqnarray} \label{sym:rho} \label{sym:partial_diff} \label{sym:T} \label{sym:Q}
 
 In \eqref{eq:3D_Model:EM}, $\rho$ is the density of the elastic body, $T$ is
-the stress tensor with components $\sigma_{ij}$, $Q$ is an external body force
-acting on $\Omega$ and $\textrm{div}T$ is the divergence of the tensor $T$ and
+the stress tensor with components $\sigma_{ij}$\label{sym:sigmaij}, $Q$ is an external body force
+acting on $\Omega$ and $\textrm{div}T$\label{sym:divT} is the divergence of the tensor $T$ and
 represented by
 \begin{eqnarray}
 	\textrm{div}  T & = &
@@ -36,23 +36,23 @@ represented by
 
 Only small vibrations are considered. This means that the local displacements
 and rotations are small. Hence the stress tensor $T$ is symmetric. Let
-$\textrm{Tr}(T)$ denote the trace of the stress tensor $T$, that is
+$\textrm{Tr}(T)$\label{sym:TrT} denote the trace of the stress tensor $T$, that is
 \begin{eqnarray}
-	\textrm{Tr}(T) & = & \phi_{11} + \phi_{12} + \phi_{13}. \label{eq:stress_tensor_t}
+	\textrm{Tr}(T) & = & \sigma_{11} + \sigma_{22} + \sigma_{23}. \label{eq:stress_tensor_t}
 \end{eqnarray}
 
 \textbf{Remark} Some books prefer to use $\rho Q$ for the external body force, but $Q$ is also correct. $Q$ is then a force per unit volume.
 
 \subsubsection*{Strain}\label{sssec:3D_Model:Strain}
-Infinitesimal strain tensor is defined on $\Omega$ as $\mathcal{E}$, with components
+Infinitesimal strain tensor is defined on $\Omega$ as $\mathcal{E}$\label{sym:mathcalE}, with components
 \begin{eqnarray}
 	\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right). \label{eq:3D_Model:Strain}
-\end{eqnarray}
+\end{eqnarray}\label{sym:varepsilonij}
 
 In this dissertation, we only consider isotropic materials. As a consequence,
 the constitutive equation (Hooke's law) takes the following form.
 
-\subsubsection*{Hooke's law in terms of $E$ and $\nu$}\label{sssec:3D_Model:Hooke'sLaw1}
+\subsubsection*{Hooke's law in terms of $E$ and $\nu$}\label{sssec:3D_Model:Hooke'sLaw1}\label{sym:E} \label{sym:nu}
 \begin{eqnarray}
 	\mathcal{E} = \left( \frac{1+\nu}{E} \right)T - \frac{\nu}{E}\textrm{Tr}(T)I,  \label{eq:3D_Model:HL}
 \end{eqnarray} where $E$ is Young's Modulus and $\nu$ is Poisson's ratio.
@@ -74,7 +74,7 @@ derived in this subsection. Suppose $\ell$ represents some notable dimension
 (e.g.the length) of the elastic body and $G$ the shear modulus of elasticity.\\
 
 Set \[\tau = \frac{t}{t_0},\quad \xi_i = \frac{x_i}{\ell},\quad {u}^*(\xi,\tau) = \frac{1}{\ell}{u}(x,t), \quad Q^{*} = \ell G \kappa^2 Q, \]
-\[ \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]
+\[ \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]\label{sym:t}\label{sym:G}\label{sym:tau}\label{sym:xi}\label{sym:Qstar}\label{sym:sigmaijstar}\label{sym:ell}\label{sym:kappa2}
 
 where $\kappa^2$ is a dimensionless constant and $t_0$ must be specified. A
 convenient choice for $t_0$ (see section \ref{sec:1D_Model}) is \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
@@ -88,7 +88,7 @@ where $T^* = \sigma_{i,j}^*(\xi,\tau)$.\\
 The dimensionless form of \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
 \begin{eqnarray*}
 	\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right]
-\end{eqnarray*}
+\end{eqnarray*}\label{sym:I}
 
 and
 \begin{eqnarray*}
@@ -98,7 +98,9 @@ and
 Introduce a dimensionless constant
 \begin{eqnarray*}
 	\gamma= \frac{G\kappa^2}{E}.
-\end{eqnarray*} Using this dimensionless constant,
+\end{eqnarray*}\label{sym:gamma}
+
+Using this dimensionless constant,
 \begin{eqnarray}
 	\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \textrm{Tr}(T^*)I \label{DM_H_E}
 \end{eqnarray}
@@ -142,7 +144,7 @@ considered a model problem for a three-dimensional elastic body.
 		$\Sigma$;
 	\item[] The traction $Tn = t_\Gamma$ is specified on
 		$\Gamma$.
-\end{enumerate}
+\end{enumerate} \label{sym:n}\label{sym:SigmaGamma}
 
 The two model problems considered in this dissertation are described below.
 
@@ -170,7 +172,7 @@ Boundary Conditions:
 \subsection{Variational form}\label{ssec:3D_Model:VariationalForm}
 Let $\phi \in C({\Omega})$ be an arbitrary vector valued function. Multiplying
 $\phi$ to equation \eqref{eq:3D_Model:EM-D} and integrating over the domain
-$\Omega$ results in,
+$\Omega$ results in, \label{sym:Cn} \label{sym:phi}
 
 \begin{eqnarray*}
 	\int_{\Omega} (\partial_t^2 u)\cdot \phi \ dV & = & \int_{\Omega} (\textrm{div} T)\cdot \phi \ dV
@@ -209,7 +211,6 @@ Therefore,
 	\int_{\Omega} (\partial_t^2 u)\cdot \phi \ dV = -\int_{\Omega} \textrm{Tr}(T\Phi) \ dV +
 	\int_{\Omega} Q\cdot\phi \ dV + \int_{\partial \Omega} Tn\cdot \phi \ dS.
 \end{align*}
-\\
 
 The general variational form of the three-dimensional model is given as
 \begin{eqnarray*}
@@ -224,7 +225,7 @@ Define the bilinear forms
 \begin{eqnarray}
 	b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
 	\textrm{Tr}(\Phi) ~dV \label{eq:3D_Model:Bilinear}
-\end{eqnarray}
+\end{eqnarray}\label{sym:b}
 and
 \begin{eqnarray}
 	c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dV \label{eq:3D_Model:Bilinear_c}
@@ -243,7 +244,7 @@ Problem 3D-2:\\
 Problem 3D-1
 \begin{eqnarray*}
 	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}
-\end{eqnarray*}
+\end{eqnarray*}\label{sym:TOmega}
 
 Problem 3D-2
 \begin{eqnarray*}
@@ -256,7 +257,7 @@ The variational problem of Problem 3D-1 is given as Problem 3D-1V.
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
 \begin{align}
 	c(u,\phi) = -b(u,\phi) + (Q,\phi), \label{eq:3D_Model:Problem3D1VEq}
-\end{align}
+\end{align}\label{sym:c}
 for all $\phi \in T(\Omega)$\\
 
 The well-posedness of the model is treated in Chapter 2, where Korn's

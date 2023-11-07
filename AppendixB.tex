@@ -49,4 +49,71 @@ Denote the bilinear basis functions by $\phi_i$.
 \end{itemize}
 
 
+\section*{Introduction}
+In this appendix, we delve into the concept of Sobolev spaces, which are fundamental in the study of partial differential equations and variational problems. Sobolev spaces generalize the notion of differentiability and integrate the concept of weak derivatives, making them crucial in formulating and solving problems with less smooth solutions.
+
+\section*{One-Dimensional Case}
+Consider the closed interval \([0,\ell]\). We define a partition of this interval into \(n\) subintervals \([x_{k-1},x_k]\), where each \(x_k\) for \(k=0,1,\ldots,n\) is referred to as a node.
+
+\subsection*{Piecewise Linear Basis Functions}
+Let us denote the linear basis functions by \(\phi_i\), where each \(\phi_i\) is associated with a node \(x_i\).
+
+\subsubsection*{Properties}
+\begin{itemize}
+	\item The restriction of \(\phi_i\) to any subinterval is a linear polynomial.
+	\item \(\phi_i \in C^0[0, \ell]\) and \(\phi_i' \in L^2(0, \ell)\).
+	\item \(\phi_i(x_i) = 1\) and \(\phi_i(x_j) = 0\) for \(i \neq j\).
+	\item Each \(\phi_i\) is supported on \([x_{i-1}, x_{i+1}]\), being zero outside this subinterval.
+\end{itemize}
+
+\subsection*{Hermite Cubic Basis Functions}
+The Hermite cubic basis functions ensure continuity of the first derivative across nodes. There are two types of basis functions to cover the function value and the derivative continuity.
+
+\subsubsection*{Type One Properties}
+\begin{itemize}
+	\item Each \(\phi^{(1)}_i\) is a cubic polynomial on its support.
+	\item \(\phi^{(1)}_i \in C^1[0,\ell]\).
+	\item \(\phi^{(1)}_i\) and \((\phi^{(1)}_i)'\) are continuous; \((\phi^{(1)}_i)''\) is piecewise continuous.
+	\item \(\phi^{(1)}_i(x_i) = 1\) and \((\phi^{(1)}_i)'(x_i) = 0\).
+\end{itemize}
+
+\subsubsection*{Type Two Properties}
+\begin{itemize}
+	\item Similar to Type One but designed to ensure that \((\phi^{(2)}_i)'(x_i) = 1\) and \(\phi^{(2)}_i(x_i) = 0\).
+\end{itemize}
+
+\section*{Two-Dimensional Case}
+In the two-dimensional setting, consider a rectangular domain \(\Omega\) with sides of lengths \(a\) and \(b\), divided into rectangular elements by a grid with spacings \(\delta x\) and \(\delta y\).
+
+\subsection*{Piecewise Bi-Linear Basis Functions}
+In two dimensions, basis functions \(\phi_i\) are associated with grid nodes \((x_i, y_i)\) and are bilinear over each rectangular element.
+
+\subsubsection*{Properties}
+\begin{itemize}
+	\item Within each element, \(\phi_i\) is a bilinear function of the form \(a + bx + cy + dxy\).
+	\item For a fixed \(y\), \(\phi_i(\cdot, y)\) is linear in \(x\) and continuous over \([0, a]\); the analogous property holds for fixed \(x\) and varying \(y\).
+	\item At node \((x_i, y_i)\), \(\phi_i\) equals 1 and vanishes at all other nodes.
+	\item The support of \(\phi_i\) consists of the elements sharing the node \((x_i, y_i)\).
+\end{itemize}
+
+\section*{General Properties of Sobolev Spaces}
+\subsection*{Weak Derivatives}
+The concept of weak derivatives allows us to extend the idea of differentiability to functions that may not be differentiable in the classical sense. A weak derivative is defined in the distributional sense, by integration by parts, where the test functions come from smooth, compactly supported spaces.
+
+\subsection*{Embedding Theorems}
+Embedding theorems, such as the Sobolev Embedding Theorem, provide the conditions under which Sobolev spaces are contained within other function spaces, or can be continuously injected into them. These are crucial in understanding the regularity properties of solutions to PDEs.
+
+\subsection*{Traces}
+In Sobolev spaces, the trace operator allows us to make sense of the restriction of a function to the boundary of a domain, even when the function is not necessarily continuous.
+
+\subsection*{Sobolev Inequalities}
+These inequalities provide bounds on the norms of functions in Sobolev spaces and are essential tools for the analysis of variational problems and PDEs.
+
+\section*{Conclusion}
+Sobolev spaces are instrumental in the mathematical formulation and analysis of a wide variety of problems in science and engineering. This appendix provides a foundational overview for understanding these spaces in both one- and two-dimensional contexts.
+
+\section*{References}
+The references section should contain all works cited throughout the appendix and main text. It is crucial to attribute ideas and direct quotations to their original sources.
+
+
 \end{document}

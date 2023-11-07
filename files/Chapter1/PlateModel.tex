@@ -15,7 +15,7 @@
 	\end{eqnarray*}
 	
 	Any point on the plate can be described by
-	\[ \bar{x} = x_1 \bar e_1 + x_2 \bar e_2 + x_3 \bar e_3 = q \bar e_r + x_3 \bar e_3. \]
+	\[ \bar{x} = x_1 \bar e_1 + x_2 \bar e_2 + x_3 \bar e_3 = q \bar e_r + x_3 \bar e_3. \] \label{sym:en}
 	
 	
 	Let $w$ represent the displacement of the plate body and $\psi$ the angle between the material line and a line perpendicular to the plate. In the spherical coordinate form, the angle can easily be calculated for the directions of $\bar{e}_1$ and $\bar{e}_2$, i.e.
@@ -40,9 +40,9 @@
 	
 	\subsubsection*{Equations of Motion}\label{sssec:P_Model:EquationsOfMotion}
 	\begin{eqnarray}
-		\rho h \partial_t^2 w & = & \textrm{div} Q + q \label{eq:P_Model:EM1}\\
+		\rho h \partial_t^2 w & = & \textrm{div} \mathbf{Q} + q \label{eq:P_Model:EM1}\\
 		\rho I \partial_t^2 {\psi} & = & \textrm{div} M - Q \label{P2}\label{eq:P_Model:EM1}
-	\end{eqnarray}
+	\end{eqnarray} \label{sym:bfQ}
 	In these equations $\rho$ denotes the density of the plate, $\displaystyle I = \frac{h^3}{12}$ the length moment of inertia, $M$ the moment density and $Q$ the shear force density. The parameter $q$ is an external force acting on the plate. The moment density is defined as
 	
 	\begin{eqnarray*}
@@ -56,7 +56,7 @@
 	\subsubsection*{Constitutive Equations}\label{sssec:P_Model:ConstitutiveEquation}
 	For the linear model, the constitutive equations are defined as:
 	\begin{eqnarray}
-		Q & = & \kappa^2 G h(\nabla w + \psi) \label{eq:P_Model:CE1} \\
+		\mathbf{Q} & = & \kappa^2 G h(\nabla w + \psi) \label{eq:P_Model:CE1} \\
 		M_{11} & = & \frac{1}{2} D \left[2(\partial_1 \psi_1 + \nu \partial_2 \psi_2)\right]  \label{eq:P_Model:CE2}\\
 		M_{12} =  M_{21} & = & \frac{1}{2} D \left[(1-\nu)(\partial_1 \psi_2 + \nu \partial_2 \psi_2)\right] \label{eq:P_Model:CE3} \\
 		M_{22} & = & \frac{1}{2} D \left[2(\partial_2 \psi_2 + \nu \partial_1 \psi_1)\right] \label{eq:P_Model:CE4}
@@ -67,7 +67,7 @@
 	\end{eqnarray*}
 	where $E$ is Young's modulus and $\nu$ Poisson's ratio.\\
 	
-	In classical plate theory, $\psi = -\nabla w$ and the constitutive equation for $Q$ is excluded.
+	In classical plate theory, $\psi = -\nabla w$ and the constitutive equation for $\mathbf{Q}$ is excluded.
 	
 	\subsection{Dimensionless Form}\label{ssec:P_Model:DimensionlessForm}
 	
@@ -87,12 +87,12 @@
 	
 	\subsubsection{Dimensionless Equations of Motion}\label{sssec:P_Model:EquationsOfMotionD}
 	\begin{eqnarray}
-		h \partial_t^2 w & = & \textrm{div} Q + q \label{eq:P_Model:EM1D} \\
+		h \partial_t^2 w & = & \textrm{div} \mathbf{Q} + q \label{eq:P_Model:EM1D} \\
 		I \partial_t^2 {\psi} & = & \textrm{div} M - Q \label{eq:P_Model:EM2D_chap1}
 	\end{eqnarray}
 	\subsubsection{Dimensionless Constitutive Equations}\label{sssec:P_Model:ConstitutiveEquationsD}
 	\begin{eqnarray}
-		Q & = & h(\nabla w + \psi) \label{eq:P_Model:CE1D}\\
+		\mathbf{Q} & = & h(\nabla w + \psi) \label{eq:P_Model:CE1D}\\
 		M_{11} & = & \frac{1}{2\beta(1-\nu^2)} \left[ 2(\partial_1\psi_1 + \nu \partial_2 \psi_2 \right] \label{eq:P_Model:CE2D}\\
 		M_{12} = M_{21} & = & \frac{1}{2\beta(1-\nu^2)} \left[ (1-\nu)(\partial_1\psi_2 + \partial_2 \psi_1) \right] \label{eq:P_Model:CE3D}\\
 		M_{11} & = & \frac{1}{2\beta(1-\nu^2)} \left[ 2(\partial_2 \psi_2 + \nu \partial_1 \psi_1)\right] \label{eq:P_Model:CE4D_chap1}
@@ -103,7 +103,7 @@
 	Some commonly used boundary (or edge) conditions are:\\
 	
 	Free Edge:
-	\[Mn\cdot n = 0, \ \ Mn\cdot \tau = 0 \ \ \textrm{ and }\ Q\cdot n = 0 \]
+	\[Mn\cdot n = 0, \ \ Mn\cdot \tau = 0 \ \ \textrm{ and }\ \mathbf{Q}\cdot n = 0 \]
 	Soft Supported Edge:
 	\[Mn\cdot n = 0, \ \ w = 0 \ \ \textrm{ and } \ Mn \cdot \tau = 0 \]
 	Rigidly Supported Edge:
@@ -127,7 +127,7 @@
 	
 	Boundary Conditions\\
 	\[w = 0,  \ \textrm{ and } \ \psi = \bar{0} \ \textrm{ on } \Sigma_0.\]
-	\[Mn\cdot n = 0,\ \ \ Mn\cdot \tau = 0, \ \textrm{ and } \ Q \cdot n =0 \ \textrm{ on } \partial\Omega\setminus\Sigma_0.\]
+	\[Mn\cdot n = 0,\ \ \ Mn\cdot \tau = 0, \ \textrm{ and } \ \mathbf{Q} \cdot n =0 \ \textrm{ on } \partial\Omega\setminus\Sigma_0.\]
 	with $\tau$ a unit vector perpendicular to $n$.\\
 	
 	\subsubsection{Problem P-2}\label{sssec:P_Model:ProblemP2}
@@ -140,13 +140,13 @@
 	\subsection{Variational Form}\label{ssec:P_Model:VariationalForm}
 	Let $v \in C_2^1[0,1]$ and $w \in C^1[0,1] \times C^1[0,1]$ such that $w$ is a vector valued function. Multiplication these functions to \eqref{eq:P_Model:EM1D} and \eqref{eq:P_Model:EM2D} yields:
 	\begin{eqnarray*}
-		\int_\Omega h \partial_t^2 w v \ dA & = & \int_\Omega \textrm{div} (Q) v \ dA + \int_\Omega q v \ dA\\
+		\int_\Omega h \partial_t^2 w v \ dA & = & \int_\Omega \textrm{div} (\mathbf{Q}) v \ dA + \int_\Omega q v \ dA\\
 		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & \int_\Omega \textrm{div} (M) \cdot \phi \ dA - \int_\Omega Q \cdot \phi \ dA
 	\end{eqnarray*}
 	
 	Following from Green's Formulas, similar to section \ref{ssec:3D_Model:VariationalForm}, 
 	\begin{eqnarray*}
-		\int_\Omega \textrm{div}(Q) v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds,\\
+		\int_\Omega \textrm{div}(\mathbf{Q}) v \ dA & = & - \int_\Omega \mathbf{Q} \cdot \nabla v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds,\\
 		\int_\Omega \textrm{div}(M) \cdot \phi \ dA & = & - \int_\Omega \textrm{Tr} (M \Phi) \ dA + \int_{\partial\Omega} M n \cdot \phi ds.
 	\end{eqnarray*}
 	$\textrm{Tr} (M \Phi)$ is the trace of the matrix $M \Phi$, $n$ is the normal vector to $\Omega$, and 
@@ -166,7 +166,7 @@
 
 	Using the test function space for Problem P-1, the equations \eqref{P1} and \eqref{P2} reduce to
 	\begin{eqnarray}
-		\int_\Omega h \partial_t^2 w v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_\Omega q v \ dA, \label{eq:P_Model:ProblemP1V1}\\
+		\int_\Omega h \partial_t^2 w v \ dA & = & - \int_\Omega \mathbf{Q} \cdot \nabla v \ dA + \int_\Omega q v \ dA, \label{eq:P_Model:ProblemP1V1}\\
 		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & - b(\phi,v) - \int_\Omega Q \cdot \phi \ dA, \label{eq:P_Model:ProblemP1V2}
 	\end{eqnarray}
 	for all $v \in T_1(\bar{\Omega})$ and $\phi \in T_2(\bar{\Omega})$
@@ -174,7 +174,7 @@
 	\subsubsection{Bilinear Forms and integral}\label{sssec:P_Model:BilinearForm}
 	Let $u = \langle w, \psi \rangle$ and $\phi = \langle v, \phi \rangle$. Define the bilinear forms
 	\begin{eqnarray*}
-		b(u,\phi) & = & \int_\Omega Q \cdot \nabla v \ dA + \int_{\Omega} \textrm{Tr}(M\Phi) \ dA,
+		b(u,\phi) & = & \int_\Omega \mathbf{Q} \cdot \nabla v \ dA + \int_{\Omega} \textrm{Tr}(M\Phi) \ dA,
 	\end{eqnarray*}
 	and
 	\begin{eqnarray}

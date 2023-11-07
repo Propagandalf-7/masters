@@ -63,4 +63,67 @@ The space $H^1(a,b)$ is the closure of $C^1[a,b]$ in $W^1(a,b)$ with respect to 
 	$C^m(\bar{I}) \subset W^m(I)$ and if $u \in C^m(C^m(\bar{I})C^m(\bar{I})\bar{I})$, then $D^{(m)}u = u^{(m)}$. 
 \end{thmAH2}
 
+\section*{Appendix: Mathematical Preliminaries}
+In this appendix, we provide a brief overview of the mathematical spaces and concepts used throughout the dissertation. 
+
+\subsection*{The Space \( L^2 \)}
+Consider a measurable space \( X \). The set of square-integrable functions over \( X \) with respect to a measure \( \mu \) is called the \( L^2 \) space, formally defined as
+\[ L^2(X, \mu) = \{ f: X \to \mathbb{R} \mid \int_X |f|^2 \, d\mu < \infty \}. \]
+
+The inner product in \( L^2 \) space is defined as
+\[ (f,g) = \int_X f(x)g(x) \, d\mu \quad \text{for } f, g \in L^2(X, \mu). \]
+The norm in \( L^2 \) is given by \( ||f|| = (f,f)^{1/2} \) for \( f \in L^2(X, \mu) \). For a comprehensive treatment, see \cite{Rud53}.
+
+\textcolor{red}{***********************************************}
+
+\subsection*{Spaces of Continuous Functions}
+
+\textbf{The Space \( C^m(a,b) \)}\\
+This space consists of functions that are \( m \)-times continuously differentiable in the open interval \( (a, b) \).
+
+\textbf{The Space \( C^m[a,b] \)}\\
+Functions in \( C^m[a,b] \) are \( m \)-times continuously differentiable in \( (a, b) \) and have defined right derivatives at \( a \) and left derivatives at \( b \) up to the \( m \)-th order.
+
+\textbf{The Space \( C_0^m(a,b) \)}\\
+The space \( C_0^m(a,b) \) contains functions from \( C^m[a,b] \) that vanish on the intervals \( [a, \alpha] \) and \( [\beta, b] \) for some \( a < \alpha < \beta < b \).
+
+\textbf{The Spaces \( C^\infty(a,b) \) and \( C^\infty[a,b] \)}\\
+These spaces contain functions that are infinitely differentiable, either on the open interval \( (a, b) \) or on the closed interval \( [a, b] \), respectively.
+
+\textbf{The Space \( C_0^\infty(a,b) \)}\\
+It includes all functions from \( C^\infty(a,b) \) that have compact support within \( (a, b) \).
+
+\subsection*{Weak Derivatives and Sobolev Spaces}
+Weak derivatives allow us to handle functions that are not classically differentiable. These derivatives are defined in a weak sense through the use of test functions.
+
+\textbf{Definition: First Order Weak Derivative}\\
+A function \( v \) is the first order weak derivative of \( u \in L^2(a,b) \) if
+\[ (u, \phi') = -(v, \phi) \quad \text{for all } \phi \in C^\infty_0(a,b). \]
+
+\textbf{Definition: Higher Order Weak Derivative}\\
+Similarly, \( v \) is the \( m \)-th order weak derivative of \( u \) if
+\[ (u, \phi^{(m)}) = (-1)^m(v, \phi) \quad \text{for all } \phi \in C^\infty_0(a,b). \]
+
+\textbf{Sobolev Spaces \( W^m(a,b) \)}\\
+The Sobolev space \( W^m(a,b) \) includes functions in \( L^2(a,b) \) with weak derivatives up to order \( m \). The inner product and norm in \( W^m(a,b) \) are defined as
+\[ (u,v)_m = (u,v) + (Du, Dv) + \dots + (D^m u, D^m v), \]
+\[ ||u||_m = \sqrt{(u,u)_m}. \]
+
+\textbf{Sobolev Spaces \( H^m(a,b) \)}\\
+The space \( H^m(a,b) \) is defined as the closure of \( C^m[a,b] \) in \( W^m(a,b) \) with respect to the Sobolev norm \( ||\cdot||_m \).
+
+\subsection*{Main Results}
+\textbf{Uniqueness of Weak Derivatives}\\
+\begin{thmAH1}
+	The \( m \)-th order weak derivative \( D^{(m)}u \) is uniquely determined by \( u \).
+\end{thmAH1}
+
+\textbf{Inclusion of Continuously Differentiable Functions}\\
+\begin{thmAH2}
+	The space \( C^m(\overline{I}) \) is a subset of \( W^m(I) \). For a function \( u \) in \( C^m(\overline{I}) \), the classical and weak derivatives coincide: \( D^{(m)}u = u^{(m)} \).
+\end{thmAH2}
+
+% Include more theorems, lemmas, or corollaries as needed
+% ...
+
 \end{document}

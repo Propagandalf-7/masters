@@ -2,12 +2,12 @@
 \begin{document}
 \section{Validity of a Cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam}
 
-In this section, the validity of the Timoshenko beam model is investigated. Specifically, the validity of a cantilever Timoshenko beam model, using a cantilever two-dimensional beam model as a reference. This is a discussion and a replication of numerical results of the work done in the article \cite{LVV09}.
+In this section, the validity of the Timoshenko beam model is investigated. Specifically, the validity of a cantilever Timoshenko beam model, using a cantilever two-dimensional beam model as a reference. This follows what is done in the article \cite{LVV09}. This section discusses the results of the article, focussing on the numerical results. Some of the results are replicated with more significant digits, others are extended to be used in the rest of this chapter.
 
-The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. \textcolor{red}{Give a brief summary of the article here, linking to whatever has already been discussed in the literature review.}
+The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. The authors start by presenting the models. These are the same as Problem T-2 and Problem 2D-1 that are defined in Chapter 1. The authors also look at the existence and uniqueness of the models, which is covered in Chapter 2 of this dissertation. The authors then calculate and compare the eigenvalues and eigenfunctions, which will be discussed in this section.
 
 \subsection{The models}
-The following two models are the focus of this section and the models that are used in the article \cite{LVV09}. From section \ref{ssec:1D_Model:ModelProblems}, the cantilever Timoshenko beam model, referred to as Problem T-2. From section \ref{ssec:2D_Model:ModelProblem}, the cantilever two-dimensional beam model, referred to as Problem 2D-1.\\
+The cantilever Timoshenko beam model is defined in section \ref{ssec:1D_Model:ModelProblems}, and is referred to as Problem T-2. The cantilever two-dimensional beam model is defined in section \ref{ssec:2D_Model:ModelProblem}, and is referred to as Problem 2D-1.
 
 Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
 
@@ -95,7 +95,7 @@ Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
 As mentioned in the introduction, the height of the two beams can be set to be the same by considering the parameter $\alpha$ for the Timoshenko beam model and the parameter $h$ for the two-dimensional beam model.
 
 \subsection{Calculating the eigenvalues and eigenvectors}
-In section \ref{sec:Timo:EigenvalueProblem} a method for calculating the eigenvalues and eigenvectors of the Timoshenko beam is provided. And in section \ref{sec:Timo:Cantilever}, the eigenvalues and eigenvectors of a cantilever Timoshenko beam are calculated as an example. These can also be obtained to a desired level of accuracy.
+In section \ref{sec:Timo:EigenvalueProblem} a method for calculating the eigenvalues and eigenvectors of the Timoshenko beam is provided. And in section \ref{sec:Timo:Cantilever}, the eigenvalues and eigenvectors of a cantilever Timoshenko beam are calculated as an example. 
 
 For the two-dimensional beam, the eigenvalues and eigenvectors are calculated using the Finite Element Method. In section \ref{sec:FEM:2D}, the Finite Element Method for a cantilever two-dimensional beam is derived. Specifically, section \ref{2dFEM_EP} derived the eigenvalue problem for the two-dimensional beam using the Finite Element Method, called Problem 2D-1E.
 
@@ -105,7 +105,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	K\bar{u} & = & M\lambda{\bar{u}},
 \end{eqnarray} where $M$ and $K$ are the standard Finite Element Method matrices defined in section \ref{sec:FEM:2D}.
 
-In this form, the eigenvalue problem is a system of ordinary differential equations, and can be solved using a numerical method. 
+In this form, the eigenvalue problem is a system of ordinary differential equations, and can be solved using a numerical method. Computer programs like MATLAB provide functions that are able to solve this.
 
 \subsubsection{Accuracy of the eigenvalues}
 Solving \textbf{Problem 2D-1E} with a numerical method, requires a quick investigation into the rate of convergence so that the accuracy of the eigenvalues can be established. Chapter \ref{ch:finite-element-theory} provides the necessary theory on the existence of solutions as well as the proof of convergence of the Finite Element Method.
