@@ -16,7 +16,7 @@ Find functions $u$ and $\phi$ and a real number $\lambda$ satisfying the followi
 
 Recall from section \ref{sec:1D_Model}, $u$ represents the transverse motion of the beam, $\phi$ is the angle of rotation of the cross-section of the beam, $\alpha$ and $\gamma$ are dimensionless constants defined in section 1.5 and $\lambda$ represents the eigenvalue. 
 
-The authors of \cite{VV06} first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In \cite{VV06} the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in \mathbb{R}$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
+The authors of \cite{VV06} first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In \cite{VV06} the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in R$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
 \begin{eqnarray*}
 -m^{2}e^{mx}w_{1}+me^{mx}w_{2}&=&\lambda e^{mx}w_{1},\\
 -\frac{1}{\gamma}m^{2}e^{mx}w_{2}-\alpha me^{mx}w_{1}+\alpha e^{mx}w_{2}&=&\lambda e^{mx}w_{2}.
@@ -41,7 +41,7 @@ w_{1}\\w_{2}
 Let $A$ denote the coefficient matrix of \eqref{eq:Timo:SolutionEigenvalueProblem}. For a nontrivial solution of $\bar{w}$, it is required that the determinant of matrix $A$ is $0$.
 \begin{align*}
 \textrm{det}(A)=m^{4}+\lambda(1+\gamma)m^{2}+\gamma\lambda(\lambda-\alpha)=0. \label{TE7}
-\end{align*}
+\end{align*} \label{sym:determinant}
 
 This equation is called the characteristic equation. The characteristic equation is quadratic with respect to $m^2$. The roots of the characteristic equation can be expressed as
 \begin{align}

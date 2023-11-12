@@ -8,7 +8,7 @@ Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Alth
 
 Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate,
 \begin{eqnarray*}
-	\Omega = \left \{ x \in R_2 \ | \ 0 \leq x_1 \leq 1, \ 0 \leq x_2 \leq b \right \}.
+	\Omega = \left \{ x \in R^2 \ | \ 0 \leq x_1 \leq 1, \ 0 \leq x_2 \leq b \right \}.
 \end{eqnarray*}
 Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omega$ can be divided into four distinct lines.
 
@@ -145,18 +145,18 @@ From the bilinear form, we have
 
 For all $f,g \in T_1(\Omega)\times T_2(\Omega) $, define the bilinear forms
 \begin{eqnarray*}
-	c(f,g) & = & h(f_1,g_1)_{\Omega} + I(f_2,g_2)_{R_2} \\
-	b^*(f,g) & = & b(f_2,g_2) + h(\nabla f_1 + f_2, \nabla g_1 + g_2)_{R_2}
+	c(f,g) & = & h(f_1,g_1)_{\Omega} + I(f_2,g_2)_{R^2} \\
+	b^*(f,g) & = & b(f_2,g_2) + h(\nabla f_1 + f_2, \nabla g_1 + g_2)_{R^2}
 \end{eqnarray*}
 where the integrals are defined by
 \begin{eqnarray*}
 	(f_1,g_1)_{\Omega} & = & \iint_\Omega f_1 g_1 \ dA,\\
-	(f,g)_{R_2} & = & \iint_\Omega f \cdot g \ dA.
+	(f,g)_{R^2} & = & \iint_\Omega f \cdot g \ dA.
 \end{eqnarray*}
 
 Define $V_1(0,1)$ as the closure of $T_1(0,1)$ in $H^1(0,1)$ and $V_2(0,1)$ as the closure of $T_2(0,1)$ in $H^1(0,1)^2$.\\
 
-Denote the space $X = L^2(0,1)\times L^2(0,1)^2$ as a setting for Problem P-1V. A natural inner product for $X$ is $(f,g)_X = (f_1,g_1)_{\Omega} + (f_2,g_2)_{R_2}$.  Define $W$ as the space $X$ with the inner product $c$ and $V = V_1(0,1) \times V_2(0,1)$
+Denote the space $X = L^2(0,1)\times L^2(0,1)^2$ as a setting for Problem P-1V. A natural inner product for $X$ is $(f,g)_X = (f_1,g_1)_{\Omega} + (f_2,g_2)_{R^2}$.  Define $W$ as the space $X$ with the inner product $c$ and $V = V_1(0,1) \times V_2(0,1)$
 
 \subsubsection{Problem Plate-1W}
 Find a function $u$ such that for all $t>0$, $u(t) \in V$, $u'(t) \in V$ and $u''(t) \in W$, satisfying the following equation
@@ -199,7 +199,7 @@ Find a function $u^h = \langle w^h, \psi^h \rangle$, such that for all $t>0$, $u
 \end{eqnarray} with $\phi_{i,j} = \langle v_i, \phi_j \rangle$ for $i = 1,2,...,k_1$ and $j = 1,2,...,k_2$
 
 \subsection{System of ordinary differential equations}
-The standard FEM matrices $K_{11}$, $K_{12}$, $K_{21}$, $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. Even though the definition of $R_2$ is different in section \ref{sec:FEM:2D}, the definition of the matrices are the same and are not repeated here.
+The standard FEM matrices $K_{11}$, $K_{12}$, $K_{21}$, $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. Even though the definition of $R^2$ is different in section \ref{sec:FEM:2D}, the definition of the matrices are the same and are not repeated here.
 
 In addition to these matrices, the following standard FEM matrices are also required.
 

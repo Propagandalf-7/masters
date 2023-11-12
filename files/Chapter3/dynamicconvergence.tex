@@ -1,6 +1,8 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
+\textcolor{red}{1973 is die original, en 1997 is 'n update tot die 1973 met extra voorbeelde, kode en oefeninge. Die 1997 is die die kopie wat ek het. So prof moet se as ek 1973 eerder moet gebruik.}
+
 In this chapter, two important convergence results of the Finite Element Method
 (FEM) is discussed. The first result looks at the convergence of the Galerkin
 approximation for second order hyperbolic type problems, as presented
@@ -69,7 +71,7 @@ Consider the standard FEM matrices defined by
 
 Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary
 differential equations denoted by Problem ODE. \subsubsection*{Problem ODE}
-Find a function $\bar{u} \in S^h$ such that
+Find a function $\bar{u} \in S^h$ such that \label{sym:baru}
 \begin{eqnarray}
 	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}^h_0 \textrm{ and }  \bar{u}(1) = \bar{u}^h_1 \label{ODE}
 \end{eqnarray}
@@ -119,9 +121,10 @@ The error $e$, can now be expressed as
 	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
 \end{eqnarray}
 
-In \eqref{error_e}, the the error for the semi-discrete problem is the term $[u(t_k)-u_h(t_k)]$ and the term $[u_h(t_k) - u^h_k]$ is the error for the fully disrete appreximation of the semi-discrete approximation.
+In \eqref{error_e}, the the error for the semi-discrete problem is the term $u(t_k)-u_h(t_k)$ and the term $u_h(t_k) - u^h_k$ is the error for the fully disrete appreximation of the semi-discrete approximation.
 
 \subsection{Main result}
+\textcolor{red}{************** NIE DIE MAIN RESULT NIE*******************}
 
 The main result proving the convergence of the solution of the Galerkin
 Approximation is given in \cite{BV13} as follows.
@@ -142,6 +145,7 @@ constant defined in assumption \textbf{A4} of Section 2.2.1.
 
 \subsection{Fully discrete Galerkin finite element approximation}
 \textcolor{red}{********************HOU VOORLOPIG**********************}
+
 Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length
 $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for
 $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \
@@ -159,7 +163,10 @@ of \cite{BV13} then proceed to obtain an error estimate for $[u_h(t_k) -
 			u^h_k]$. Since the dimension of $S^h$ is not fixed, the equivalence of norms
 cannot be used, and therefore this error estimate for $[u_h(t_k) - u^h_k]$
 should also be with respect to the norm of $W$.
+
 \textcolor{red}{********************HOU VOORLOPIG**********************}
+
+\textcolor{red}{Dupliseering maar moontlik beter as werk net voor Main Result, p52}
 
 \subsubsection{Error estimate for the fully discrete problem}
 

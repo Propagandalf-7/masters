@@ -10,16 +10,24 @@
 \toprule
 Symbol & Description & First Appearance (Page) \\ 
 \midrule
+\( \mathbb{N} \) & set of natural numbers \( j \) & \pageref{sym:natural} \\
 \( R^n \) & n-dimensional space of real numbers & \pageref{sym:Rn} \\
-\( \Omega \) & subset of \( R^n \), representing a body/reference configuration & \pageref{sym:Omega} \\
+\( \Omega \) & subset of \( R^n \), usually representing a body/reference configuration & \pageref{sym:Omega} \\
+\( \partial \Omega \) & the boundary of $\Omega$ & \pageref{sym:boundaryOmega} \\
+\( \bar{\Omega} \) & the boundary of $\Omega$ & \pageref{sym:baromega} \\
 \( C^n \) & set of n-times continuously differentiable functions & \pageref{sym:Cn} \\
-\( L^n \) & space of n-power Lebesgue integrable functions & \pageref{sym:Ln} \\
-\( H^n \) & space of functions with weak derivatives up to order n (n'th dimensional Sobolev space) & \pageref{sym:Hn} \\
 \( C^\infty \) & space of smooth functions & \pageref{sym:Cinfty} \\
 \( C^\infty_0 \) & space of smooth functions with compact support & \pageref{sym:Cinftyzero} \\
-\( \mathcal{P}_j \) & set of all polynomials of degree at most \( j \) & \pageref{sym:poly} \\
-\( \mathbb{N} \) & set of natural numbers \( j \) & \pageref{sym:natural} \\
+\( L^n \) & space of n-power Lebesgue integrable functions & \pageref{sym:Ln} \\
+\( H^n \) & space of functions with weak derivatives up to order n (n'th dimensional Sobolev space) & \pageref{sym:Hn} \\
+\( X \) & global space & \pageref{sym:Xspace} \\
+\( V \) & inertia space & \pageref{sym:Wspace} \\
+\( W \) & energy space & \pageref{sym:Vspace} \\
+\( T(\Omega) \) & test function space on \( \Omega \) & \pageref{sym:TOmega} \\
 \( S^h \) & finite dimensional subspace & \pageref{sym:Sh1} \\
+\( \mathcal{P}_j \) & set of all polynomials of degree at most \( j \) & \pageref{sym:poly} \\
+\( E_n \) & space spanned by the orthonormal basis vectors $e_i$ & \pageref{sym:En} \\
+
 
 \bottomrule
 \end{tabularx}
@@ -31,21 +39,23 @@ Symbol & Description & First Appearance (Page) \\
 \toprule
 Symbol & Description & First Appearance (Page) \\ 
 \midrule
-\( \partial_x^n \) & n-th partial derivative with respect to \( x \) & \pageref{sym:partial_diff} \\
-\( \textrm{div} T \) & divergence of \( T \) & \pageref{sym:divT} \\
-\( \textrm{Tr}(T) \) & Trace of \( T \) & \pageref{sym:TrT} \\
+\( a(\cdot,\cdot), b(\cdot,\cdot), c(\cdot,\cdot) \) & bilinear forms & \pageref{sym:a}, \pageref{sym:b}, \pageref{sym:c} \\
+\( (\cdot, \cdot)_X \) & innerproduct of X & \pageref{sym:innerproduct} \\
+\( ||\cdot||_X \) & norm in the space \( X \) & \pageref{sym:norm} \\
+\( \partial_x^nf \) & n-th partial derivative of f with respect to \( x \) & \pageref{sym:partial_diff} \\
+\( \textrm{div} X \) & divergence of the matrix \( X \) & \pageref{sym:divT} \\
+\( \textrm{Tr}(X) \) & Trace of the matrix \( X \) & \pageref{sym:TrT} \\
+\( \textrm{det}(M) \) & determinant of M & \pageref{sym:determinant} \\
+\( \textrm{span}(\cdot) \) & span of a set & \pageref{sym:span} \\
 \( dV \) & volume integral measure & \pageref{sym:dV} \\
 \( dS \) & surface integral measure & \pageref{sym:dS} \\
 \( dA \) & area integral measure & \pageref{sym:dA} \\
 \( ds \) & line integral measure & \pageref{sym:ds} \\
-\( a(\cdot,\cdot), b(\cdot,\cdot), c(\cdot,\cdot) \) & bilinear forms & \pageref{sym:a}, \pageref{sym:b}, \pageref{sym:c} \\
-\( ||\cdot||_X \) & norm in the space \( X \) & \pageref{sym:norm} \\
-\( T(\Omega) \) & test function space on \( \Omega \) & \pageref{sym:TOmega} \\
 \( \mathcal{E}(\cdot) \) & energy function & \pageref{sym:Energy} \\
-\( Pu \) & Projection of the vector u & \pageref{sym:Pu} \\
 \( R(\cdot) \) & Rayleigh quotient & \pageref{sym:Rayleigh} \\
 \( \Pi \) & interpolation operator & \pageref{sym:interpolation} \\
-
+\( \bar{u} \) & another form explicity showing u is a vector & \pageref{sym:baru} \\
+\( \textrm{RE} \) & abbriviation for the relative error & \pageref{sym:RE} \\
 \bottomrule
 \end{tabularx}
 
@@ -56,37 +66,37 @@ Symbol & Description & First Appearance (Page) \\
 \toprule
 Symbol & Description & First Appearance (Page) \\ 
 \midrule
+\( \lambda \) & eigenvalue & \pageref{sym:lambda} \\
 \( u \) or \( w \) & displacement vector & \pageref{sym:u} \\
+\( \phi \) & arbitrary vector/rotation of cross-section of Timoshenko beam & \pageref{sym:phi} \\
+\( Q \) & force per unit volume & \pageref{sym:Q} \\
 \( \rho \) & density & \pageref{sym:rho} \\
 \( T \) & stress tensor & \pageref{sym:T} \\
 \( \sigma_{ij} \) & element of the stress tensor \( T \) & \pageref{sym:sigmaij} \\
-\( Q \) & force per unit volume & \pageref{sym:Q} \\
 \( \mathcal{E} \) & infinitesimal strain tensor & \pageref{sym:mathcalE} \\
 \( \varepsilon_{ij} \) & element of the infinitesimal strain tensor \( \mathcal{E} \) & \pageref{sym:varepsilonij} \\
 \( E \) & Young's modulus & \pageref{sym:E} \\
 \( \nu \) & Poisson's ratio & \pageref{sym:nu} \\
 \( t \) & time & \pageref{sym:t} \\
+\( \ell \) & dimension representing length & \pageref{sym:ell} \\
+\( h \) & dimension representing height & \pageref{sym:height} \\
+\( b \) &  dimension representing width & \pageref{sym:width} \\
 \( G \) & shear modulus of elasticity & \pageref{sym:G} \\
+\( A \) & area of a cross-section & \pageref{sym:A} \\
+\( V \) & shear force & \pageref{sym:V} \\
+\( I \) & area moment of inertia & \pageref{sym:Iinertia} \\
+\( M \) & moment & \pageref{sym:M} \\
+\( f^* \) & dimensionless form of f & \pageref{sym:sigmaijstar} \\
 \( \tau \) & dimensionless time & \pageref{sym:tau} \\
 \( \xi \) & dimensionless space & \pageref{sym:xi} \\
-\( Q^* \) & dimensionless force per unit volume & \pageref{sym:Qstar} \\
-\( \sigma^*_{ij} \) & dimensionless stress tensor element & \pageref{sym:sigmaijstar} \\
-\( \ell \) & dimension representing length & \pageref{sym:ell} \\
-\( b \) &  dimension representing width & \pageref{sym:width} \\
-\( h \) & dimension representing height & \pageref{sym:height} \\
+\( \alpha/\beta \) & dimensionless constants & \pageref{sym:alphabeta} \\
 \( \kappa^2 \) & some dimensionless constant/shear correction factor & \pageref{sym:kappa2} \\
 \( I \) & identity matrix & \pageref{sym:I} \\
 \( \gamma \) & a dimensionless constant & \pageref{sym:gamma} \\
 \( n \) & a normal vector & \pageref{sym:n} \\
 \( \Sigma/\Gamma \) & distinct parts of \( \Omega \) & \pageref{sym:SigmaGamma} \\
-\( \phi \) & arbitrary vector/rotation of cross-section of Timoshenko beam & \pageref{sym:phi} \\
-\( A \) & area of a cross-section & \pageref{sym:A} \\
-\( V \) & shear force & \pageref{sym:V} \\
-\( I \) & area moment of inertia & \pageref{sym:Iinertia} \\
-\( M \) & moment & \pageref{sym:M} \\
-\( \alpha/\beta \) & dimensionless constants & \pageref{sym:alphabeta} \\
-\( \lambda \) & eigenvalue & \pageref{sym:lambda} \\
 \( \mu \) & eigenvector & \pageref{sym:mu} \\
+\( e_i \) & orthonormal basis vector & \pageref{sym:e_i} \\
 
 \bottomrule
 \end{tabularx}

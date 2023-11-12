@@ -95,7 +95,7 @@ T[0,1] = \left\{ f \in C[0,1] ~~ | ~~ f(0)= 0~\right\} \label{CT_17}
 
 Using the test function space and the variational form, it is possible to define a variational problem. Denote this problem by Problem Var.
 
-\subsubsection{Problem Var} Find the functions $w$, $\phi$, $V$ and $\theta$ such that $\langle w(\cdot,t), \phi(\cdot,t) \rangle \in T[0,1] \times C^1[0,1]$, $V(\cdot,t) \in C^1[0,1]$ and $\theta(t) \in \mathbb{R}$ for all $t>0$ and the following equations hold:
+\subsubsection{Problem Var} Find the functions $w$, $\phi$, $V$ and $\theta$ such that $\langle w(\cdot,t), \phi(\cdot,t) \rangle \in T[0,1] \times C^1[0,1]$, $V(\cdot,t) \in C^1[0,1]$ and $\theta(t) \in R$ for all $t>0$ and the following equations hold:
 \begin{align}
 \int_0^1 \partial^2_t w(\cdot,t) f \ dx  & =   \int_0^1~ V(\cdot,t) f' \ dx - c_1\int_0^1 \partial_t w(\cdot,t)f \ dx + \int_0^1q(\cdot,t)f \ dx \nonumber \\
  &  -(m \partial_t^2 w(1,t) +  md \ddot \theta(t) + k_1 \partial_t w(1,t) + k_1 d \dot \theta(t))f(1), \label{CT_18}\\
@@ -116,11 +116,11 @@ for all $f \in T[0,1]$ and $g,h \in C^1[0,1]$.\\
 
 
 \subsection{Galerkin approximation}
-Create a set of n+1 linear basis functions $\delta_i$, where $\delta_i \in C[0,1]$ for $i = 0,1,2,...,n$. Let $S_0 = \textrm{span}\left\{\delta_0,\delta_1,\delta_2,...,\delta_n\right\}$ and $S = \textrm{span}\left\{\delta_1,\delta_2,\delta_3,...,\delta_n\right\}$. 
+Create a set of n+1 linear basis functions $\delta_i$, where $\delta_i \in C[0,1]$ for $i = 0,1,2,...,n$. Let $S_0 = \textrm{span}\left\{\delta_0,\delta_1,\delta_2,...,\delta_n\right\}$ and $S = \textrm{span}\left\{\delta_1,\delta_2,\delta_3,...,\delta_n\right\}$. \label{sym:span}
 
 
 \subsubsection{Problem G}
-Find the functions $w^h$, $\phi^h$, $V^h$ and $\theta^h$ such that $w^h(\cdot,t) \in S$,  $\phi^h(\cdot,t),V^h(\cdot,t) \in S_0$ and $\theta^h(t) \in \mathbb{R}$ for all $t>0$ and the following equations hold:
+Find the functions $w^h$, $\phi^h$, $V^h$ and $\theta^h$ such that $w^h(\cdot,t) \in S$,  $\phi^h(\cdot,t),V^h(\cdot,t) \in S_0$ and $\theta^h(t) \in R$ for all $t>0$ and the following equations hold:
 
 \begin{align}
 \int_0^1 \partial^2_t w^h(\cdot,t) \delta_i \ dx & =   \int_0^1 V^h(\cdot,t) \delta_i' \ dx - c_1 \int_0^1 \partial_t w^h(\cdot,t) \delta_i \ dx + \int_0^1 q(\cdot,t) \delta_i \ dx \nonumber \\
@@ -147,7 +147,7 @@ M_{ij} = \int_0^1 \delta_j \delta_i, ~K_{ij} = \int_0^1 \delta'_j\delta'_i ~\tex
 Using the matrices $M$, $K$ and $L$, Problem G can be rewritten as a system of ordinary differential equations. This system is referred to as Problem ODE.
 
 \subsubsection{Problem ODE}
-Find the functions $\bar{w} \in S$, $\bar{\phi}, \bar{V} \in S_0$ and $\theta^h \in \mathbb{R}$ such that
+Find the functions $\bar{w} \in S$, $\bar{\phi}, \bar{V} \in S_0$ and $\theta^h \in R$ such that
 \begin{align}
 M_w\ddot{\bar{w}} = L_w\bar{V} -\big(m \ddot{w}_{n+1}(t) + k_1 \dot{w}_{n+1}(t) \big)\delta_i(1) + M^* \bar{q}(t) + \bar{q}_I,\\
 \label{sys2}

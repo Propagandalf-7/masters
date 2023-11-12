@@ -133,7 +133,7 @@ with
 \end{eqnarray}
 
 \subsection{Model problems}\label{ssec:3D_Model:ModelProblems}
-Suppose $\Omega \subset R_3$ is the reference configuration for a solid
+Suppose $\Omega \subset R^3$ is the reference configuration for a solid
 executing small vibrations. The boundary of $\Omega$ can be divided into two
 distinct parts, referred to as $\Sigma$ and $\Gamma$. The following will be
 considered a model problem for a three-dimensional elastic body.
@@ -167,7 +167,7 @@ conditions:\\
 Boundary Conditions:
 \begin{eqnarray*}
 	Tn & = & 0 \quad \textrm{ on } \partial\Omega
-\end{eqnarray*} With $n$ the unit outward normal vector.
+\end{eqnarray*} With $n$ the unit outward normal vector. \label{sym:boundaryOmega}
 
 \subsection{Variational form}\label{ssec:3D_Model:VariationalForm}
 Let $\phi \in C({\Omega})$ be an arbitrary vector valued function. Multiplying
@@ -274,7 +274,7 @@ referred to as plane stress.\\
 Consider the right-hand orthonormal set $\left\{e_1, e_2, e_3\right\}$. Without
 loss of generality, assume the stresses act parallel to the $e_1$-$e_2$ plane
 i.e. $\sigma_{3i} = 0$ for all $i$. From Hooke's Law \eqref{DM_H_E} the
-following equations are obtained:
+following equations are obtained: \label{sym:e_i}
 
 \begin{equation}
 	\begin{aligned}

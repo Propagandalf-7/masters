@@ -59,7 +59,7 @@ Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace o
 	\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
 	\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
 	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
-\end{itemize} \label{sym:Xspace}\label{sym:Wspace}\label{sym:Vspace}\label{sym:norm}
+\end{itemize} \label{sym:Xspace}\label{sym:Wspace}\label{sym:Vspace}\label{sym:norm} \label{sym:innerproduct}
 
 The following notation is important for the theory that follows.\\
 
@@ -143,7 +143,7 @@ In \cite{VV02} the authors consider a special case of weak damping. Define a spa
 \newtheorem{Thm3n}[Thmx]{Theorem}
 \begin{Thm3n}[Strong Damping]
 	If $a$ is positive definite on $V$, there exists a unique solution $u \in C^1([0,\infty),V)\cap C^2((0,\infty),W)$ for Problem GVar for any $u_0 \in V$, $u_1 \in W$ and any $f$ which is Lipschitz on $V$. If $f=0$, then $u \in C^1([0,\infty),V)\cap C^2([0,\infty),W)\cap C^\infty((0,\infty),V)$.
-\end{Thm3n} \label{Cinfty}
+\end{Thm3n} \label{sym:Cinfty}
 
 As mentioned, in the models of this dissertation, the bilinear form $a$ is identically zero. This automatically satisfy the weak damping condition and hence Theorem 2 may be applied.
 
@@ -339,7 +339,7 @@ Therefore $\displaystyle \frac{T''(t)}{T(t)}$ is constant. Suppose $\displaystyl
 
 To determine if such a number $\lambda$ exists, consider the following eigenvalue problem.
 \subsubsection*{Problem T-1E}\label{sssec:1D_Model:Problem:T1E}
-Find $\lambda \in \mathbb{R}$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
+Find $\lambda \in R$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
 \begin{eqnarray*}
 	-\tilde{w}'' + \tilde{\phi}' &=& \lambda \tilde{w}, \label{eq:1D_Model:ProblemT1E1}\\
 	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
@@ -504,9 +504,9 @@ In this dissertation, the objective is to compare different linear beam and plat
 
 Chapter 6 is a discussion and extension of the article \cite{LVV09}. This article compares a Timoshenko beam model to a two-dimensional beam model. This is then extended to a comparison of a two-dimensional beam model to a three-dimensional beam model as well as a comparison of a two-dimensional plate model to a three-dimensional plate model.
 
-These comparisons are made in Chapter 4 and 6. Being able to express the solutions as a valid series solution, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models. This is explained in detail in \cite{CVV18}.
+These comparisons are made in Chapter 4 and 6. Being able to express the solutions as valid series solutions, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models. This is explained in detail in \cite{CVV18}.
 
-In \cite{CVV18}, the authors consider a beam model and wave equation model for a vibrating string. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solution. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
+In \cite{CVV18}, the authors consider a beam model and wave equation model for a vibrating string. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
 
 \end{document}
 
@@ -516,7 +516,7 @@ Using these complete product spaces, \eqref{def_of_u} and the variational form \
 \textcolor{red}{*********************}
 
 \begin{proof}
-	Suppose $f,g \in \mathbb{R}[a,b]$. Then
+	Suppose $f,g \in R[a,b]$. Then
 	\begin{eqnarray}
 		\left| \int_a^b fg \right| & \leq & ||f||\ ||g|| \ \ \ \ \textrm{ by Cauchy-Swartz Inequality.} \label{CSI}
 	\end{eqnarray}

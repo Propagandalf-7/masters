@@ -4,12 +4,12 @@
 \subsection{Introduction}
 The following derivation of the two-dimensional model is based on my own work, using the textbook \cite{Sadd05} as a guide.\\
 
-Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$\textcolor{red}{;} $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
+Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$; $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
 \begin{eqnarray}
 	\partial_i u_3 = 0 \quad \textrm{ for } i = 1,2,3 \textrm{ on } \Omega.
 \end{eqnarray}
 
-It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in $R_2$ with two-dimensional stress and strain. The out of plane conditions for strain \eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a two-dimensional form using the stress components (1.2.16) as $\displaystyle T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.$\\
+It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in $R^2$ with two-dimensional stress and strain. The out of plane conditions for strain \eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a two-dimensional form using the stress components (1.2.16) as $\displaystyle T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.$\\
 
 
 \subsection{Equations of motion and constitutive equations}\label{ssec:2D_Model:EquationsOfMotion+ConstitutiveEquations}
@@ -28,11 +28,11 @@ where
 \end{eqnarray}
 \subsubsection{Constitutive equation}\label{sssec:2D_Model:ConstitutiveEquation}
 \begin{eqnarray}
-	T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E}) I. \label{eq:2D_Model:CE}
+	T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{Tr}(\mathcal{E}) I. \label{eq:2D_Model:CE}
 \end{eqnarray}
 
 \subsection{Model problem}\label{ssec:2D_Model:ModelProblem}
-Suppose $\Omega \subset R_2$ is the reference configuration for a solid executing small vibrations. The boundary of $\Omega$ consists of two parts $\Sigma$ and $\Gamma$. The model problem is described as:
+Suppose $\Omega \subset R^2$ is the reference configuration for a solid executing small vibrations. The boundary of $\Omega$ consists of two parts $\Sigma$ and $\Gamma$. The model problem is described as:
 \begin{itemize}
     \item[] The equation of motion \eqref{eq:2D_Model:EM} and constitutive equation \eqref{eq:2D_Model:CE} are satisfied in $\Omega$.
 	\item[] The displacement $u$ is specified on $\Sigma$;
@@ -81,10 +81,10 @@ Also define the integral
 \end{eqnarray}
 
 \subsubsection{Test functions for problem 2D-1}\label{sssec:2D_Model:TestFunctions2D1}
-The test function space has the same definition of the test function space for Problem 3D-1. But since $\Omega \in R_2$, we have that $T(\Omega) \subset R_2$.
+The test function space has the same definition of the test function space for Problem 3D-1. But since $\Omega \in R^2$, we have that $T(\Omega) \subset R^2$.
 \begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
-\end{eqnarray*}
+	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}. 
+\end{eqnarray*}\label{sym:baromega}
 
 \subsubsection{Problem 2D-1V}\label{sssec:2D_Model:Problem2D1V}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
