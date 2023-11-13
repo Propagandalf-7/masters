@@ -1,16 +1,14 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-\textcolor{red}{1973 is die original, en 1997 is 'n update tot die 1973 met extra voorbeelde, kode en oefeninge. Die 1997 is die die kopie wat ek het. So prof moet se as ek 1973 eerder moet gebruik.}
 
 In this chapter, two important convergence results of the Finite Element Method
 (FEM) is discussed. The first result looks at the convergence of the Galerkin
-approximation for second order hyperbolic type problems, as presented
-in~\cite{BV13}. The second result, from the textbook~\cite{SF97}, examines the
+approximation for second order hyperbolic type problems (or general vibation problems). The papers considered are \cite{BV13} and \cite{BSV17}. The second result is from the textbook~\cite{SF73} and examines the
 convergence of eigenvalues and eigenfunctions for a one-dimensional vibration
 problem, using the Finite Element Method.
 
-\section{Convergence of the Galerkin approximation}\label{sec:convergence-of-the-galerkin-approximation}
+\section{Galerkin approximation for second order hyperbolic type problems}\label{sec:convergence-of-the-galerkin-approximation}
 In the article \cite{BV13}, the authors investigate the convergence of the
 Galerkin approximation for second order hyperbolic type problems. The article
 \cite{BSV17} extends the work of \cite{BV13} by including general damping and
@@ -20,6 +18,7 @@ sufficient while \cite{BSV17} provides more insight and improved notation.
 In Section 2.2, Problem GVar is presented and identical to the problem in
 \cite{BV13}. The problem is repeated here for convenience.
 
+\subsection{Formulation of the Galerkin approximation}
 \subsubsection*{Problem GVar}
 Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to
 $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
@@ -58,8 +57,6 @@ a unique solution.
 	If $f \in C(J,X)$, then there exists a unique solution $u_h \in C^2(J)$ for Problem GVar$^h$ for each $u_0^h$ and $u_1^h$ in $S^h$. If $f = 0$ then $u_h \in C^2((-\infty, \infty))$.
 \end{DC_Thm2}
 
-This theorem is presented and proved in \cite{BV13}.
-
 \subsection{System of ordinary differential equations}
 Consider the standard FEM matrices defined by
 \begin{eqnarray*}
@@ -89,24 +86,13 @@ The following propositions related to Problem ODE are given in \cite{BV13}.
 	Suppose $M, K, C, F,\bar{u}^h_0$ and $\bar{u}^h_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
-Since the set $\{\phi_1, \ \phi_2,...,\phi_n\}$ forms a linearly independent
-basis for $S^h$, the bilinear form $c$ is positive definite on $S^h$.
-Consequently, the matrix $M$ is invertible. The equation \eqref{ODE} can
-therefore be rewritten as $\bar{u}'' + M^{-1}C\bar{u}' + M^{-1}K \bar{u} =
-	M^{-1}F(t)$. Using the theory of linear differential equations, a unique
-solution for Problem ODE can be found, proving Proposition 1.
-
 Proposition 2 provides a link between the solution of Problem ODE and the
 solution of Problem GVar$^h$.
 
 \subsection{Error estimates}\label{e_est}
 Under the assumptions \textbf{A1}-\textbf{A4} of Section 2 and continuity of $f$, there exists unique solutions for Problem GVar and Problem GVar$^h$. The next step is to show that the solution of Problem GVar$^h$ converges to the solution of Problem GVar. This is proven the main result of \cite{BV13}.
 
-Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem
-GVar$^h$. The authors of \cite{BV13} define the following error,
-
-Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$.
- The authors of \cite{BV13} define the following error,
+Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$. The authors of \cite{BV13} define the following error,
 \begin{eqnarray}
 	e^h(t) = u(t) - u^h(t). \label{Error}
 \end{eqnarray}
@@ -123,39 +109,8 @@ The error $e$, can now be expressed as
 
 In \eqref{error_e}, the the error for the semi-discrete problem is the term $u(t_k)-u_h(t_k)$ and the term $u_h(t_k) - u^h_k$ is the error for the fully disrete appreximation of the semi-discrete approximation.
 
-\subsection{Main result}
-\textcolor{red}{************** NIE DIE MAIN RESULT NIE*******************}
 
-The main result proving the convergence of the solution of the Galerkin
-Approximation is given in \cite{BV13} as follows.
-
-\newtheorem*{DC_Thm5}{Theorem 2}
-\begin{DC_Thm5}
-	{Main Result}\\
-	If $f\in C^{2}([0,T]4,X)$, then
-	\begin{eqnarray*}
-		\Vert u(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & 7T^{2}\tau^{2}\max\Vert u_{h}^{(4)}\Vert_{W}+7T\tau^{2}\max\Vert u_{h}'''\Vert_{W}\\
-		& & + \sqrt{2K_{a}}\tau^{4}\max\Vert u_{h}'''\Vert_{W}
-	\end{eqnarray*}
-	for each $t\in(0,\ T)$.
-\end{DC_Thm5}
-
-The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the
-constant defined in assumption \textbf{A4} of Section 2.2.1.
-
-\subsection{Fully discrete Galerkin finite element approximation}
-\textcolor{red}{********************HOU VOORLOPIG**********************}
-
-Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length
-$\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for
-$k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \
-			t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.\\
-
-
-The error $e(t)$, can now be expressed as
-\begin{eqnarray}
-	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_ek}
-\end{eqnarray}
+\textbf{Fully discrete Galerkin finite element approximation}
 
 From Theorem 2 of the semi-discrete problem an error estimate for
 $[u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors
@@ -164,38 +119,19 @@ of \cite{BV13} then proceed to obtain an error estimate for $[u_h(t_k) -
 cannot be used, and therefore this error estimate for $[u_h(t_k) - u^h_k]$
 should also be with respect to the norm of $W$.
 
-\textcolor{red}{********************HOU VOORLOPIG**********************}
+A stability result is needed.
 
-\textcolor{red}{Dupliseering maar moontlik beter as werk net voor Main Result, p52}
-
-\subsubsection{Error estimate for the fully discrete problem}
-
-\textcolor{red}{Moontlik hou!}\\
-There error estimate for $[u_h(t_k) - u^h_k]$ can now be determined. Recall that $\tau = \frac{T}{N}$. Subsituting $t = t_k$ and $t = t_k+1$ in Problem GVar$^h$ results in
-\begin{eqnarray*}
-	c( \tau^{-1}[v_{h}(t_{k+1})-v_{h}(t_{k})], \psi)+\frac{1}{2}a([v_{h}(t_{k+1})+v_{h}(t_{k})], \psi)+\frac{1}{2}b([u_{h}(t_{k+1})+u_{h}(t_{k})], \psi) \\
-	=\frac{1}{2}([f(t_{k+1})+f(t_{k})], \psi)_{X}+c(\rho_{k}, \psi)
-\end{eqnarray*}
-where $v_{h}(t)=u_{h}'(t)$ and
-\begin{eqnarray*}
-	\rho_{k}=\tau^{-1}[v_{h}(t_{k+1})-v_{h}(t_{k})]-\frac{1}{2}[v_{h}'(t_{k+1})+v_{h}'(t_{k})].
-\end{eqnarray*}
-
-The authors in \cite{BV13} denote the following errors
-\begin{eqnarray*}
-	e_{k}=u_{h}(t_{k})-u_{k} \ \ \ \ \textrm{ and } \ \ \ \ q_{k}=u_{h}'(t_{k})-v_{k}.
-\end{eqnarray*} In the authors approach, $e_0$ and $q_0$ are zero.
-
-\newtheorem*{DC_Lem3}{Lemma 2}
+\newtheorem*{DC_Lem3}{Lemma}
 \begin{DC_Lem3}
 	Stability
 	\begin{eqnarray*}
-		\max\Vert e_{n}\Vert_{W}^{2}\leq 8T\tau\sum_{n=0}^{N-1}\Vert\epsilon_{n}\Vert_{W}^{2}+2\tau^{4}\Vert\rho_{0}\Vert_{W}^{2}+(8\tau^{2}+2\tau^{4}K_{a})\Vert\sigma_{0}\Vert_{W}^{2}.
+		\max\Vert e_{n}\Vert_{W}^{2}\leq KT\tau
 	\end{eqnarray*}
+	where $K$ depends on $u$, $u_h$ and their derivatives.
 \end{DC_Lem3}
 
-Using this lemma, \cite{BV13} proves the following error estimate.\\
-\textcolor{red}{*************************************}
+
+Using this lemma, \cite{BV13} prove the finial error estimate.
 
 Recall that $\displaystyle \tau = \frac{T}{N}$. The error estimate for the term
 $[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors
@@ -205,9 +141,21 @@ Finally, Theorem 2 of the semi-discrete problem and Theorem 3 of the fully
 discrete problem gives an error estimate for the error $e(t)$. Consequently,
 the error estimate $e^h(t) = u(t) - u^h(t)$ is obtained.
 
+\subsection{Main result}
+The main result proving the convergence of the solution of the Galerkin
+Approximation is given in \cite{BV13} as follows.
+\newtheorem*{DC_Thm5}{Theorem 2}
+\begin{DC_Thm5}
+	{Main Result}\\
+	If $f\in C^{2}([0,T],X)$, then
+	\begin{eqnarray*}
+		\Vert u(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & K\tau^2
+	\end{eqnarray*}
+	for each $t\in(0,\ T)$.
+\end{DC_Thm5}
 
+The constant $K$ depend on $u_h$ and its derivatives.
 
-The parameter $\tau$ is some number in $(0,T)$. The constant $K_\alpha$ is the constant defined in assumption \textbf{A4} of Section 2.2.1.
 
 \end{document}
 

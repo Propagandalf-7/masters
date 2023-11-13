@@ -1,11 +1,11 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
-\section{Convergence of eigenvalues and eigenfunctions}
-In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for clarity.\\
+\section{FEM comparison of eigenvalues and eigenfunctions}
+
 
 Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.\\
 
-The following eigenvalue is given in \cite{SF73}. It is important to note that the problem is limited to one-dimensional problems.
+The following eigenvalue is given in \cite{SF73}.
 
 \subsection{General eigenvalue problem}
 Find a function $u \in H$ and number $\lambda \in R$ such that
@@ -13,7 +13,12 @@ Find a function $u \in H$ and number $\lambda \in R$ such that
 	b(u,v) = \lambda (u,v) \label{GEVP}
 \end{equation} for some $v \in V$.
 
+Galerkin approximation for \eqref{GEVP}:
+For $u^h \in S^h$ and $b(u^h, v) = \lambda^h(u^h,v)$ for all $v \in S^h$. For detail, see Chapter 5.
+
 \subsection{Preliminary theory and notation}
+In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for clarity.
+
 Some theory is required before the main results can be proven. The theory is from \cite{SF73}.\\
 
 \textbf{Rayleigh quotient}
@@ -67,7 +72,7 @@ From the textbook \cite{OR76}, the following approximation theorem for finite el
 	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
 \end{Interpolation}
 
-For the requirements of this dissertation, this can be simplified with assumptions. The first assumption is a reiteration that the eigenvalue problem is one-dimensional. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
+For the requirements of this dissertation, this can be simplified with assumptions. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
 \newtheorem{Interpolation_2}{Theorem}
 \begin{Interpolation_2}
 	Suppose there exists an integer $k$ such that for each element
@@ -80,7 +85,7 @@ For the requirements of this dissertation, this can be simplified with assumptio
 	\end{equation*}
 \end{Interpolation_2}
 
-This will be referred to as the approximation theorem in this section.\\
+This will be referred to as the approximation theorem in this section.
 
 \subsubsection*{Properties of eigenvalues}
 
@@ -90,7 +95,7 @@ Since any multiple of a eigenfunction is still an eigenfunction, the eigenfuncti
 
 Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.\\
 
-Since $S^h$ is finite dimensional, the ordering of the eigenvalues still hold. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.\\
+Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.\\
 
 The space $S^h$\label{sym:Sh1} is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
 \begin{equation}
