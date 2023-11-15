@@ -326,49 +326,6 @@ This table shows that the eigenvalues compare very well. The non-beam type eigen
 This table also shows that as the beam gets more narrow, there are less non-beam type eigenvalues within the first few eigenvalues.This would also indicate that the Timoshenko beam would be a better approximation of the two-dimensional beam as the beam gets more narrow since the two-dimensional model behaves `more like a beam'.
 
 
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            title={Relative Error of Eigenvalues for Different Values of Alpha},
-            xlabel={Eigenvalue},
-            ylabel={Relative Error (\%)},
-            legend pos=north east,
-            grid=major,
-        ]
-        % Alpha = 300
-        \addplot coordinates {
-            (1,0.4875) (2,1.1106) (3,0) (4,1.7895) (5,2.4560) (6,0) (7,2.9630) (8,1.4324) (9,0) (10,2.9530)
-            (11,0.5735) (12,0) (13,0.8375) (14,0.5643) (15,0) (16,0.4757) (17,0) (18,1.1240) (19,0) (20,1.9740)
-        };
-        \addlegendentry{\(\alpha = 300\)}
-        
-        % Alpha = 1200
-        \addplot coordinates {
-            (1,0.2337) (2,0.4217) (3,0) (4,0.7198) (5,1.0738) (6,1.4507) (7,0) (8,1.6244) (9,2.1618) (10,0)
-            (11,2.4560) (12,0) (13,2.7265) (14,0) (15,0) (16,5.2392) (17,0) (18,3.2823) (19,3.0864) (20,0)
-        };
-        \addlegendentry{\(\alpha = 1200\)}
-        
-        % Alpha = 4800
-        \addplot coordinates {
-            (1,0.1125) (2,0.1661) (3,0.2574) (4,0) (5,0.3824) (6,0.5373) (7,0.7065) (8,0) (9,0.9950) (10,1.0740)
-            (11,0) (12,1.2680) (13,1.4507) (14,0) (15,0) (16,1.8120) (17,0) (18,1.9850) (19,2.1618) (20,0)
-        };
-        \addlegendentry{\(\alpha = 4800\)}
-        
-        % Alpha = 10800
-        \addplot coordinates {
-            (1,0.0841) (2,0.1009) (3,0.1287) (4,0.2052) (5,0.3824) (6,0.2817) (7,0.3725) (8,0.4712) (9,0) (10,0.5940)
-            (11,0.7005) (12,0.8140) (13,0.9307) (14,0) (15,0) (16,1.8120) (17,1.2150) (18,1.9850) (19,2.1618) (20,2.8860)
-        };
-        \addlegendentry{\(\alpha = 10800\)}
-        
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Plot of the relative error for each eigenvalue and each value of \(\alpha\).}
-    \label{fig:relative_error_plot}
-\end{figure}
 
 
 \end{document}

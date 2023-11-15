@@ -2,12 +2,14 @@
 \begin{document}
 \section{Validity of a Reissner-Mindlin plate} \label{sec:validity-of-a-plate}
 
-In this section, the validity of a cantilever Reisner-Mindlin plate model is investigated. The idea of the model comes from the beam models in the previous section failing to approximate a cantilever elastic body with a width much larger than it's height. The process of determining the validity of the model follows the same ideas and methodology as in the previous sections, that is established in \cite{LVV09}.
+In the previous section, section \ref{sec:validity-of-a-2d-beam}, it was shown that for certain applications beam models might not be the appropriate choice. The specific application is for models where the body has a larger width than height. A suggestion would be a plate model.
 
-Similarly to how the Timoshenko beam theory improves on the Euler-Bernoulli beam theory by including the shear forces, so does the Reissner-Mindlin plate models improve on classic plate models. The Reissner-Mindlin plate model is a two-dimensional model, and therefore is it of value to investigate the validity of the model using a three-dimensional plate model as a reference.
+In this section, the validity of a cantilever Reissner-Mindlin plate model is investigated. This model is a two-dimensional model. So similar to the Timoshenko beam in section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, it is of value to investigate the validity of the model using a three-dimensional plate model as a reference.
+
+The same method to validate the model will be used as in sections \ref{sec:validity-of-a-cantilever-timoshenko-beam} and \ref{sec:validity-of-a-2d-beam}. A cantilever three-dimensional plate model will be used as a reference, and the eigenvalues and mode shapes of the two models will be compared.
 
 \subsection{The models}
-Form section \ref{ssec:P_Model:ModelProblems}, the cantilever Reissner-Mindlin plate model is given, and is referred to as Problem P-1. The three-dimensional model is the same as used in the previous section, and is referred to as Problem 3D-1 defined in section \ref{ssec:3D_Model:ModelProblems}.
+Form section \ref{ssec:P_Model:ModelProblems}, the cantilever Reissner-Mindlin plate model is given, and is referred to as Problem P-1. The three-dimensional model is the same as used in the previous section (section \ref{sec:validity-of-a-2d-beam}), and is referred to as Problem 3D-1 defined in section \ref{ssec:3D_Model:ModelProblems}.
 
 Figure \ref{fig:plate_sbs} shows the two cantilever plates side by side.
 
@@ -115,19 +117,13 @@ Figure \ref{fig:plate_sbs} shows the two cantilever plates side by side.
 \FloatBarrier
 
 \subsection{Calculating the eigenvalues}
-The eigenvalues for both models are calculated using the Finite Element Method. For the plate model, the Finite Element Method is derived in \ref{sec:FEM:Plate} and for the three-dimensional model, the Finite Element Method is derived in \ref{sec:FEM:3D}.
+The eigenvalues for both models are calculated using the Finite Element Method. For the plate model, the Finite Element Method is derived in \ref{sec:FEM:Plate} and for the three-dimensional model, the Finite Element Method is derived in \ref{sec:FEM:3D}. The eigenvalue problem for both models have the same form, but the matrices are different
 
-\subsubsection{Problem P-1E}
+\subsubsection{Problem 3D-1E and P-1E}
 Find a vector function $u$ and a number $\lambda$ such that
 \begin{eqnarray}
 	K{u} & = & M\lambda{u}, 
-\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices for bi-cubic basis functions. The definition of the matrices are given in \ref{sec:FEM:Plate}.
-
-\subsubsection{Problem 3D-1E}
-Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
-\begin{eqnarray}
-	K\bar{u} & = & M\lambda{\bar{u}},
-\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices for tri-cubic basis functions. The definition of the matrices are given in section \ref{sec:FEM:3D}.
+\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in section \ref{3d_fem_g} for Problem 3D-1E and section \ref{plate_fem_g} for Problem P-1E.
 
 \subsubsection{Accuracy of the eigenvalues}
 Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenvalues of Problem 3D-1E. 
@@ -135,16 +131,16 @@ Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenv
 \begin{figure}[H]
     \centering
     \begin{adjustbox}{center}
-        \includegraphics[scale=0.4]{Plate accuracy_no_legend.png}
+        \includegraphics[scale=0.7]{Plate accuracy_no_legend.png}
     \end{adjustbox}
     \caption{Rate of convergence of the first 20 eigenvalues.}
     \label{fig:conv_3d_eig}
 \end{figure}
 
-The number of elements can be chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
+The number of elements can be chosen so that at least the first 20 eigenvalues are accurate to 5 significant digits.
 
 \subsection{Comparing the mode shapes}
-Similar to the previous sections, the mode shapes of the two models are compared, to be able to match up the eigenvalues.
+Similar to the previous sections (section \ref{sec:validity-of-a-cantilever-timoshenko-beam} and section \ref{sec:validity-of-a-2d-beam}), the mode shapes of the two models are compared, to be able to match up the eigenvalues.
 
 \subsubsection{Mode shapes relating to plate type eigenvalues}
 Figure \ref{fig:plate_mode_shapes} shows examples of mode shapes relating to plate-type eigenvalues. The plate models has many different shapes.
@@ -213,9 +209,7 @@ Figure \ref{fig:plate_mode_shapes} shows examples of mode shapes relating to pla
 			\caption{Comparison of mode shapes relating to plate-type models. $b = 1/20$, $d = 1$.}
 	}}
 \end{figure}\label{fig:plate_mode_shapes}
-
 \FloatBarrier
-
 
 \subsubsection{Mode shapes relating to non-plate type eigenvalues}
 Figure \ref{fig:non_plate_mode_shapes} shows examples of mode shapes not relating to plate-type eigenvalues.
@@ -242,9 +236,11 @@ Figure \ref{fig:non_plate_mode_shapes} shows examples of mode shapes not relatin
 
 
 \subsection{Comparing the eigenvalues}
-The eigenvalues of the two plate models can now be compared. For both the models, there are two parameters to consider for the height $h$ and width $b$. For realistic applications, the width of the plate is larger than its height. 
+For a realistic comparison of the models, the parameters need to be chosen carefully. Both of the models have a width $h$ and a height $b$ parameter.
 
-For the comparisons, the investigation will consider a plate with small width $b = 0.25$, a plate of width equal to lenght $b = 1$ and a wide plate $1.75$. For each case, decreasing values of the height $h$ will be considered.
+Three main cases are considered. These cases are $b = 0.25$ for a narrow plate, $b = 1$ for a plate with equal lenght and width and $b = 1.75$ for a wide plate. For each of the cases, the thickness of the plate is varied.
+
+\textbf{Remark:} Note that the aim of the results is only to investigate the validity of the cantilever Reissner-Mindlin plate model, and not to investigate weather or not a plate model is more suited over beam model when applied to a body that has a larger width than height. 
 
 \FloatBarrier
 \begin{table}[htbp]
@@ -288,10 +284,6 @@ For the comparisons, the investigation will consider a plate with small width $b
 \end{table}%
 \FloatBarrier
 
-Table \ref{tab:Table_plate_1} shows that the narrow plate model compares well the to three-dimensional model. Also note that as the height $h$ decreases, the number of plate type eigenvalues within the first 20 eigenvalues increases. 
-
-The next table, table \ref{tab:Table_plate_2}, shows the comparison of the eigenvalues for a plate of width equal to its length, $b = 1$.
-
 \FloatBarrier
 \begin{table}[htbp]
 	\scalebox{.8}{
@@ -334,7 +326,6 @@ The next table, table \ref{tab:Table_plate_2}, shows the comparison of the eigen
 \end{table}%
 \FloatBarrier
 
-Table \ref{tab:Table_plate_2} shows that the plate model compares slightly less well than the case where $b=0.25$, but the comparison is still very good. Again it seems that as $h$ decreases, the number of plate-type eigenvalues within the first 20 eigenvalues increases, and in this case there are more than the previous case.
 
 \FloatBarrier
 \begin{table}[htbp]
@@ -349,7 +340,7 @@ Table \ref{tab:Table_plate_2} shows that the plate model compares slightly less 
 			\hline
 			{i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} & {i} & {3D} & {j} & {Plate} \\
 			\hline
-			1 & 0.13062 & 1 & 0.12939 & 1 & 0.034245 & 1 & 0.034079 & 1 & 0.0086697 & 1 & 0.32670086456 & 1 & 0.0038626 & 1 & 0.0038541\\
+			1 & 0.13062 & 1 & 0.12939 & 1 & 0.034245 & 1 & 0.034079 & 1 & 0.0086697 & 1 & 0.0086456 & 1 & 0.0038626 & 1 & 0.0038541\\
 			2 & 0.32016 & 2 & 0.31779 & 2 & 0.089872 & 2 & 0.089508 & 2 & 0.023395 & 2 & 0.023323 & 2 & 0.010507 & 2 & 0.010475\\
 			3 & 1.2496 & 3 & 1.2422 & 3 & 0.36964 & 3 & 0.36841 & 3 & 0.098072 & 3 & 0.097745 & 3 & 0.044239 & 3 & 0.044074\\
 			4 & 1.9808 &  & - & 4 & 1.2274 & 4 & 1.2188 & 4 & 0.33233 & 4 & 0.33118 & 4 & 0.15003 & 4 & 0.14964\\
@@ -362,15 +353,15 @@ Table \ref{tab:Table_plate_2} shows that the plate model compares slightly less 
 			11 & 10.135 &  & - & 11 & 7.6371 &  & 0 & 11 & 2.5137 & 10 & 2.5015 & 11 & 1.2513 & 11 & 1.2466\\
 			12 & 12.888 & 8 & 12.736 & 12 & 8.4707 & 10 & 8.3817 & 12 & 2.708 & 11 & 2.6947 & 12 & 1.4005 & 12 & 1.3927\\
 			13 & 14.506 & 9 & 14.302 & 13 & 9.0612 & 11 & 8.9704 & 13 & 3.0153 & 12 & 2.9984 & 13 & 1.4449 & 13 & 1.4393\\
-			14 & 14.892 &  & - & 14 & 9.0682 & 12 & 9.9347 & 14 & 3.137 & 13 & 3.1246 & 14 & 1.6806 & 14 & 1.6738\\
-			15 & 19.395 &  & - & 15 & 10.018 & 13 & 10.605 & 15 & 3.6118 & 14 & 3.5928 & 15 & 1.973 &  & -\\
+			14 & 14.892 &  & - & 14 & 9.0682 & & - & 14 & 3.137 & 13 & 3.1246 & 14 & 1.6806 & 14 & 1.6738\\
+			15 & 19.395 &  & - & 15 & 10.018 & 12 & 9.9347 & 15 & 3.6118 & 14 & 3.5928 & 15 & 1.973 &  & -\\
 			16 & 21.265 & 10 & 20.79 & 16 & 10.131 &  & - & 16 & 5.1287 & 15 & 5.0977 & 16 & 2.4081 & 15 & 2.3958\\
-			17 & 22.512 & 11 & 22.038 & 17 & 10.683 &  & - & 17 & 5.6368 & 16 & 5.6009 & 17 & 2.6419 & 16 & 2.6253\\
+			17 & 22.512 & 11 & 22.038 & 17 & 10.683 & 13 & 10.605 & 17 & 5.6368 & 16 & 5.6009 & 17 & 2.6419 & 16 & 2.6253\\
 			18 & 25.193 & 12 & 24.775 & 18 & 11.806 & 14 & 11.682 & 18 & 6.5069 & 17 & 6.4687 & 18 & 3.0386 & 17 & 3.0189\\
 			19 & 27.783 & 13 & 27.322 & 19 & 14.893 &  & - & 19 & 7.6243 & 18 & 7.6617 & 19 & 3.6563 & 18 & 3.6342\\
 			20 & 28.461 & 14 & 27.851 & 20 & 16.275 & 15 & 16.1 & 20 & 7.7152 &  & - & 20 & 4.3466 & 19 & 4.3267\\
 			\hline
-			\multicolumn{2}{|c}{Max RE:} & \multicolumn{2}{c||}{3.6499\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{9.5565\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{0.63674\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c|}{0.64798\%} \\
+			\multicolumn{2}{|c}{Max RE:} & \multicolumn{2}{c||}{3.6499\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{1.0878\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{0.63674\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c|}{0.64798\%} \\
 			\hline
 		\end{tabular}
 		\label{tab:Table_plate_3}
@@ -378,7 +369,10 @@ Table \ref{tab:Table_plate_2} shows that the plate model compares slightly less 
 \end{table}
 \FloatBarrier
 
-Table \ref{tab:Table_plate_3} that for a wide plate with $b=1.75$, the models do compare very well. However it seems like the height of the plate does no longer have a significant effect on the accuracy of the eigenvalues. What can be seen is that as het height decreases, the number of plate type eigenvalues within the first 20 eigenvalues increases quite significant.
+Overall Tables \ref{tab:Table_plate_1}, \ref{tab:Table_plate_2} and \ref{tab:Table_plate_3} shows that the cantilever Reissner-Mindlin plate model compares very well to the three-dimensional plate. The maximum relative error is less than 3.65\% for all cases considered.
 
+There is less of a dramatic change of the comparison when the width of the plate is changed as with the beam model in section \ref{sec:validity-of-a-2d-beam}. This could be because the Reissner-Mindlin plate model does consider both the width and the height of the plate, while it is only a two-dimensional model. The two-dimensional beam model only considered the height of the beam, and not the width.
+
+Other cases not shown here have also been considered, and the results are similar to the ones shown here. They are therefore not included here, and only worth mentioning.
 
 \end{document}
