@@ -1,6 +1,6 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
-\section{FEM comparison of eigenvalues and eigenfunctions}
+\section{FEM computation of eigenvalues and eigenfunctions}
 
 
 Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.\\
@@ -14,6 +14,7 @@ Find a function $u \in H$ and number $\lambda \in R$ such that
 \end{equation} for some $v \in V$.
 
 Galerkin approximation for \eqref{GEVP}:
+
 For $u^h \in S^h$ and $b(u^h, v) = \lambda^h(u^h,v)$ for all $v \in S^h$. For detail, see Chapter 5.
 
 \subsection{Preliminary theory and notation}
@@ -33,7 +34,7 @@ Let T denote the class of subspaces of $V$ that jas dimension $j$. Then
 \end{equation*}
 
 \textbf{Rayleigh-Ritz Projection}\\
-If $u \in V$, then $Pu$ is its component in the subspace $S^h$.
+If $u \in V$, then $Pu$ is in the subspace $S^h$.
 \begin{equation*}
 	b(u-Pu,v^h) = 0 \ \text{ for all } v \in S^h.
 \end{equation*}
