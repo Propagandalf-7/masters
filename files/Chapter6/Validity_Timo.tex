@@ -1,6 +1,6 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
-\section{Validity of a Cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam}
+\section{Validity of a Cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam_chapter6}
 
 In this section, the validity of the Timoshenko beam model is investigated. Specifically, the validity of a cantilever Timoshenko beam model, using a cantilever two-dimensional beam model as a reference. This follows what is done in the article \cite{LVV09}. This section discusses the results of the article, focussing on the numerical results. Some of the results are replicated with more significant digits, others are extended to be used in the rest of this chapter.
 
@@ -9,7 +9,7 @@ The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this
 \subsection{The models}
 The cantilever Timoshenko beam model is defined in section \ref{ssec:1D_Model:ModelProblems}, and is referred to as Problem T-2. The cantilever two-dimensional beam model is defined in section \ref{ssec:2D_Model:ModelProblem}, and is referred to as Problem 2D-1.
 
-Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
+Figure \ref{fig:compare:1D+2D_chapter6} shows the two beams side-by-side.
 
 \begin{figure}[h!]
 	\scalebox{.8}{
@@ -90,7 +90,7 @@ Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
 			\end{minipage}
 		}
 	}
-\end{figure}\label{fig:compare:1D+2D}
+\end{figure}\label{fig:compare:1D+2D_chapter6}
 
 As mentioned in the introduction, the height of the two beams can be set to be the same by considering the parameter $\alpha$ for the Timoshenko beam model and the parameter $h$ for the two-dimensional beam model.
 
@@ -116,11 +116,11 @@ Solving \textbf{Problem 2D-1E} with a numerical method, requires a quick investi
         \includegraphics[scale=0.7]{Convergence.png}
     \end{adjustbox}
     \caption{Rate of convergence of the first 20 eigenvalues.}
-    \label{fig:conv_2d_eig}
+    \label{fig:conv_2d_eig_chapter6}
 \end{figure}
 
 
-Figure \ref{fig:conv_2d_eig} shows the rate of convergence of the first 20 eigenvalues of the two-dimensional beam. Each color represents a spesific eigenvalue.
+Figure \ref{fig:conv_2d_eig_chapter6} shows the rate of convergence of the first 20 eigenvalues of the two-dimensional beam. Each color represents a spesific eigenvalue.
 
 The number of elements are chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
 
@@ -139,12 +139,12 @@ The following figures are examples of beam-type mode shapes for the displacement
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{Beam1.jpg}
 				\subcaption{2D Beam Type - $\lambda_6 = 21.911$}
-				\label{fig:minipage2}
+				\label{fig:minipage2_chapter6}
 			\end{minipage}
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{1DBeam2.png}
 				\subcaption{Timoshenko - $\lambda_5 = 21.794$}
-				\label{fig:minipage1}
+				\label{fig:minipage1_chapter6}
 			\end{minipage}
 	}}
 	\scalebox{.8}{
@@ -152,12 +152,12 @@ The following figures are examples of beam-type mode shapes for the displacement
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{Beam2.jpg}
 				\subcaption{2D Beam Type - $\lambda_7 = 45.711$}
-				\label{fig:minipage2}
+				\label{fig:minipage2_chapter6}
 			\end{minipage}
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{1DBeam1.png}
 				\subcaption{Timoshenko - $\lambda_6 = 45.390$}
-				\label{fig:minipage1}
+				\label{fig:minipage1_chapter6}
 			\end{minipage}
 			\caption{Modal shapes of the displacement $w$ for the beam-type 2D body and the Timoshenko beam with $\alpha = 4800$ ($h = 1/20$).}
 		}
@@ -174,12 +174,12 @@ The following figures are examples of non beam-type mode shapes for the displace
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{NotBeam1.jpg}
 				\subcaption{Non-Beam Type - $\lambda_4 = 7.7077$}
-				\label{fig:minipage2}
+				\label{fig:minipage2_chapter6}
 			\end{minipage}
 			\begin{minipage}[b]{0.8\linewidth}
 				\includegraphics[width=1\linewidth]{NotBeam2.jpg}
 				\subcaption{Non-Beam Type - $\lambda_8 = 69.344$}
-				\label{fig:minipage1}
+				\label{fig:minipage1_chapter6}
 			\end{minipage}
 			\caption{Modal shapes of the displacement $w$ for the non-beam type 2D body with $h = 1/20$.}
 		}
@@ -210,14 +210,14 @@ For the two-dimensional beam, the shape of the cross-section can deform into a s
 	\draw[line width = 0.2mm,red] (3.3,1) -- (3.7,-1);
 	
 \end{tikzpicture}
-	\caption{S-shape deformation of the cross-section of the two-dimensional beam.}\label{fig:s}
+	\caption{S-shape deformation of the cross-section of the two-dimensional beam.}\label{fig:s_chapter6}
 \end{figure}
 \FloatBarrier
 
-Note that figure \ref{fig:s} shows an exaggerated example of the deformation of a cross-section. The red line shows how the authors of \cite{LVV09} calculated the average rotation of a cross-section of the two-dimensional beam. This average rotation can be used to compare the rotation of the cross-section of the two-dimensional beam to the rotation of the cross-section of the Timoshenko beam given by $\phi$.
+Note that figure \ref{fig:s_chapter6} shows an exaggerated example of the deformation of a cross-section. The red line shows how the authors of \cite{LVV09} calculated the average rotation of a cross-section of the two-dimensional beam. This average rotation can be used to compare the rotation of the cross-section of the two-dimensional beam to the rotation of the cross-section of the Timoshenko beam given by $\phi$.
 
 \subsubsection{Direct comparison of mode shapes}
-Figure \ref{fig:w} directly compares a mode shape of the Timoshenko beam to a mode shape of the two-dimensional beam. For the two-dimensional model, the center line of the displacement of the beam is shown. For the Timoshenko beam, the displacement $w$ is shown.
+Figure \ref{fig:w_chapter6} directly compares a mode shape of the Timoshenko beam to a mode shape of the two-dimensional beam. For the two-dimensional model, the center line of the displacement of the beam is shown. For the Timoshenko beam, the displacement $w$ is shown.
 
 \begin{figure}[ht!]
 	\scalebox{.8}{
@@ -226,11 +226,11 @@ Figure \ref{fig:w} directly compares a mode shape of the Timoshenko beam to a mo
 			\centering
 			\includegraphics[scale=0.4]{1Dv2D.png}
 			\caption{Comparison of the displacement $w$ mode shape corresponding to $\lambda_{10}$ for the 2D beam and $\lambda_8$ for the Timoshenko beam with $\alpha = 4800$ ($h=1/20$)}
-			\label{fig:w}}}
+			\label{fig:w_chapter6}}}
 \end{figure}
 \FloatBarrier
 
-Similarly, figure {fig:phi} directly compares the angle of the cross-section of the Timoshenko beam and the two-dimensional beam. The average rotation of the cross-section of the two-dimensional beam's mode shape is calculated as shown in figure \ref{fig:s}.
+Similarly, figure {fig:phi} directly compares the angle of the cross-section of the Timoshenko beam and the two-dimensional beam. The average rotation of the cross-section of the two-dimensional beam's mode shape is calculated as shown in figure \ref{fig:s_chapter6}.
 
 \FloatBarrier
 \begin{figure}[ht!]
@@ -240,13 +240,13 @@ Similarly, figure {fig:phi} directly compares the angle of the cross-section of 
 			\centering
 			\includegraphics[scale=0.4]{1Dv2Dphi.png}
 			\caption{Comparison of the angle $\phi$ (best fit for 2D Beam) mode shape corresponding to $\lambda_{10}$ for the 2D beam and $\lambda_8$ for the Timoshenko beam with $\alpha = 4800$ ($h=1/20$)}
-			\label{fig:phi}}}
+			\label{fig:phi_chapter6}}}
 \end{figure}
 \FloatBarrier
 
 These figures are examples that show how similar the mode shapes of the two models are. This specific example is for $\alpha = 4800$, which represents a long, narrow beam. The authors of \cite{LVV09} obtained similar results for $\alpha=300$, which represents a short and fat beam.
 
-\subsubsection{Remark:} Note that the overall shape is more important than the actual fit. This is because any multiple of a eigenvector is still an eigenvector. The mode shapes were specifically scaled to obtain figures \ref{fig:w} and \ref{fig:phi}.
+\subsubsection{Remark:} Note that the overall shape is more important than the actual fit. This is because any multiple of a eigenvector is still an eigenvector. The mode shapes were specifically scaled to obtain figures \ref{fig:w_chapter6} and \ref{fig:phi_chapter6}.
 
 \subsection{Comparing the eigenvalues}
 Using this method of comparing the mode shapes, the eigenvalues can now be matched up and compared.
@@ -272,7 +272,7 @@ The following table contains results from \cite{LVV09} verbatim to 3 significant
 		9 & 192 & 188 & 0.0208 & 9 & 191.57 & 187.55 &  0.020999  \\ 
 		10 & 192 & - &  & 10 & 192.03 & - &   \\ 
 		11 & 291 & 284 & 0.0241 & 11 & 290.76 & 283.81 &  0.023899  \\ \hline
-	\end{tabular}\label{Results_LVV09}
+	\end{tabular}\label{Results_LVV09_chapter6}
 \end{table}
 
 This table shows that the results obtained in this dissertation are very similar to the results obtained in \cite{LVV09}. This is for a specific case where $\alpha = 1200$.
@@ -315,7 +315,7 @@ In the following table, the eigenvalues for different values of $\alpha$ are com
 		\multicolumn{2}{|c}{Max RE:} & \multicolumn{2}{c||}{3.1718\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{3.1486\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c||}{2.1018\%} & \multicolumn{2}{c}{Max RE:} & \multicolumn{2}{c|}{1.4361\%} \\
 		\hline
 	\end{tabular}%
-	\label{tab:Timo}%
+	\label{tab:Timo_chapter6}%
 }
 }
 \end{table}%

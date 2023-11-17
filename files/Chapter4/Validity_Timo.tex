@@ -1,10 +1,10 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
-\section{Validity of a Cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam}
+\section{Validity of the model for a cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam}
 
 In this section, the validity of the Timoshenko beam model is investigated. Specifically, the validity of a cantilever Timoshenko beam model, using a cantilever two-dimensional beam model as a reference. This follows what is done in the article \cite{LVV09}. This section discusses the results of the article, focussing on the numerical results. Some of the results are replicated with more significant digits, others are extended to be used in the rest of this chapter.
 
-The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. The authors start by presenting the models. These are the same as Problem T-2 and Problem 2D-1 that are defined in Chapter 1. The authors also look at the existence and uniqueness of the models, which is covered in Chapter 2 of this dissertation. The authors then calculate and compare the eigenvalues and eigenfunctions, which will be discussed in this section.
+The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. The authors start by presenting the models. These are the same as Problem T-2 and Problem 2D-1 that are defined in Chapter 1. The authors also look at the existence and uniqueness of solutions, which is covered in Chapter 2 of this dissertation. The authors then calculate and compare the eigenvalues and eigenfunctions, which will be discussed in this section.
 
 \subsection{The models}
 The cantilever Timoshenko beam model is defined in section \ref{ssec:1D_Model:ModelProblems}, and is referred to as Problem T-2. The cantilever two-dimensional beam model is defined in section \ref{ssec:2D_Model:ModelProblem}, and is referred to as Problem 2D-1.
@@ -92,7 +92,25 @@ Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
 	}
 \end{figure}\label{fig:compare:1D+2D}
 
-As mentioned in the introduction, the height of the two beams can be set to be the same by considering the parameter $\alpha$ for the Timoshenko beam model and the parameter $h$ for the two-dimensional beam model.
+In the derivation of the Timoshenko beam model in section \ref{subsec:equationsofmotion+constitutiveequation}, the parameter $\alpha$ is 
+introduced. The paramater is given here again for convenience,
+\begin{eqnarray*}
+	\alpha = \frac{A\ell^2}{I}.
+\end{eqnarray*}
+
+The model is in a dimensionless form, therefore the length of the beam is $\ell = 1$. Since we assumed a square cross-section, the area of the cross-section can be calculated as $\displaystyle A = hb$. The area moment of inertia can also be calculated as $\displaystyle I = \frac{h^3b}{12}$.
+
+Substituting these values into the equation for $\alpha$ gives the following relationship between the height of the beam and the parameter $\alpha$,
+\begin{eqnarray}
+	\alpha & = & \frac{12}{h^2}, \label{eq:alpha-h-relationship}
+\end{eqnarray}
+or equivalently,
+\begin{eqnarray}
+	h & = & \sqrt{\frac{12}{\alpha}}. \label{eq:h-alpha-relationship}
+\end{eqnarray}
+
+These equations \eqref{eq:alpha-h-relationship} or \eqref{eq:h-alpha-relationship} describe the relationship between the height of the beam and the parameter $\alpha$. Using this relationship, the height of the beam model can be set by considering the value of $\alpha$.
+
 
 \subsection{Calculating the eigenvalues and eigenvectors}
 In section \ref{sec:Timo:EigenvalueProblem} a method for calculating the eigenvalues and eigenvectors of the Timoshenko beam is provided. And in section \ref{sec:Timo:Cantilever}, the eigenvalues and eigenvectors of a cantilever Timoshenko beam are calculated as an example. 
@@ -125,9 +143,9 @@ Figure \ref{fig:conv_2d_eig} shows the rate of convergence of the first 20 eigen
 The number of elements are chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
 
 \subsection{Comparing the mode shapes}
-Recall from the introduction, that the investigation is focussed on beam-type problems. The two-dimensional model is for an elastic body, and not specific to a beam, like the Timoshenko beam model. Therefore there are non-beam type behaviour that can be expected from the two-dimensional model. This is also be reflected in the eigenvalues of the two-dimensional model.
+Recall from the introduction, that the investigation is focussed on beam-type problems. The two-dimensional model is for an eigenvalue problem and and not specific to beam-type applications, like the Timoshenko beam model. Therefore there are non-beam type modes that can be expected from the two-dimensional model. This is also be reflected in the eigenvalues of the two-dimensional model and therefore eigenvalues irrelevant to beam-type problems exits.
 
-Therefore a method is required to compare and match the eigenvalues of the two models. In \cite{LVV09}, the authors compare the mode shapes of the two models, to match up the eigenvalues. Recall \textcolor{red}{****} that eigenvalues relating to the mode shapes similar to the mode shapes of the Timoshenko beam, are called beam type eigenvalues. The other eigenvalues are called non-beam type eigenvalues. This naming convention is used by the authors of \cite{LVV09}.
+Therefore a method is required to compare and match the eigenvalues of the two models. In \cite{LVV09}, the authors compare the mode shapes of the two models, to match up the eigenvalues. Eigenvalues relating to the mode shapes similar to the mode shapes of the Timoshenko beam, are called beam-type eigenvalues. The other eigenvalues are called non-beam type eigenvalues by the authors.
 
 \subsubsection{Shapes relating to beam-type eigenvalues}
 The following figures are examples of beam-type mode shapes for the displacement $w$.
@@ -188,9 +206,9 @@ The following figures are examples of non beam-type mode shapes for the displace
 \FloatBarrier
 
 \subsubsection{Shape of the cross-sections}
-The Timoshenko beam theory improve some one-dimensional beam theories such as the Euler-Bernoulli beam theory by also including the effect of shear. For Timoshenko beam theory it is assumed that the cross-sections need not remain perpendicular to the neutral axis of the beam. The cross-sections however remain a straight line.\\
+The Timoshenko beam theory improve some one-dimensional beam theories such as the Euler-Bernoulli beam theory by also including the effect of shear. For Timoshenko beam theory it is assumed that the cross-sections need not remain perpendicular to the neutral axis of the beam. The cross-sections however remain a straight line.
 
-For the two-dimensional beam, the shape of the cross-section can deform into a s-shape. This is explained in \cite{LVV09} and a similar figure in \cite{LVV09} is given here. This is a difference between the two models that are inherent to their definitions.\\
+For the two-dimensional beam, the shape of the cross-section can deform into a S-shape. This is explained in \cite{LVV09} and a similar figure in \cite{LVV09} is given here. 
 
 \FloatBarrier
 \begin{figure}[h!]
@@ -230,7 +248,7 @@ Figure \ref{fig:w} directly compares a mode shape of the Timoshenko beam to a mo
 \end{figure}
 \FloatBarrier
 
-Similarly, figure {fig:phi} directly compares the angle of the cross-section of the Timoshenko beam and the two-dimensional beam. The average rotation of the cross-section of the two-dimensional beam's mode shape is calculated as shown in figure \ref{fig:s}.
+Similarly, figure \ref{fig:phi} directly compares the angle of the cross-section of the Timoshenko beam and the two-dimensional beam. The average rotation of the cross-section of the two-dimensional beam's mode shape is calculated as shown in figure \ref{fig:s}.
 
 \FloatBarrier
 \begin{figure}[ht!]
@@ -244,16 +262,41 @@ Similarly, figure {fig:phi} directly compares the angle of the cross-section of 
 \end{figure}
 \FloatBarrier
 
-These figures are examples that show how similar the mode shapes of the two models are. This specific example is for $\alpha = 4800$, which represents a long, narrow beam. The authors of \cite{LVV09} obtained similar results for $\alpha=300$, which represents a short and fat beam.
+These figures are examples that show how similar the mode shapes of the two models are. This specific example is for $\alpha = 4800$, which represents a typical beam. The authors of \cite{LVV09} obtained similar results for $\alpha=300$, which represents a short and thick beam.
 
-\subsubsection{Remark:} Note that the overall shape is more important than the actual fit. This is because any multiple of a eigenvector is still an eigenvector. The mode shapes were specifically scaled to obtain figures \ref{fig:w} and \ref{fig:phi}.
+\subsubsection{Remark:} Note that the overall shape is important. This is because any multiple of a eigenvector is still an eigenvector. The mode shapes were specifically scaled to obtain figures \ref{fig:w} and \ref{fig:phi}.
 
 \subsection{Comparing the eigenvalues}
-Using this method of comparing the mode shapes, the eigenvalues can now be matched up and compared.
+Using this method of comparing the mode shapes, the eigenvalues can now be matched up and compared. In the tables, Timo refers to the Timoshenko beam and 2D refers to the two-dimensional beam.
 
 \subsubsection{Some results from [LVV09]}
 The following table contains results from \cite{LVV09} verbatim to 3 significant digits, as well as the replicated results to 5 significant digits.
 
+
+
+\begin{table}[!ht]
+	\centering
+	\caption{Results from [LVV09] and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		\multicolumn{3}{|c||}{Results from [LVV09]} & \multicolumn{3}{c|}{Dissertation} \\ \hline \hline
+		~ & 2D & Timo & ~ & 2D & Timo  \\ \hline
+		1 & 0.0317 & 0.0316 & 1 & 0.031713 & 0.031639  \\ 
+		2 & 1.14 & 1.14  & 2 & 1.1413 & 1.1365  \\ 
+		3 & 7.72 & - & 3 & 7.7161 & - \\ 
+		4 & 7.92 & 7.86 &  4 & 7.918 & 7.8617    \\ 
+		5 & 26.2 & 25.9 & 5 & 26.148 & 25.869   \\ 
+		6 & 60.8 & 59.9 & 6 & 60.816 & 59.946  \\ 
+		7 & 69.3 & - & 7 & 69.344 & -  \\ 
+		8 & 115 & 113 &  8 & 115.28 & 113.23   \\ 
+		9 & 192 & 188 &  9 & 191.57 & 187.55   \\ 
+		10 & 192 & - & 10 & 192.03 & -  \\ 
+		11 & 291 & 284 & 11 & 290.76 & 283.81   \\ \hline
+	\end{tabular}\label{Results_LVV09}
+\end{table}
+
+
+\begin{comment}
 \begin{table}[!ht]
 	\centering
 	\caption{Results from [LVV09] and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
@@ -274,6 +317,8 @@ The following table contains results from \cite{LVV09} verbatim to 3 significant
 		11 & 291 & 284 & 0.0241 & 11 & 290.76 & 283.81 &  0.023899  \\ \hline
 	\end{tabular}\label{Results_LVV09}
 \end{table}
+\end{comment}
+
 
 This table shows that the results obtained in this dissertation are very similar to the results obtained in \cite{LVV09}. This is for a specific case where $\alpha = 1200$.
 
@@ -321,7 +366,7 @@ In the following table, the eigenvalues for different values of $\alpha$ are com
 \end{table}%
 \FloatBarrier
 
-This table shows that the eigenvalues compare very well. The non-beam type eigenvalues are highlighted in grey. For a short fat beam ($\alpha = 300$), the maximum relative error for the first 20 two-dimensional eigenvalues is just over $3\%$, while for a long thin beam ($\alpha = 10800$), the maximum relative error is just over $1\%$. This shows that as the beam becomes longer and thinner, the Timoshenko beam is better approximation of the two-dimensional beam. But overall the Timoshenko beam compares very well.
+This table shows that the eigenvalues of the Timoshenko model and the two-dimensional model compare very well. The non-beam type eigenvalues are highlighted in grey. For a short thick beam ($\alpha = 300$), the maximum relative error for the first 20 two-dimensional eigenvalues is just over $3\%$, while for a long thin beam ($\alpha = 10800$), the maximum relative error is just over $1\%$. This shows that as the beam becomes longer and thinner, the Timoshenko beam is better approximation of the two-dimensional beam. But overall the Timoshenko beam compares very well.
 
 This table also shows that as the beam gets more narrow, there are less non-beam type eigenvalues within the first few eigenvalues.This would also indicate that the Timoshenko beam would be a better approximation of the two-dimensional beam as the beam gets more narrow since the two-dimensional model behaves `more like a beam'.
 
