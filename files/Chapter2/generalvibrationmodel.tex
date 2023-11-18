@@ -26,14 +26,14 @@ A derivative $u'$ for $u$ may be defined by
 
 Using the bilinear forms, $b$ and $c$ from Section 1.4, Problem T-2V can be rewritten in the following form
 \begin{eqnarray}
-	c(\ddot{u}(t),v) + b(u(t),v) & = & (Q(t),v) \label{eq:existence:PreWV}
-\end{eqnarray} for each $v \in T[0,1]$.\\
+	c(\ddot{u}(t),v) + b(u(t),v) & = & (Q(t),v), \label{eq:existence:PreWV}
+\end{eqnarray} for each $v \in T[0,1]$.
 
-To apply the theory from \cite{VV02}, complete function spaces are required. It is known that $L^2(0,1)$ is a complete function space and hence $X$ is complete.\\
+To apply the theory from \cite{VV02}, complete function spaces are required. It is known that $L^2(0,1)$ is a complete function space and hence $X$ is complete.
 
 The Sobolev space $H^1(0,1)$ is all the functions in $L^2(0,1)$ with at least a first-order weak derivative. $H^1(0,1)$ is complete (see Appendix A).\label{sym:Hn}
 
-The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$}, denoted by $V$, is complete. It is called the energy space.\\
+The test functions $T[0,1]$ do not form a complete space. Let $V(0,1)$ be the closure of {$F_1(0,1)$} in $H^1(0,1)$ (see Section 1.4.4). It follows that $V(0,1)$ is complete and the product space {$V(0,1)\times V(0,1)$}, denoted by $V$, is complete. It is called the energy space.
 
 Using these complete product spaces and \eqref{eq:existence:PreWV}, the weak variational problem for the cantilever Timoshenko beam is defined as Problem T-2W.
 
@@ -42,9 +42,9 @@ Find a function $u$ such that $\forall \ t \in J$, $u(t) \in V$, $\ddot{u}(t) \i
 \begin{eqnarray*}
 	c(\ddot{u}(t),v) + b(u(t),v) & = & (Q(t),v)
 \end{eqnarray*}
-for all $v\in V$. The initial conditions $u(0) = u_0$ and $\dot{u}(0)=u_1$ must be specified.\\
+for all $v\in V$. The initial conditions $u(0) = u_0$ and $\dot{u}(0)=u_1$ must be specified.
 
-The space X with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.\\
+The space X with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.
 
 In the next section, the theory of the article \cite{VV02} is presented. In Section 2.3 the theory is applied to Problem T-2W.
 
@@ -61,12 +61,12 @@ Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace o
 	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
 \end{itemize} \label{sym:Xspace}\label{sym:Wspace}\label{sym:Vspace}\label{sym:norm} \label{sym:innerproduct}
 
-The following notation is important for the theory that follows.\\
+The following notation is important for the theory that follows.
 
 Let $J$ be a interval of real numbers containing zero. It can have one of the following forms $[0,\ T)$, $[0,\ \infty)$ or an arbitrary open interval. For any function $u$ on the interval $J$ and range in a Hilbert space Z, derivatives can be defined. A derivative $u'$ for $u$ may be defined by
 \begin{eqnarray*}
 	||(h^{-1} u(t+h)-u(t))-u'(t)||_Z \rightarrow 0.
-\end{eqnarray*} Then $u''$ is defined by $u'' = (u')'$.\\
+\end{eqnarray*} Then $u''$ is defined by $u'' = (u')'$.
 
 
 \textbf{Notation}
@@ -78,7 +78,7 @@ Let $J$ be a interval of real numbers containing zero. It can have one of the fo
 	\item[] $u\in C^{k}(J,Z)$ if $u^{(k)}\in C(J,Z)$ .
 \end{itemize}
 
-\textbf{Remark} For Problem T-2, $Z$ can be $X$, $W$ or $V$.\\
+\textbf{Remark} For Problem T-2, $Z$ can be $X$, $W$ or $V$.
 
 Let $a$, $b$ and $c$ be bilinear forms where $a$ and $b$ are defined on $V$ and $c$ is defined on $W$. For the models in this dissertation, the bilinear forms $b$ and $c$ are symmetric. Furthermore, $b(\cdot, \cdot) = (\cdot, \cdot)_V$ and $c(\cdot, \cdot) = (\cdot, \cdot)_W$.
 
@@ -88,7 +88,7 @@ Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $
 \begin{eqnarray}
 	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
 \end{eqnarray}
-while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\label{sym:a} \\
+while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\label{sym:a}
 
 This general variational form is applicable in all the models in this dissertation. In \cite{VV02}, a more general form is given that includes the possibility for damping terms in the models. Damping is not considered in this dissertation.
 
@@ -124,7 +124,7 @@ To start, the main results of \cite{VV02} are presented. There are three existen
 	then for each $f \in C^1(J,X)$, there exists a unique solution $u \in C^1(J,V)\cap C^2(J,W)$ for Problem GVar.
 \end{Thmx}
 
-This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.\\
+This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.
 
 
 In \cite{VV02} the authors consider a special case of weak damping. Define a space $E_b \subset V$ where \[ E_b = \left\{x \in V \ | \ \textrm{there exists a } y \in W \textrm{ such that } c(y,v) = b(x,v) \textrm{ for all } v \in V\right\}.\] It is proved in \cite{VV02}  that condition (2.2.3) is satisfied if $u_1 \in V$ and $u_0 \in E_b$ (the pair $u_0$, $u_1$ is admissible).
@@ -191,16 +191,16 @@ To link Problem IVP and Problem GVar, consider the following lemma from \cite{VV
 	\end{itemize}
 \end{Prop}
 
-Semi-group theory is used in \cite{VV02} to investigate the solvability of Problem IVP and obtain a solution for Problem IVP. It is also important to mention that in \cite{VV02}, the authors provide the necessary result that shows the function $F$ is uniquely defined by $f$.\\
+Semi-group theory is used in \cite{VV02} to investigate the solvability of Problem IVP and obtain a solution for Problem IVP. It is also important to mention that in \cite{VV02}, the authors provide the necessary result that shows the function $F$ is uniquely defined by $f$.
 
-As mentioned before, if $a = 0$ then the inequality in \eqref{weak_damping} hold trivially. However, the operator A is defined by the operator $\Lambda$ and in the definition of $\Lambda$, the form $a$ is used (see \eqref{author_mapping}). It is proved in \cite{VV02} that equation \eqref{author_mapping} is uniquely solvable and hence $\Lambda$ is well defined. The proof remains unchanged as presented for $a$ identically zero.\\
+As mentioned before, if $a = 0$ then the inequality in \eqref{weak_damping} hold trivially. However, the operator A is defined by the operator $\Lambda$ and in the definition of $\Lambda$, the form $a$ is used (see \eqref{author_mapping}). It is proved in \cite{VV02} that equation \eqref{author_mapping} is uniquely solvable and hence $\Lambda$ is well defined. The proof remains unchanged as presented for $a$ identically zero.
 
-To apply Theorem 2, the admissible initial conditions are $u_0 \in E_b$ and $u_1 \in V$. As mentioned above, this implies $\langle u_0, u_1 \rangle \in D(A)$. From semigroup theory, it follows that $U(t) \in D(A)$ for each $t$. Therefore $u(t) \in E_b$ and $u'(t) \in V$ for each $t$.\\
+To apply Theorem 2, the admissible initial conditions are $u_0 \in E_b$ and $u_1 \in V$. As mentioned above, this implies $\langle u_0, u_1 \rangle \in D(A)$. From semigroup theory, it follows that $U(t) \in D(A)$ for each $t$. Therefore $u(t) \in E_b$ and $u'(t) \in V$ for each $t$.
 
 Using the assumptions \textbf{A1}-\textbf{A4}, it is proved in \cite{VV02} that the linear operator $A$ is an infinitesimal generator of a $C_0$-semigroup of contractions and the domain of $A$ is dense in $H$ (see Section \ref{sec:existence:ModalAnalysis}).
 
 \section{Application: Timoshenko beam model}\label{sec:existence:Application}
-In this section the theory of \cite{VV02} (presented in Section \ref{sec:existence:ExistenceAndUniqueness}) is applied to Problem T-2W. This is an continuation of the example from section \ref{sec:existence}.\\
+In this section the theory of \cite{VV02} (presented in Section \ref{sec:existence:ExistenceAndUniqueness}) is applied to Problem T-2W. This is an continuation of the example from section \ref{sec:existence}.
 
 Recall the spaces defined in Section \ref{sec:existence}:
 \begin{itemize}
@@ -209,11 +209,11 @@ Recall the spaces defined in Section \ref{sec:existence}:
 	\item[] $V  = V(0,1)\times V(0,1)$ with inner product $b$ and induced norm $||\cdot||_V$.
 \end{itemize}
 
-To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A4} and the initial values must be admissible. We must show that the assumptions are satisfied.\\
+To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A4} and the initial values must be admissible. We must show that the assumptions are satisfied.
 
 To prove \textbf{Assumption A1}, observe that $W$ is dense in $X$. (The set $W = X$).\\
 
-Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\label{sym:Cinftyzero} \\
+Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\label{sym:Cinftyzero} 
 
 Consider \textbf{Assumption A2}. From the definition of the bilinear form $c$,
 \begin{eqnarray*}
@@ -227,7 +227,7 @@ From this, the following inequalities can be obtained:
 Since $c$ is a bilinear form and by the inequality above, $c$ is an inner-product for $W$. The norm of $W$ is defined as $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$. Let $C_1 = \min\left\{1, \frac{1}{\alpha}\right\}$ and $C_2 = \max\left\{1, \frac{1}{\alpha}\right\}$. Then
 \begin{eqnarray}
 	C_1||x||_X \leq ||x||_W \leq C_2||x||_X \label{C}
-\end{eqnarray} for all $x \in X$.\\
+\end{eqnarray} for all $x \in X$.
 
 To prove \textbf{Assumption A3}, some preparation is required. Consider the following proposition for a Poincar\'e-Type inequality for the one-dimensional case.
 \newtheorem*{Poincare}{Proposition 1}

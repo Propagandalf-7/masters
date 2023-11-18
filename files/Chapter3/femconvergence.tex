@@ -1,26 +1,41 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{FEM computation of eigenvalues and eigenfunctions}
+Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.
 
-
-Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.\\
-
-The following eigenvalue is given in \cite{SF73}.
+The following eigenvalue is considered in \cite{SF73}.
 
 \subsection{General eigenvalue problem}
-Find a function $u \in H$ and number $\lambda \in R$ such that
+\subsubsection*{Problem E}
+Find a vector $u \in V$ and number $\lambda \in R$ such that $u \neq 0$ and
 \begin{equation}
 	b(u,v) = \lambda (u,v) \label{GEVP}
-\end{equation} for some $v \in V$.
+\end{equation} for each $v \in V$.
 
-Galerkin approximation for \eqref{GEVP}:
+Consider the Galerkin approximation for \eqref{GEVP}:
+\subsubsection*{Problem $E_h$}
+Find $u^h \in S^h$ such that \[b(u^h, v) = \lambda^h(u^h,v) \textrm{ for all } v \in S^h.\] 
 
-For $u^h \in S^h$ and $b(u^h, v) = \lambda^h(u^h,v)$ for all $v \in S^h$. For detail, see Chapter 5.
+For detail, see Chapter 5.
 
 \subsection{Preliminary theory and notation}
-In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for clarity.
+In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for greater clarity.
 
-Some theory is required before the main results can be proven. The theory is from \cite{SF73}.\\
+Some theory is required before the main results can be proven. The theory is from \cite{SF73}.
+
+\subsubsection*{Properties of eigenvalues}
+It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.
+
+Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
+
+Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.
+
+Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
+
+The space $S^h$\label{sym:Sh1} is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
+\begin{equation}
+	\lambda_i \leq \lambda_i^h.
+\end{equation}
 
 \textbf{Rayleigh quotient}
 \begin{equation*}
@@ -34,7 +49,7 @@ Let T denote the class of subspaces of $V$ that jas dimension $j$. Then
 \end{equation*}
 
 \textbf{Rayleigh-Ritz Projection}\\
-If $u \in V$, then $Pu$ is in the subspace $S^h$.
+If $u \in V$, then $Pu$ is its projection in the subspace $S^h$.
 \begin{equation*}
 	b(u-Pu,v^h) = 0 \ \text{ for all } v \in S^h.
 \end{equation*}
@@ -73,7 +88,7 @@ From the textbook \cite{OR76}, the following approximation theorem for finite el
 	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
 \end{Interpolation}
 
-For the requirements of this dissertation, this can be simplified with assumptions. Another assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
+For the requirements of this dissertation, this can be simplified with an assumption. The assumption is that the basis of $S^h$ consists of polynomials. With this assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||$. This approximation theorem can be rewritten as
 \newtheorem{Interpolation_2}{Theorem}
 \begin{Interpolation_2}
 	Suppose there exists an integer $k$ such that for each element
@@ -89,32 +104,30 @@ For the requirements of this dissertation, this can be simplified with assumptio
 This will be referred to as the approximation theorem in this section.
 
 \subsubsection*{Properties of eigenvalues}
+It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.
 
-It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.\\
+Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
 
-Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.\\
+Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.
 
-Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.\\
-
-Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.\\
+Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
 
 The space $S^h$\label{sym:Sh1} is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
 \begin{equation}
 	\lambda_i \leq \lambda_i^h.
 \end{equation}
 
-
 \subsection{Estimating the eigenvalues.}
-Let $E_j \in V$ denote the eigenspace spanned by the exact eigenvalues $\left\{u_1,u_2,...,u_j \right\}$ for $j = 1,2,...,m$.\\
+Let $E_j \in V$ denote the eigenspace spanned by the exact eigenvectors $\left\{u_1,u_2,...,u_j \right\}$ for $j = 1,2,...,m$.
 
 Then consider the subspace $S_j$ where
 \begin{equation*}
 	S_j = PE_j \ \text{ for } j = 1,2,...,m.
-\end{equation*} The elements $Py_i$ are the projections of the eigenfunctions $u_i$ into the space $S^h$. These projections $Py_i$ are not necessarily equal to $u^h_j \in S^h$, but it can be shown that they are close.\\
+\end{equation*} The elements $Py_i$ are the projections of the eigenfunctions $u_i$ into the space $S^h$. These projections $Py_i$ are not necessarily equal to $u^h_j \in S^h$, but it can be shown that they are close.
 
-Let $B_m = \left\{u \in e_m \ | \ ||u|| = 1 \right\}$ and define $\mu_m = \inf\left\{(Pu,Pu \ | \ u \in B_m)\right\}$.\\
+Let $B_m = \left\{u \in e_m \ | \ ||u|| = 1 \right\}$ and define $\mu_m = \inf\left\{(Pu,Pu \ | \ u \in B_m)\right\}$.
 
-The next steps in the textbook \cite{SF73} contains proofs with multiple results. In an attempt to better understand the results, the proofs are broken up into smaller proofs.\\
+The next steps in the textbook \cite{SF73} contains proofs with multiple results. In an attempt to better understand the results, the proofs are broken up into smaller proofs.
 
 The first step to obtain estimates for the eigenvalues, it to show that the elements of $B_m$ are linearly independent.
 
@@ -155,7 +168,7 @@ The first step to obtain estimates for the eigenvalues, it to show that the elem
 \end{proof}
 
 %\newpage
-In the textbook, the authors show that the eigenfunctions are orthogonal. But they do so using matrix representations of the eigenvalue problem. A different method can be used to show this.\\
+In the textbook, the authors show that the eigenfunctions are orthogonal. But they do so using matrix representations of the eigenvalue problem. A different method can be used to show this.
 
 Pick any $i,j \in \mathbb{N}$ such that $i,j \leq m$. Let $v_{i},v_{j} \in V$ be arbitrary, then
 \begin{eqnarray*}
@@ -231,7 +244,7 @@ Following Lemma \ref{Lem_1}, and since $\lambda_{i}^{h} \geq \lambda_{i}$ it fol
 		\end{eqnarray*}
 \end{proof}
 
-This corollary give a error estimate for the eigenvalues. To prove the convergence of the eigenvalues, it is necessary to prove that the error estimate $\sigma_{m}^{h}$ converges to zero as $h \rightarrow 0$.\\
+This corollary give a error estimate for the eigenvalues. To prove the convergence of the eigenvalues, it is necessary to prove that the error estimate $\sigma_{m}^{h}$ converges to zero as $h \rightarrow 0$.
 
 
 \newtheorem{Prop_3}[Prop_1]{Proposition} \label{Prop_3}
@@ -262,9 +275,9 @@ This corollary give a error estimate for the eigenvalues. To prove the convergen
 	\end{eqnarray*}
 \end{proof}
 
-Proposition \ref{Prop_3} is a result given in \cite{SF73} without explaining how it is derived.\\
+Proposition \ref{Prop_3} is a result given in \cite{SF73} without explaining how it is derived.
 
-Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{*} = \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}$ where $u = \sum_{i=1}^{m} c_{i}u_{i}$.\\
+Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{*} = \sum_{i=1}^{m} c_{i}\lambda_{i}^{-1}u_{i}$ where $u = \sum_{i=1}^{m} c_{i}u_{i}$.
 
 \newtheorem{Prop_4}[Prop_1]{Proposition} \label{Prop_4}
 \begin{Prop_4}
@@ -327,9 +340,9 @@ Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{
 	\end{eqnarray*}
 \end{Prop_5}
 \begin{proof}
-	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.\\ 
+	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.
 
-	From the Rayleigh-Ritz Projection, $Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||\leq ||u-\Pi u||$, where $\Pi u$ is the interpolation of $u$ into $S^h$.\\
+	From the Rayleigh-Ritz Projection, $Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||\leq ||u-\Pi u||$, where $\Pi u$ is the interpolation of $u$ into $S^h$.
 	
 	From the Approximation Theorem, is follows that
 	\begin{eqnarray*}
@@ -372,7 +385,7 @@ Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{
 	So $\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}$.
 \end{proof}
 
-The convergence of the eigenvalues are now proved.\\
+The convergence of the eigenvalues are now proved.
 
 \subsection{Convergence of the eigenfunctions}
 The next step is to show the convergence of the eigenfunctions. The problem can be formulated using the following result.
@@ -393,9 +406,9 @@ The next step is to show the convergence of the eigenfunctions. The problem can 
 		\end{eqnarray*}
 \end{proof}
 
-It has been shown that the eigenvalues converge to the exact eigenvalues as $h \rightarrow 0$. So from this result, it only remains to show that $( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) \rightarrow 0$ as $h \rightarrow 0$.\\
+It has been shown that the eigenvalues converge to the exact eigenvalues as $h \rightarrow 0$. So from this result, it only remains to show that $( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) \rightarrow 0$ as $h \rightarrow 0$.
 
-At this point, another assumption must be made. Assume that there are not eigenvalues with multiplicity more than 1. In other words, all the eigenvalues correspond only to one eigenfunction. In \cite{SF73}, the authors mention that for repeated eigenvalues, then the eigenfunctions can be chosen so that the main convergence results hold. This case is ommited in this dissertation.\\
+At this point, another assumption must be made. Assume that there are not eigenvalues with multiplicity more than 1. In other words, all the eigenvalues correspond only to one eigenfunction. In \cite{SF73}, the authors mention that for repeated eigenvalues, then the eigenfunctions can be chosen so that the main convergence results hold. This case is ommited in this dissertation.
 
 \newtheorem{Lem_6}[Lem_1]{Lemma} \label{Lem_6}
 \begin{Lem_6}
@@ -424,7 +437,7 @@ The set $\left\{u_{1}^{h},u_{2}^{h},...,u_{N}^{h}\right\}$ forms an orthonormal 
 \end{eqnarray}
 
 
-From Lemma \ref{Lem_6}, it follows that $( P_{m},u_{j}^{h} )$ is small if $\lambda_{m}^{h}$ is not close to $\lambda_{j}$. Therefore (\ref{CV1}) tells us that $Pu_{m}$ is close to $u_{m}^{h}$. The estimate for $Pu_{m} - u_{m}^{h}$ will follow from this result.\\
+From Lemma \ref{Lem_6}, it follows that $( P_{m},u_{j}^{h} )$ is small if $\lambda_{m}^{h}$ is not close to $\lambda_{j}$. Therefore (\ref{CV1}) tells us that $Pu_{m}$ is close to $u_{m}^{h}$. The estimate for $Pu_{m} - u_{m}^{h}$ will follow from this result.
 
 
 Following the convergence of the eigenvalues, $\exists \rho > 0$ and $\exists \delta > 0$ such that if $h<\delta$,
@@ -474,7 +487,7 @@ Using Lemma \ref{Lem_6}:
 
 The proofs for lemma's \ref{Lem_7} and \ref{Lem_8} are given in \cite{SF73}.\\
 
-So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.\\
+So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.
 
 
 \newtheorem{Lem_9}[Lem_1]{Lemma} \label{Lem_9}
