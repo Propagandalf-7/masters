@@ -1,17 +1,15 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-This chapter is an investigation into the validity of a cantilever Timoshenko beam model and a cantilever Reissner-Mindlin plate model. Validity in this context refers to how well the solutions of a model compare to the solutions of a more realistic, higher-dimensional model. The investigation and application of the models are restricted to beam-type and plate-type problems.
+Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} is a discussion of the article \cite{LVV09}. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. In this chapter, the work of the article is extended to investigate the validity of the two-dimensional cantilever beam and a Reisner-Mindlin cantilever plate.
 
 The following is a summary of the work covered in this chapter.
 
-Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} is a discussion of the article \cite{LVV09}. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. This is an investigation into the validity of the Timoshenko beam model. The results of the article are replicated and the conclusions are verified. This chapter also include extra results to expand and add to the results of the article. The results of this section are also used as a referencefor the rest of the chapter.
+Section 6.2 extends the work of \cite{LVV09} further to a comparison of a cantilever two-dimensional beam to a cantilever three-dimensional beam. It is an investigation into the validity of the two-dimensional beam model. This extension is suggested by the authors of \cite{LVV09}. Although a direct comparison between the Timoshenko beam and the three-dimensional beam is proffered, there are complexities involved that makes this comparison difficult. Some of these complexities are discussed in more detail in the numerical results. The authors of \cite{LVV09} therefore suggest that the two-dimensional beam model is used as an intermediate step to validate the Timoshenko beam.
 
-Section 7.3 extends the work of \cite{LVV09} further to a comparison of a cantilever two-dimensional beam to a cantilever three-dimensional beam. It is an investigation into the validity of the two-dimensional beam model. This extention is suggested by the authors of \cite{LVV09}. Although a direct comparison between the Timoshenko beam and the three-dimensional beam is preffered, there are complexities involved that makes this comparison difficult. Some of these complexities are discussed in more detail in the numerical results. The authors of \cite{LVV09} therefore suggest that the two-dimensional beam model is used as an intermediate step to validate the Timoshenko beam.
+Section 6.3 extends the work of \cite{LVV09} further to plate models. This extension follows the same idea as the previous sections, and originates from non-beam type behaviour observed in the three-dimensional beam model in Section 6.2. In this section, a cantilever two-dimensional Reisner-Mindlin plate model is compared to a cantilever three-dimensional plate model. Same as in the other sections, it is an investigation into the validity of the Reisner-Mindlin plate model. 
 
-Section 7.4 extends the work of \cite{LVV09} further to plate models. This extention follows the same idea as the previous sections, and originates from non-beam type behaviour observed in the three-dimensional beam model in Section 7.3. In this section, a cantilever two-dimensional Reisner-Mindlin plate model is compared to a cantilever three-dimensional plate model. Same as in the other sections, it is an investigation into the validity of the Reisner-Mindlin plate model. 
-
-\subsection{Global parameters and configuration}
+\subsubsection{Global parameters and configuration}
 All the models in this dissertation are assumed to be made of the same isotropic material and have a square cross-section. The parameters are as follows:
 
 \begin{itemize}
@@ -25,6 +23,8 @@ All the models in this dissertation are assumed to be made of the same isotropic
 These global parameters are used in all the models, and their consistency helps to ensure that any differences in the results can be attributed to the model structures themselves, rather than variations in the material or geometric properties.
 
 Since our models are all dimensionless, all of the beams and plates have a length of $\ell = 1$. We'll use $h$ to describe the height of the beams and plates, and $b$ to describe the width of the beams and plates.
+
+\end{document}
 
 \subsection{Model specific parameters}
 The following are parameters that are not shared over all the models. These parameters can be unique to a model, or can be shared between some but not all of the models. These parameters mostly affect the geometry of the models.
@@ -65,5 +65,3 @@ On the other hand, for plate-type problems, the width of the plate is assumed to
 
 \subsubsection{Reisner-Mindlin plate}
 The Reisner-Mindlin plate model is the most different model compared to the rest of the models in this dissertation. The Reisner-Mindlin plate model is derived in section \ref{sec:P_Model}. The model has two parameters, the height $h$ and the width $b$.
-
-\end{document}

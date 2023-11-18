@@ -1,4 +1,5 @@
 *.pdf
+!turnitin-declaration.pdf
 *.gz
 *.aux
 *.bbl
