@@ -14,7 +14,7 @@ Find a vector $u \in V$ and number $\lambda \in R$ such that $u \neq 0$ and
 
 Consider the Galerkin approximation for \eqref{GEVP}:
 \subsubsection*{Problem $E_h$}
-Find $u^h \in S^h$ such that \[b(u^h, v) = \lambda^h(u^h,v) \textrm{ for all } v \in S^h.\] 
+Find $u^h \in S^h$ such that $u^h \neq 0$ and \[b(u^h, v) = \lambda^h(u^h,v) \textrm{ for all } v \in S^h.\] 
 
 For detail, see Chapter 5.
 
@@ -28,11 +28,11 @@ It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEV
 
 Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
 
-Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.
+Fix $m \in \mathbb{N}$. Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
 
-Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
+The ordering of the eigenvalues remains valid in a finite dimensional space. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
 
-The space $S^h$\label{sym:Sh1} is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
+Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
 \begin{equation}
 	\lambda_i \leq \lambda_i^h.
 \end{equation}
@@ -108,11 +108,11 @@ It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEV
 
 Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
 
-Fix $m \in \mathbb{N}$. \label{sym:natural} Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$.
+Fix $m \in \mathbb{N}$. Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
 
-Since $S^h$ is finite dimensional, the ordering of the eigenvalues remains valid. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
+The ordering of the eigenvalues remains valid in a finite dimensional space. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
 
-The space $S^h$\label{sym:Sh1} is a finite dimensional subspace of $V$. Therefore any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
+Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
 \begin{equation}
 	\lambda_i \leq \lambda_i^h.
 \end{equation}
