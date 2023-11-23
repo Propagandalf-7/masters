@@ -19,7 +19,7 @@ In Section 2.2 of this dissertation, Problem GVar is presented. It is identical 
 \cite{BV13}. For convenience, the problem is repeated here.
 
 \subsection{Formulation of the Galerkin approximation}
-Recall the spaces $V$, $W$ and $X$ from Section \ref{ssec:existence:VariationlApproach} where $V \subset W \subset X$.
+Recall the spaces $V$, $W$ and $X$ from Section \ref{sec:existence:ExistenceAndUniqueness} where $V \subset W \subset X$.
 
 \subsubsection*{Problem GVar}
 Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to
@@ -34,40 +34,44 @@ satisfied ensuring that Problem GVar has a unique solution.
 
 Before the theory of \cite{BV13} can be discussed, some preliminary work is
 necessary. The structure of this section is as follows. First the Galerkin
-approximation is for Problem GVar is derived. Then a equivalent system of
+approximation for Problem GVar is derived. Then an equivalent system of
 ordinary differential equations is derived using the Finite Element Method.
 Finally, the convergence of the Galerkin approximation is discussed using the
 work of the article \cite{BV13}.
 
+\textcolor{red}{*******NEED COME BACK TO THIS**********}
+
+Let $S^h$ denote a finite dimensional subspace of $V$.
+
+\textcolor{red}{*******NEED COME BACK TO THIS**********}
+
 \subsubsection*{Problem GVar$^h$}
-Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J)$ such that for each $t\in J$
+Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J, S^h)$ such that for each $t\in J$
 \begin{eqnarray}
 	c(u_h''(t),v)+a(u_h'(t),v)+b(u_h(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in S^h, \label{DC_E2}
 \end{eqnarray}
 with the initial values $u_h(0)=u^h_{0}$ and $u'_h(0)=u^h_{1}$. The initial conditions $u^h_{0}$ and $u^h_{1}$ are projections of $u_0$ and $u_1$ in the finite dimensional space $S^h$.
 
 \subsection{System of ordinary differential equations}
-Problem GVar$^h$ is equivalent to a system of second order differential equations. 
-
-Consider the standard FEM matrices defined by
+Problem GVar$^h$ is equivalent to a system of second order differential equations. Consider the standard FEM matrices defined by
 \begin{eqnarray*}
-	K_{ij} & = & b(\phi_j, \phi_i)\\
-	C_{ij} & = & a(\phi_j, \phi_i)\\
-	M_{ij} & = & c(\phi_j, \phi_i)\\
-	F_{i}(t) & = & b(f(t), \phi_i)
-\end{eqnarray*}
+	K_{ij} & = & b(\phi_j, \phi_i),\\
+	C_{ij} & = & a(\phi_j, \phi_i),\\
+	M_{ij} & = & c(\phi_j, \phi_i),\\
+	F_{i}(t) & = & c(f(t), \phi_i),
+\end{eqnarray*} where $\phi_i$ and $\phi_j$ are admissible basis functions.
 
 Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary
 differential equations denoted by Problem ODE. 
 
-Recall that $u^h(t) = \sum_{k} \bar{u}_k(t)\phi_k$.
+Recall that $u^h(t) = \sum_{k} u_k(t)\phi_k$ where $\bar{u}_k = \left( u_1(t), u_2(t), ...  , u_n(t)\right)$.
 
 \subsubsection*{Problem ODE}
 Find a function $\bar{u} \in S^h$ such that \label{sym:baru}
 \begin{eqnarray}
-	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}^h_0 \textrm{ and }  \bar{u}(1) = \bar{u}^h_1 \label{ODE}
+	M\bar{u}'' + C \bar{u}' + K\bar{u} = F(t) \ \ \ \textrm{ with } \bar{u}(0) = \bar{u}_0 \textrm{ and }  \bar{u}(1) = \bar{u}_1 \label{ODE}
 \end{eqnarray}
-The function $F$ is the interpolation of the function $f$ into the discrete space $S^h$.
+
 
 The following propositions related to Problem ODE are given in \cite{BV13}.
 
@@ -78,20 +82,20 @@ The following propositions related to Problem ODE are given in \cite{BV13}.
 
 \newtheorem{DC_Prop3}[DC_Prop2]{Proposition}
 \begin{DC_Prop3}
-	Suppose $M, K, C, F,\bar{u}^h_0$ and $\bar{u}^h_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
+	Suppose $M, K, C, F,{u}_0$ and ${u}_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
 Proposition 2 provides a link between the solution of Problem ODE and the
-solution of Problem GVar$^h$.
-
-The following theorem from \cite{BV13} proves that if $f$ is continuous, then problem Problem GVar$^h$ has a unique solution.
+solution of Problem GVar$^h$. Theorem 1 below follows.
 
 \newtheorem{DC_Thm2}{Theorem}
 \begin{DC_Thm2} \label{DC_THM2}
-	If $f \in C(J,X)$, then there exists a unique solution $u_h \in C^2(J)$ for Problem GVar$^h$ for each $u_0^h$ and $u_1^h$ in $S^h$. If $f = 0$ then $u_h \in C^2((-\infty, \infty))$.
+	If $f \in C(J,X)$, then there exists a unique solution $u_h \in C^2(J, S^h)$ for Problem GVar$^h$ for each $u_0^h$ and $u_1^h$ in $S^h$. If $f = 0$ then $u_h \in C^2((-\infty, \infty))$.
 \end{DC_Thm2}
 
-Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$.  A finite difference method is used to compute $u^h_k$ for each $k$.
+It is now required to find an approximation for the solution of $\bar{u}$ of Problem ODE.
+
+Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$. (Recall that $u_h(t) = \sum u_i(t)\phi_i$.) A finite difference method is used to compute $u^h_k$ for each $k$.
 
 \subsection{Error estimates}\label{e_est}
 In this subsection we consider estimates for the error $u(t_k) - u^h_k$. To simplify the process, the error is divided into errors for the semi-discrete problem and the fully discrete problem.
@@ -103,6 +107,9 @@ Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVa
 	e^h(t) = u(t) - u^h(t). \label{Error}
 \end{eqnarray}
 
+\vspace*{40mm}
+
+
 The error $e$, can now be expressed as
 \begin{eqnarray}
 	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
@@ -111,17 +118,16 @@ The error $e$, can now be expressed as
 In \eqref{error_e}, the the error for the semi-discrete problem is the term $u(t_k)-u_h(t_k)$ and the term $u_h(t_k) - u^h_k$ is the error for the fully disrete appreximation of the semi-discrete approximation.
 
 From Theorem 2 of the semi-discrete problem an error estimate for
-$e_k = [u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $[u_h(t_k) - u^h_k]$. 
+$e_k = [u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $e_k = [u_h(t_k) - u^h_k]$. 
 
 Since the dimension of $S^h$ is not fixed, the equivalence of norms
-cannot be used, and therefore this error estimate for $[u_h(t_k) - u^h_k]$
+cannot be used, and therefore this error estimate for $e_k = [u_h(t_k) - u^h_k]$
 should also be with respect to the norm of $W$.
 
-A stability result is needed.
+A stability result is derived in \cite{BV13}.
 
 \newtheorem*{DC_Lem3}{Lemma}
 \begin{DC_Lem3}
-	Stability
 	\begin{eqnarray*}
 		\max\Vert e_{n}\Vert_{W}^{2}\leq KT\tau
 	\end{eqnarray*}
@@ -129,7 +135,17 @@ A stability result is needed.
 \end{DC_Lem3}
 
 
-Using this lemma, \cite{BV13} prove the finial error estimate.
+Using this lemma, \cite{BV13} prove the error estimate.
+
+\newtheorem*{DC_Thm5_1}{Theorem 2}
+\begin{DC_Thm5_1}
+	{Main Result}\\
+	If $f\in C^{2}([0,T],X)$, then
+	\begin{eqnarray*}
+		\Vert u(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & K\tau^2
+	\end{eqnarray*}
+	for each $t\in(0,\ T)$.
+\end{DC_Thm5_1}
 
 Recall that $\displaystyle \tau = \frac{T}{N}$. The error estimate for the term
 $[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors

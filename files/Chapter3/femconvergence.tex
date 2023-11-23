@@ -3,32 +3,59 @@
 \section{FEM computation of eigenvalues and eigenfunctions}
 Let $H$ be a Hilbert space with the inner product $(\cdot,\cdot)$ and induced norm $||\cdot||$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that this bilinear form $b$ is symmetric.
 
-The following eigenvalue is considered in \cite{SF73}.
-
 \subsection{General eigenvalue problem}
+
+
+The following eigenvalue problem is considered in \cite{SF73}.
+
+
 \subsubsection*{Problem E}
 Find a vector $u \in V$ and number $\lambda \in R$ such that $u \neq 0$ and
 \begin{equation}
 	b(u,v) = \lambda (u,v) \label{GEVP}
 \end{equation} for each $v \in V$.
 
-Consider the Galerkin approximation for \eqref{GEVP}:
-\subsubsection*{Problem $E_h$}
+Suppose $E^h$ is a finite dimensional subspace of $V$. Consider the Galerkin approximation for \eqref{GEVP}:
+\subsubsection*{Problem $E^h$}
 Find $u^h \in S^h$ such that $u^h \neq 0$ and \[b(u^h, v) = \lambda^h(u^h,v) \textrm{ for all } v \in S^h.\] 
 
 For detail, see Chapter 5.
 
+\textcolor{red}{********** need to move this ******************}
+
 \subsection{Preliminary theory and notation}
-In this section, the work in the textbook \cite[p.228-236]{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for greater clarity.
+In this section, the work in the textbook \cite{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for greater clarity.
 
 Some theory is required before the main results can be proven. The theory is from \cite{SF73}.
+
+\textcolor{red}{********** need to move this ******************}
+
+\subsubsection*{Properties of eigenvalues}
+It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence of eigenvalues $(\lambda_i)$. Assume that the eigenvectors can be ordered in such a way that $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ where $\lambda_i$ are the corresponding eigenvalues.
+
+Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
+
+Fix $m \in \mathbb{N}$. Let $\left\{ \phi_k \in V | k = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_k \in V | k = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
+
+Problem $E^h$ can be written as a matrix eigenvalue problem,
+\begin{eqnarray*}
+	\lambda^nM\bar{u}_n = K\bar{u}_n.
+\end{eqnarray*} The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$.
+
+In a finite-dimensional subspace, the ordering of vectors is preserved as it is in the original space. Denote the normalized eigenvectors in the space $S^h$ as $u^h_k$ with corresponding eigenvalues $\lambda^h_i$ for $k = 1,2,...,m$.
+
+Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
+\begin{equation}
+	\lambda_i \leq \lambda_i^h.
+\end{equation}
 
 \subsubsection*{Properties of eigenvalues}
 It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.
 
 Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
 
-Fix $m \in \mathbb{N}$. Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
+Fix $m \in \mathbb{N}$. Let $\left\{ \phi_k \in V | k = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_k \in V | k = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
+
 
 The ordering of the eigenvalues remains valid in a finite dimensional space. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
 
@@ -37,6 +64,8 @@ Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax princip
 	\lambda_i \leq \lambda_i^h.
 \end{equation}
 
+
+\subsection{Estimating the eigenvalues.}
 \textbf{Rayleigh quotient}
 \begin{equation*}
 	R(v) = \frac{b(v,v)}{(v,v)} \ \text { for } v \in V.
@@ -103,21 +132,6 @@ For the requirements of this dissertation, this can be simplified with an assump
 
 This will be referred to as the approximation theorem in this section.
 
-\subsubsection*{Properties of eigenvalues}
-It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.
-
-Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i|| = 1$ for all $i$.
-
-Fix $m \in \mathbb{N}$. Let $\left\{ \phi_i \in V | i = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_i \in V | i = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
-
-The ordering of the eigenvalues remains valid in a finite dimensional space. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
-
-Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
-\begin{equation}
-	\lambda_i \leq \lambda_i^h.
-\end{equation}
-
-\subsection{Estimating the eigenvalues.}
 Let $E_j \in V$ denote the eigenspace spanned by the exact eigenvectors $\left\{u_1,u_2,...,u_j \right\}$ for $j = 1,2,...,m$.
 
 Then consider the subspace $S_j$ where
