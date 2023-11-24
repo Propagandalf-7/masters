@@ -103,7 +103,7 @@ The following notation is introduced.
 	\item[] $s(\Pi_e)$: Is a integer and the largest order derivative used in the definition of $\Pi_e$.
 \end{itemize}
 
-From the textbook \cite{OR76}, the following approximation theorem for finite elements is given verbatim:
+From the textbook \cite{OR76}, following approximation theorem for finite elements is given verbatim:
 \newtheorem*{Interpolation}{Theorem}
 \begin{Interpolation}[The Interpolation Theorem for Finite Elements] 
 	Let $\Omega$ be an open bounded domain in $\mathcal{R}^n$ satisfying the cone condition. Let $k$ be a fixed integer and $m$ an integer such that $0\leq m \leq k+1$. Let $\Pi \in L(H^{k+1}(\Omega), H^{m}(\Omega))$ be such that
@@ -145,7 +145,7 @@ Then consider the subspace $S_j$ of $S^h$ where
 
 Let $B_m = \left\{u \in e_m \ | \ ||u|| = 1 \right\}$ and define $\mu_m = \inf\left\{(Pu,Pu \ | \ u \in B_m)\right\}$.
 
-The first step to obtain estimates for the eigenvalues, it to show that the elements of $B_m$ are linearly independent. In the first part we follow the approach in \cite{Zie2000} (A Computable Spectral Theorem - Martin Ziegler - 2000). The author introduced the quantity $\mu_m$.
+The first step to obtain estimates for the eigenvalues, it to show that the elements of $B_m$ are linearly independent. In the first part we follow the approach in \cite{Zie2000} (A Computable Spectral Theorem - Martin Ziegler - 2000 ?). The author introduced the quantity $\mu_m$.
 
 \newtheorem{Prop_1}{Proposition}
 \begin{Prop_1}
@@ -248,18 +248,27 @@ Following Lemma \ref{Lem_1}, and since $\lambda_{i}^{h} \geq \lambda_{i}$ it fol
 \end{eqnarray*}
 
 
-\newtheorem{Cor_1}{Proposition}
+\newtheorem{Cor_1}[Prop_1]{Proposition}
 \begin{Cor_1}
 	$0 \leq \sigma_{m}^{h} < 1$ and $\lambda_{m}^{h} - \lambda_{m} \leq \lambda_{m}^{h}\sigma_{m}^{h}$
 \end{Cor_1}
 \begin{proof}
 	Starting with the result of Lemma \ref{Lem_1},
 	\begin{align*}
-		\lambda_{m}^{h} &\leq \frac{\lambda_{m}}{\mu_{m}^{h}} \\
-		\lambda_{m}^{h}\mu_{m}^{h} &\leq \lambda_{m} \\
-		-\lambda_{m} &\leq -\lambda_{m}^{h}\mu_{m}^{h} \\
-		\lambda_{m}^{h} - \lambda_{m} &\leq \lambda_{m}^{h} - \lambda_{m}^{h}\mu_{m}^{h} \\
-		\lambda_{m}^{h} - \lambda_{m} &\leq \lambda_{m}^{h}\sigma_{m}^{h}
+		\lambda_{m}^{h} &\leq \frac{\lambda_{m}}{\mu_{m}^{h}}, \\
+		\lambda_{m}^{h}\mu_{m}^{h} &\leq \lambda_{m}. \\
+	\end{align*}
+	This is equivalent to
+	\begin{align*}
+		-\lambda_{m} &\leq -\lambda_{m}^{h}\mu_{m}^{h}. 
+	\end{align*}
+	Add $\lambda_{m}^{h}$ to both sides
+	\begin{align*}
+		\lambda_{m}^{h} - \lambda_{m} &\leq \lambda_{m}^{h} - \lambda_{m}^{h}\mu_{m}^{h}. 
+	\end{align*}
+	And finally using the error bound $\sigma_{m}^{h} = 1 - \mu_{m}^{h}$,
+	\begin{align*}
+		\lambda_{m}^{h} - \lambda_{m} &\leq \lambda_{m}^{h}\sigma_{m}^{h}.
 	\end{align*}
 \end{proof}
 
@@ -269,7 +278,7 @@ This result gives an error estimate for the eigenvalues. To prove the convergenc
 \newtheorem{Prop_3}[Prop_1]{Proposition} 
 \begin{Prop_3}
 	\label{Prop_3}
-	$\sigma_{m}^{h} = \max\left\{ 2( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right\}$
+	$\sigma_{m}^{h} = \max\left\{ 2c( u,u-Pu )-||u-Pu||^{2} \ | \ u \in B_{m} \right\}$
 \end{Prop_3}
 \begin{proof}
 	Let $u \in B_{m}$. Then
@@ -325,8 +334,9 @@ Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{
 \end{proof}
 
 
-\newtheorem{Lem_2}[Lem_1]{Lemma} \label{Lem_2}
+\newtheorem{Lem_2}[Lem_1]{Lemma} 
 \begin{Lem_2}
+	\label{Lem_2}
 	$\sigma_{m}^{h} \leq \max \left\{2||u^{*}- Pu^{*}|| ||u-Pu|| \ | \ u \in B_{m} \right\}$
 \end{Lem_2}
 \begin{proof}
@@ -352,8 +362,9 @@ Introduce some new notation for ease of writing. For any $u \in E_{m}$, let $u^{
 	\end{eqnarray*}
 \end{proof}
 
-\newtheorem{Prop_5}[Prop_1]{Proposition} \label{Prop_5}
+\newtheorem{Prop_5}[Prop_1]{Proposition} 
 \begin{Prop_5}
+	\label{Prop_5}
 	For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
 	\begin{eqnarray*}
 	||u^{*} - Pu^{*}|| < \epsilon \ \textrm{ for each } u \in B_{m}\\
@@ -413,8 +424,9 @@ The convergence of the eigenvalues are now proved.
 \subsection{Convergence of the eigenfunctions}
 The next step is to show the convergence of the eigenfunctions. The problem can be formulated using the following result.
 
-\newtheorem{Lem_5}[Lem_1]{Lemma} \label{Lem_5}
+\newtheorem{Lem_5}[Lem_1]{Lemma} 
 \begin{Lem_5}
+	\label{Lem_5}
 	\begin{eqnarray*}
 		b(u_{m}-u_{m}^{h},u_{m}-u_{m}^{h}) &=& \lambda_{m}c( u_{m}-u_{m}^{h},u_{m}-u_{m}^{h} ) + \lambda_{m}^{h} - \lambda_{m}
 		\end{eqnarray*}
@@ -433,8 +445,9 @@ It has been shown that the eigenvalues converge to the exact eigenvalues as $h \
 
 At this point, another assumption must be made. Assume that there are not eigenvalues with multiplicity more than 1. In other words, all the eigenvalues correspond only to one eigenfunction. In \cite{SF73}, the authors mention that for repeated eigenvalues, then the eigenfunctions can be chosen so that the main convergence results hold. This case is ommited in this dissertation.
 
-\newtheorem{Lem_6}[Lem_1]{Lemma} \label{Lem_6}
+\newtheorem{Lem_6}[Lem_1]{Lemma} 
 \begin{Lem_6}
+	\label{Lem_6}
 	For all m and j
 	\begin{eqnarray*}
 	(\lambda_{j}^{h} - \lambda_{m}) c( Pu_{m}, u_{j}^{h}) = \lambda_{m} c( u_{m}-Pu_{m},u_{j}^{h} )
@@ -474,8 +487,9 @@ Therefore
 
 To simplify the notation, let $\beta = c(Pu_m,Pu_m^h)$.
 
-\newtheorem{Lem_7}[Lem_1]{Lemma} \label{Lem_7}
+\newtheorem{Lem_7}[Lem_1]{Lemma} 
 \begin{Lem_7}
+	\label{Lem_7}
 	\begin{eqnarray*}
 		||Pu - \beta Pu^h_m||^{2} &\leq & {\rho}^{2} ||u_{m} - Pu_{m}||^{2}
 	\end{eqnarray*}
@@ -493,8 +507,9 @@ Using Lemma \ref{Lem_6}:
 \end{proof}
 \end{comment}
 
-\newtheorem{Lem_8}[Lem_1]{Lemma} \label{Lem_8}
+\newtheorem{Lem_8}[Lem_1]{Lemma} 
 \begin{Lem_8}
+	\label{Lem_8}
 	\begin{eqnarray*}
 		||u_{m} - \beta u_{m}^{h}|| &\leq & \left(1+\rho\right)||u_{m}-Pu_{m}||
 	\end{eqnarray*}
@@ -513,8 +528,9 @@ The proofs for lemma's \ref{Lem_7} and \ref{Lem_8} are given in \cite{SF73}.\\
 So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}^{h}||\leq Ch^{k}||u^{k}||$.
 
 
-\newtheorem{Lem_9}[Lem_1]{Lemma} \label{Lem_9}
+\newtheorem{Lem_9}[Lem_1]{Lemma} 
 \begin{Lem_9}
+	\label{Lem_9}
 	\begin{eqnarray*}
 		||u_{m} -  u_{m}^{h}|| &\leq & 2||u_{m}-\beta u^{h}_{m}||
 	\end{eqnarray*}
