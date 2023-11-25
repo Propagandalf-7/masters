@@ -39,11 +39,44 @@ ordinary differential equations is derived using the Finite Element Method.
 Finally, the convergence of the Galerkin approximation is discussed using the
 work of the article \cite{BV13}.
 
-\textcolor{red}{*******NEED COME BACK TO THIS**********}
+\textcolor{red}{***************** NEW ********************************}
 
-Let $S^h$ denote a finite dimensional subspace of $V$.
+\subsubsection{*** Example of the Galerkin approximation of a cantilever Timoshenko beam ***}
+Consider the example of the cantilever Timoshenko beam model from Section \ref{sec:existence}. In this section the variational problem Problem T-2V is given in terms of bilinear forms.
 
-\textcolor{red}{*******NEED COME BACK TO THIS**********}
+\subsubsection{Problem T-2V}
+Find a function $u \in T[0,1]$ such that for all $t \in [0,1]$,
+\begin{eqnarray*}
+	c(u''(t),v) + b(u(t),v) & = & (Q(t),v),
+\end{eqnarray*} for each $v \in T[0,1]$.
+
+The interval $[0,1]$ is divided into $n$ equal subintervals $[x_{i}, x_{i+1}]$, each of length $\displaystyle h = \frac{1}{n}$, such that $x_i = ih$ for $i = 0,1,...,n$.
+
+Consider a a set of $n+1$ linear independent, piecewise linear basis functions $\delta_i \in T[0,1]$. The subset of these functions that satisfies the boundary conditions are called admissible basis functions. For Problem 2-T, the admissible basis functions are ${\delta_i}$ for $i = 1,2,...,n$. Define the space $S^h$ as the space spanned by the admissible basis functions, i.e.
+\begin{eqnarray*}
+	S^h = \textrm{span}\{\delta_1, \delta_2, ..., \delta_n\}.
+\end{eqnarray*}
+
+This space $S^h$ is a finite dimensional subspace of $T[0,1]$. Define the following functions $w^h \in S^h$ and $\phi^h \in S^h$ as
+\begin{eqnarray*}
+	w^h(t) & = & \sum_{i=1}^{n} w(x_i^*,t) \delta_i(t),\\
+	\phi^h(t) & = & \sum_{i=1}^{n} w(x_i^*,t) \delta_i(t),
+\end{eqnarray*} where $x^*_i \in [x_i, x_{i+1}]$.
+
+Using these functions, the Galerkin approximation for Problem T-2, referred to as Problem T-2G, can be derived.
+
+\subsubsection{Problem T-2G}
+Find a function $u_h \in S^h$ such that for all $t \in [0,1]$,
+\begin{eqnarray*}
+	c(u''_h(t),v) + b(u_h(t),v) & = & (Q^I(t),v),
+\end{eqnarray*} for each $v \in S^h$, where $u_h = \langle w^h, \phi^h \rangle$. $Q^I$ is a vector of the values of $Q(x^*_i)$ for $i = 0,1,2,...,n$.
+
+This example serves as an illustration of the derivation of the Galerkin approximation and the convention of symbols before the general case is presented. Piecewise linear basis functions are used for this example, but other basis functions can be used. In Chapter 5, the basis functions used are piecewise cubic Hermite polynomials.
+
+For the general case presented below, $S^h$ is a finite dimensional subspace of $V$.
+
+\textcolor{red}{***************** NEW ********************************}
+
 
 \subsubsection*{Problem GVar$^h$}
 Given a function $f: J \rightarrow X$, find a function $u_h \in C^2(J, S^h)$ such that for each $t\in J$
