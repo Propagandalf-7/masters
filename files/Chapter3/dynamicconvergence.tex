@@ -97,7 +97,7 @@ Problem GVar$^h$ is equivalent to a system of second order differential equation
 Using these matrices, Problem GVar$^h$ is rewritten as a system of ordinary
 differential equations denoted by Problem ODE. 
 
-Recall that $u^h(t) = \sum_{k} u_k(t)\phi_k$ where $\bar{u}_k = \left( u_1(t), u_2(t), ...  , u_n(t)\right)$.
+Recall that $u^h(t) = \sum_{k} u_k(t)\phi_k$ where $\bar{u}_k = \left( u_1(t), u_2(t), ...  , u_n(t)\right)$ where each $\phi_k$ corresponds to a node number $k$. More complex cases are treated in Chapter \ref{ch:finite-element-method}.
 
 \subsubsection*{Problem ODE}
 Find a function $\bar{u} \in S^h$ such that \label{sym:baru}
@@ -110,12 +110,12 @@ The following propositions related to Problem ODE are given in \cite{BV13}.
 
 \newtheorem{DC_Prop2}{Proposition}
 \begin{DC_Prop2}
-	If $F\in C(J)$, then Problem ODE has a unique solution for each pair of vectors $\bar{u}^h_0$ and $\bar{u}^h_1$
+	If $F\in C(J)$, then Problem ODE has a unique solution for each pair of vectors $\bar{u}_0$ and $\bar{u}_1$
 \end{DC_Prop2}
 
 \newtheorem{DC_Prop3}[DC_Prop2]{Proposition}
 \begin{DC_Prop3}
-	Suppose $M, K, C, F,{u}_0$ and ${u}_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
+	Suppose $M, K, C, F,\bar{u}_0$ and $\bar{u}_1$ are defined as above. Then, the function $u_{h}$ is a solution of Problem GVar$^{h}$ if and only if the function $\bar{u}$ is a solution of Problem ODE.
 \end{DC_Prop3}
 
 Proposition 2 provides a link between the solution of Problem ODE and the
@@ -128,7 +128,7 @@ solution of Problem GVar$^h$. Theorem 1 below follows.
 
 It is now required to find an approximation for the solution of $\bar{u}$ of Problem ODE.
 
-Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k) = u_k^h$ for each $k$. (Recall that $u_h(t) = \sum u_i(t)\phi_i$.) A finite difference method is used to compute $u^h_k$ for each $k$.
+Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\tau = \frac{T}{N}$. Each interval can be expressed as $[t_{k-1}, \ t_k]$ for $k = 1,...,N$. Denote the approximation of $u_h$ on the interval $[t_{k-1}, \ t_k]$ by $u_k^h$, i.e. $u_h(t_k)$ corresponds to $u_k^h$ for each $k$. (Recall that $u_h(t) = \sum u_i(t)\phi_i$.) A finite difference method is used to compute $u^h_k$ for each $k$.
 
 \subsection{Error estimates}\label{e_est}
 In this subsection we consider estimates for the error $u(t_k) - u^h_k$. To simplify the process, the error is divided into errors for the semi-discrete problem and the fully discrete problem.
@@ -140,24 +140,34 @@ Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVa
 	e^h(t) = u(t) - u^h(t). \label{Error}
 \end{eqnarray}
 
-\vspace*{40mm}
+In \cite{BV13} it is assumed that there exists a subspace $H$ of $V$ and a positive integer $\alpha$ such that
+\begin{eqnarray*}
+	\inf_{v\in S^{h}}\Vert w-v\Vert_{V}\leq{C}h^{\alpha}|||w|||_{H},
+\end{eqnarray*} for each $w \in H$ where $|||w|||_H$ is a norm or semi-norm for $H$.
 
+\newtheorem*{DC_Thm6_1}{Theorem 2}
+\begin{DC_Thm6_1}
+	If $u(t) \in H$ and $u'(t) \in H$ for each $t$, then
+	\begin{eqnarray*}
+		||e^h(t)||_W & \leq & C h^\alpha \left( |||u(t)||_H + |||u'(t)||_H \right),
+	\end{eqnarray*} for each $t$.
+\end{DC_Thm6_1}
 
-The error $e$, can now be expressed as
+From Theorem 2 for the semi-discrete problem an error estimate for
+$e(t) = [u(t)-u_h(t)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $e_k = [u_h(t_k) - u^h_k]$. 
+
+The error can then be expressed as
 \begin{eqnarray}
 	e(t_k) = u(t_k) - u^h_k & = & [u(t_k)-u_h(t_k)] + [u_h(t_k) - u^h_k]. \label{error_e}
 \end{eqnarray}
 
 In \eqref{error_e}, the the error for the semi-discrete problem is the term $u(t_k)-u_h(t_k)$ and the term $u_h(t_k) - u^h_k$ is the error for the fully disrete appreximation of the semi-discrete approximation.
 
-From Theorem 2 of the semi-discrete problem an error estimate for
-$e_k = [u(t_k)-u_h(t_k)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $e_k = [u_h(t_k) - u^h_k]$. 
-
 Since the dimension of $S^h$ is not fixed, the equivalence of norms
 cannot be used, and therefore this error estimate for $e_k = [u_h(t_k) - u^h_k]$
-should also be with respect to the norm of $W$.
+should also be with respect to the norm of $W$. The local error $e_1$ can be estimated using Taylor polynomials, but then $e_k$ `grows' as $k$ increases.
 
-A stability result is derived in \cite{BV13}.
+A stability result is derived in \cite{BV13}. Recall that $\displaystyle \tau = \frac{T}{N}$.
 
 \newtheorem*{DC_Lem3}{Lemma}
 \begin{DC_Lem3}
@@ -168,11 +178,10 @@ A stability result is derived in \cite{BV13}.
 \end{DC_Lem3}
 
 
-Using this lemma, \cite{BV13} prove the error estimate.
+Using this lemma, \cite{BV13} prove the error estimate. The error estimate for the term $[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors of \cite{BV13} is presented here as Theorem 3.
 
-\newtheorem*{DC_Thm5_1}{Theorem 2}
+\newtheorem*{DC_Thm5_1}{Theorem 3}
 \begin{DC_Thm5_1}
-	{Main Result}\\
 	If $f\in C^{2}([0,T],X)$, then
 	\begin{eqnarray*}
 		\Vert u(t_{k})-u_{k}^{h}\Vert_{W}\ & \leq & K\tau^2
@@ -180,18 +189,14 @@ Using this lemma, \cite{BV13} prove the error estimate.
 	for each $t\in(0,\ T)$.
 \end{DC_Thm5_1}
 
-Recall that $\displaystyle \tau = \frac{T}{N}$. The error estimate for the term
-$[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors
-of \cite{BV13} is presented here as Theorem 3.
-
+\subsection{Main result}
 Finally, Theorem 2 of the semi-discrete problem and Theorem 3 of the fully
 discrete problem gives an error estimate for the error $e(t)$. Consequently,
 the error estimate $e^h(t) = u(t) - u^h(t)$ is obtained.
 
-\subsection{Main result}
 The main result proving the convergence of the solution of the Galerkin
 Approximation is given in \cite{BV13} as follows.
-\newtheorem*{DC_Thm5}{Theorem 2}
+\newtheorem*{DC_Thm5}{Theorem 4}
 \begin{DC_Thm5}
 	{Main Result}\\
 	If $f\in C^{2}([0,T],X)$, then
@@ -201,7 +206,7 @@ Approximation is given in \cite{BV13} as follows.
 	for each $t\in(0,\ T)$.
 \end{DC_Thm5}
 
-The constant $K$ depend on $u_h$ and its derivatives.
+The constant $K$ depend on $u$, $u_h$ and their derivatives.
 
 
 \end{document}
