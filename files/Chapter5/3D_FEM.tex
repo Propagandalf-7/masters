@@ -189,7 +189,7 @@ Define a set of $n$-dimensional linear independent basis functions. For the thre
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
-For the this three-dimensional model, tri-cubix basis functions are used. These basis functions are an extension of the Hermite cubic basis functions from the two-dimensional model. Although this is more complex than using tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
+For the this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
 
 Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
@@ -321,7 +321,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 \end{document}
 
-Consider a set of $n$ linear independent three-dimensional scalar valued functions $\delta_i$. In this dissertation, these functions are tri-cubic basis functions (an extension of Hermite cubics from the two-dimensional model into three-dimensions). The functions $\delta_i$ satisfying the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Since there are a finite number if admissible basis functions, they can be numbered $\delta_1, \delta_2,...,\delta_k$.\\
+Consider a set of $n$ linear independent three-dimensional scalar valued functions $\delta_i$. In this dissertation, these functions are piecewise Hermite tri-cubic basis functions (an extension of Hermite cubics from the two-dimensional model into three-dimensions). The functions $\delta_i$ satisfying the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Since there are a finite number if admissible basis functions, they can be numbered $\delta_1, \delta_2,...,\delta_k$.\\
 
 Let $S^h$ be a $3k$-dimensional subset of $T(\Omega)$ where
 \begin{eqnarray*}

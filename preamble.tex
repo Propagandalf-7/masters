@@ -66,4 +66,20 @@
 \usepackage{cleveref}
 \usepackage{csquotes}
 \usepackage{biblatex}
+\usepackage{titlesec}
 
+% Redefine the \chapter command
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries\raggedright}{\thechapter}{1em}{}
+
+% Redefine the \section command
+\titleformat{\section}
+  {\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+
+% Redefine the \subsection command
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+
+% Redefine the \subsubsection command if needed
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}

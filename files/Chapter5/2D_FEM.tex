@@ -157,7 +157,7 @@ Divide the reference configuration $\Omega$ into a grid of rectangular elements,
 
 Define a set of $n$-dimensional linear independent basis functions. For the two dimensional model, the basis functions can be defined by the set $$B = \left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.$$ 
 
-These functions are chosen as bi-cubic functions $\phi_i$. Simpler bi-linear functions can also be used, however the use of the bi-cubic basis functions results in faster convergence and also the benefit of obtaining the derivatives of the solution at the expense of more complexity.
+These functions are chosen as piecewise Hermite bi-cubic functions $\phi_i$. Simpler bi-linear functions can also be used, however the use of the bi-cubic basis functions results in faster convergence and also the benefit of obtaining the derivatives of the solution at the expense of more complexity.
 
 The subset of basis functions $B$ that satisfies all the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Denote the admissible basis functions by $\delta_j$, where each $\delta_j$ is a unique element of $B$. The admissible basis functions can be numbered and expressed as the set $A = \left \{\delta_1, \delta_2,..., \delta_k \right\}$ for some $k \leq 2n$.\\ 
 
@@ -275,7 +275,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 Divide the reference configuration $\Omega$ into $n_1\times n_2$ nodes in a rectangular grid.\\
 
 Consider a set of 
-For this dissertation, we consider bi-cubic basis functions, however bi-linear basis functions can also be used.
+For this dissertation, we consider piecewise Hermite bi-cubic basis functions, however piecewise bi-linear basis functions can also be used.
 
 Consider a $n$-dimensional set of linearly independent two-dimensional scalar valued functions, denoted $\delta_i$. In this dissertation, these functions are chosen as bi-cubic functions, however simpler bi-linear functions can also be used.\\
 
