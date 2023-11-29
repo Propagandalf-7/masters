@@ -11,7 +11,7 @@ The following eigenvalue problem is considered in \cite{SF73}. The same problem 
 \subsubsection*{Problem E}
 Find a vector $u \in V$ and number $\lambda \in R$ such that $u \neq 0$ and
 \begin{equation}
-	b(u,v) = \lambda (u,v) \label{GEVP}
+	b(u,v) = \lambda c(u,v) \label{GEVP}
 \end{equation} for each $v \in V$.
 
 Recall that the eigenvectors can be ordered in such a way that \[\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...\] where $\lambda_i$ are the corresponding eigenvalues.
@@ -23,7 +23,7 @@ Let $\left\{ \phi_k \in V \ | \  k = 1,2,...,N_e \right\}$ be a set of linear in
 
 Consider the Galerkin approximation for \eqref{GEVP}:
 \subsubsection*{Problem $E^h$}
-Find $u^h \in S^h$ such that $u^h \neq 0$ and \[b(u^h, v) = \lambda^h(u^h,v) \textrm{ for all } v \in S^h.\] 
+Find $u^h \in S^h$ such that $u^h \neq 0$ and \[b(u^h, v) = \lambda^h c(u^h,v) \textrm{ for all } v \in S^h.\] 
 
 For examples, see Chapter 5.
 
@@ -34,7 +34,7 @@ Problem $E^h$ can be written as a matrix eigenvalue problem,
 
 Since $N_e$ is never small and usually large to very large, a compute algorithm is required to calculate the eigenvalues (and eigenfunctions) of \eqref{eq:matrix_eigenvalue}.
 
-The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to some of the teory to make the connection.
+The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to some of the theory to make the connection.
 
 In $S^h$, the ordering of vectors is the same as in the original space. Denote the normalized eigenvectors in the space $S^h$ as $u^h_k$ with corresponding eigenvalues $\lambda^h_k$ for $k = 1,2,...,N_e$.
 
@@ -87,7 +87,7 @@ Consider the subspace $S_j$ of $S^h$ where
 	S_j = PE_j \ \text{ for } j = 1,2,...,m.
 \end{equation*} 
 
-The elements $Pu_j$ are the projections of the eigenfunctions $u_j$ into the space $S^h$. These projections $Pu_j$ are not necessarily equal to $u^h \in S^h$. In fact, $u^h_j$  can be vastly different from $u_j$. The situation is not simple. It is possible that $Py_k = 0$ for large $k$ Assume that the dimension of $S^h$ is large enough, substantially larger than $m$.
+The elements $Pu_j$ are the projections of the eigenfunctions $u_j$ into the space $S^h$. These projections $Pu_j$ are not necessarily equal to $u^h \in S^h$. In fact, $u^h_j$  can be vastly different from $u_j$. The situation is not simple. It is possible that $Pu_k = 0$ for large $k$ Assume that the dimension of $S^h$ is large enough, substantially larger than $m$.
 
 Let $B_m = \left\{u \in E_m \ | \ ||u||_{W} = 1 \right\}$ and define $\mu_m = \inf\left\{(Pu,Pu \ | \ u \in B_m)\right\}$.
 
@@ -118,7 +118,7 @@ The first step to obtain estimates for the eigenvalues, it to show that the elem
 
 	Take an arbitrary nonzero $v \in S_m$. Then there exists a $Py \in E_m$ such that $v = Py$.
  
-	Now we take an arbitrary $v \in S_{m}$, $v \neq 0$. Then there exists a $u \in E_{m}$ such that $Py = v$. This $Py$ is the projection into $S_m$ of some $u \in E_m$ (which is also $\displaystyle \frac{1}{||u||_{W}}u \in B_m$).
+	Now we take an arbitrary $v \in S_{m}$, $v \neq 0$. Then there exists a $u \in E_{m}$ such that $Pu = v$. This $Pu$ is the projection into $S_m$ of some $u \in E_m$ (which is also $\displaystyle \frac{1}{||u||_{W}}u \in B_m$).
 	
 	Next we show that $R(||u||_{W}^{-1}u) = R(u)$:
 
@@ -313,7 +313,7 @@ Introduce some new notation for convenience. For any $u \in E_{m}$, let $u^{*} =
 \begin{proof}
 	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.
 
-	From the Rayleigh-Ritz Projection, $Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||_{W}\leq ||u-\Pi u||_{W}$, where $\Pi u$ is the interpolation of $u$ into $S^h$.
+	$Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||_{W}\leq ||u-\Pi u||_{W}$, where $\Pi u$ is the interpolation of $u$ into $S^h$.
 	
 	\textcolor{red}{Need to fix reference to approximation theorem. Need to wait until section 3.5 is done. The approximation theorem is moved to the end of section 3.5}
 
@@ -482,7 +482,7 @@ So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}
 	\end{eqnarray*}
 \end{proof}
 
-Therefore t $||u_{m} -  u_{m}^{h}||_{W} \leq Ch^{k}||u^{k}||_{W}$. So for any $\epsilon >0$ , a $\delta >0$ can be found such that if $h < \delta$, $||u_{m} -  u_{m}^{h}||_{W} < \epsilon$.
+Therefore $||u_{m} -  u_{m}^{h}||_{W} \leq Ch^{k}||u^{k}||_{W}$. So for any $\epsilon >0$ , a $\delta >0$ can be found such that if $h < \delta$, $||u_{m} -  u_{m}^{h}||_{W} < \epsilon$.
 
 
 \subsubsection{The approximation theorem}
