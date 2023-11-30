@@ -66,7 +66,7 @@ Using these functions, the Galerkin approximation for Problem T-2, referred to a
 Find a function $u_h \in S^h\times S^h$ such that for all $t \in [0,1]$,
 \begin{eqnarray*}
 	c(u''_h(t),v) + b(u_h(t),v) & = & (Q^I(t),v),
-\end{eqnarray*} for each $v \in S^h\times S^h$, where $u_h = ( w^h, \phi^h )$. $Q^I$ is a vector with elements $Q(x^*_i)$ for $i = 0,1,2,...,n$.
+\end{eqnarray*} for each $v \in S^h\times S^h$. For each $t$, $Q^I(t)$ is the interpolant of $Q(t)$ in $S^h$.
 
 This example serves as an illustration of the derivation of the Galerkin approximation and the convention of symbols before the general case is presented. Piecewise linear basis functions are used for this example, but other basis functions can be used. In Chapter 5, the basis functions used are piecewise cubic Hermite polynomials.
 

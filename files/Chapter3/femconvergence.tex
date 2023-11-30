@@ -1,9 +1,7 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{FEM computation of eigenvalues and eigenfunctions}
-\textcolor{red}{Change H to W?}
-
-Let $H$ be a Hilbert space with the inner product $c(\cdot,\cdot)$ and induced norm $||\cdot||_{W}$. Let $V$ be a linear subspace of $H$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that the bilinear form $b$ is symmetric and that the assumptions in Section \ref{sec:existence:ModalAnalysis} holds.
+Let $W$ be a Hilbert space with the inner product $c(\cdot,\cdot)$ and induced norm $||\cdot||_{W}$. In \cite{SF73}, the authors use a Hilbert space $H$, with inner product $(\cdot, \cdot)$ and induced norm $||\cdot||$. We remain with the notation that is consistent with this dissertation. Let $V$ be a linear subspace of $W$, with inner product defined by the bilinear form $b(\cdot,\cdot)$. It is assumed that the bilinear form $b$ is symmetric and that the assumptions in Section \ref{sec:existence:ModalAnalysis} holds.
 
 The following eigenvalue problem is considered in \cite{SF73}. The same problem was treated in Section \ref{sec:existence:ModalAnalysis}, although the notation differs slightly.
 
@@ -34,33 +32,16 @@ Problem $E^h$ can be written as a matrix eigenvalue problem,
 
 Since $N_e$ is never small and usually large to very large, a compute algorithm is required to calculate the eigenvalues (and eigenfunctions) of \eqref{eq:matrix_eigenvalue}.
 
-The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to some of the theory to make the connection.
+The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to understand some of the theory to make the connection.
 
 In $S^h$, the ordering of vectors is the same as in the original space. Denote the normalized eigenvectors in the space $S^h$ as $u^h_k$ with corresponding eigenvalues $\lambda^h_k$ for $k = 1,2,...,N_e$.
 
-In section \ref{sec:estimating_the_eigenvalues} it is proved that the error $| \lambda_k^h - \lambda_k|$ is large when $k$ is large. It is for example possible that $|\lambda^h_1 - \lambda_1|$ is sufficiently small while $\lambda^h_k$ cannot even be considered an approximation of $\lambda_k$ when $\displaystyle k > \frac{1}{2}N_e$.
+In section \ref{sec:estimating_the_eigenvalues} it is proved that the error $| \lambda_k^h - \lambda_k|$ is large when $k$ is large. It is for example possible that $|\lambda^h_1 - \lambda_1|$ is sufficiently small while $\lambda^h_k$ cannot even be considered as an approximation for $\lambda_k$ when $\displaystyle k > \frac{1}{2}N_e$.
 
 Finally, any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the approximate eigenvalues hold \cite{SF73}:
 \begin{equation}
 	\lambda_i \leq \lambda_i^h.
 \end{equation}
-
-\textcolor{red}{********* Hou voorlopig hier *************}
-\subsubsection*{Properties of eigenvalues}
-It is well known that the eigenvalues of a eigenvalue problem such as \eqref{GEVP} form an infinite sequence $(\lambda_i)$. Assume that the eigenvalues $\lambda_i$ can be ordered $\lambda_1 \leq \lambda_2 \leq \lambda_3 \leq ...$ and denote the corresponding eigenfunctions $u_i$.
-
-Since any multiple of a eigenfunction is still an eigenfunction, the eigenfunctions can be normalized so that $||u_i||_{W} = 1$ for all $i$.
-
-Fix $m \in \mathbb{N}$. Let $\left\{ \phi_k \in V | k = 1,2,...,m \right\}$ be a set of linear independent admissible basis functions. Define $S^h := \text{span}\left\{\phi_k \in V | k = 1,2,...,m\right\}$ so that $S^h$ is a finite dimensional subspace of V. \label{sym:natural} \label{sym:Sh1}
-
-
-The ordering of the eigenvalues remains valid in a finite dimensional space. The eigenvalues in the space $S^h$ is denoted as $\lambda_i^h$ with corresponding normalized eigenfunction $u^h_i$ for $i = 1,2,...,m$.
-
-Also any subspace of $S^h$ will also be a subspace of $V$. So the minmax principle applies and a lower bound for the eigenvalues can be found:
-\begin{equation}
-	\lambda_i \leq \lambda_i^h.
-\end{equation}
-\textcolor{red}{********* Hou voorlopig hier *************}
 
 \section{Estimating the eigenvalues.} \label{sec:estimating_the_eigenvalues}
 In this section, the work in the textbook \cite{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for greater clarity.
@@ -301,35 +282,25 @@ Introduce some new notation for convenience. For any $u \in E_{m}$, let $u^{*} =
 
 \subsection{Convergence of the eigenvalues}
 
-\newtheorem{Prop_5}[Prop_1]{Proposition} 
-\begin{Prop_5}
-	\label{Prop_5}
-	For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
-	\begin{eqnarray*}
-	||u^{*} - Pu^{*}||_{W} < \epsilon \ \textrm{ for each } u \in B_{m},\\
-	||u - Pu||_{W} < \epsilon \ \textrm{ for each } u \in B_{m}.
-	\end{eqnarray*}
-\end{Prop_5}
-\begin{proof}
-	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.
+% \newtheorem{Prop_5}[Prop_1]{Proposition} 
+% \begin{Prop_5}
+% 	\label{Prop_5}
+% 	For any $\epsilon > 0$, there exists a $\delta >0$ such that for $h<\delta$,
+% 	\begin{eqnarray*}
+% 	||u^{*} - Pu^{*}||_{W} < \epsilon \ \textrm{ for each } u \in B_{m},\\
+% 	||u - Pu||_{W} < \epsilon \ \textrm{ for each } u \in B_{m}.
+% 	\end{eqnarray*}
+% \end{Prop_5}
+% \begin{proof}
+% 	Consider a set of basis functions $\Phi \subset S^h$ such that $\phi^(k) = 0$ for each $\phi \in \Phi$.
+\subsubsection*{Assumption}
+For any $\epsilon > 0$ there exists a $\delta > 0$ such that if $h<\delta$, then
+\begin{eqnarray*}
+||u-Pu||_{W} < \epsilon \ \textrm{ for each } \ u \in B_{m}.
+\end{eqnarray*}
 
-	$Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||_{W}\leq ||u-\Pi u||_{W}$, where $\Pi u$ is the interpolation of $u$ into $S^h$.
+\textbf{Remark:} $Pu$ is the closest element in $S^h$ to $u$. In particular, $||u-Pu||_{W}\leq ||u-\Pi u||_{W}$, where $\Pi u$ is the interpolant of $u$ in $S^h$. The operator $\Pi$ is treated in Section \ref{sec:approximation_theorem}.
 	
-	\textcolor{red}{Need to fix reference to approximation theorem. Need to wait until section 3.5 is done. The approximation theorem is moved to the end of section 3.5}
-
-	From the Approximation Theorem given at the beginning of section \ref{sec:est}, is follows that
-	\begin{eqnarray*}
-		||u - \Pi u||_{W} \leq Ch^{k}||u^{(k)}||_{W}.
-	\end{eqnarray*}
-
-	So for any $\epsilon > 0$, a $\delta$ can be found such that if $h<\delta$ then
-	\begin{eqnarray*}
-		||u - Pu||_{W} \leq ||u - \Pi u||_{W} \leq \epsilon.
-	\end{eqnarray*}
-	A similar argument for $||u^{*} - Pu^{*}||_{W}$ proves the theorem.
-\end{proof}
-
-
 \newtheorem{Lem_3}[Lem_1]{Lemma} 
 \begin{Lem_3}
 	\label{Lem_3}
@@ -338,13 +309,8 @@ Introduce some new notation for convenience. For any $u \in E_{m}$, let $u^{*} =
 	\sigma_{m}^{h} < \epsilon \ \textrm{ if } \ h < \delta. \label{eq:lem3}
 	\end{eqnarray}
 \end{Lem_3}
-\begin{proof}
-	For any $\epsilon > 0$ there exists a $\delta > 0$ such that if $h<\delta$, then
-	\begin{eqnarray*}
-	||u-Pu||_{W} < \epsilon \ \textrm{ for each } \ u \in B_{m}.
-	\end{eqnarray*}
-	This result, together with Lemma \ref{Lem_2} and Proposition \ref{Prop_5} gives the result.
-\end{proof}
+
+Substitute the assumption into the estimate for $\sigma^h_m$ in Lemma \ref{Lem_2}.
 
 \newtheorem{Lem_4}[Lem_1]{Lemma} 
 \begin{Lem_4}
@@ -358,7 +324,7 @@ Introduce some new notation for convenience. For any $u \in E_{m}$, let $u^{*} =
 	Using Lemma \ref{Lem_3}, choose $\delta$ such that $\sigma_{m}^{h} < \frac{1}{2}$. Then (by Lemma \ref{Lem_1}) $\lambda_{m}^{h} < 2\lambda_{m}$ and therefore $\lambda_{m}^{h} - \lambda_{m} \leq 2\lambda_{m}\sigma_{m}^{h}$.
 \end{proof}
 
-The convergence of the eigenvalues follows from \eqref{eq:lem3} and \eqref{eq:lem4}.
+The convergence of the eigenvalues follows from \eqref{eq:lem3} and \eqref{eq:lem4}. An estimate of the error depends on an estimate for $u - \Pi u$, see Section \ref{sec:approximation_theorem}
 
 \section{Convergence of the eigenfunctions}
 The next step is to show the convergence of the eigenfunctions. The problem can be formulated using the following result.
@@ -484,9 +450,7 @@ So again using the Approximation Theorem, it follows that $||u_{m} - \beta u_{m}
 
 Therefore $||u_{m} -  u_{m}^{h}||_{W} \leq Ch^{k}||u^{k}||_{W}$. So for any $\epsilon >0$ , a $\delta >0$ can be found such that if $h < \delta$, $||u_{m} -  u_{m}^{h}||_{W} < \epsilon$.
 
-
-\subsubsection{The approximation theorem}
-
+\section{The approximation theorem} \label{sec:approximation_theorem}
 Consider a interpolation operator $\Pi$.\label{sym:interpolation} This projection is linear, i.e.
 \begin{align*}
 	\Pi(f + g) & = \Pi f + \Pi g,\\
@@ -531,6 +495,4 @@ For the requirements of this dissertation, this can be simplified with an assump
 		||(\Pi u)^{(m)} - u^{(m)}||_{W} \leq C h^{k-m} || u^{(k)}||_{W} \ \text{ for } m = 0,1,...,k.
 	\end{equation*}
 \end{Interpolation_2}
-
-This will be referred to as the approximation theorem in this section.
 \end{document}
