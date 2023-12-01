@@ -68,13 +68,20 @@
 
 \subfile{Appendix.tex}
 
-\printbibliography[heading=bibintoc]
+\printbibliography[heading=bibintoc, category=cited, title={Bibliography}]
+\printbibliography[heading=bibintoc, notcategory=cited, title={Secondary Bibliography}]
 
+\chapter*{MATLAB Code}
+\section*{Example code for Timoshenko beam model}
+\lstinputlisting{code/timoshenko_beam/TimoshenkoEig.m}
 
-% \chapter*{MATLAB Code}
-% \section*{Example code for Timoshenko beam model}
-% \lstinputlisting{code/timoshenko_beam/TimoshenkoEig.m}
+\section*{Example code for two-dimensional elastic body using bi-cubics}
+\lstinputlisting{code/two_dimensional_model/TwoDimensionalCantileverCubic.m}
 
+\section*{Example code for Reissner-Mindlin plate model using bi-cubics}
+\lstinputlisting{code/plate_model/PlateCantileverCubic.m}
 
+\section*{Example code for three-dimensional elastic body using tri-cubics}
+\lstinputlisting{code/three_dimensional_model/Copy_of_CubePC.m}
 
 \end{document}

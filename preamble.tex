@@ -67,7 +67,6 @@
 % Additional packages
 \usepackage{cleveref}
 \usepackage{csquotes}
-\usepackage{biblatex}
 \usepackage{titlesec}
 
 % Redefine the \chapter command
@@ -114,3 +113,7 @@
   tabsize=2,
   frame=single
 }
+
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+
