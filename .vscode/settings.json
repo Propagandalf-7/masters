@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
         "eigenfunctions",
-        "Galerkin"
+        "Galerkin",
+        "Mindlin",
+        "Reissner"
     ],
     "files.exclude": {
         "**/.git": true,

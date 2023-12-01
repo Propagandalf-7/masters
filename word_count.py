@@ -1,0 +1,18 @@
+# A python script to count the words of a given text string.
+
+
+text = """This dissertation is a literature study that investigates the validity of different linear models in application. Validity in this context refers to how well simplified lower dimensional models compare to more realistic higher dimensional models. This dissertation will investigate the validity of the Timoshenko beam theory and the Reissner-Mindlin plate theory. The higher dimensional models are a two- and three-dimensional beam and a three-dimensional plate. The models are provided in the first chapter
+
+Next, a discussion of the existence and uniqueness of solutions for a general vibration problem. The article discussed provide four assumptions, and prove there exists an infinitesimal generator of a $C_0$-semigroup of contractions, that rewrites the problem into an initial value problem, with a unique solution. The authors then prove this is also a solution of the general vibration problem. An application of this theory is demonstrated using a cantilever Timoshenko beam. \textcolor{red}{Modal analysis is crucial to this dissertation. We show that the solution of the general vibration problem is a linear combination of the eigenvalues and eigenfunctions. This is the foundation of the comparisons of the models in this dissertation.}
+
+Thereafter a discussion of two theoretical results for the Finite Element Method. The first result is from an article where the convergence of the Galerkin Approximation is proved. \sout{A Galerkin Approximation of the general vibration problem is derived.} Using the Finite Element Method, this Galerkin Approximation is rewritten into an initial value problem, that has a unique solution. The authors show that there exists error estimates that approximate the error between the general vibration problem and the initial value problem. The next result is from a textbook on the convergence of the eigenvalues and eigenvectors of a one-dimensional vibration problem. This is based of work done in a textbook, but the notation is updated and some proofs are expanded.
+
+The forth chapter discusses results for the Timoshenko beam theory. First an article is examined that provides a method to calculate the exact eigenvalues and eigenvectors. The method is then applied to a cantilever and a free-free beam model. \textcolor{red}{Thereafter, the validity of the Timoshenko beam theory is investigated, by comparing a Timoshenko beam model to a two-dimensional beam model. The comparison is made by comparing the eigenvalues and eigenvectors.} Next is a discussion of an empirical study, that compares the natural frequencies of a physical free-free beam to the theoretical results of the Timoshenko beam theory. \sout{Finally an extension on a technical report of a cantilever Timoshenko beam with a tip-body and elastic interfaces. This model serves as an example of the application of the Timoshenko theory in a complex model and adds to the article by expanding the numerical results.}
+
+In the fifth chapter, the Finite Element Method is applied to the two and three-dimensional models of this dissertation. The goal of this chapter is to obtain a numerical formula \textcolor{red}{to solve the eigenvalue problems,} \sout{that can be used to calculate the eigenvalues and eigenvectors of the models in} preparation for the final chapter where the models are compared.
+
+The last chapter extends the numerical results of the dissertation to a comparison of a two-dimensional model to a three-dimensional beam model and a comparison of a Reissner-Mindlin plate model to a three-dimensional plate model."""
+
+word_count = len(text.split())
+
+print("The text contains {} words".format(word_count))
