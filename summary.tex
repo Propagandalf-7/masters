@@ -14,21 +14,22 @@
 \begin{center}
 	\large \textbf{Summary}
 \end{center}
-This dissertation is a literature study, investigating the Finite Element Analysis of multidimensional and simplified beam and plate models. The Timoshenko beam and Reissner-Mindlin plate theories are popular theories used in mathematics and engineering. An example of ongoing research using these theories is the study of suspension bridges. The articles \cite{Mck99}, \cite{BOC20} are examples of mathematical studies while \cite{SV86} follows an engineering approach.\\
 
+This dissertation is a literature study that investigates the validity of different linear models in application. Validity in this context refers to how well simplified lower-dimensional models, such as the Timoshenko beam and Reissner-Mindlin plate models, compare to more realistic higher-dimensional models, including a two-dimensional beam, and three-dimensional beam and plate models. The models in this dissertation are all special cases of a general vibration problem. 
 
- This dissertation is a literature study on the Finite Element Analysis 
- \begin{itemize}
-	\item Considering linear mathematical model s for elastic beams and plates.
-	\item Focus is on the one-dimensional Timoshenko beam theory and two-dimensional Reissner-Mindlin plate theory
-	\item Also require two and three-dimensional beam models and a three-dimensional plate model
-	\item Models are used in variational form (Chapter 1)
-	\item Existence and uniqueness of solutions (Chapter 2)
-	\item Convergence of FEM (Chapter 3)
-	\item Chapter 4: - Timoshenko beam theory - Modal analysis - Examples of calculating eigenvalues and eigenvectors - Emperical study - Tipbody model with numerical results.
-	\item Chapter 5: FEM applied to cantilever 3D, 2D and plate elastic bodies
-	\item Chapter 6: Validity of Timo and Reissner-Mindlin Models
-\end{itemize}
+First, the dissertation examines the existence and uniqueness of the general vibration problem. An example is used to to explain the theory, which is then subsequently applied to by proving that the assumptions are satisfied. 
 
+Following this, the concept of modal analysis is introduced using an example, before delving into the general case. These results on modal analysis are crucial to the dissertation, as they explain that the solutions of the models will compare well if the eigenvalues and eigenfunctions of the models compare well.
 
+The dissertation then explores two theoretical results for the Finite Element Method (FEM). The initial result involves an analysis of an article on the convergence of the Galerkin Approximation. The findings of the article are reformulated as theorems with simplified notation for clearer presentation
+
+Subsequently, the dissertation reviews results from a textbook regarding the convergence of eigenvalues and eigenfunctions in a general vibration problem when utilizing FEM. These results are adapted with updated notation and expanded upon for a more comprehensive explanation of the theory.
+
+Concerning the Timoshenko beam model, the dissertation investigates an article that presents a method to calculate the exact solutions of the eigenvalue problem. Two practical examples are provided to illustrate the application of this method. Additionally, the dissertation looks at an article that compares the theoretical results of the eigenvalue problem with an empirical study done by the authors.
+
+For the remaining models, the dissertation employs FEM to solve the eigenvalue problems. The boundary value problems of each model is rewritten as systems of ordinary differential equations in matrix form using FEM. The eigenvalue problems are then derived from this matrix representation. Piecewise Hermite cubic basis functions are used, and the solutions of the eigenvalue problems are approximated using MATLAB scripts.
+
+In investigating the validity of simplified models, the dissertation first considers an article comparing the Timoshenko beam model to a two-dimensional beam model. The authors method of comparison is discussed, and their results are replicated with a higher degree of accuracy. The dissertation then extends this approach to assess the validity of a two-dimensional beam model and a Reissner-Mindlin plate model, using the three-dimensional model as reference. The method to compare the models are the same as in the article. First the eigenvalues are calculated, sorted and matched by analyzing the corresponding mode shapes. The mode shapes are also used to identify eigenvalues specific to beam- and plate-type problems. The error can then be calculated. Different shapes of beams and plate models are considered that are realistic in application. 
+
+The derivation and comparison of the two and three-dimensional models is the main contribution of this dissertation.
 \end{document}
