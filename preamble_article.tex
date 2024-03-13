@@ -1,4 +1,5 @@
-\usepackage[margin=1.5in]{geometry}
+\documentclass{elsarticle}
+
 \usepackage{subfiles}
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
 \usepackage{enumitem}
@@ -12,8 +13,6 @@
 \usepackage{placeins}
 \usepackage{comment}
 \usepackage[normalem]{ulem}
-\usepackage[backend=biber,style=alphabetic,defernumbers=true]{biblatex}
-\addbibresource{references.bib}
 \usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{adjustbox}
@@ -24,10 +23,14 @@
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{natbib}
+\usepackage{cleveref}
+\usepackage{csquotes}
+% \usepackage{showkeys}
+
 \hyphenation{Timoshenko}
 
 \keepXColumns
-
 
 % Set up hyperref
 \hypersetup{
@@ -64,29 +67,7 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\ang}{\langle}{\rangle}
 
-% Additional packages
-\usepackage{cleveref}
-\usepackage{csquotes}
-\usepackage{titlesec}
-
-% Redefine the \chapter command
-\titleformat{\chapter}[block]
-  {\normalfont\huge\bfseries\raggedright}{\thechapter}{1em}{}
-
-% Redefine the \section command
-\titleformat{\section}
-  {\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
-
-% Redefine the \subsection command
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
-
-% Redefine the \subsubsection command if needed
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
-
-
-  % Define colors
+% Define colors
 \definecolor{mGreen}{rgb}{0,0.6,0}
 \definecolor{mGray}{rgb}{0.5,0.5,0.5}
 \definecolor{mPurple}{rgb}{0.58,0,0.82}
@@ -114,6 +95,5 @@
   frame=single
 }
 
-\DeclareBibliographyCategory{cited}
-\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
-
+% \DeclareBibliographyCategory{cited}
+% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}

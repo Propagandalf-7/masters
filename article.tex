@@ -1,35 +1,45 @@
-\documentclass[11pt]{article}
-\input{preamble.tex}
-\geometry{
-  left=1in,
-  right=1in,
-  top=1in,
-  bottom=1in,
-}
-
-
-\title{Validity of a model for a cantilever two-dimensional beam}
-\author{Rudi du Toit}
-\date{\today}
+% \documentclass[11pt]{elsarticle}
+\input{preamble_article.tex}
+% \usepackage{geometry}
+% \geometry{
+%   left=1in,
+%   right=1in,
+%   top=1in,
+%   bottom=1in,
+% }
 
 \begin{document}
 
-\maketitle
+\begin{frontmatter}
+
+\title{Validity of a model for a cantilever two-dimensional beam}
+
+\author{Rudi du Toit}
+\address{Department of Mathematics, University of Pretoria, Pretoria, South Africa}
+
+\journal{Applied Mathematics and Computation}
 
 \begin{abstract}
-Beams are three-dimensional objects. But often, simplified models are used to study the vibration of beams. These simplified models are less complex and easier to solve numerically. But the validity of these simplified models is not always clear. In this article, the validity of a two-dimensional model for a cantilever beam is investigated. The two-dimensional model is compared to a three-dimensional model. 
+Beams are wildly used in engineering. The the real world, beams are complex three-dimensional objects. But often, simplified models are used to study the vibration of beams. These simplified models are less complex and computationally less expensive. But the validity of these simplified models is not always clear. In this article, the validity of a two-dimensional model for a cantilever beam is investigated. The two-dimensional model is compared to a three-dimensional model.
 \end{abstract}
 
-\noindent \textbf{Keywords:} beam, cantilever, modal analysis, finite element method, two-dimensional model, three-dimensional model
+\begin{keyword}
+	Beam \sep Cantilever \sep Two-Dimensional Model \sep Three-Dimensional Model \sep Vibration Problems
+\end{keyword}
+
+
+\end{frontmatter}
 
 \section{Introduction}
-In this article, the validity of a model for a cantilever two-dimensional beam is investigated. This is an extention of the work done in the article \cite{LVV09}. In this article, the authors investigates the validity of a Timsohenko beam using a two-dimensional model as a reference. 
+In the article \cite{LVV09}, the authors investigate the validity of a Timoshenko beam using a two-dimensional model as a reference. The two-dimensional model is a simplified model of the Timoshenko beam. The authors use the Finite Element Method (FEM) to solve the eigenvalue problem for the two models. The results are then compared to determine the validity of the two-dimensional model.
 
-But a more realistic model for a beam would be a three-dimensional model. In this article, the validity of the two-dimensional model is compared to the three-dimensional model. First the three-dimensional model is presented and the two-dimensional model is derived from the three-dimensional model. Then the existence and uniqueness of solutions for the two models are briefly discussed.
+In this article, \cite{LVV09} is extended and the validity of a two-dimensional model is investigated, using a three-dimensional model as a reference. Similar to \cite{LVV09}, the investigation focusses on beam-type problems.
 
-The concept of modal analysis is then introduced. Modal analysis is a useful tool in the comparison of linear models. The idea of modal analysis is discussed and how it enables the comparison of linear models.
+The models are presented in a dimensionless variational form. It is also explained how the two-dimensional model is derived from the three-dimensional model, as a special case of plane stress. The existence and uniqueness of solutions for the two models are briefly discussed.
 
-Using the Finite Element Method (FEM), a formula for the models are obtained to solve the eigenvalue problem for the two models. The eigenvalue problem is then solved numerically. The results are then compared to determine the validity of the two-dimensional model. Following modal analysis, the models are compared by comparing the eigenvalues and eigenvectors of the two models.
+The concept of modal analysis is then introduced using a general vibration problem. From modal analysis, the formal series solution for the vibration problem is obtained. This formal series solution is a linear combination of the eigenvectors and eigenvalues of the problem. This enables us to compare the solutions of the two models, by only considering a comparison of the eigenvectors and eigenvalues.
+
+Using the Finite Element Method (FEM), a formula for the models are obtained to numerically solve the eigenvalue problem for the two models. The eigenvalues are matched up by comparing the mode shapes, and the eigenvalues are then compared. 
 
 
 \section{Models}
@@ -231,7 +241,7 @@ $\varepsilon_{33}$ in \eqref{strain_comp} to obtain
 This is known as general plane stress.
 
 \subsection{Two-dimensional model} \label{ssec:2D_Model}
-Using \cite{Sadd05} as a guide, a special case of general plane stress is considered. In this special case, a two-dimensional model is obtained.
+For the two-dimensional modek, a special case of general plane stress is considered.
 
 Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$; $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
 \begin{eqnarray}
@@ -307,9 +317,8 @@ Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
 \end{align}
 for all $\phi \in T(\Omega)$.
 
-
 \section{Existance and uniqueness of solutions}
-Our two models, the three-dimensional modela and the two-dimensional model, concern the vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. The articles \cite{VV02} and \cite{VS19} provide existence and uniqueness results for these type of problems. In \cite{VV02}, it is assumed that $b$ is symmetric. \cite{VS19} extends the results of \cite{VV02} to the case where $b$ is not symmetric. For the models in the article, \cite{VV02} is a sufficient reference.
+Our two models, the three-dimensional modela and the two-dimensional model, concern the vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. The articles \cite{VV02} and \cite{VS18} provide existence and uniqueness results for these type of problems. In \cite{VV02}, it is assumed that $b$ is symmetric. \cite{VS18} extends the results of \cite{VV02} to the case where $b$ is not symmetric. For the models in the article, \cite{VV02} is a sufficient reference.
 
 Let $V$, $W$ and $X$ be Hilbert spaces such that $V \subset W \subset X$.
 \begin{itemize}
@@ -462,6 +471,7 @@ The results on modal analysis and the validity of the series solution enable the
 The validity of the series solution also ensures that the comparisons remain valid, no matter the inital distrubance of the models. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
 
 \section{Finite Element Method}
+In the section, the Finite Element Method (FEM) is applied to the models to obtain an eigenvalue problem that can be solved numerically.
 
 \subsection{Two-dimensional model}\label{ssec:2D_Model:FEM}
 Consider a cantilever two-dimensional elastic body, with a rectangular cross-section.
@@ -1035,6 +1045,8 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	M\lambda{\bar{u}} & = & K\bar{u}.
 \end{eqnarray}
 
+Now Problem 2DE and Problem 3DE can be solved using a computer program. Iterative methods, sparse matrices as well as parallel computing can be used to efficiently solve these problems.
+
 \section{Validity of a model for a cantilever two-dimensional beam} \label{sec:validity-of-a-2d-beam}
 As mentioned in the introduction of the chapter, a beam is a three-dimensional body and therefore a three-dimensional model is more realistic. However the authors of \cite{LVV09} mention that a direct comparison of the one and three-dimensional models will have complexities and they suggest using the two-dimensional model as an intermediate step.
 
@@ -1535,6 +1547,7 @@ For both models, the Finite Element Method is applied and a numerical formula is
 
 For the comparison, the eigenvalues are matched up by comparing the mode shapes. The results of this article shows that the two-dimensional beam model compares very well to the three-dimensional beam model different shapes of beams. The shape of the beam however is crucial to how well the comparison is. The two-dimensional model compares best when the three-dimensional beam is thin and long, and less well when the three-dimensional beam is short and thick. The two-dimensional model does not compare well to the three-dimensional model when the width $b$ is larger than the height $h$. However a better suited model for this case might be a plate model.
 
-\printbibliography[heading=bibintoc, category=cited, title={Bibliography}]
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
 
 \end{document}
