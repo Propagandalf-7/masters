@@ -12,471 +12,578 @@
 
 \begin{frontmatter}
 
-\title{Validity of a model for a cantilever two-dimensional beam}
+\title{Comparison of linear beam theories}
 
-\author{Rudi du Toit}
+\author{Rudi du Toit\corref{cor1}}
+\ead{u15000258@tuks.co.za}
+\cortext[cor1]{Corresponding author}
+\author{Prof N.F.J. van Rensburg}
 \address{Department of Mathematics, University of Pretoria, Pretoria, South Africa}
 
 \journal{Applied Mathematics and Computation}
 
 \begin{abstract}
-Beams are wildly used in engineering. The the real world, beams are complex three-dimensional objects. But often, simplified models are used to study the vibration of beams. These simplified models are less complex and computationally less expensive. But the validity of these simplified models is not always clear. In this article, the validity of a two-dimensional model for a cantilever beam is investigated. The two-dimensional model is compared to a three-dimensional model.
+Beams, while commonly used in engineering, are complex three-dimensional objects. Simplified models are often used in vibration problems due to their reduced complexity and computational demand. However, the accuracy of these models in practical applications is not always certain. This article extends previous research to examine a two-dimensional cantilever beam model's validity using modal analysis and the Finite Element Method (FEM), comparing its solutions with those of a three-dimensional model. Our findings reveal that the beam's shape is a crucial factor in the model's validity for practical applications. For the appropriate beam shapes, the two-dimensional model is a valid approximation of the three-dimensional model. 
 \end{abstract}
 
 \begin{keyword}
-	Beam \sep Cantilever \sep Two-Dimensional Model \sep Three-Dimensional Model \sep Vibration Problems
+	Beams \sep Cantilever Beams \sep Two-Dimensional Models \sep Three-Dimensional Models \sep Vibration Analysis \sep Modal Analysis \sep Finite Element Method
 \end{keyword}
 
 
 \end{frontmatter}
 
 \section{Introduction}
-In the article \cite{LVV09}, the authors investigate the validity of a Timoshenko beam using a two-dimensional model as a reference. The two-dimensional model is a simplified model of the Timoshenko beam. The authors use the Finite Element Method (FEM) to solve the eigenvalue problem for the two models. The results are then compared to determine the validity of the two-dimensional model.
-
-In this article, \cite{LVV09} is extended and the validity of a two-dimensional model is investigated, using a three-dimensional model as a reference. Similar to \cite{LVV09}, the investigation focusses on beam-type problems.
-
-The models are presented in a dimensionless variational form. It is also explained how the two-dimensional model is derived from the three-dimensional model, as a special case of plane stress. The existence and uniqueness of solutions for the two models are briefly discussed.
-
-The concept of modal analysis is then introduced using a general vibration problem. From modal analysis, the formal series solution for the vibration problem is obtained. This formal series solution is a linear combination of the eigenvectors and eigenvalues of the problem. This enables us to compare the solutions of the two models, by only considering a comparison of the eigenvectors and eigenvalues.
-
-Using the Finite Element Method (FEM), a formula for the models are obtained to numerically solve the eigenvalue problem for the two models. The eigenvalues are matched up by comparing the mode shapes, and the eigenvalues are then compared. 
-
-
-\section{Models}
-\subsection{Three-dimensional model}
-Consider a vector valued displacement function $u \in \Omega \subset R^3$.
-
-\subsubsection*{Equation of motion}\label{ssec:3D_Model:EquationOfMotion}
-\begin{eqnarray}
-	\rho\partial_t^2 u & = & \textrm{div}T + Q. \label{eq:3D_Model:EM}
-\end{eqnarray} \label{sym:rho} \label{sym:partial_diff} \label{sym:T} \label{sym:Q}
-
-Here $\rho$ is the density, $T$ is the stress tensor, and $Q$ is the external 
-force per unit volume and $\textrm{div}T$ is the divergence of the tensor $T$ and represented by
-\begin{eqnarray}
-	\textrm{div}  T & = &
-	\begin{bmatrix}
-		\partial_1 \sigma_{11} + \partial_2 \sigma_{12} + \partial_3 \sigma_{13} \\
-		\partial_1 \sigma_{21} + \partial_2 \sigma_{22} + \partial_3 \sigma_{23} \\
-		\partial_1 \sigma_{31} + \partial_2 \sigma_{32} + \partial_3 \sigma_{33}
-	\end{bmatrix}. \label{eq:3D_Model:divT}
-\end{eqnarray}
-
-Assuming only small vibrations, the stress tensor $T$ is symmetric due to small
-local displacements and rotations. The trace of the stress tensor $T$ is denoted
-\begin{eqnarray}
-	\textrm{Tr}(T) & = & \sigma_{11} + \sigma_{22} + \sigma_{23}. \label{eq:stress_tensor_t}
-\end{eqnarray}
-
-\subsubsection*{Constitutive Equation}
-For an isotropic material, Hooke's law can be written in terms of Young's modulus $E$ and Poisson's ratio $\nu$ as follows.
-
-\textbf{Hooke's law}
-\begin{eqnarray}
-	\mathcal{E} = \left( \frac{1+\nu}{E} \right)T - \frac{\nu}{E}\textrm{Tr}(T)I,  \label{eq:3D_Model:HL}
-\end{eqnarray} The components of the strain tensor $\mathcal{E}$ are defined as
-\begin{eqnarray}
-	\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right). \label{eq:3D_Model:Strain}
-\end{eqnarray}\label{sym:varepsilonij}
-
-If the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be written in an alternative form.
-
-\textbf{Hooke's law in the alternative form}
-\begin{eqnarray}
-	T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
-\end{eqnarray}
-With $\textrm{Tr}(\mathcal{E}) = \epsilon_{11} + \epsilon_{12} + \epsilon_{13}$ is the trace of the strain operator $\mathcal{E}$.
-
-In this form, Hooke's law is the constitutive equation for the three-dimensional model.
-
-\subsection{Dimensionless form} \label{ssec:3D_Model:DimensionlessForm}
-Suppose $\ell$ represents some notable dimension (e.g.the length) of the elastic body 
-and $G$ the shear modulus of elasticity.
-
-Set \[\tau = \frac{t}{t_0},\quad \xi_i = \frac{x_i}{\ell},\quad {u}^*(\xi,\tau) = \frac{1}{\ell}{u}(x,t), \quad Q^{*} = \ell G \kappa^2 Q, \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]\label{sym:t}\label{sym:G}\label{sym:tau}\label{sym:xi}\label{sym:Qstar}\label{sym:sigmaijstar}\label{sym:ell}\label{sym:kappa2}
-
-where $\kappa^2$ is a dimensionless constant and $t_0$ must be specified. Choose \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}} \textrm{ and } \gamma= \frac{G\kappa^2}{E}.\]
-
-Substitution into \eqref{eq:3D_Model:EM} and yields
-\begin{eqnarray*}
-	\partial_{\tau} u^{*} = \textrm{div}T^* + Q^* \textrm{ where } T^* = \sigma_{i,j}^*(\xi,\tau).
-\end{eqnarray*}
-
-The dimensionless forms of \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
-\begin{eqnarray*}
-	\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right],
-\end{eqnarray*}\label{sym:I}
-
-and
-\begin{eqnarray*}
-	T^* = \frac{E}{G \kappa^2} \left[\left( \frac{1}{1+\nu} \right)\mathcal{E} + \frac{\nu}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \right].
-\end{eqnarray*}
-
-Using the dimensionless constant $\gamma$,
-\begin{eqnarray}
-	\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \textrm{Tr}(T^*)I \label{DM_H_E}
-\end{eqnarray}
-and
-\begin{eqnarray}
-	T^* = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I. \label{DM_H_T}
-\end{eqnarray}
-
-\textbf{Remark} The constants introduced are the same as those in \cite{LVV09}. They simplify the equations and allow for comparisons to other models such as the Timoshenko beam model, although that is not covered in this article.
-
-The original notation is retained for convenience.
-
-\subsubsection*{Equations of motion in dimensionless form}\label{sssec:3D_Model:EquationOfMotionDimensionless}
-\begin{eqnarray}
-	\partial_t^2 u & = & \textrm{div}T + Q \label{eq:3D_Model:EM-D}
-\end{eqnarray}
-with
-\begin{eqnarray}
-	\textrm{div}  T & = &
-	\begin{bmatrix}
-		\partial_1 \sigma_{11} + \partial_2 \sigma_{12} + \partial_3 \sigma_{13} \\
-		\partial_1 \sigma_{21} + \partial_2 \sigma_{22} + \partial_3 \sigma_{23} \\
-		\partial_1 \sigma_{31} + \partial_2 \sigma_{32} + \partial_3 \sigma_{33}
-	\end{bmatrix}.\label{eq:3D_Model:divT-D}
-\end{eqnarray}
-
-\subsubsection*{Constitutive equations in dimensionless form}\label{sssec:3D_Model:ConstitutiveEquationsDimensionless}
-\begin{eqnarray}
-	T = \frac{1}{\gamma(1+\nu)} \mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE-D}
-\end{eqnarray}
-
-\subsection{Model problems}\label{ssec:3D_Model}
-Divide the boundary of $\Omega$ into two distinct parts, referred to as $\Sigma$ and $\Gamma$. The following will be considered a model problem for a three-dimensional elastic body. 
-The following will be considered a model problem for a three-dimensional elastic body (also for the two-dimensional elastic body).
-\begin{enumerate}
-	\item[] The equations of motion \eqref{eq:3D_Model:EM-D} and \eqref{eq:3D_Model:divT-D} is satisfied in $\Omega$;
-	\item[] Hooke's law \eqref{eq:3D_Model:CE-D} is satisfied in $\Omega$;
-	\item[] The displacement $u = u_\Sigma$ is specified on
-		$\Sigma$; The traction $Tn = t_\Gamma$ is specified on
-		$\Gamma$.
-\end{enumerate} \label{sym:n}\label{sym:SigmaGamma}
-
-\subsubsection{Problem 3D}
-Find a vector valued function $u$, satisfying equations
-\eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the following boundary
-conditions:
-
-Boundary Conditions:
-\begin{eqnarray*}
-	u & = & 0 \quad \textrm{ on } \Sigma\\
-	Tn & = & 0 \quad \textrm{ on } \Gamma
-\end{eqnarray*} With $n$ the outward normal vector to $\Omega$. This model problem is a cantilever three-dimensional body.
-
-\subsection{Variational form}\label{ssec:3D_Model:VariationalForm}
-Define the bilinear forms
-\begin{eqnarray}
-	b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
-	\textrm{Tr}(\Phi) ~dV \label{eq:3D_Model:Bilinear}
-\end{eqnarray}\label{sym:b}
-and
-\begin{eqnarray}
-	c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dV \label{eq:3D_Model:Bilinear_c}
-\end{eqnarray}
-with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.
-
-Also define the integral
-\begin{eqnarray}
-	(f,g) &=& \int_{\Omega} f\cdot g \ dV \label{eq:3D_Model:Bilinear_int}
-\end{eqnarray}
-
-Define the following set of test functions $T(\Omega)$ for Problem 3D:
-\begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}
-\end{eqnarray*}\label{sym:TOmega}
-
-The variational problem of Problem 3DV is given as:
-\subsubsection{Problem 3DV}\label{sssec:3D_Model:Problem3D1V}
-Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
-\begin{align}
-	c(u,\phi) = -b(u,\phi) + (Q,\phi), \label{eq:3D_Model:Problem3D1VEq}
-\end{align}
-for all $\phi \in T(\Omega)$
-
-\subsection{Plane stress}\label{ssec:3D_Model:PlaneStress}
-Stresses acting parallel to a single plane are referred to as plane stress. 
-Consider the right-hand orthonormal set $\left\{e_1, e_2, e_3\right\}$. Without
-loss of generality, assume the stresses act parallel to the $e_1$-$e_2$ plane
-i.e. $\sigma_{3i} = 0$ for all $i$. From Hooke's Law \eqref{DM_H_E} the
-following equations are obtained: \label{sym:e_i}
-
-\begin{equation}
-	\begin{aligned}
-		\varepsilon_{11} & =  \gamma  ( \sigma_{11} - \nu \sigma_{22}) \qquad \qquad \varepsilon_{33} & = & - \gamma \nu (\sigma_{11} + \sigma_{22})          \\
-		\varepsilon_{22} & =   \gamma (\sigma_{22} - \nu\sigma_{11}) \qquad \qquad \varepsilon_{12}   & = & \  \gamma (1+\nu) \sigma_{12} \label{strain_comp}
-	\end{aligned}
-\end{equation}
-
-and a sufficient condition
-\begin{eqnarray}
-	\varepsilon_{13} =  \varepsilon_{23} = 0.
-\end{eqnarray}
-
-After some manipulation, the following stress-strain relations are obtained:
-components given in \cite{Fung65}.
-
-
-\begin{minipage}{.5\linewidth}
-	\begin{eqnarray*}
-		\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)} ( \varepsilon_{11} + \nu\varepsilon_{22})\\
-		\sigma_{22} & = & \frac{1}{\gamma(1-\nu^2)} (\nu \varepsilon_{11} + \varepsilon_{22}).
-	\end{eqnarray*}
-\end{minipage}%
-\begin{minipage}{.5\linewidth}
-	\begin{eqnarray}
-		\sigma_{12} & = & \frac{1}{\gamma(1+\nu)} \varepsilon_{12} \label{stress_comp}
-	\end{eqnarray}
-\end{minipage}
-
-Another necessary strain condition for plane stress is found by substituting
-$\sigma_{11}$ and $\sigma_{22}$ from \eqref{stress_comp} into
-$\varepsilon_{33}$ in \eqref{strain_comp} to obtain
-\begin{eqnarray}
-	\varepsilon_{33} = -\frac{\nu}{1-\nu} (\varepsilon_{11} + \varepsilon_{22}).\label{plane_stress_neseccary_condition}
-\end{eqnarray}
-
-This is known as general plane stress.
-
-\subsection{Two-dimensional model} \label{ssec:2D_Model}
-For the two-dimensional modek, a special case of general plane stress is considered.
-
-Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$; $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
-\begin{eqnarray}
-	\partial_i u_3 = 0 \quad \textrm{ for } i = 1,2,3 \textrm{ on } \Omega.
-\end{eqnarray}
-
-It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in 
-$R^2$ with two-dimensional stress and strain. The out of plane conditions for strain 
-\eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a 
-two-dimensional form using the stress components as 
-\[ T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.\]
-
-
-\subsection*{Equations of motion and constitutive equations}\label{ssec:2D_Model:EquationsOfMotion+ConstitutiveEquations}
- The following equations of motion and constitutive equations follow from subsections \ref{ssec:3D_Model:DimensionlessForm} and 1.3.2.
-\subsubsection{Equation of motion}\label{sssec:2D_Model:EquationOfMotion}
-\begin{eqnarray}
-	\partial_t^2 u & = & \textrm{div}T + Q, \label{eq:2D_Model:EM}
-\end{eqnarray}
-where
-\begin{eqnarray}
-	\textrm{div} T & = &
-	\begin{bmatrix}
-		\partial_1 \sigma_{11} + \partial_2 \sigma_{12} \\
-		\partial_1 \sigma_{21} + \partial_2 \sigma_{22}
-	\end{bmatrix}. \label{eq:2D_Model:DivT}
-\end{eqnarray}
-\subsubsection*{Constitutive equation}\label{sssec:2D_Model:ConstitutiveEquation}
-\begin{eqnarray}
-	T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{Tr}(\mathcal{E}) I. \label{eq:2D_Model:CE}
-\end{eqnarray}
-
-\subsection{Model problem}\label{ssec:2D_Model:ModelProblem}
-Divide the boundary of $\Omega$ into two distinct parts, referred to as $\Sigma$ and $\Gamma$.
-
-\subsubsection*{Problem 2D}\label{sssec:2D_Model:Problem2D1}
-Find a vector valued function $u$, satisfying equations \eqref{eq:2D_Model:EM} to \eqref{eq:2D_Model:CE} and the boundary conditions:
-
-Boundary Conditions:
-\begin{eqnarray*}
-	u & = & 0 \quad \textrm{ on } \Sigma,\\
-	Tn & = & 0 \quad \textrm{ on } \Gamma.
-\end{eqnarray*} with $n$ the outward unit normal. This model problem is a cantilever two-dimensional body.
-
-\subsection{Variational form}\label{ssec:2D_Model:VariationalForm}
-Define the bilinear forms
-\begin{eqnarray}
-	b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
-	\textrm{Tr}(\Phi) ~dA \label{eq:2D_Model:Bilinear}
-\end{eqnarray}
-and
-\begin{eqnarray}
-	c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dA \label{eq:2D_Model:Bilinear_c}
-\end{eqnarray}
-with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
-Also define the integral
-\begin{eqnarray}
-	(f,g) &=& \int_{\Omega} f\cdot g \ dA \label{eq:2D_Model:Bilinear_int}
-\end{eqnarray}
-
-\subsubsection{Test functions for Problem 2D}\label{sssec:2D_Model:TestFunctions2D1}
-Define the following set of test functions $T(\Omega)$ for Problem 2D:
-\begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}. 
-\end{eqnarray*}\label{sym:baromega}
-
-The variational problem of Problem 2D is given as:
-
-\subsubsection{Problem 2DV}\label{sssec:2D_Model:Problem2D1V}
-Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
-\begin{align}
-	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEq}
-\end{align}
-for all $\phi \in T(\Omega)$.
-
-\section{Existance and uniqueness of solutions}
-Our two models, the three-dimensional modela and the two-dimensional model, concern the vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. The articles \cite{VV02} and \cite{VS18} provide existence and uniqueness results for these type of problems. In \cite{VV02}, it is assumed that $b$ is symmetric. \cite{VS18} extends the results of \cite{VV02} to the case where $b$ is not symmetric. For the models in the article, \cite{VV02} is a sufficient reference.
-
-Let $V$, $W$ and $X$ be Hilbert spaces such that $V \subset W \subset X$.
-\begin{itemize}
-	\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
-	\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
-	\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
-\end{itemize}
-
-Consider a general second order hyperbolic type problem GVar. This general problem is used by the 
-authors of \cite{VV02} to prove existence and uniqueness results. The models in this article are 
-special cases of this general problem.
-
-\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
-\begin{eqnarray}
-	c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
-\end{eqnarray}
-while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.
-
-
-The following assumptions are made in \cite{VV02} for the existence results.
-\begin{itemize}
-	\item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
-
-	\item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
-
-	\item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
-
-	\item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
-\end{itemize}
-
-Proving that these assumptions are satisfied for the models in this article too much work to 
-include in this article. The existence and uniqueness results of \cite{VV02} are used in 
-this article without proof.
-
-
-\section{Modal analysis and comparison of linear models}
-Modal analysis is a important concept in the study of vibration of elastic bodies and also 
-useful in the comparison of linear models. The following section is a short discussion of 
-the basic concepts of modal analysis and how it enables the comparison of linear models.
-
-The discussion follows the article \cite{CVV18}, excluding damping. Consider Problem GVar with no damping or external forces.
-
-\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
-Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-\begin{eqnarray}
-c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-\end{eqnarray}
-with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
-
-Now consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$. Substituting this trial solution into \eqref{eq:existence:ProblemGVarHom} results in
-\begin{eqnarray*}
-	b(T(t)x,v) = - c(T''(t)x,v).  \label{eq:existence:ProblemGVarHom:Substitution}
-\end{eqnarray*}
-
-Due to the linearity of the bilinear form, this equation can be rewritten as
-\begin{eqnarray*}
-	T(t)b(x,v) = - T''(t)c(x,v).
-\end{eqnarray*}
-
-Dividing both sides by $T(t)$ gives
-\begin{eqnarray*}
-	b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
-\end{eqnarray*}
-
-Therefore $\displaystyle -\frac{T''(t)}{T(t)}$ must be constant. Suppose that $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
-
-Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
-\begin{eqnarray*}
-	b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-\end{eqnarray*}
-
-A solution to the eigenvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
-
-The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption, aditional to \textbf{A1}, \textbf{A2}, \textbf{A3} and \textbf{A4},  is satisfied:
-
-\begin{itemize}
-	\item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
-\end{itemize}
-
-
-Using these assumptions, the authors of \cite{CVV18} prove that there exists a complete orthonormal sequence of eigenvectors for the eigenvalue problem with a corresponding sequence of eigenvalues. These eigenvalues are positive and the orthogonality is with respect to the bilinear form $c$. In fact it is also orthogonal with respect to the bilinear form $b$,
-\begin{eqnarray*}
-	b(x_i, x_j) = \lambda_i c(x_i, x_j) = 0, \ \ \ \ \textrm{ for each } \ i \neq j.
-\end{eqnarray*}
-
-Also the sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis in $W$ and sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. 
-
-Following these results from \cite{CVV18}, for any $u \in V$, $\displaystyle u = \sum_{i=1}^{\infty} a_i x_i$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the eigenvectors $x_i$. Therefore, for any $u \in V$,
-\begin{eqnarray*}
-	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i.
-\end{eqnarray*}
-
-Now that the eigenvalue problem has many solutions, the following ordinary differentiable equation can be considered,
-\begin{eqnarray*}
-	T_n'' + \lambda T_n = 0. 
-\end{eqnarray*}
-
-Since this differential equation is a simple second order differential equation, $T_n(t)$ has the following possible solutions:
-\begin{flalign}
-	T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}
-\end{flalign}
-
-Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
-\begin{eqnarray}
-	u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
-\end{eqnarray}
-
-
-\subsection{Validity of series solution}
-Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we again refer to the article \cite{CVV18}.
-
-In the article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by \label{sym:Energy}
-\begin{eqnarray}
-	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
-\end{eqnarray}
-
-Then,
-\begin{eqnarray*}
-	\mathcal{E}'(t) & = & b(u(t), u'(t)) + c(u'(t), u''(t)),\\
-					& = & 0 \ \ \ \ \ \ \ \textrm{ following from \eqref{eq:existence:ProblemGVarHom}}. 
-\end{eqnarray*}
-
-Therefore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
-
-Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Ideally
-\begin{eqnarray*}
-	u_0^{N} = \sum_{n=1}^{N} T_n(0) w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} T'_n(0) w_n,
-\end{eqnarray*}
-but $T_n$ is not uniquely defined by the differential equation.
-
-Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions for \eqref{eq:existence:ProblemGVarHom} in Problem GVar.
-
-The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies \eqref{eq:existence:ProblemGVarHom}, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
-
-Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$ it follows that, 
-\begin{eqnarray}
-	||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W = ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \label{eq:inequality}
-\end{eqnarray}
-
-Now, $u_0$ and $u_1$ are given in Problem GVar. Therefore the generalized Fourier coefficients for $u_0$ and $u_1$ must be used to compute $u_0^N$ and $u_1^N$. These Fourier coefficients are $\displaystyle u_0^N = \sum_{n=1}^{N} b(u_0, w_n)w_n$ and $\displaystyle u_1^N = \sum_{n=1}^{N} c(u_1, w_n)w_n$.
-
-Then $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$ by \eqref{eq:inequality}.
-
-It follows that the partial sums of the series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
-
-\subsection{Comparison of models}
-The results on modal analysis and the validity of the series solution enable the comparison of different linear models. The solution of the model problems can be expressed as a series solution of the eigenvalues and eigenvectors of the models. Therefore the models can be compared by comparing the eigenvalues and eigenvectors of the models.
-
-The validity of the series solution also ensures that the comparisons remain valid, no matter the inital distrubance of the models. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
-
-\section{Finite Element Method}
-In the section, the Finite Element Method (FEM) is applied to the models to obtain an eigenvalue problem that can be solved numerically.
-
-\subsection{Two-dimensional model}\label{ssec:2D_Model:FEM}
-Consider a cantilever two-dimensional elastic body, with a rectangular cross-section.
-
-\subsubsection{Reference configuration for rectangular cross-section}\label{sssec:2D_Model:RefConf}
+In the article \cite{LVV09}, the authors investigate the validity of a cantilever Timoshenko beam model. Validity refers to how well the solution of the simplified model compare to a more complex higher dimensional model. The reference model in \cite{LVV09} is a two-dimensional cantilever beam model.
+
+In this article, we build upon \cite{LVV09} by further examining the validity of a two-dimensional model for a cantilever beam, using a three-dimensional model as the reference. We follow the same methodology as \cite{LVV09}, employing modal analysis and the Finite Element Method (FEM) to compare the two models. This extention is motivated by the authors of \cite{LVV09}.
+
+To start, the models are presented in a dimensionless variational form. We explain how the two-dimensional model is derived from the three-dimensional model as a special case of plane stress. The well-posedness of the two models is not proved in this article, but the necessary existence and uniqueness results from \cite{VV02} are mentioned.
+
+Next we introduce the concept of modal analysis with a general vibration problem. Through modal analysis, we derive a formal series solution for the vibration issue, which is a linear combination of the problem's eigenvectors and eigenvalues. This approach allows us to compare the solutions of the two models by focusing on a comparison of their eigenvectors and eigenvalues.
+
+We then apply the Finite Element Method (FEM) to the two models and obtain a formula for the models to numerically solve the eigenvalue problem. The article \cite{BV13} provides essential convergence results for the FEM in vibration problems. The textbook \cite{SF73} also offers insights into the convergence of eigenvalues and eigenfunctions in a vibration problem when using FEM. 
+
+Following \cite{LVV09}, by considering the mode shapes, we can match up the eigenvalues and compare them. In the comparison, we consider different shapes of beams that are useful in practical applications. We find that the shape of the beam significantly influences the validity of the two-dimensional model. The results of the comparison are presented in the form of tables and graphs.
+
+\section{Linear mathematical models}
+	\subsection{Three-dimensional theory}
+		Consider a vector valued displacement function $u \in \Omega \subset R^3$.
+
+		\subsubsection*{Equation of motion}\label{ssec:3D_Model:EquationOfMotion}
+		\begin{eqnarray}
+			\rho\partial_t^2 u & = & \textrm{div}T + Q. \label{eq:3D_Model:EM}
+		\end{eqnarray} \label{sym:rho} \label{sym:partial_diff} \label{sym:T} \label{sym:Q}
+
+		Here $\rho$ is the density, $T$ is the stress tensor, and $Q$ is the external 
+		force per unit volume and $\textrm{div}T$ is the divergence of the tensor $T$ and represented by
+		\begin{eqnarray}
+			\textrm{div}  T & = &
+			\begin{bmatrix}
+				\partial_1 \sigma_{11} + \partial_2 \sigma_{12} + \partial_3 \sigma_{13} \\
+				\partial_1 \sigma_{21} + \partial_2 \sigma_{22} + \partial_3 \sigma_{23} \\
+				\partial_1 \sigma_{31} + \partial_2 \sigma_{32} + \partial_3 \sigma_{33}
+			\end{bmatrix}. \label{eq:3D_Model:divT}
+		\end{eqnarray}
+
+		Assuming only small vibrations, the stress tensor $T$ is symmetric due to small
+		local displacements and rotations. The trace of the stress tensor $T$ is denoted
+		\begin{eqnarray}
+			\textrm{Tr}(T) & = & \sigma_{11} + \sigma_{22} + \sigma_{23}. \label{eq:stress_tensor_t}
+		\end{eqnarray}
+
+		\subsubsection*{Constitutive Equation}
+			\textcolor{red}{************ VOORSTEL om the verkort ************}
+
+			For an isotropic material, Hooke's law can be written in terms of Young's modulus $E$ and Poisson's ratio $\nu$. And if the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be written in the following form:
+			\begin{eqnarray}
+				T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
+			\end{eqnarray} Here $\mathcal{E}$ is the strain tensor and $T$ is the stress tensor.
+
+			In this form, Hooke's law is the constitutive equation for the three-dimensional model.
+
+			\textcolor{red}{************ VOORSTEL ************}
+
+			For an isotropic material, Hooke's law can be written in terms of Young's modulus $E$ and Poisson's ratio $\nu$ as follows.
+
+			\textbf{Hooke's law}
+			\begin{eqnarray}
+				\mathcal{E} = \left( \frac{1+\nu}{E} \right)T - \frac{\nu}{E}\textrm{Tr}(T)I,  \label{eq:3D_Model:HL}
+			\end{eqnarray} The components of the strain tensor $\mathcal{E}$ are defined as
+			\begin{eqnarray}
+				\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right). \label{eq:3D_Model:Strain}
+			\end{eqnarray}\label{sym:varepsilonij}
+
+			If the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be written in an alternative form.
+
+			\textbf{Hooke's law in the alternative form}
+			\begin{eqnarray}
+				T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
+			\end{eqnarray}
+			With $\textrm{Tr}(\mathcal{E}) = \epsilon_{11} + \epsilon_{12} + \epsilon_{13}$ is the trace of the strain operator $\mathcal{E}$.
+
+			In this form, Hooke's law is the constitutive equation for the three-dimensional model.
+
+		\subsubsection*{Dimensionless form} \label{ssec:3D_Model:DimensionlessForm}
+			Suppose $\ell$ represents some notable dimension (e.g.the length) of the elastic body and $G$ the shear modulus of elasticity.
+
+			Set \[\tau = \frac{t}{t_0},\quad \xi_i = \frac{x_i}{\ell},\quad {u}^*(\xi,\tau) = \frac{1}{\ell}{u}(x,t), \quad Q^{*} = \ell G \kappa^2 Q, \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]\label{sym:t}\label{sym:G}\label{sym:tau}\label{sym:xi}\label{sym:Qstar}\label{sym:sigmaijstar}\label{sym:ell}\label{sym:kappa2}
+
+			where $\kappa^2$ is a dimensionless constant and $t_0$ must be specified. Choose \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}} \textrm{ and } \gamma= \frac{G\kappa^2}{E}.\]
+
+			Substitution into \eqref{eq:3D_Model:EM} and yields
+			\begin{eqnarray*}
+				\partial_{\tau} u^{*} = \textrm{div}T^* + Q^* \textrm{ where } T^* = \sigma_{i,j}^*(\xi,\tau).
+			\end{eqnarray*}
+
+			The dimensionless forms of \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
+			\begin{eqnarray*}
+				\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right],
+			\end{eqnarray*}\label{sym:I}
+
+			and
+			\begin{eqnarray*}
+				T^* = \frac{E}{G \kappa^2} \left[\left( \frac{1}{1+\nu} \right)\mathcal{E} + \frac{\nu}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \right].
+			\end{eqnarray*}
+
+			Using the dimensionless constant $\gamma$,
+			\begin{eqnarray}
+				\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \textrm{Tr}(T^*)I \label{DM_H_E}
+			\end{eqnarray}
+			and
+			\begin{eqnarray}
+				T^* = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I. \label{DM_H_T}
+			\end{eqnarray}
+
+			\textbf{Remark} The constants introduced are the same as those in \cite{LVV09}.
+			These dimsensionless constants allow for the comparison of the higher dimensional models to the Timoshenko beam model.
+
+			The original notation is retained for convenience.
+
+		\subsubsection*{Equations of motion in dimensionless form}\label{sssec:3D_Model:EquationOfMotionDimensionless}
+			\begin{eqnarray}
+				\partial_t^2 u & = & \textrm{div}T + Q \label{eq:3D_Model:EM-D}
+			\end{eqnarray}
+			with
+			\begin{eqnarray}
+				\textrm{div}  T & = &
+				\begin{bmatrix}
+					\partial_1 \sigma_{11} + \partial_2 \sigma_{12} + \partial_3 \sigma_{13} \\
+					\partial_1 \sigma_{21} + \partial_2 \sigma_{22} + \partial_3 \sigma_{23} \\
+					\partial_1 \sigma_{31} + \partial_2 \sigma_{32} + \partial_3 \sigma_{33}
+				\end{bmatrix}.\label{eq:3D_Model:divT-D}
+			\end{eqnarray}
+
+		\subsubsection*{Constitutive equations in dimensionless form}\label{sssec:3D_Model:ConstitutiveEquationsDimensionless}
+			\begin{eqnarray}
+				T = \frac{1}{\gamma(1+\nu)} \mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE-D}
+			\end{eqnarray}
+
+		Divide the boundary of $\Omega$ into two distinct parts, referred to as $\Sigma$ and $\Gamma$. The following will be considered a model problem for a three-dimensional elastic body (also for the two-dimensional elastic body).
+		\begin{enumerate}
+			\item[] The equations of motion \eqref{eq:3D_Model:EM-D} and \eqref{eq:3D_Model:divT-D}, and Hooke's law is satisfied in $\Omega$;
+			\item[] The displacement $u = u_\Sigma$ is specified on
+				$\Sigma$; The traction $Tn = t_\Gamma$ is specified on
+				$\Gamma$.
+		\end{enumerate} \label{sym:n}\label{sym:SigmaGamma}
+
+		\subsubsection*{Cantilever model}
+			Find a vector valued function $u$, satisfying equations
+			\eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the following boundary
+			conditions:
+
+			Boundary Conditions:
+			\begin{eqnarray*}
+				u & = & 0 \quad \textrm{ on } \Sigma\\
+				Tn & = & 0 \quad \textrm{ on } \Gamma
+			\end{eqnarray*}
+
+			This will be referred to as \textbf{Problem 3D}.
+			
+		\subsection*{Variational form}\label{ssec:3D_Model:VariationalForm}
+			Define the bilinear forms
+			\begin{eqnarray}
+				b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+				\textrm{Tr}(\Phi) ~dV \label{eq:3D_Model:Bilinear}
+			\end{eqnarray}\label{sym:b}
+			and
+			\begin{eqnarray}
+				c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dV \label{eq:3D_Model:Bilinear_c}
+			\end{eqnarray}
+			with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.
+
+			Also define the integral
+			\begin{eqnarray}
+				(f,g) &=& \int_{\Omega} f\cdot g \ dV \label{eq:3D_Model:Bilinear_int}
+			\end{eqnarray}
+
+			Define the following set of test functions $T(\Omega)$ for Problem 3D:
+			\begin{eqnarray*}
+				T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}
+			\end{eqnarray*}\label{sym:TOmega}
+
+			Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
+			\begin{align}
+				c(u,\phi) = -b(u,\phi) + (Q,\phi), \label{eq:3D_Model:Problem3D1VEq}
+			\end{align}
+			for all $\phi \in T(\Omega)$
+
+			This will be referred to as \textbf{Problem 3DV}.
+
+	\subsection{Two-dimensional theory}
+		\subsubsection*{General plane stress}
+			Stresses acting parallel to a single plane are referred to as plane stress. 
+			Consider the right-hand orthonormal set $\left\{e_1, e_2, e_3\right\}$. Without
+			loss of generality, assume the stresses act parallel to the $e_1$-$e_2$ plane
+			i.e. $\sigma_{3i} = 0$ for all $i$. From Hooke's Law \eqref{DM_H_E} the
+			following equations are obtained: \label{sym:e_i}
+
+			\begin{equation}
+				\begin{aligned}
+					\varepsilon_{11} & =  \gamma  ( \sigma_{11} - \nu \sigma_{22}) \qquad \qquad \varepsilon_{33} & = & - \gamma \nu (\sigma_{11} + \sigma_{22})          \\
+					\varepsilon_{22} & =   \gamma (\sigma_{22} - \nu\sigma_{11}) \qquad \qquad \varepsilon_{12}   & = & \  \gamma (1+\nu) \sigma_{12} \label{strain_comp}
+				\end{aligned}
+			\end{equation}
+
+			and a sufficient condition
+			\begin{eqnarray}
+				\varepsilon_{13} =  \varepsilon_{23} = 0.
+			\end{eqnarray}
+
+			After some manipulation, the following stress-strain relations are obtained:
+			components given in \cite{Fung65}.
+
+			\begin{minipage}{.5\linewidth}
+				\begin{eqnarray*}
+					\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)} ( \varepsilon_{11} + \nu\varepsilon_{22})\\
+					\sigma_{22} & = & \frac{1}{\gamma(1-\nu^2)} (\nu \varepsilon_{11} + \varepsilon_{22}).
+				\end{eqnarray*}
+			\end{minipage}%
+			\begin{minipage}{.5\linewidth}
+				\begin{eqnarray}
+					\sigma_{12} & = & \frac{1}{\gamma(1+\nu)} \varepsilon_{12} \label{stress_comp}
+				\end{eqnarray}
+			\end{minipage}
+
+			Another necessary strain condition for plane stress is found by substituting
+			$\sigma_{11}$ and $\sigma_{22}$ from \eqref{stress_comp} into
+			$\varepsilon_{33}$ in \eqref{strain_comp} to obtain
+			\begin{eqnarray}
+				\varepsilon_{33} = -\frac{\nu}{1-\nu} (\varepsilon_{11} + \varepsilon_{22}).\label{plane_stress_neseccary_condition}
+			\end{eqnarray}
+
+			This is known as general plane stress. The two-dimensional model is a special case of plane stress.
+
+		\subsubsection*{The two dimensional model}
+			Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$; $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
+			\begin{eqnarray}
+				\partial_i u_3 = 0 \quad \textrm{ for } i = 1,2,3 \textrm{ on } \Omega.
+			\end{eqnarray}
+
+			It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in 
+			$R^2$ with two-dimensional stress and strain. The out of plane conditions for strain 
+			\eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a 
+			two-dimensional form using the stress components as 
+			\[ T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.\]
+
+			The equations of motion and constitutive equations follow:
+			\subsubsection*{Equation of motion}\label{sssec:2D_Model:EquationOfMotion}
+			\begin{eqnarray}
+				\partial_t^2 u & = & \textrm{div}T + Q, \label{eq:2D_Model:EM}
+			\end{eqnarray}
+			where
+			\begin{eqnarray}
+				\textrm{div} T & = &
+				\begin{bmatrix}
+					\partial_1 \sigma_{11} + \partial_2 \sigma_{12} \\
+					\partial_1 \sigma_{21} + \partial_2 \sigma_{22}
+				\end{bmatrix}. \label{eq:2D_Model:DivT}
+			\end{eqnarray}
+			\subsubsection*{Constitutive equation}\label{sssec:2D_Model:ConstitutiveEquation}
+			\begin{eqnarray}
+				T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{Tr}(\mathcal{E}) I. \label{eq:2D_Model:CE}
+			\end{eqnarray}
+
+		\subsubsection*{Cantilever model}
+
+			Find a vector valued function $u$, satisfying equations \eqref{eq:2D_Model:EM} to \eqref{eq:2D_Model:CE} and the boundary conditions:
+
+			Boundary Conditions:
+			\begin{eqnarray*}
+				u & = & 0 \quad \textrm{ on } \Sigma,\\
+				Tn & = & 0 \quad \textrm{ on } \Gamma.
+			\end{eqnarray*} with $n$ the outward unit normal.
+
+			This will be referred to as \textbf{Problem 2D}.
+
+		\subsubsection*{Variational form}\label{ssec:2D_Model:VariationalForm}
+			Define the bilinear forms
+			\begin{eqnarray}
+				b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
+				\textrm{Tr}(\Phi) ~dA \label{eq:2D_Model:Bilinear}
+			\end{eqnarray}
+			and
+			\begin{eqnarray}
+				c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dA \label{eq:2D_Model:Bilinear_c}
+			\end{eqnarray}
+			with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
+			Also define the integral
+			\begin{eqnarray}
+				(f,g) &=& \int_{\Omega} f\cdot g \ dA \label{eq:2D_Model:Bilinear_int}
+			\end{eqnarray}
+
+			\subsubsection*{Test functions for Problem 2D}\label{sssec:2D_Model:TestFunctions2D1}
+			Define the following set of test functions $T(\Omega)$ for Problem 2D:
+			\begin{eqnarray*}
+				T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}. 
+			\end{eqnarray*}\label{sym:baromega}
+
+			Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
+			\begin{align}
+				c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEq}
+			\end{align}
+			for all $\phi \in T(\Omega)$. This will be referred to as \textbf{Problem 2DV}.
+
+	\subsection{Timoshenko theory}
+		Consider a Timoshenko beam with no damping defined on the interval $[0,\ell]$.
+		Let $w$ represent the transverse displacement and $\phi$ a rotation of the cross-sections of the beam.
+
+		\subsubsection*{Equations of motion}\label{sssec:1D_Model:EquationOfMotion}
+			\begin{eqnarray}
+				\rho A \partial_t^2 w &=& \partial_x V + Q, \label{eq:1D_Model:EquationOfMotion1}\\
+				\rho I\partial_t^2 \phi  &=& V + \partial_x M. \label{eq:1D_Model:EquationOfMotion2}
+			\end{eqnarray}\label{sym:A}\label{sym:V}\label{sym:Iinertia}\label{sym:M}\label{sym:phiT}
+			In~\eqref{eq:1D_Model:EquationOfMotion1} and \eqref{eq:1D_Model:EquationOfMotion2} $\rho$ denotes the density, $A$ is the area of a cross section, $I$ is the area moment of inertia, $M$ is the moment, $V$ is the shear force and $Q$ is an external force acting on the beam.
+
+		\subsubsection*{Constitutive equations}\label{sssec:1D_Model:ConstitutiveEquation}
+			\begin{eqnarray}
+				M &=& EI\partial_x \phi, \label{eq:1D_Model:ConstitutiveEquations1}\\
+				V &=& AG\kappa^2(\partial_x w - \phi), \label{eq:1D_Model:ConstitutiveEquations2}\label{sym:kappa2T}
+			\end{eqnarray}
+			$E$ is Young's modulus, $G$ the shear modulus and $\kappa^2$ the shear correction factor.
+
+		\subsubsection*{Dimensionless form}\label{sssec:1D_Model:DimensionlessForm}
+			As mentioned in the dimensionless form of the three-dimensional model, the same dimensionless scaling can be applied to the Timoshenko beam theory.
+
+			Set \[\tau = \frac{t}{t_0}, \,\, \xi = \frac{x}{\ell}, \,\, w^*(\xi,\tau) = \frac{w(x,t)}{\ell} \ \text{ and } \ \phi^*(\xi, \tau) = \phi(x,t).\]
+
+			The dimensionless forms of the shear force, moment and external force density are \[ V^{*}(\xi,\tau) = \frac{V(x,t)}{AG\kappa^2}, \quad M^{*}(\xi,\tau) = \frac{M(x,t)}{A G\kappa^2 \ell} \,\,\, \ \text{and} \ \,\,\, Q^*(\xi,\tau) = \frac{Q(x,t)\ell}{A G\kappa^2}.\]
+
+			Choose $t_0$ the same as the three-dimensional model, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+
+			As in \cite{LVV09} we use the dimensionless constants
+			\begin{equation*}
+				\alpha = \frac{A \ell^2}{I} \,\,\, \text{and} \,\,\, \beta
+				=\frac{AG\kappa^2 \ell^2}{EI}.
+			\end{equation*}\label{sym:alphabeta}
+
+			Interestingly, it turns out that
+			\begin{eqnarray*}
+				\frac{\beta}{\alpha} & = & \gamma
+			\end{eqnarray*} where $\gamma$ is the dimensionless parameter defined in the three-dimensional case.\\
+
+		\subsubsection*{Dimensionless equations of motion}\label{sssec:1D_Model:DimensionlessEquationsOfMotion}
+			\begin{eqnarray}
+				\partial_{t}^{2} w &=& \partial_{x}V + Q, \label{eq:1D_Model:EquationOfMotion1D}\\
+				\frac{1}{\alpha} \partial_{t}^{2} \phi &=& V + \partial_{x}M.\label{eq:1D_Model:EquationOfMotion2D}
+			\end{eqnarray}
+		\subsubsection*{Dimensionless constitutive equations}\label{sssec:1D_Model:DimensionlessConstitutiveEquations}
+			\begin{eqnarray}
+				M &=& \frac{1}{\beta}\partial_x \phi, \label{eq:1D_Model:ConstitutiveEquations1D}\\
+				V &=& \partial_x w-\phi. \label{eq:1D_Model:ConstitutiveEquations2D}
+			\end{eqnarray}
+		The original notation is retained for convenience.
+
+		\subsection{Models and variational forms}
+			\subsubsection*{Bilinear forms and integral}
+				For $f,g \in T[0,1]$, define the bilinear forms
+				\begin{eqnarray}
+					c(f,g) & = & \int_0^1  \partial_t^2 f_1 g_1 + \frac{1}{\alpha}\int_0^1  \partial_t^2 f_2g_2, \label{eq:1D_Model:Bilinear} \\
+					b(f,g) & = &   \int_0^1 (f_1'-f_2)(g_1' - g_2) + \frac{1}{\beta}\int_0^1 f_2' g_2', \label{eq:1D_Model:Bilinear_c}
+				\end{eqnarray}
+				Define the integral
+				\begin{eqnarray}
+				(f,g)
+					&=& \int_{0}^1 fg \label{eq:1D_Model:Bilinear_int}
+				\end{eqnarray} for all $f,g \in L^2(0,1).$\\
+
+				\textbf{Remark}\\
+				$L^2(a,b)$ is the space of all square integrable functions on the interval $(a,b)$. The inner product is defined by $\displaystyle (f,g) = \int_a^b fg$, and the induced norm $\displaystyle ||f|| = \int_a^b f^2$.\\
+
+			\subsection*{Pinned-pinned beam}
+				Find functions $w$ and $\phi$ satisfying equations \eqref{eq:1D_Model:EquationOfMotion1D} to \eqref{eq:1D_Model:ConstitutiveEquations2D} and the boundary conditions:
+
+				{Boundary Conditions}\\
+				\begin{eqnarray*}
+					w(0,\cdot) = 0, \ \ &M(0,\cdot) = 0, \label{eq:1D_Model:ProblemT1BC1}\\
+					w(1,\cdot) = 0, \ \ &M(1,\cdot) = 0. \label{eq:1D_Model:ProblemT1BC2}
+				\end{eqnarray*}
+
+				This will be referred to as \textbf{Problem T-1}. Define the set of test functions $T[0,1]$ for Problem T-1 as
+				\begin{eqnarray*}
+					T[0,1] &:=&  \left\{f \in C^1[0,1] \ | \ f(0) = f(1) = 0 \right\} \times C^1[0,1]
+				\end{eqnarray*}
+
+				Then the variational problem for Problem T-1 is given by
+				\subsubsection*{Problem T-1V}\label{sssec:1D_Model:ProblemT1V}
+					Find a function ${u} = \langle w, \phi \rangle$ such that for all $t >0$, ${u} \in  T[0,1]$ satisfying
+					\begin{eqnarray}
+						c(\partial_t^2 u,{\phi}) &=& -b({u},{\phi}) + (Q,{\phi})
+					\end{eqnarray} for each ${\phi} = \langle v, \psi \rangle \in T[0,1]$.
+
+			\subsection*{Cantilever beam}
+				Find functions $w$ and $\phi$ satisfying equations \eqref{eq:1D_Model:EquationOfMotion1D} to \eqref{eq:1D_Model:ConstitutiveEquations2D} and the boundary conditions:
+
+				{Boundary Conditions}\\
+				\begin{eqnarray*}
+					w(0,\cdot) = 0, \ \ &\phi(0,\cdot) = 0, \label{eq:1D_Model:ProblemT2BC1}\\
+					M(1,\cdot) = 0, \ \ &V(1,\cdot) = 0. \label{eq:1D_Model:ProblemT2BC2}
+				\end{eqnarray*}
+
+				This will be referred to as \textbf{Problem T-2}.  Define the set of test functions $T[0,1]$ for Problem T-2 as
+				\begin{eqnarray*}
+					T[0,1] &:=& \left\{g \in C^1[0,1] \ | \ g(0) = 0 \right\} \times \left\{g \in C^1[0,1] \ | \ g(0) = 0 \right\}
+				\end{eqnarray*}
+
+				Then the variational problem for Problem T-2 is given by
+				\subsubsection*{Problem T-2V}\label{sssec:1D_Model:ProblemT1V}
+					Find a function ${u} = \langle w, \phi \rangle$ such that for all $t >0$, ${u} \in  T[0,1]$ satisfying
+					\begin{eqnarray}
+						c(u,{\phi}) &=& -b({u},{\phi}) + (Q,{\phi}) \label{var_form_timo}
+					\end{eqnarray} for each ${\phi} = \langle v, \psi \rangle \in T[0,1]$. 
+			
+				
+\section{Modal analysis and comparison of linear models}	
+
+	\subsection*{Existance and uniqueness of solutions}
+		Our two models, the three-dimensional modela and the two-dimensional model, concern the vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. The articles \cite{VV02} and \cite{VS18} provide existence and uniqueness results for these type of problems. In \cite{VV02}, it is assumed that $b$ is symmetric. \cite{VS18} extends the results of \cite{VV02} to the case where $b$ is not symmetric. For the models in the article, \cite{VV02} is a sufficient reference.
+
+		Let $V$, $W$ and $X$ be Hilbert spaces such that $V \subset W \subset X$.
+		\begin{itemize}
+			\item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
+			\item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
+			\item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
+		\end{itemize}
+
+		Consider a general second order hyperbolic type problem GVar. This general problem is used by the 
+		authors of \cite{VV02} to prove existence and uniqueness results. The models in this article are 
+		special cases of this general problem.
+
+		\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
+		Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$ and for each $t\in J,\ u(t)\in V,\ u'(t) \in V,\ u''(t)\in W$ and
+		\begin{eqnarray}
+			c(u''(t),v)+a(u'(t),v)+b(u(t),v)= (f(t),v)_{X} \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVar}
+		\end{eqnarray}
+		while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.
+
+
+		The following assumptions are made in \cite{VV02} for the existence results.
+		\begin{itemize}
+			\item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
+
+			\item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
+
+			\item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+
+			\item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
+		\end{itemize}
+
+		Proving that these assumptions are satisfied for the models in this article too much work to include in this article. The existence and uniqueness results of \cite{VV02} are used in this article without proof.
+
+	\subsection*{Modal Analysis}
+		Modal analysis is a important concept in the study of vibration of elastic bodies and also useful in the comparison of linear models. The following section is a short discussion of the basic concepts of modal analysis and how it enables the comparison of linear models.
+
+		The discussion follows the article \cite{CVV18}, excluding damping. Consider Problem GVar with no damping or external forces.
+
+		\subsubsection*{Problem GVar}\label{sssec:existence:ProblemGVar}
+		Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+		\begin{eqnarray}
+		c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+		\end{eqnarray}
+		with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
+
+		Now consider a trial solution $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$. Substituting this trial solution into \eqref{eq:existence:ProblemGVarHom} results in
+		\begin{eqnarray*}
+			b(T(t)x,v) = - c(T''(t)x,v).  \label{eq:existence:ProblemGVarHom:Substitution}
+		\end{eqnarray*}
+
+		Due to the linearity of the bilinear form, this equation can be rewritten as
+		\begin{eqnarray*}
+			T(t)b(x,v) = - T''(t)c(x,v).
+		\end{eqnarray*}
+
+		Dividing both sides by $T(t)$ gives
+		\begin{eqnarray*}
+			b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
+		\end{eqnarray*}
+
+		Therefore $\displaystyle -\frac{T''(t)}{T(t)}$ must be constant. Suppose that $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$. The existence of such a $\lambda$ is uncertain at this point. So we consider the following eigenvalue problem.
+
+		Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
+		\begin{eqnarray*}
+			b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
+		\end{eqnarray*}
+
+		A solution to the eigenvalue problem consists of an eigenvalue $\lambda$ with corresponding eigenvector $x$. 
+
+		The article \cite{CVV18} is a convenient reference to show that the eigenvalue problem has a solution if the following assumption, aditional to \textbf{A1}, \textbf{A2}, \textbf{A3} and \textbf{A4},  is satisfied:
+
+		\begin{itemize}
+			\item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
+		\end{itemize}
+
+
+		Using these assumptions, the authors of \cite{CVV18} prove that there exists a complete orthonormal sequence of eigenvectors for the eigenvalue problem with a corresponding sequence of eigenvalues. These eigenvalues are positive and the orthogonality is with respect to the bilinear form $c$. In fact it is also orthogonal with respect to the bilinear form $b$,
+		\begin{eqnarray*}
+			b(x_i, x_j) = \lambda_i c(x_i, x_j) = 0, \ \ \ \ \textrm{ for each } \ i \neq j.
+		\end{eqnarray*}
+
+		Also the sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis in $W$ and sequence of eigenvalues ${\lambda_i}$ is an infinite sequence with $\lambda_n \rightarrow \infty$ as $n \rightarrow \infty$. 
+
+		Following these results from \cite{CVV18}, for any $u \in V$, $\displaystyle u = \sum_{i=1}^{\infty} a_i x_i$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the eigenvectors $x_i$. Therefore, for any $u \in V$,
+		\begin{eqnarray*}
+			u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i.
+		\end{eqnarray*}
+
+		Now that the eigenvalue problem has many solutions, the following ordinary differentiable equation can be considered,
+		\begin{eqnarray*}
+			T_n'' + \lambda T_n = 0. 
+		\end{eqnarray*}
+
+		Since this differential equation is a simple second order differential equation, $T_n(t)$ has the following possible solutions:
+		\begin{flalign}
+			T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}
+		\end{flalign}
+
+		Then combining the solutions of the eigenvalue problem and the differential equation, the formal series solution for the boundary value problem is
+		\begin{eqnarray}
+			u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
+		\end{eqnarray}
+
+
+	\subsection*{Validity of series solution}
+		Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we again refer to the article \cite{CVV18}.
+
+		In the article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by \label{sym:Energy}
+		\begin{eqnarray}
+			\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
+		\end{eqnarray}
+
+		Then,
+		\begin{eqnarray*}
+			\mathcal{E}'(t) & = & b(u(t), u'(t)) + c(u'(t), u''(t)),\\
+							& = & 0 \ \ \ \ \ \ \ \textrm{ following from \eqref{eq:existence:ProblemGVarHom}}. 
+		\end{eqnarray*}
+
+		Therefore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
+
+		Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Ideally
+		\begin{eqnarray*}
+			u_0^{N} = \sum_{n=1}^{N} T_n(0) w_n \ \ \textrm{ and } \ \ u_{1}^{N} =\sum_{n=1}^{N} T'_n(0) w_n,
+		\end{eqnarray*}
+		but $T_n$ is not uniquely defined by the differential equation.
+
+		Substitution shows that these partial sums with initial conditions $u^N(0) = u^N_0$ and $(u^N)'(0) = u^N_1$ are solutions for \eqref{eq:existence:ProblemGVarHom} in Problem GVar.
+
+		The authors then define an error function $u^E_N = u - u^N$. Since both $u$ and $u^N$ satisfies \eqref{eq:existence:ProblemGVarHom}, so does this error function with the following the initial conditions, $u^E_N(0) = u_0 - u^N_0$ and $(u^E_N)'(0) = u_1 - u^N_1$.
+
+		Let $\mathcal{E}$ denote the energy of the error function $u^E_N$. Since $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$ it follows that, 
+		\begin{eqnarray}
+			||u(t) -  u^N(t)||_V^2 + ||u'(t) - (u^N)'(t)||^2_W = ||u_0 - u^N_0||_V^2 + ||u_1 - u^N_1||_W^2. \label{eq:inequality}
+		\end{eqnarray}
+
+		Now, $u_0$ and $u_1$ are given in Problem GVar. Therefore the generalized Fourier coefficients for $u_0$ and $u_1$ must be used to compute $u_0^N$ and $u_1^N$. These Fourier coefficients are $\displaystyle u_0^N = \sum_{n=1}^{N} b(u_0, w_n)w_n$ and $\displaystyle u_1^N = \sum_{n=1}^{N} c(u_1, w_n)w_n$.
+
+		Then $||u_0 - u^N_0||_V^2 \rightarrow 0$ and $||u_1 - u^N_1||_W^2 \rightarrow 0$ as $N \rightarrow \infty$. Therefore $\mathcal{E}(t) \rightarrow 0$ as $N \rightarrow \infty$ by \eqref{eq:inequality}.
+
+		It follows that the partial sums of the series solution converges to the solution $u$ as the initial conditions $u_0^N$ and $u_1^N$ converges to $u_0$ and $u_1$ respectively.
+
+	\subsection*{Comparison of models}
+		The results on modal analysis and the validity of the series solution enable the comparison of different linear models. The solution of the model problems can be expressed as a series solution of the eigenvalues and eigenvectors of the models. Therefore the models can be compared by comparing the eigenvalues and eigenvectors of the models.
+
+		The validity of the series solution also ensures that the comparisons remain valid, no matter the inital distrubance of the models. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
+
+\section{Cantilever two-dimensional model}\label{ssec:2D_Model:FEM}
 Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body by $\Omega \in R^2$, with $(0,0)$ as the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in E_2 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} \right \},
@@ -495,10 +602,7 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 	\end{eqnarray*}
 \end{minipage}
 
-In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$.
-
-\subsubsection{Cantilever elastic body}
-Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. This is Problem 2D in section \ref{ssec:2D_Model}.
+In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$. This is a catilever configuration.
 
 \FloatBarrier
 
@@ -601,15 +705,6 @@ Using the reference configuration, the constitutive equations and the bilinear f
 	& + & \frac{1}{2\gamma(1+\nu)}\int_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
 \end{align}
 
-\subsection{Weak variational form}
-Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
-
-\subsubsection{Problem 2DWV}
-Find a function $u$ such that $\forall \ t > 0$, $u \in V$ with $\partial_t^2 u \in W$ and
-\begin{eqnarray*}
-	c(u,v) + b(u,v) & = & (Q,v)
-\end{eqnarray*}
-for all $v\in V$.
 
 
 \subsection{Galerkin approximation}\label{2d_FEM_G}
@@ -732,10 +827,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \end{eqnarray}
 
 
-\subsection{Three-dimensional model} \label{ssec:3D_Model:FEM}
-Consider a cantilever three-dimensional elastic body, with a rectangular cross-section.
- 
-\subsubsection*{Reference configuration for rectangular cross-section}
+\section{Cantilever three-dimensional model} \label{ssec:3D_Model:FEM}
 Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the elastic body as $\Omega \in R^3$ with $(0,0,0)$ the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as
 \begin{eqnarray*}
 	\Omega = \left\{ x \in R^3 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} , \ -\frac{b}{2} \leq x_3 \leq \frac{b}{2}\right \}
@@ -891,17 +983,6 @@ Using the definition of the reference configuration, the constitutive equations 
 	\textrm{Tr}(\Phi) ~dV \nonumber\\
 	 &=  \int_{\Omega} \sigma_{11} \partial_1\phi_1 + \sigma_{12}\partial_1 \phi_2 + \sigma_{13}\partial_1 \phi_3 + \sigma_{21}\partial_2 \phi_1 + \sigma_{22}\partial_2\phi_2 + \sigma_{23}\partial_2 \phi_3 ~dV
 \end{align*}
-
-\subsection{Weak variational form}
-
-\subsubsection{Bilinear form}
-Define the inertia space $V$ as the closure of $T(\Omega)$ in $H := H^1(0,1)\times H^1(0,1)\times H^1(0,1)$. Denote $X = L^2(0,1)\times L^2(0,1)\times L^2(0,1)$. The inertia space is $W  = X$ with norm $||\cdot||_W = \sqrt{c(\cdot,\cdot)}$.
-
-\subsubsection{Problem 3DW}
-Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, satisfying the following equation
-\begin{eqnarray}
-	c(u,v) + b(u,v) & = & (Q,v) \ \ \ \textrm{ for each } v \in V.
-\end{eqnarray}
 
 \subsection{Galerkin approximation}
 For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
@@ -1537,15 +1618,15 @@ When the width $b$ is larger than the height $h$, the two-dimensional beam the c
 For practical applications, if $b > h$ the use of a beam model must be brought into question. Other models such as a plate model will be better suited as it is a more realistic model. In the next section, the validity of the Reissner-Mindlin plate mode is investigated using the same method of this section.
 
 \section{Conclusion}
-In this article, the validity of a two-dimensional cantilever beam model is investigated by comparing it to a three-dimensional cantilever beam model. The two models are compared by using the Finite Element Method to obtain the eigenvalues and eigenvectors of the models. The eigenvalues are then matched up by considering the mode shapes, and a comparison is made.
+In this article, we explored the validity of a two-dimensional cantilever beam model by comparing it with a three-dimensional cantilever beam model. Using the Finite Element Method, we obtained the eigenvalues and eigenvectors for both models, aligning them through mode shape comparisons.
 
-The models are presented in a dimensionless variational form. It is also shown how the two-dimensional model can be derived from the three-dimensional model as a special case of plane stress.
+The models were given in a dimensionless variational form, and we demonstrated how the two-dimensional model could be derived from the three-dimensional model as a specific case of plane stress.
 
-The well posedness of the models are not discussed in detail, but the neseccary articles are referenced. The idea of modal analysis is explained by a general example. Modal analysis is crucial to the comparison of the models, and the application of the comparison of the models is shown in the numerical results of this article.
+While we did not delve into the well-posedness of the models in detail, we cited necessary references. The principle of modal analysis was illustrated with a general example, proving essential for comparing the two models. This comparison's application is evident in the numerical results presented in this article.
 
-For both models, the Finite Element Method is applied and a numerical formula is obtained for the eigenvalue problems. Using a computer program, the eigenvalues and eigenvectors are obtained for both models. 
+Applying the Finite Element Method to both models, we developed a numerical formula for solving the eigenvalue problems. A computer program was then used to extract the eigenvalues and eigenvectors for each model.
 
-For the comparison, the eigenvalues are matched up by comparing the mode shapes. The results of this article shows that the two-dimensional beam model compares very well to the three-dimensional beam model different shapes of beams. The shape of the beam however is crucial to how well the comparison is. The two-dimensional model compares best when the three-dimensional beam is thin and long, and less well when the three-dimensional beam is short and thick. The two-dimensional model does not compare well to the three-dimensional model when the width $b$ is larger than the height $h$. However a better suited model for this case might be a plate model.
+Upon comparing the eigenvalues through mode shapes, our findings suggest that the two-dimensional beam model aligns well with the three-dimensional model for various beam shapes. However, the shape of the beam is pivotal to the comparison's accuracy. The two-dimensional model shows the best correlation with thin and long three-dimensional beams and less so with short and thick beams. Notably, the two-dimensional model does not align well when the beam's width $b$ exceeds its height $h$, suggesting that a plate model may be more appropriate in such cases and can be explored in future work.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{references}
