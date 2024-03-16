@@ -587,22 +587,7 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body by $\Omega \in R^2$, with $(0,0)$ as the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in E_2 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} \right \},
-\end{eqnarray*} where $\partial \Omega$ denotes the boundary of $\Omega$. The boundary $\partial \Omega$ can be divided into the four distinct lines (or edges) as follows: \label{sym:En}
-
-\noindent\begin{minipage}{.5\linewidth}
-	\begin{eqnarray*}
-		\Sigma:& \quad x_1 &= 0\\
-		\Gamma_3:& \quad x_1 &= 1
-	\end{eqnarray*}
-\end{minipage}%
-\begin{minipage}{.5\linewidth}
-	\begin{eqnarray*}
-		\Gamma_1:& \quad x_2 &= -{h}/{2}\\
-		\Gamma_2:& \quad x_2 &= {h}/{2}
-	\end{eqnarray*}
-\end{minipage}
-
-In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$. This is a catilever configuration.
+\end{eqnarray*} where $\partial \Omega$ denotes the boundary of $\Omega$. 
 
 \FloatBarrier
 
@@ -669,9 +654,9 @@ In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ d
 
 \FloatBarrier
 
-The variational problem for the two dimensional cantilever model is also derived in \ref{ssec:2D_Model} and refered to as Problem 2DV. Using the reference configuration, the variational problem can be rewritten into a model specific form.
+ Using the reference configuration, the variational problem Problem 2DV can be rewritten into a model specific form.
 
-\subsubsection{Problem 2DV}\label{sssec:2D_Model:Problem2D1VChp5}
+\subsubsection*{Problem 2DV}\label{sssec:2D_Model:Problem2D1VChp5}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
 	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEqChp5}
@@ -692,14 +677,14 @@ with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \fra
 
 Using the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten into a model specific form.
 
-\subsubsection{Constitutive equations:}
+\subsubsection*{Constitutive equations:}
 \begin{eqnarray}
 	\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)}(\partial_1 u_1 + \nu \partial_2 u_2) \label{CE1} \\
 	\sigma_{22} & = & \frac{1}{\gamma(1-\nu^2)}(\partial_2 u_2 + \nu \partial_1 u_1) \label{CE2} \\
 	\sigma_{12} & = & \frac{1}{2\gamma(1+\nu)}(\partial_1 u_2 + \partial_2 u_1) \label{CE3}
 \end{eqnarray}
 
-\subsubsection{Bilinear form:}
+\subsubsection*{Bilinear form:}
 \begin{align}
 	b(u,\phi) & = & \frac{1}{\gamma(1-\nu^2)}\int_{\Omega} (\partial_1 u_1 \partial_1 \phi_1 + \partial_2 u_2 \partial _2 \phi_2 + \nu\partial_1 u_1 \partial_2\phi_2 + \nu \partial_2 u_2 \partial_1 \phi_1 ) \ dA \nonumber\\
 	& + & \frac{1}{2\gamma(1+\nu)}\int_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
@@ -707,16 +692,16 @@ Using the reference configuration, the constitutive equations and the bilinear f
 
 
 
-\subsection{Galerkin approximation}\label{2d_FEM_G}
-To be able to apply the Finite Element Method to Problem 2DV, the body $\Omega$ needs to be discretised. This is done by dividing the body $\Omega$ into discrete shapes, called elements. There are various types of shapes of elements that can be used. Since the body $\omega$ is has a rectangular cross-section, rectangular elements are the simplest elements to use.
+\subsection*{Galerkin approximation}\label{2d_FEM_G}
+To apply the Finite Element Method to Problem 2DV, $\Omega$ must be discretized by dividing it into rectangular elements, suitable for its rectangular cross-section. This process involves creating a grid with $n = n_1 \times n_2$ nodes across $\Omega$.
 
-Divide the reference configuration $\Omega$ into a grid of rectangular elements, such that there are $n = n_1\times n_2$ nodes.
+A set of $n$-dimensional linear independent basis functions is defined, particularly for the two-dimensional model, as 
+$$B = \{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \}.$$ 
+These functions, chosen as piecewise Hermite bi-cubic functions $\phi_i$, offer quicker convergence and the ability to derive solution derivatives, despite their increased complexity compared to bi-linear functions.
 
-Define a set of $n$-dimensional linear independent basis functions. For the two dimensional model, the basis functions can be defined by the set $$B = \left\{\langle\phi_1, 0\rangle, \langle\phi_2, 0\rangle,...,\langle\phi_{n}, 0 \rangle,\langle 0,\phi_1\rangle,\langle 0 ,\phi_2\rangle,...,\langle 0,\phi_{n}\rangle \right\}.$$ 
-
-These functions are chosen as piecewise Hermite bi-cubic functions $\phi_i$. Simpler bi-linear functions can also be used, however the use of the bi-cubic basis functions results in faster convergence and also the benefit of obtaining the derivatives of the solution at the expense of more complexity.
-
-The subset of basis functions $B$ that satisfies all the conditions of the test function space $T(\Omega)$ are called the admissible basis functions. Denote the admissible basis functions by $\delta_j$, where each $\delta_j$ is a unique element of $B$. The admissible basis functions can be numbered and expressed as the set $A = \left \{\delta_1, \delta_2,..., \delta_k \right\}$ for some $k \leq 2n$.\\ 
+The subset of basis functions from $B$ that meet the criteria of the test function space $T(\Omega)$ are termed admissible basis functions, denoted by $\delta_j$, where each $\delta_j$ is a distinct element of $B$. These can be enumerated and presented as the set 
+$$A = \{\delta_1, \delta_2,..., \delta_k \}$$ 
+for some $k \leq 2n$.
 
 Define the space
 \begin{eqnarray*}
@@ -730,16 +715,15 @@ For each function $u^h \in S^h$, $u^h$ can be expressed as
 
 Substitution of $u^h$ into Problem 2DV, results in the following Galerkin Approximation, denoted by Problem 2DG.
 
-\subsubsection{Problem 2DG}
+\subsubsection*{Problem 2DG}
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
 	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I, \phi_i)
 \end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j} = Q(x_i,x_j)$ for $i = 1,2,...,n_1$ and $j = 1,2,...,n_2$.
 
-\subsection{System of differential equations}\label{ssec:2DFEM:DE}
 
 Consider the following standard Finite Element Method matrices
-\subsubsection{FEM matrices}
+
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
 		\mathbf{M}_{j,i} & = & \int_{\Omega} \phi_i \phi_j ~dA \\
@@ -801,7 +785,7 @@ The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathb
 
 Using \eqref{eq:2DFEM:K+M} and \eqref{eq:2DFEM:M}, Problem 2DG is rewritten as a system of ordinary differential equations. This system is referred to as Problem 2DODE.
 
-\subsubsection{Problem 2DODE}
+\subsubsection*{Problem 2DODE}
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I.
@@ -809,7 +793,7 @@ Find a function $\bar{u} \in S^h$ such that
 
 \textbf{Remark} This form of $\bar{u}$ is determined by the use of the bi-cubic basis functions.
 
-\subsection{Eigenvalue problem}\label{2dFEM_EP}
+\subsection*{Eigenvalue problem}\label{2dFEM_EP}
 For the eigenvalue problem, assume that there is no external force, $M_{f}Q^I = 0$, so that 
 \begin{eqnarray}
 		M\ddot{\bar{u}} & = & K\bar{u}.\label{eq:2DFEM:M2}
@@ -820,7 +804,7 @@ It is known that a system of ordinary differential equations has a general solut
 \end{eqnarray*}
 Since $e^{\lambda t} > 0$ for all values of $\lambda t$, we can cancel it from both sides of the equation and formulate the eigenvalue problem Problem 2DE.
 
-\subsubsection{Problem 2DE}
+\subsubsection*{Problem 2DE}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\lambda{\bar{u}} & = & K\bar{u}.
@@ -832,28 +816,9 @@ Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the 
 \begin{eqnarray*}
 	\Omega = \left\{ x \in R^3 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} , \ -\frac{b}{2} \leq x_3 \leq \frac{b}{2}\right \}
 \end{eqnarray*}
-Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ into the six distinct flat surfaces as follows:
+Let $\partial \Omega$ denote the boundary of the body.
 
-\noindent\begin{minipage}{.5\linewidth}
-	\begin{eqnarray*}
-		\Sigma:& \quad x_1 &= 0\\
-		\Gamma_5:& \quad x_1 &= 1\\
-		\Gamma_1:& \quad x_3 &= -{b}/{2} 
-	\end{eqnarray*}
-\end{minipage}%
-\begin{minipage}{.5\linewidth}
-	\begin{eqnarray*}
-		\Gamma_2:& \quad x_2 &= -{h}/{2}\\
-		\Gamma_3:& \quad x_3 &= {b}/{2}\\
-		\Gamma_4:& \quad x_2 &= {h}/{2} 
-	\end{eqnarray*}
-\end{minipage}
-
-Using this notation, the boundary conditions are similar to the two-dimensional model, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
-
-\subsubsection{Cantilever elastic body}
-Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D in section \ref{ssec:3D_Model}.
-
+\FloatBarrier
 \begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
@@ -942,10 +907,11 @@ Consider a three-dimensional elastic body with rectangular cross-section, rigidl
 	
 \end{figure} 
 
+\FloatBarrier
 
-In section \ref{ssec:3D_Model}, the variational problem for the three-dimensional cantilever model is defined by Problem 3DV. This general form can now be rewritten as in a model specific form using the reference configuration.
+This general variational form Problem 3DV can now be rewritten as in a model specific form using the reference configuration.
 
-\subsubsection{Problem 3DV}
+\subsubsection*{Problem 3DV}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
 	c(u,\phi) = -b(u,\phi) - (Q,\phi) \label{3DB_20}
@@ -977,28 +943,28 @@ Using the definition of the reference configuration, the constitutive equations 
 	\sigma_{12} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_2 u_1 + \partial_1 u_2)\label{3DB_8}
 \end{eqnarray*}
 
-\subsubsection{Bilinear Form}
+\subsubsection*{Bilinear Form}
 \begin{align*}
 	b(u,\phi)  &=  \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
 	\textrm{Tr}(\Phi) ~dV \nonumber\\
 	 &=  \int_{\Omega} \sigma_{11} \partial_1\phi_1 + \sigma_{12}\partial_1 \phi_2 + \sigma_{13}\partial_1 \phi_3 + \sigma_{21}\partial_2 \phi_1 + \sigma_{22}\partial_2\phi_2 + \sigma_{23}\partial_2 \phi_3 ~dV
 \end{align*}
 
-\subsection{Galerkin approximation}
-For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
+\subsection*{Galerkin approximation}
+For analyzing a three-dimensional body, rectangular prismatic (brick-shaped) elements are used, as detailed in \cite{Wu06}. This choice suits bodies with rectangular cross-sections.
 
-Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
+Split $\Omega$ into a grid of these elements, creating $n = n_1 \times n_2 \times n_3$ nodes.
 
-Define a set of $n$-dimensional linear independent basis functions. For the three-dimensional model, the basis functions can be defined by the set
+Define $n$-dimensional linear independent basis functions for the three-dimensional model as
 \begin{eqnarray*}
  B = \{\langle\phi_1, 0 , 0\rangle, \langle\phi_2, 0, 0\rangle,...,\langle\phi_{n}, 0, 0 \rangle,\\
 	\langle 0,\phi_1 ,0 \rangle,\langle 0 ,\phi_2,0\rangle,...,\langle 0,\phi_{n},0\rangle,\\
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
+Employing piecewise Hermite tri-cubic basis functions offers quicker convergence and solution derivatives, albeit with increased complexity compared to tri-linear functions.
 
-For the this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
+Admissible basis functions, satisfying all conditions of $T(\Omega)$, are denoted by $\delta_j$, making up the set $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$, where $k \leq 3n$.
 
-Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
 Define the space
 \begin{eqnarray*}
@@ -1012,16 +978,14 @@ For each function $u^h \in S^h$, $u^h$ can be expressed as
 
 Substituting $u^h$ into Problem 3DV, results in the following Galerkin approximation, denoted by Problem 3DG.
 
-\subsubsection{Problem 3DG}
+\subsubsection*{Problem 3DG}
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
 	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
 \end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
 
-\subsection{System of ordinary differential equations}\label{3d_fem_g}
 Consider the following standard Finite Element Method matrices.
 
-\subsubsection{FEM matrices}
 \noindent\begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
 		\mathbf{M}_{ij} & = & \int_{\Omega} \phi_j \phi_i \ dV \ \\
@@ -1097,8 +1061,6 @@ Using the standard FEM matrices and the matrices $K11$ to $K33$, the following c
 	\end{aligned}\label{eq:3DFEM:K+M}
 \end{eqnarray}
 
-
-
 \begin{eqnarray}
 	M_f & = &
 	\begin{bmatrix}
@@ -1111,16 +1073,16 @@ The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathb
 
 Using \eqref{eq:3DFEM:K+M} and \eqref{eq:3DFEM:M}, Problem 3DG is rewritten as a system of ordinary differential equations. This system is referred to as Problem 3DODE
 
-\subsubsection{Problem 3DODE}
+\subsubsection*{Problem 3DODE}
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I. \label{3D_M}
 \end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \partial^i_1u \partial^j_2u \partial^k_3u$ for $i,j,k = 0,1,2,3$.
 
-\subsection{Eigenvalue problem}
+\subsection*{Eigenvalue problem}
 The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in section \ref{2dFEM_EP}.
 
-\subsubsection{Problem 3DE}\label{3dFEM_EP}
+\subsubsection*{Problem 3DE}\label{3dFEM_EP}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\lambda{\bar{u}} & = & K\bar{u}.
@@ -1129,11 +1091,8 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 Now Problem 2DE and Problem 3DE can be solved using a computer program. Iterative methods, sparse matrices as well as parallel computing can be used to efficiently solve these problems.
 
 \section{Validity of a model for a cantilever two-dimensional beam} \label{sec:validity-of-a-2d-beam}
-As mentioned in the introduction of the chapter, a beam is a three-dimensional body and therefore a three-dimensional model is more realistic. However the authors of \cite{LVV09} mention that a direct comparison of the one and three-dimensional models will have complexities and they suggest using the two-dimensional model as an intermediate step.
+In this section, we compare the two-dimensional cantilever beam with a three-dimensional cantilever beam.
 
-So in this section, the article \cite{LVV09} is extended and the validity of a cantilever two-dimensional beam model is investigated, using a cantilever three-dimensional model as a reference.
-
-\subsection{The models}
 Figure \ref{fig:2Dv3D} shows the two beams, Problem 2D and Problem 3D side-by-side.
 
 \FloatBarrier
@@ -1234,52 +1193,17 @@ Figure \ref{fig:2Dv3D} shows the two beams, Problem 2D and Problem 3D side-by-si
 \end{figure}
 \FloatBarrier
 
-\subsection{Calculating the eigenvalues}
-In section \ref{ssec:2D_Model:FEM} and \ref{ssec:3D_Model:FEM}, the Finite Element Method for the two-dimensional beam and three-dimensional beam is derived. Using this method, the eigenvalue problems can be solved to obtain the eigenvalues and eigenvectors of the two models.
-
-\subsubsection{Problem 2DE and 3DE}
-Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
-\begin{eqnarray}
-	K\bar{u} & = & M\lambda{\bar{u}},
-\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in section \ref{ssec:2DFEM:DE} for the Problem 2DE and section \ref{3d_fem_g} for Problem 3DE.
-
-\subsubsection{Accuracy of the eigenvalues}
-When solving the eigenvalue problems with a numerical method, the accuracy of the eigenvalues can be established by investigating the rate of convergence. 
-
-\begin{figure}[H]
-    \centering
-    \begin{adjustbox}{center}
-        \includegraphics[scale=0.7]{files/Chapter4/Convergence.png}
-    \end{adjustbox}
-    \caption{Rate of convergence of the first 20 eigenvalues for Problem 2DE.}
-    \label{fig:conv_2d_eig}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-    \begin{adjustbox}{center}
-        \includegraphics[scale=0.7]{files/Chapter6/convergence3d.png}
-    \end{adjustbox}
-    \caption{Rate of convergence of the first 20 eigenvalues for Problem 3DE.}
-    \label{fig:conv_3d_eig}
-\end{figure}
-
-
-Figure \ref{fig:conv_2d_eig} and \ref{fig:conv_3d_eig} shows the rate of convergence of the first 20 eigenvalues of the two-dimensional beam and the three-dimensional beam respectively. Each color represents a spesific eigenvalue.
-
-These figures show that the two-dimensional model has a much faster rate of convergence than the three-dimensional model. The two-dimensional model also converge faster to a higher accuracy than the three-dimensional model.
-
-Using this, the number of elements can be chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits for the two-dimensional model. For the three-dimensional model, obtaining this level of accuracy can be difficult and computationally expensive, but it is possible to get 4 significant digits of accuracy for the first 10 eigenvalues.
+\subsection{Calculating the eigenvalues and mode shapes}
+The eigenvalues and mode shapes of the two models are calculated using the computer program. The eigenvalues and mode shapes are then compared to determine the accuracy of the two-dimensional model for the cantilever beam. The accuracy of the eigenvalues depends on the number of elements employed in the finite element method. For the two-dimensional model, accuracy reaches at least five significant digits for the first 10 eigenvalues, while the three-dimensional model achieves at least four significant digits for its first 10 eigenvalues.
 
 \subsection{Comparing the mode shapes}
-To be able to compare the eigenvalues, the mode shapes of the two models are compared to match up the eigenvalues of the two models. This is the same approach as in the article \cite{LVV09}.
+Following \cite{LVV09}, the mode shapes of the two models are compared. As seen in \cite{LVV09}, the eigenvalues of the Timoshenko beam model (beam-type eigenvalues) are all present in the two-dimensional model. However not all the eigenvalues of the two-dimensional model are present in the Timoshenko beam model. These are called non-beam type eigenvalues. 
 
-When calculating the mode shapes, distinct patterns are observed. There are mode shapes that are present in both models, mode shapes that are only present in the three-dimensional model. The shared mode shapes also include mode shapes that relate to beam problems. These are the mode shapes that are of interest the article \cite{LVV09}.
+The same is observed for the three-dimensional model, as there are eigenvalues that are present in the three-dimensional model that are not present in the two-dimensional model.
 
-The focus of the investigation of this article is also on beam type problems. Below are some examples of the mode shapes for beam type eigenvalues, mode shapes for non-beam type eigenvalues that are shared between the two and three-dimensional models and also mode shapes for non-beam type eigenvalues that are only present in the three-dimensional model.
+Therefore it is required to match the eigenvalues of the two models by comparing the mode shapes.
 
-\subsubsection{Mode shapes relating to beam type eigenvalues.}
+\subsubsection*{Mode shapes relating to beam type eigenvalues.}
 Figure \ref{fig:beam-2dv3d} show some examples of beam type mode shapes for the displacement $u$.
 
 \begin{figure}[h!]
@@ -1316,7 +1240,7 @@ Figure \ref{fig:beam-2dv3d} show some examples of beam type mode shapes for the 
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Mode shapes relating to non-beam type eigenvalues that are present in the two-dimensional model.}
+\subsubsection*{Mode shapes relating to non-beam type eigenvalues that are present in the two-dimensional model.}
 Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam type eigenvalues for the displacement $u$.
 
 \FloatBarrier
@@ -1340,7 +1264,7 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Mode shapes relating to non-beam type eigenvalues that are not present in the two-dimensional model.}
+\subsubsection*{Mode shapes relating to non-beam type eigenvalues that are not present in the two-dimensional model.}
 Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam type eigenvalues for the displacement $u$ which are not present in the two-dimensional model. These mode shapes only appear in the three-dimensional beam.
 \FloatBarrier
 \begin{figure}[h!]
@@ -1364,13 +1288,11 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 \FloatBarrier
 
 \subsection{Comparing the eigenvalues}
-For a realistic comparison of the models, the parameters need to be chosen carefully. The parameters are $h$ representing the height of the beam and $b$ representing the width of the beam. The two-dimensional model does not have the width parameter.
+For a realistic comparison of the models, it's crucial to carefully select parameters $h$ and $b$, representing the beam's height and width, respectively, noting that the two-dimensional model lacks the width parameter $b$.
 
-For $h$, values are chosen that covers a range of beam shapes from a short thick beam, to a long slender beam. two cases are selected that represents realistic cases. For a short and thick beam, consider $h = 1/5$ and for a long and slender beam, consider $h = 1/20$.
+Values for $h$ span a range from short, thick beams ($h = 1/5$) to long, slender beams ($h = 1/20$), capturing two realistic scenarios. Regarding $b$, it's considered in two scenarios: when $b \leq h$ and when $b > h$, with $b$ expressed as a multiple of $h$. This distinction influences the results.
 
-For the parameter $b$, two different cases will be considered. The first case is for $b \leq h$, and the $b > h$. The distinction of these two cases will become apparent in the results. It is important to note that the parameter $b$ will be expressed as a multiple of $h$.
-
-All of the results will include all the eigenvalues shared between the two-models, including not beam type eigenvalues. The non-beam type eigenvalues will be highlighted in grey. The non-beam type eigenvalues that are not shared between the two models will be excluded from the results, but the numbering of the eigenvalues will be kept as if they were included.
+Results will cover all shared eigenvalues between the models, highlighting non-beam type eigenvalues in grey. Non-beam type eigenvalues unique to either model are excluded, but eigenvalue numbering will proceed as if they were included.
 
 \subsubsection*{Case $b \leq h$:}
 Table \ref{tab:2v3_1} below compares the eigenvalues of the models for a beam with a small length to height ratio of $h=1/5$ with decreasing values of $b$. 
@@ -1496,11 +1418,12 @@ Table \ref{tab:2v3_1} below compares the eigenvalues of the models for a beam wi
 \end{table}%
 \FloatBarrier
 
-Tables \ref{tab:2v3_1} and \ref{tab:2v3_2} show that the first 20 eigenvalues two-dimensional model compares very well to the matching eigenvalues three-dimensional beam for $b<=h$. As the width $b$ decreases, the two-dimensional model becomes a better approximation of the three-dimensional model. Also shown is that the slender beam with $h = 1/20$ compares better than the thick beam where $h = 1/5$, event though the case of $h=1/5$ is still a very good comparison. 
 
-The tables also shows that the three-dimensional model has more non-beam type eigenvalues as the width $b$ decreases, as well as when the width $h$ decreases.
+Tables \ref{tab:2v3_1} and \ref{tab:2v3_2} show that the first 20 eigenvalues of the two-dimensional model closely match those of the three-dimensional beam for $b \leq h$. As width $b$ decreases, the two-dimensional model approximates the three-dimensional model more accurately. The comparison is notably better for the slender beam with $h = 1/20$ than for the thick beam with $h = 1/5$, though both comparisons are strong.
 
-Tables \ref{tab:2Dv3D_1_breakup} and \ref{tab:2v3_2_split} breaks up the maximum relative error for the beam type and non-beam type eigenvalues. These tables confirm that the the beam type eigenvalues compare very well.
+The tables also indicate an increase in non-beam type eigenvalues in the three-dimensional model as both $b$ and $h$ decrease.
+
+Tables \ref{tab:2Dv3D_1_breakup} and \ref{tab:2v3_2_split} show the maximum relative error for beam type and non-beam type eigenvalues, confirming the close comparison of beam type eigenvalues.
 
 
 \subsubsection*{Case $b > h$:}
@@ -1605,17 +1528,13 @@ In Table \ref{tab:b>h}, the height of the beam is set to $h=1/20$, which was the
 \end{table}%
 \FloatBarrier
 
-Tables \ref{tab:b>h} and \ref{tab:b>h_20} show that the two-dimensional model compares less well to the three-dimensional model when $b$ is too much larger than $h$. Tables \ref{tab:b>h-split} and \ref{tab:b>h-split_20} show that this is also true for the beam type eigenvalues.
+Tables \ref{tab:b>h} and \ref{tab:b>h_20} indicate that the two-dimensional model's accuracy declines when $b$ significantly exceeds $h$, a trend also observed for beam type eigenvalues in Tables \ref{tab:b>h-split} and \ref{tab:b>h-split_20}. Particularly for $h=1/5$, obtaining reliable eigenvalues numerically was challenging.
 
-For the case of $h=1/5$, it was also more difficult to obtain reliable eigenvalues using a numerical method.
+These results comprehensively assess the two-dimensional cantilever beam model against the three-dimensional counterpart, demonstrating good agreement across a broad spectrum of beam shapes, especially in scenarios representing realistic cases.
 
-These results gives a detailed overview of the validity of the cantilever two-dimensional beam compared to the cantilever three-dimensional beam. The results show that the two-dimensional beam model compares very well to the three-dimensional beam model for a large range of beam shapes. The results shown were chosen to represent realistic cases, and the results are similar for other cases.
+The key takeaway is the critical role of beam shape: the two-dimensional model performs excellently when $b \leq h$, particularly for slender beams, but less so for short, thick beams. The model's accuracy rapidly deteriorates as $b$ surpasses $h$, affecting both slender and short, thick beams, with the latter posing challenges in numerical eigenvalue calculation.
 
-The overall conclusion is that the shape of the beam is very important. If the width $b$ is equal to or less than the height $h$, the two-dimensional beam model compares very well to the three-dimensional beam model. More so when the beam is slender, and less so when the beam is short and thick.
-
-When the width $b$ is larger than the height $h$, the two-dimensional beam the comparison degrades very quickly. This is true for both slender and short and thick beams, although with short and thick beams, it is more difficult to obtain reliable eigenvalues using a numerical method.
-
-For practical applications, if $b > h$ the use of a beam model must be brought into question. Other models such as a plate model will be better suited as it is a more realistic model. In the next section, the validity of the Reissner-Mindlin plate mode is investigated using the same method of this section.
+For practical applications, a beam model's suitability is questionable when $b > h$, suggesting alternative approaches like plate models for more accurate representation. The next section explores the Reissner-Mindlin plate model's validity using a similar analysis.
 
 \section{Conclusion}
 In this article, we explored the validity of a two-dimensional cantilever beam model by comparing it with a three-dimensional cantilever beam model. Using the Finite Element Method, we obtained the eigenvalues and eigenvectors for both models, aligning them through mode shape comparisons.
