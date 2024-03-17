@@ -104,40 +104,18 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 			In this form, Hooke's law is the constitutive equation for the three-dimensional model.
 
 		\subsubsection*{Dimensionless form} \label{ssec:3D_Model:DimensionlessForm}
-			Suppose $\ell$ represents some notable dimension (e.g.the length) of the elastic body and $G$ the shear modulus of elasticity.
+			Let $\ell$ represent a significant dimension (e.g., length) of an elastic body and $G$ the shear modulus. Define dimensionless variables and normalized functions as
+			\[\tau = \frac{t}{t_0},\ \xi_i = \frac{x_i}{\ell},\ u^*(\xi,\tau) = \frac{u(x,t)}{\ell},\ Q^{*} = \ell G \kappa^2 Q,\ \sigma_{ij}^*(\xi,\tau) = \frac{\sigma_{ij}(x,t)}{G\kappa^2},\]
+			where $\kappa^2$ is a dimensionless constant and $\displaystyle t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}$. Let $\displaystyle \gamma= \frac{G\kappa^2}{E}$.
 
-			Set \[\tau = \frac{t}{t_0},\quad \xi_i = \frac{x_i}{\ell},\quad {u}^*(\xi,\tau) = \frac{1}{\ell}{u}(x,t), \quad Q^{*} = \ell G \kappa^2 Q, \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]\label{sym:t}\label{sym:G}\label{sym:tau}\label{sym:xi}\label{sym:Qstar}\label{sym:sigmaijstar}\label{sym:ell}\label{sym:kappa2}
+			Substituting these into the equation of motion \eqref{eq:3D_Model:EM} gives
+			\[\partial_{\tau} u^{*} = \text{div}T^* + Q^*,\]
+			where $\displaystyle T^* = \sigma_{i,j}^*(\xi,\tau)$. The dimensionless forms for \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
+			\[\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \text{Tr}(T^*)I,\]
+			\[T^* = \frac{\mathcal{E}}{\gamma(1+\nu)} + \frac{\nu\text{Tr}(\mathcal{E})I}{\gamma(1+\nu)(1-2\nu)}.\]
 
-			where $\kappa^2$ is a dimensionless constant and $t_0$ must be specified. Choose \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}} \textrm{ and } \gamma= \frac{G\kappa^2}{E}.\]
+			The choice of dimensionless constants follow \cite{LVV09} and allows for a comparison between this model and the Timoshenko beam model.
 
-			Substitution into \eqref{eq:3D_Model:EM} and yields
-			\begin{eqnarray*}
-				\partial_{\tau} u^{*} = \textrm{div}T^* + Q^* \textrm{ where } T^* = \sigma_{i,j}^*(\xi,\tau).
-			\end{eqnarray*}
-
-			The dimensionless forms of \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
-			\begin{eqnarray*}
-				\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right],
-			\end{eqnarray*}\label{sym:I}
-
-			and
-			\begin{eqnarray*}
-				T^* = \frac{E}{G \kappa^2} \left[\left( \frac{1}{1+\nu} \right)\mathcal{E} + \frac{\nu}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \right].
-			\end{eqnarray*}
-
-			Using the dimensionless constant $\gamma$,
-			\begin{eqnarray}
-				\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \textrm{Tr}(T^*)I \label{DM_H_E}
-			\end{eqnarray}
-			and
-			\begin{eqnarray}
-				T^* = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I. \label{DM_H_T}
-			\end{eqnarray}
-
-			\textbf{Remark} The constants introduced are the same as those in \cite{LVV09}.
-			These dimsensionless constants allow for the comparison of the higher dimensional models to the Timoshenko beam model.
-
-			The original notation is retained for convenience.
 
 		\subsubsection*{Equations of motion in dimensionless form}\label{sssec:3D_Model:EquationOfMotionDimensionless}
 			\begin{eqnarray}
@@ -344,22 +322,15 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 		\subsubsection*{Dimensionless form}\label{sssec:1D_Model:DimensionlessForm}
 			As mentioned in the dimensionless form of the three-dimensional model, the same dimensionless scaling can be applied to the Timoshenko beam theory.
 
-			Set \[\tau = \frac{t}{t_0}, \,\, \xi = \frac{x}{\ell}, \,\, w^*(\xi,\tau) = \frac{w(x,t)}{\ell} \ \text{ and } \ \phi^*(\xi, \tau) = \phi(x,t).\]
+			Set \[\tau = \frac{t}{t_0},\ \xi = \frac{x}{\ell},\ w^*(\xi,\tau) = \frac{w(x,t)}{\ell},\ \phi^*(\xi, \tau) = \phi(x,t).\]
 
-			The dimensionless forms of the shear force, moment and external force density are \[ V^{*}(\xi,\tau) = \frac{V(x,t)}{AG\kappa^2}, \quad M^{*}(\xi,\tau) = \frac{M(x,t)}{A G\kappa^2 \ell} \,\,\, \ \text{and} \ \,\,\, Q^*(\xi,\tau) = \frac{Q(x,t)\ell}{A G\kappa^2}.\]
+			Dimensionless shear force, moment, and external force density are \[V^{*} = \frac{V}{AG\kappa^2},\ M^{*} = \frac{M}{A G\kappa^2 \ell},\ Q^* = \frac{Q\ell}{A G\kappa^2}.\]
 
-			Choose $t_0$ the same as the three-dimensional model, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+			Use $\displaystyle t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}$ as before.
 
-			As in \cite{LVV09} we use the dimensionless constants
-			\begin{equation*}
-				\alpha = \frac{A \ell^2}{I} \,\,\, \text{and} \,\,\, \beta
-				=\frac{AG\kappa^2 \ell^2}{EI}.
-			\end{equation*}\label{sym:alphabeta}
-
-			Interestingly, it turns out that
-			\begin{eqnarray*}
-				\frac{\beta}{\alpha} & = & \gamma
-			\end{eqnarray*} where $\gamma$ is the dimensionless parameter defined in the three-dimensional case.\\
+			Using the dimensionless constants from \cite{LVV09}, 
+			\[\alpha = \frac{A \ell^2}{I},\ \beta =\frac{AG\kappa^2 \ell^2}{EI},\]
+			with \[\frac{\beta}{\alpha} = \gamma,\] where $\gamma$ is the dimensionless parameter from the three-dimensional model.
 
 		\subsubsection*{Dimensionless equations of motion}\label{sssec:1D_Model:DimensionlessEquationsOfMotion}
 			\begin{eqnarray}
