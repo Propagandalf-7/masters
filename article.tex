@@ -14,10 +14,10 @@
 
 \title{Comparison of linear beam theories}
 
-\author{Rudi du Toit\corref{cor1}}
+\author{R. du Toit\corref{cor1}}
 \ead{u15000258@tuks.co.za}
 \cortext[cor1]{Corresponding author}
-\author{Prof N.F.J. van Rensburg}
+\author{N.F.J. van Rensburg}
 \address{Department of Mathematics, University of Pretoria, Pretoria, South Africa}
 
 \journal{Applied Mathematics and Computation}
@@ -27,7 +27,7 @@ Beams, while commonly used in engineering, are complex three-dimensional objects
 \end{abstract}
 
 \begin{keyword}
-	Beams \sep Cantilever Beams \sep Two-Dimensional Models \sep Three-Dimensional Models \sep Vibration Analysis \sep Modal Analysis \sep Finite Element Method
+	Beam \sep Cantilever Beam \sep Two-Dimensional Model \sep Three-Dimensional Model \sep Vibration Analysis \sep Modal Analysis \sep Finite Element Method
 \end{keyword}
 
 \end{frontmatter}
@@ -45,9 +45,22 @@ We then apply the Finite Element Method (FEM) to the two models and obtain a for
 
 Following \cite{LVV09}, by considering the mode shapes, we can match up the eigenvalues and compare them. In the comparison, we consider different shapes of beams that are useful in practical applications. We find that the shape of the beam significantly influences the validity of the two-dimensional model. The results of the comparison are presented in the form of tables and graphs.
 
-\section{Linear mathematical models}
+The layout of the paper is as follows:
+\begin{itemize}
+\item Section \ref{sec:LinearMathematicalModels} introduces the linear mathematical models for the three-dimensional, two-dimensional, and Timoshenko beam models.
+\item Section \ref{sec:ModalAnalysis} covers modal analysis, compares linear models, and touches on the models' well-posedness.
+\item Section \ref{ssec:2D_Model:FEM} outlines the variational problem for the two-dimensional model and applies the Finite Element Method to derive an eigenvalue problem.
+\item Section \ref{ssec:3D_Model:FEM} outlines the variational problem for the three-dimensional model and applies the Finite Element Method to derive an eigenvalue problem.
+\item Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} examines the validity of the Timoshenko model for a cantilever beam, drawing on results from \cite{LVV09}.
+\item Section \ref{sec:validity-of-a-2d-beam} expands on \cite{LVV09} to assess the validity of a two-dimensional model for a cantilever beam.
+\item Section \ref{sec:conclusion} concludes the paper.
+\end{itemize}
+
+
+
+\section{Linear mathematical models} \label{sec:LinearMathematicalModels}
 	\subsection{Three-dimensional theory}
-		Consider a vector valued displacement function $u \in \Omega \subset R^3$.
+		Consider a vector valued displacement function $u$ defined on $\Omega \subset R^3$.
 
 		\subsubsection*{Equation of motion}\label{ssec:3D_Model:EquationOfMotion}
 		\begin{eqnarray}
@@ -72,8 +85,6 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 		\end{eqnarray}
 
 		\subsubsection*{Constitutive Equation}
-			\textcolor{red}{************ VOORSTEL om the verkort ************}
-
 			For an isotropic material, Hooke's law can be written in terms of Young's modulus $E$ and Poisson's ratio $\nu$. And if the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be written in the following form:
 			\begin{eqnarray}
 				T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
@@ -81,29 +92,6 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 
 			In this form, Hooke's law is the constitutive equation for the three-dimensional model.
 
-			\textcolor{red}{************ VOORSTEL ************}
-
-			For an isotropic material, Hooke's law can be written in terms of Young's modulus $E$ and Poisson's ratio $\nu$ as follows.
-
-			\textbf{Hooke's law}
-			\begin{eqnarray}
-				\mathcal{E} = \left( \frac{1+\nu}{E} \right)T - \frac{\nu}{E}\textrm{Tr}(T)I,  \label{eq:3D_Model:HL}
-			\end{eqnarray} The components of the strain tensor $\mathcal{E}$ are defined as
-			\begin{eqnarray}
-				\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right). \label{eq:3D_Model:Strain}
-			\end{eqnarray}\label{sym:varepsilonij}
-
-			If the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be written in an alternative form.
-
-			\textbf{Hooke's law in the alternative form}
-			\begin{eqnarray}
-				T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
-			\end{eqnarray}
-			With $\textrm{Tr}(\mathcal{E}) = \epsilon_{11} + \epsilon_{12} + \epsilon_{13}$ is the trace of the strain operator $\mathcal{E}$.
-
-			In this form, Hooke's law is the constitutive equation for the three-dimensional model.
-
-		\subsubsection*{Dimensionless form} \label{ssec:3D_Model:DimensionlessForm}
 			Let $\ell$ represent a significant dimension (e.g., length) of an elastic body and $G$ the shear modulus. Define dimensionless variables and normalized functions as
 			\[\tau = \frac{t}{t_0},\ \xi_i = \frac{x_i}{\ell},\ u^*(\xi,\tau) = \frac{u(x,t)}{\ell},\ Q^{*} = \ell G \kappa^2 Q,\ \sigma_{ij}^*(\xi,\tau) = \frac{\sigma_{ij}(x,t)}{G\kappa^2},\]
 			where $\kappa^2$ is a dimensionless constant and $\displaystyle t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}$. Let $\displaystyle \gamma= \frac{G\kappa^2}{E}$.
@@ -117,7 +105,7 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 			The choice of dimensionless constants follow \cite{LVV09} and allows for a comparison between this model and the Timoshenko beam model.
 
 
-		\subsubsection*{Equations of motion in dimensionless form}\label{sssec:3D_Model:EquationOfMotionDimensionless}
+		\textbf{Equations of motion in dimensionless form}
 			\begin{eqnarray}
 				\partial_t^2 u & = & \textrm{div}T + Q \label{eq:3D_Model:EM-D}
 			\end{eqnarray}
@@ -131,62 +119,16 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 				\end{bmatrix}.\label{eq:3D_Model:divT-D}
 			\end{eqnarray}
 
-		\subsubsection*{Constitutive equations in dimensionless form}\label{sssec:3D_Model:ConstitutiveEquationsDimensionless}
+		\textbf{Constitutive equations in dimensionless form}
 			\begin{eqnarray}
 				T = \frac{1}{\gamma(1+\nu)} \mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE-D}
 			\end{eqnarray}
 
-		Divide the boundary of $\Omega$ into two distinct parts, referred to as $\Sigma$ and $\Gamma$. The following will be considered a model problem for a three-dimensional elastic body (also for the two-dimensional elastic body).
-		\begin{enumerate}
-			\item[] The equations of motion \eqref{eq:3D_Model:EM-D} and \eqref{eq:3D_Model:divT-D}, and Hooke's law is satisfied in $\Omega$;
-			\item[] The displacement $u = u_\Sigma$ is specified on
-				$\Sigma$; The traction $Tn = t_\Gamma$ is specified on
-				$\Gamma$.
-		\end{enumerate} \label{sym:n}\label{sym:SigmaGamma}
-
 		\subsubsection*{Cantilever model}
 			Find a vector valued function $u$, satisfying equations
-			\eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the following boundary
-			conditions:
-
-			Boundary Conditions:
-			\begin{eqnarray*}
-				u & = & 0 \quad \textrm{ on } \Sigma\\
-				Tn & = & 0 \quad \textrm{ on } \Gamma
-			\end{eqnarray*}
-
-			This will be referred to as \textbf{Problem 3D}.
+			\eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the boundary
+			conditions $\displaystyle u = 0$ on part of the boundary and $\displaystyle Tn = 0$ on the rest of the boundary. This will be referred to as \textbf{Problem 3D}.
 			
-		\subsection*{Variational form}\label{ssec:3D_Model:VariationalForm}
-			Define the bilinear forms
-			\begin{eqnarray}
-				b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
-				\textrm{Tr}(\Phi) ~dV \label{eq:3D_Model:Bilinear}
-			\end{eqnarray}\label{sym:b}
-			and
-			\begin{eqnarray}
-				c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dV \label{eq:3D_Model:Bilinear_c}
-			\end{eqnarray}
-			with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.
-
-			Also define the integral
-			\begin{eqnarray}
-				(f,g) &=& \int_{\Omega} f\cdot g \ dV \label{eq:3D_Model:Bilinear_int}
-			\end{eqnarray}
-
-			Define the following set of test functions $T(\Omega)$ for Problem 3D:
-			\begin{eqnarray*}
-				T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}
-			\end{eqnarray*}\label{sym:TOmega}
-
-			Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
-			\begin{align}
-				c(u,\phi) = -b(u,\phi) + (Q,\phi), \label{eq:3D_Model:Problem3D1VEq}
-			\end{align}
-			for all $\phi \in T(\Omega)$
-
-			This will be referred to as \textbf{Problem 3DV}.
-
 	\subsection{Two-dimensional theory}
 		\subsubsection*{General plane stress}
 			Stresses acting parallel to a single plane are referred to as plane stress. 
@@ -263,43 +205,8 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 
 		\subsubsection*{Cantilever model}
 
-			Find a vector valued function $u$, satisfying equations \eqref{eq:2D_Model:EM} to \eqref{eq:2D_Model:CE} and the boundary conditions:
+			Find a vector valued function $u$, satisfying equations \eqref{eq:2D_Model:EM} to \eqref{eq:2D_Model:CE} and the boundary conditions $u = 0$ on part of the boundary and $Tn = 0$ on the rest of the boundary. This will be referred to as \textbf{Problem 2D}.
 
-			Boundary Conditions:
-			\begin{eqnarray*}
-				u & = & 0 \quad \textrm{ on } \Sigma,\\
-				Tn & = & 0 \quad \textrm{ on } \Gamma.
-			\end{eqnarray*} with $n$ the outward unit normal.
-
-			This will be referred to as \textbf{Problem 2D}.
-
-		\subsubsection*{Variational form}\label{ssec:2D_Model:VariationalForm}
-			Define the bilinear forms
-			\begin{eqnarray}
-				b(u,\phi) = \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
-				\textrm{Tr}(\Phi) ~dA \label{eq:2D_Model:Bilinear}
-			\end{eqnarray}
-			and
-			\begin{eqnarray}
-				c(u,\phi) = \int_\Omega~ (\partial^2_t u) \cdot \phi~dA \label{eq:2D_Model:Bilinear_c}
-			\end{eqnarray}
-			with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
-			Also define the integral
-			\begin{eqnarray}
-				(f,g) &=& \int_{\Omega} f\cdot g \ dA \label{eq:2D_Model:Bilinear_int}
-			\end{eqnarray}
-
-			\subsubsection*{Test functions for Problem 2D}\label{sssec:2D_Model:TestFunctions2D1}
-			Define the following set of test functions $T(\Omega)$ for Problem 2D:
-			\begin{eqnarray*}
-				T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}. 
-			\end{eqnarray*}\label{sym:baromega}
-
-			Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
-			\begin{align}
-				c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEq}
-			\end{align}
-			for all $\phi \in T(\Omega)$. This will be referred to as \textbf{Problem 2DV}.
 
 	\subsection{Timoshenko theory}
 		Consider a Timoshenko beam with no damping defined on the interval $[0,\ell]$.
@@ -344,7 +251,7 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 			\end{eqnarray}
 		The original notation is retained for convenience.
 
-		\subsection{Models and variational forms}
+		\textbf{Models and variational forms}
 			\subsubsection*{Bilinear forms and integral}
 				For $f,g \in T[0,1]$, define the bilinear forms
 				\begin{eqnarray}
@@ -355,15 +262,15 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 				\begin{eqnarray}
 				(f,g)
 					&=& \int_{0}^1 fg \label{eq:1D_Model:Bilinear_int}
-				\end{eqnarray} for all $f,g \in L^2(0,1).$\\
+				\end{eqnarray} for all $f,g \in L^2(0,1).$
 
-				\textbf{Remark}\\
+				\textbf{Remark}
 				$L^2(a,b)$ is the space of all square integrable functions on the interval $(a,b)$. The inner product is defined by $\displaystyle (f,g) = \int_a^b fg$, and the induced norm $\displaystyle ||f|| = \int_a^b f^2$.\\
 
 			\subsection*{Pinned-pinned beam}
 				Find functions $w$ and $\phi$ satisfying equations \eqref{eq:1D_Model:EquationOfMotion1D} to \eqref{eq:1D_Model:ConstitutiveEquations2D} and the boundary conditions:
 
-				{Boundary Conditions}\\
+				{Boundary Conditions}
 				\begin{eqnarray*}
 					w(0,\cdot) = 0, \ \ &M(0,\cdot) = 0, \label{eq:1D_Model:ProblemT1BC1}\\
 					w(1,\cdot) = 0, \ \ &M(1,\cdot) = 0. \label{eq:1D_Model:ProblemT1BC2}
@@ -384,7 +291,7 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 			\subsection*{Cantilever beam}
 				Find functions $w$ and $\phi$ satisfying equations \eqref{eq:1D_Model:EquationOfMotion1D} to \eqref{eq:1D_Model:ConstitutiveEquations2D} and the boundary conditions:
 
-				{Boundary Conditions}\\
+				{Boundary Conditions}
 				\begin{eqnarray*}
 					w(0,\cdot) = 0, \ \ &\phi(0,\cdot) = 0, \label{eq:1D_Model:ProblemT2BC1}\\
 					M(1,\cdot) = 0, \ \ &V(1,\cdot) = 0. \label{eq:1D_Model:ProblemT2BC2}
@@ -402,7 +309,7 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 						c(u,{\phi}) &=& -b({u},{\phi}) + (Q,{\phi}) \label{var_form_timo}
 					\end{eqnarray} for each ${\phi} = \langle v, \psi \rangle \in T[0,1]$. 	
 				
-\section{Modal analysis and comparison of linear models}	
+\section{Modal analysis and comparison of linear models}\label{sec:ModalAnalysis}	
 
 	\subsection*{Existance and uniqueness of solutions}
 		Our two models, the three-dimensional modela and the two-dimensional model, concern the vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. The articles \cite{VV02} and \cite{VS18} provide existence and uniqueness results for these type of problems. In \cite{VV02}, it is assumed that $b$ is symmetric. \cite{VS18} extends the results of \cite{VV02} to the case where $b$ is not symmetric. For the models in the article, \cite{VV02} is a sufficient reference.
@@ -552,11 +459,12 @@ Following \cite{LVV09}, by considering the mode shapes, we can match up the eige
 
 		The validity of the series solution also ensures that the comparisons remain valid, no matter the inital distrubance of the models. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
 
-\section{Cantilever two-dimensional model}\label{ssec:2D_Model:FEM}
+\section{Cantilever two-dimensional model in variational form}\label{ssec:2D_Model:FEM}
 Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elastic body by $\Omega \in R^2$, with $(0,0)$ as the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as,
 \begin{eqnarray*}
 	\Omega = \left \{ x \in E_2 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} \right \},
-\end{eqnarray*} where $\partial \Omega$ denotes the boundary of $\Omega$. 
+\end{eqnarray*} 
+$\partial \Omega$ denotes the boundary of the body. $\Sigma$ is the part of the boundary where $x_1 = 0$ and here the boundary condition is $u = 0$. $\Gamma$ is the remainder of the boundary where $Tn = 0$.
 
 \FloatBarrier
 
@@ -623,18 +531,7 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 
 \FloatBarrier
 
- Using the reference configuration, the variational problem Problem 2DV can be rewritten into a model specific form.
-
 \subsubsection*{Problem 2DV}\label{sssec:2D_Model:Problem2D1VChp5}
-Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
-\begin{align}
-	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEqChp5}
-\end{align}
-for all $\phi \in T(\Omega)$. With the test function space 
-\begin{eqnarray*}
-	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
-\end{eqnarray*}
-
 The bilinear forms and integral function is defined by
 \begin{eqnarray}
 	b(u,\phi) & = & \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
@@ -644,21 +541,16 @@ The bilinear forms and integral function is defined by
 \end{eqnarray}
 with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1-\nu^2)}$.
 
-Using the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten into a model specific form.
+Define the test function space 
+\begin{eqnarray*}
+	T(\Omega) & = & \left\{ \phi \in C^1(\bar{\Omega}) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
+\end{eqnarray*}
 
-\subsubsection*{Constitutive equations:}
-\begin{eqnarray}
-	\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)}(\partial_1 u_1 + \nu \partial_2 u_2) \label{CE1} \\
-	\sigma_{22} & = & \frac{1}{\gamma(1-\nu^2)}(\partial_2 u_2 + \nu \partial_1 u_1) \label{CE2} \\
-	\sigma_{12} & = & \frac{1}{2\gamma(1+\nu)}(\partial_1 u_2 + \partial_2 u_1) \label{CE3}
-\end{eqnarray}
-
-\subsubsection*{Bilinear form:}
+Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
-	b(u,\phi) & = & \frac{1}{\gamma(1-\nu^2)}\int_{\Omega} (\partial_1 u_1 \partial_1 \phi_1 + \partial_2 u_2 \partial _2 \phi_2 + \nu\partial_1 u_1 \partial_2\phi_2 + \nu \partial_2 u_2 \partial_1 \phi_1 ) \ dA \nonumber\\
-	& + & \frac{1}{2\gamma(1+\nu)}\int_{\Omega} (\partial_1 u_2 \partial_1 \phi_2 + \partial_1 u_2 \partial_2 \phi_1 + \partial_2 u_1 \partial_1\phi_2 + \partial_2 u_1 \partial_2\phi_1) \ dA.
+	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{eq:2D_Model:Problem2D1VEqChp5}
 \end{align}
-
+for all $\phi \in T(\Omega)$.
 
 
 \subsection*{Galerkin approximation}\label{2d_FEM_G}
@@ -779,12 +671,12 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	M\lambda{\bar{u}} & = & K\bar{u}.
 \end{eqnarray}
 
-\section{Cantilever three-dimensional model} \label{ssec:3D_Model:FEM}
+\section{Cantilever three-dimensional model in variational form} \label{ssec:3D_Model:FEM}
 	Let $\{e_1,e_2,e_3\}$ be a right-handed orthonormal basis for $R^3$. Denote the elastic body as $\Omega \in R^3$ with $(0,0,0)$ the point of reference. For a rectangular cross-section, the body $\Omega$ can be described as
 	\begin{eqnarray*}
 		\Omega = \left\{ x \in R^3 \ | \ 0 \leq x_1 \leq 1, \ -\frac{h}{2} \leq x_2 \leq \frac{h}{2} , \ -\frac{b}{2} \leq x_3 \leq \frac{b}{2}\right \}
 	\end{eqnarray*}
-	Let $\partial \Omega$ denote the boundary of the body.
+	$\partial \Omega$ denotes the boundary of the body. $\Sigma$ is the part of the boundary where $x_1 = 0$ and here the boundary condition is $u = 0$. $\Gamma$ is the remainder of the boundary where $Tn = 0$.
 
 	\FloatBarrier
 	\begin{figure}[h!]
@@ -877,21 +769,8 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 	\FloatBarrier
 
-	This general variational form Problem 3DV can now be rewritten as in a model specific form using the reference configuration.
-
 	\subsubsection*{Problem 3DV}
-	Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
-	\begin{align}
-		c(u,\phi) = -b(u,\phi) - (Q,\phi) \label{3DB_20}
-	\end{align}
-	for all $\phi \in T(\Omega)$.\\
-
-	With the test function space
-	\begin{eqnarray*}
-		T(\Omega) & = & \left\{ \phi \in C(\Omega) \ | \ \phi = 0 \ \textrm{ on } \ \Gamma \right\}.
-	\end{eqnarray*}
-
-	The bilinear forms and integral function are defined by
+	The bilinear forms and integral function is defined by
 	\begin{eqnarray}
 		b(u,\phi) &=& \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
 		\textrm{Tr}(\Phi) ~dV,\\
@@ -900,23 +779,16 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	\end{eqnarray}
 	with $\displaystyle c_1 = \frac{1}{\gamma(1+\nu)}$ and $\displaystyle c_2 = \frac{\nu}{\gamma(1+\nu)(1-2\nu)}$.\\
 
-	Using the definition of the reference configuration, the constitutive equations and the bilinear form $b$ can be rewritten in the following model specific forms: 
-	\subsubsection*{Constitutive equations}
+	The test function space is defined as
 	\begin{eqnarray*}
-		\sigma_{11} & = &  \frac{1}{\gamma(1+\nu)}\partial_1 u_1 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_3}\\
-		\sigma_{22} & = &  \frac{1}{\gamma(1+\nu)}\partial_2 u_2 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_4}\\
-		\sigma_{33} & = &  \frac{1}{\gamma(1+\nu)}\partial_3 u_3 + \frac{\nu}{\gamma (1+\nu)(1-2\nu)}(\partial_1 u_1 +  \partial_2 u_2 + \partial_3 u_3)\label{3DB_5}\\
-		\sigma_{23} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_3 u_2 + \partial_2 u_3)\label{3DB_6}\\
-		\sigma_{31} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_3 u_1 + \partial_1 u_3)\label{3DB_7}\\
-		\sigma_{12} & = &  \frac{1}{2\gamma(1+\nu)}(\partial_2 u_1 + \partial_1 u_2)\label{3DB_8}
+		T(\Omega) & = & \left\{ \phi \in C(\Omega) \ | \ \phi = 0 \ \textrm{ on } \ \Sigma \right\}.
 	\end{eqnarray*}
 
-	\subsubsection*{Bilinear Form}
-	\begin{align*}
-		b(u,\phi)  &=  \int_\Omega~c_1\textrm{Tr}({\cal E}\Phi)+ c_2\textrm{Tr}({\cal E})
-		\textrm{Tr}(\Phi) ~dV \nonumber\\
-		&=  \int_{\Omega} \sigma_{11} \partial_1\phi_1 + \sigma_{12}\partial_1 \phi_2 + \sigma_{13}\partial_1 \phi_3 + \sigma_{21}\partial_2 \phi_1 + \sigma_{22}\partial_2\phi_2 + \sigma_{23}\partial_2 \phi_3 ~dV
-	\end{align*}
+	Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
+	\begin{align}
+		c(u,\phi) = -b(u,\phi) - (Q,\phi) \label{3DB_20}
+	\end{align}
+	for all $\phi \in T(\Omega)$.\\
 
 	\subsection*{Galerkin approximation}
 	For analyzing a three-dimensional body, rectangular prismatic (brick-shaped) elements are used, as detailed in \cite{Wu06}. This choice suits bodies with rectangular cross-sections.
@@ -950,7 +822,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 	\begin{eqnarray*}
 		(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
-	\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
+	\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the brickable grid $\Omega$. i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
 
 	Consider the following standard Finite Element Method matrices.
 
@@ -1058,18 +930,13 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 	Now Problem 2DE and Problem 3DE can be solved using a computer program. Iterative methods, sparse matrices as well as parallel computing can be used to efficiently solve these problems.
 
-\section{Validity of the model for a cantilever Timoshenko beam (CHAPTER 4 of dissertation)} \label{sec:validity-of-a-cantilever-timoshenko-beam}
+\section{Validity of the model for a cantilever Timoshenko beam} \label{sec:validity-of-a-cantilever-timoshenko-beam}
 
-	\textcolor{red}{Hierdie net by gesit as ons dit wil inwerk. Maar het GEEN veranderinge aan die gedoen nie.}
+	In this section, the validity of a cantilever Timoshenko beam model is investigated. This investigation is done in \cite{LVV09}, and is included here with more significant digits and some extended results. 
 
-	In this section, the validity of the Timoshenko beam model is investigated. Specifically, the validity of a cantilever Timoshenko beam model, using a cantilever two-dimensional beam model as a reference. This follows what is done in the article \cite{LVV09}. This section discusses the results of the article, focussing on the numerical results. Some of the results are replicated with more significant digits, others are extended to be used in the rest of this chapter.
+	Recall that the cantilever Timoshenko beam model is referred to as Problem T-2 and the two-dimensional cantilever beam model is referred to as Problem 2D as defined in Section \ref{sec:LinearMathematicalModels}. Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
 
-	The article \cite{LVV09} is titled `Comparison of linear beam theories'. In this article, the authors compare a cantilever Timoshenko beam to a cantilever two-dimensional beam. The authors start by presenting the models. These are the same as Problem T-2 and Problem 2D-1 that are defined in Chapter~1. The authors also look at the existence and uniqueness of solutions, which is covered in Chapter 2 of this dissertation. The authors then calculate and compare the eigenvalues and eigenfunctions, which will be discussed in this section.
-
-	\subsection{The models}
-	The cantilever Timoshenko beam model is defined in section \ref{ssec:1D_Model:ModelProblems}, and is referred to as Problem T-2. The cantilever two-dimensional beam model is defined in section \ref{ssec:2D_Model:ModelProblem}, and is referred to as Problem 2D-1.
-
-	Figure \ref{fig:compare:1D+2D} shows the two beams side-by-side.
+	\FloatBarrier
 
 	\begin{figure}[h!]
 		\scalebox{.8}{
@@ -1105,7 +972,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 						%\node at (3.2,-0.2) {$\ell = 1$};
 						\end{tikzpicture}
 					\end{center}
-					\subcaption{Timoshenko Cantilever Beam}
+					\subcaption{Timoshenko Cantilever Beam (Problem T-2)}
 				\end{minipage}
 				\begin{minipage}[b]{0.8\linewidth}
 					\begin{center}
@@ -1146,14 +1013,15 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 						
 						\end{tikzpicture}
 					\end{center}
-					\subcaption{Two-Dimensional Cantilever Beam}
+					\subcaption{Two-Dimensional Cantilever Beam (Problem 2D)}
 				\end{minipage}
 			}
 		}
 	\end{figure}\label{fig:compare:1D+2D}
 
-	In the derivation of the Timoshenko beam model in section \ref{subsec:equationsofmotion+constitutiveequation}, the parameter $\alpha$ is 
-	introduced. The paramater is given here again for convenience:
+	\FloatBarrier
+
+	In introduction of the Timoshenko beam model, the parameter $\alpha$ is introduced. The paramater is given here again for convenience:
 	\begin{eqnarray*}
 		\alpha = \frac{A\ell^2}{I}.
 	\end{eqnarray*}
@@ -1165,44 +1033,18 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	\end{eqnarray}
 	Using this relationship, the height of the beam model can be set by considering the value of $\alpha$.
 
+	\subsection*{Calculating the eigenvalues and eigenvectors}
+	In the article \cite{VV02} a method for calculating the exact eigenvalues and eigenvectors of the Timoshenko beam is provided. For the two-dimensional beam, the eigenvalues and eigenvectors are calculated using the Finite Element Method, with setup in Section \ref{ssec:2D_Model:FEM}. The eigenvalue accuracy depends on the number of elements in the FEM. In the two-dimensional model, elements are selected to ensure the first 10 eigenvalues have at least 5 significant digits of accuracy.
 
-	\subsection{Calculating the eigenvalues and eigenvectors}
-	In section \ref{sec:Timo:EigenvalueProblem} a method for calculating the eigenvalues and eigenvectors of the Timoshenko beam is provided. And in section \ref{sec:Timo:Cantilever}, the eigenvalues and eigenvectors of a cantilever Timoshenko beam are calculated as an example. 
-
-	For the two-dimensional beam, the eigenvalues and eigenvectors are calculated using the Finite Element Method. In section \ref{sec:FEM:2D}, the Finite Element Method for a cantilever two-dimensional beam is derived. Specifically, section \ref{2dFEM_EP} derived the eigenvalue problem for the two-dimensional beam using the Finite Element Method, called Problem 2D-1E.
-
-	\subsubsection{Problem 2D-1E}
-	Find a real number $\lambda$ and a vector $\bar{u} \in R^n$ such that
-	\begin{eqnarray}
-		K\bar{u} & = & M\lambda{\bar{u}},
-	\end{eqnarray} where $M$ and $K$ are the standard Finite Element Method matrices defined in section \ref{sec:FEM:2D}.
-
-	In this form, the eigenvalue problem is a system of ordinary differential equations, and can be solved using a numerical method. Computer programs like MATLAB provide functions that are able to solve this.
-
-	\subsubsection{Accuracy of the eigenvalues}
-	Solving \textbf{Problem 2D-1E} with a numerical method, requires a quick investigation into the rate of convergence so that the accuracy of the eigenvalues can be established. Chapter \ref{ch:finite-element-theory} provides the necessary theory on the existence of solutions as well as the proof of convergence of the Finite Element Method.
-
-	\begin{figure}[H]
-		\centering
-		\begin{adjustbox}{center}
-			\includegraphics[scale=0.7]{files/Chapter4/Convergence.png}
-		\end{adjustbox}
-		\caption{Rate of convergence of the first 20 eigenvalues.}
-		\label{fig:conv_2d_eig}
-	\end{figure}
-
-
-	Figure \ref{fig:conv_2d_eig} shows the rate of convergence of the first 20 eigenvalues of the two-dimensional beam. Each color represents a spesific eigenvalue.
-
-	The number of elements are chosen so that at least the first 10 eigenvalues are accurate to 5 significant digits.
-
-	\subsection{Comparing the mode shapes}
-	Recall from the introduction, that the investigation is focussed on beam-type problems. The two-dimensional model is for an eigenvalue problem and and not specific to beam-type applications, like the Timoshenko beam model. Therefore there are non-beam type modes that can be expected from the two-dimensional model. This is also be reflected in the eigenvalues of the two-dimensional model and therefore eigenvalues irrelevant to beam-type problems exits.
+	\subsection*{Comparing the mode shapes}
+	Following \cite{LVV09}, the mode shapes of the two-models are compared. In the section that follows, we'll show that there are mode shapes that are shared between the models and mode shapes that are unique to the two-dimensional model. The authors of \cite{LVV09} refer to the eigenvalues of the Timoshenko beam model as beam-type eigenvalues and the other eigenvalues are referred to as non-beam type eigenvalues.
 
 	Therefore a method is required to compare and match the eigenvalues of the two models. In \cite{LVV09}, the authors compare the mode shapes of the two models, to match up the eigenvalues. Eigenvalues relating to the mode shapes similar to the mode shapes of the Timoshenko beam, are called beam-type eigenvalues. The other eigenvalues are called non-beam type eigenvalues by the authors.
 
-	\subsubsection{Shapes relating to beam-type eigenvalues}
-	The following figures are examples of beam-type mode shapes for the displacement $w$.
+
+	\subsubsection*{Mode shapes relating to beam-type eigenvalues}
+
+	Figure \ref{fig:beam1} shows examples of beam-type mode shapes for the displacement $w$.
 
 	\begin{figure}[h!]
 		\scalebox{.8}{
@@ -1232,13 +1074,14 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 					\label{fig:minipage1}
 				\end{minipage}
 				\caption{Modal shapes of the displacement $w$ for the beam-type 2D body and the Timoshenko beam with $\alpha = 4800$ ($h = 1/20$).}
+				\label{fig:beam1}
 			}
 		}
 	\end{figure}
 	\FloatBarrier
 
-	\subsubsection{Shapes relating to non-beam type eigenvalues}
-	The following figures are examples of non beam-type mode shapes for the displacement $w$. These mode shapes are not present in the cantilever Timoshenko beam model and are not beam related. 
+	\subsubsection*{Mode shapes relating to non beam-type eigenvalues}
+	Figure \ref{fig:beam2} shows examples of non beam-type mode shapes for the displacement $w$. These mode shapes are not present in the cantilever Timoshenko beam model and are not beam related. 
 	\begin{figure}[h!]
 		\scalebox{.8}{
 			\makebox[\textwidth][c]{
@@ -1254,12 +1097,13 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 					\label{fig:minipage1}
 				\end{minipage}
 				\caption{Modal shapes of the displacement $w$ for the non-beam type 2D body with $h = 1/20$.}
+				\label{fig:beam2}
 			}
 		}
 	\end{figure}
 	\FloatBarrier
 
-	\subsubsection{Shape of the cross-sections}
+	\subsubsection*{Shape of the cross-section}
 	The Timoshenko beam theory improve some one-dimensional beam theories such as the Euler-Bernoulli beam theory by also including the effect of shear. For Timoshenko beam theory it is assumed that the cross-sections need not remain perpendicular to the neutral axis of the beam. The cross-sections however remain a straight line.
 
 	For the two-dimensional beam, the shape of the cross-section can deform into a S-shape. This is explained in \cite{LVV09} and a similar figure in \cite{LVV09} is given here. 
@@ -1288,7 +1132,7 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 	Note that figure \ref{fig:s} shows an exaggerated example of the deformation of a cross-section. The red line shows how the authors of \cite{LVV09} calculated the average rotation of a cross-section of the two-dimensional beam. This average rotation can be used to compare the rotation of the cross-section of the two-dimensional beam to the rotation of the cross-section of the Timoshenko beam given by $\phi$.
 
-	\subsubsection{Direct comparison of mode shapes}
+	\subsubsection*{Direct comparison of mode shapes}
 	Figure \ref{fig:w} directly compares a mode shape of the Timoshenko beam to a mode shape of the two-dimensional beam. For the two-dimensional model, the center line of the displacement of the beam is shown. For the Timoshenko beam, the displacement $w$ is shown.
 
 	\begin{figure}[ht!]
@@ -1320,20 +1164,18 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 	\textbf{Remark:} Note that the overall shape is important. This is because any multiple of a eigenvector is still an eigenvector. The mode shapes were specifically scaled to obtain figures \ref{fig:w} and \ref{fig:phi}.
 
-	\subsection{Comparing the eigenvalues}
+	\subsection*{Comparing the eigenvalues}
 	Using this method of comparing the mode shapes, the eigenvalues can now be matched up and compared. In the tables, Timo refers to the Timoshenko beam and 2D refers to the two-dimensional beam.
 
-	\subsubsection{Some results from [LVV09]}
+	\subsubsection*{Some results from \cite{LVV09}}
 	The following table contains results from \cite{LVV09} verbatim to 3 significant digits, as well as the replicated results to 5 significant digits.
-
-
 
 	\begin{table}[!ht]
 		\centering
-		\caption{Results from [LVV09] and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
+		\caption{Results from \cite{LVV09} and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
 		\begin{tabular}{|c|c|c||c|c|c|}
 			\hline
-			\multicolumn{3}{|c||}{Results from [LVV09]} & \multicolumn{3}{c|}{Dissertation} \\ \hline \hline
+			\multicolumn{3}{|c||}{Results from \cite{LVV09}} & \multicolumn{3}{c|}{Dissertation} \\ \hline \hline
 			~ & 2D & Timo & ~ & 2D & Timo  \\ \hline
 			1 & 0.0317 & 0.0316 & 1 & 0.031713 & 0.031639  \\ 
 			2 & 1.14 & 1.14  & 2 & 1.1413 & 1.1365  \\ 
@@ -1353,10 +1195,10 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	\begin{comment}
 	\begin{table}[!ht]
 		\centering
-		\caption{Results from [LVV09] and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
+		\caption{Results from \cite{LVV09} and results obtained in this dissertation. $0^*$ indicates a 0 as a result of rounding. $\alpha = 1200$.}
 		\begin{tabular}{|c|c|c|c||c|c|c|c|}
 			\hline
-			\multicolumn{4}{|c||}{Results from [LVV09]} & \multicolumn{4}{c|}{Dissertation} \\ \hline \hline
+			\multicolumn{4}{|c||}{Results from \cite{LVV09}} & \multicolumn{4}{c|}{Dissertation} \\ \hline \hline
 			~ & 2D & Timo & RE & ~ & 2D & Timo & RE  \\ \hline
 			1 & 0.0317 & 0.0316 & 0.00315 & 1 & 0.031713 & 0.031639 & 0.0023407  \\ 
 			2 & 1.14 & 1.14 & $0^*$ & 2 & 1.1413 & 1.1365 &  0.0042050 \\ 
@@ -1423,8 +1265,6 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 	This table shows that the eigenvalues of the Timoshenko model and the two-dimensional model compare very well. The non-beam type eigenvalues are highlighted in grey. For a short thick beam ($\alpha = 300$), the maximum relative error for the first 20 two-dimensional eigenvalues is just over $3\%$, while for a long thin beam ($\alpha = 10800$), the maximum relative error is just over $1\%$. This shows that as the beam becomes longer and thinner, the Timoshenko beam is better approximation of the two-dimensional beam. But overall the Timoshenko beam compares very well.
 
 	This table also shows that as the beam gets more narrow, there are less non-beam type eigenvalues within the first few eigenvalues.This would also indicate that the Timoshenko beam would be a better approximation of the two-dimensional beam as the beam gets more narrow since the two-dimensional model behaves `more like a beam'.
-
-
 
 \section{Validity of a model for a cantilever two-dimensional beam} \label{sec:validity-of-a-2d-beam}
 In this section, we compare the two-dimensional cantilever beam with a three-dimensional cantilever beam.
@@ -1529,15 +1369,13 @@ Figure \ref{fig:2Dv3D} shows the two beams, Problem 2D and Problem 3D side-by-si
 \end{figure}
 \FloatBarrier
 
-\subsection{Calculating the eigenvalues and mode shapes}
-The eigenvalues and mode shapes of the two models are calculated using the computer program. The eigenvalues and mode shapes are then compared to determine the accuracy of the two-dimensional model for the cantilever beam. The accuracy of the eigenvalues depends on the number of elements employed in the finite element method. For the two-dimensional model, accuracy reaches at least five significant digits for the first 10 eigenvalues, while the three-dimensional model achieves at least four significant digits for its first 10 eigenvalues.
+\subsection*{Calculating the eigenvalues and mode shapes}
+ The accuracy of the eigenvalues depends on the number of elements employed in the finite element method. For the two-dimensional model, accuracy reaches at least five significant digits for the first 10 eigenvalues, while the three-dimensional model achieves at least four significant digits for its first 10 eigenvalues.
 
-\subsection{Comparing the mode shapes}
-Following \cite{LVV09}, the mode shapes of the two models are compared. As seen in \cite{LVV09}, the eigenvalues of the Timoshenko beam model (beam-type eigenvalues) are all present in the two-dimensional model. However not all the eigenvalues of the two-dimensional model are present in the Timoshenko beam model. These are called non-beam type eigenvalues. 
+\subsection*{Comparing the mode shapes}
+Following the same method as \cite{LVV09}, the mode shapes of the two models are compared. As seen in \cite{LVV09} and Section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the eigenvalues of the Timoshenko beam model (beam-type eigenvalues) are all present in the two-dimensional model. However not all the eigenvalues of the two-dimensional model are present in the Timoshenko beam model. These are called non-beam type eigenvalues. 
 
-The same is observed for the three-dimensional model, as there are eigenvalues that are present in the three-dimensional model that are not present in the two-dimensional model.
-
-Therefore it is required to match the eigenvalues of the two models by comparing the mode shapes.
+The same is observed for the three-dimensional model, as there are eigenvalues that are present in the three-dimensional model that are not present in the two-dimensional model. Therefore it is required to match the eigenvalues of the two models by comparing the mode shapes.
 
 \subsubsection*{Mode shapes relating to beam type eigenvalues.}
 Figure \ref{fig:beam-2dv3d} show some examples of beam type mode shapes for the displacement $u$.
@@ -1623,7 +1461,7 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 \end{figure}
 \FloatBarrier
 
-\subsection{Comparing the eigenvalues}
+\subsection*{Comparing the eigenvalues}
 For a realistic comparison of the models, it's crucial to carefully select parameters $h$ and $b$, representing the beam's height and width, respectively, noting that the two-dimensional model lacks the width parameter $b$.
 
 Values for $h$ span a range from short, thick beams ($h = 1/5$) to long, slender beams ($h = 1/20$), capturing two realistic scenarios. Regarding $b$, it's considered in two scenarios: when $b \leq h$ and when $b > h$, with $b$ expressed as a multiple of $h$. This distinction influences the results.
@@ -1872,8 +1710,8 @@ The key takeaway is the critical role of beam shape: the two-dimensional model p
 
 For practical applications, a beam model's suitability is questionable when $b > h$, suggesting alternative approaches like plate models for more accurate representation. The next section explores the Reissner-Mindlin plate model's validity using a similar analysis.
 
-\section{Conclusion}
-In this article, we explored the validity of a two-dimensional cantilever beam model by comparing it with a three-dimensional cantilever beam model. Using the Finite Element Method, we obtained the eigenvalues and eigenvectors for both models, aligning them through mode shape comparisons.
+\section{Conclusion} \label{sec:conclusion}
+In this article, we assessed the validity of both a cantilever Timoshenko beam model and a two-dimensional cantilever beam model by comparing their eigenvalues and mode shapes. Initially, we evaluated the Timoshenko beam model's validity by comparison with the two-dimensional model, as per the article \cite{LVV09}. Subsequently, the validity of the two-dimensional model was examined through comparison with a three-dimensional model.
 
 The models were given in a dimensionless variational form, and we demonstrated how the two-dimensional model could be derived from the three-dimensional model as a specific case of plane stress.
 
@@ -1881,7 +1719,7 @@ While we did not delve into the well-posedness of the models in detail, we cited
 
 Applying the Finite Element Method to both models, we developed a numerical formula for solving the eigenvalue problems. A computer program was then used to extract the eigenvalues and eigenvectors for each model.
 
-Upon comparing the eigenvalues through mode shapes, our findings suggest that the two-dimensional beam model aligns well with the three-dimensional model for various beam shapes. However, the shape of the beam is pivotal to the comparison's accuracy. The two-dimensional model shows the best correlation with thin and long three-dimensional beams and less so with short and thick beams. Notably, the two-dimensional model does not align well when the beam's width $b$ exceeds its height $h$, suggesting that a plate model may be more appropriate in such cases and can be explored in future work.
+Firstly, the results of \cite{LVV09} is confirmed, showing that the Timsohenko canitlever beam model comapres very well to the two-dimensional model. The models compare very well if the beams are long and slender, and good for short and thick beams. Extending this to the three-dimensional model, we found that the two-dimensional model aligns well with the three-dimensional model for various beam shapes. Again we found that the shape of the beam is pivotal to the comparison's accuracy. The two-dimensional model shows the best correlation with thin and long three-dimensional beams and less so with short and thick beams. Notably, the two-dimensional model does not align well when the beam's width $b$ exceeds its height $h$, suggesting that a plate model may be more appropriate in such cases and can be explored in future work.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{references}
