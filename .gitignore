@@ -1,3 +1,4 @@
+*.pdf
 !turnitin-declaration-signed.pdf
 *.gz
 *.aux
