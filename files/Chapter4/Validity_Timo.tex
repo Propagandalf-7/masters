@@ -109,7 +109,7 @@ or equivalently,
 \subsection{Calculating the eigenvalues and eigenvectors}
 In section \ref{sec:Timo:EigenvalueProblem} a method for calculating the eigenvalues and eigenvectors of the Timoshenko beam is provided. And in section \ref{sec:Timo:Cantilever}, the eigenvalues and eigenvectors of a cantilever Timoshenko beam are calculated as an example. 
 
-For the two-dimensional beam, the eigenvalues and eigenvectors are calculated using the Finite Element Method. In section \ref{sec:FEM:2D}, the Finite Element Method for a cantilever two-dimensional beam is derived. Specifically, section \ref{2dFEM_EP} derived the eigenvalue problem for the two-dimensional beam using the Finite Element Method, called Problem 2D-1E.
+For the two-dimensional beam, the eigenvalues and eigenvectors are calculated using the Finite Element Method. In section \ref{sec:FEM:2D}, the Finite Element Method for a cantilever two-dimensional beam is derived. Specifically, section \ref{2dFEM_EP} derives the eigenvalue problem for the two-dimensional beam using the Finite Element Method, called Problem 2D-1E.
 
 \subsubsection{Problem 2D-1E}
 Find a real number $\lambda$ and a vector $\bar{u} \in R^n$ such that
@@ -360,7 +360,7 @@ In the following table, the eigenvalues for different values of $\alpha$ are com
 \end{table}%
 \FloatBarrier
 
-This table shows that the eigenvalues of the Timoshenko model and the two-dimensional model compare very well. The non-beam type eigenvalues are highlighted in grey. For a short thick beam ($\alpha = 300$), the maximum relative error for the first 20 two-dimensional eigenvalues is just over $3\%$, while for a long thin beam ($\alpha = 10800$), the maximum relative error is just over $1\%$. This shows that as the beam becomes longer and thinner, the Timoshenko beam is better approximation of the two-dimensional beam. But overall the Timoshenko beam compares very well.
+This table shows that the eigenvalues of the Timoshenko model and the two-dimensional model compare very well. The non-beam type eigenvalues are highlighted in grey. For a short thick beam ($\alpha = 300$), the maximum relative error for the first 20 two-dimensional eigenvalues is just over $3\%$, while for a long thin beam ($\alpha = 10800$), the maximum relative error is just over $1\%$. This shows that as the beam becomes longer and thinner, the Timoshenko beam is a better approximation of the two-dimensional beam. But overall the Timoshenko beam compares very well.
 
 This table also shows that as the beam gets more narrow, there are less non-beam type eigenvalues within the first few eigenvalues.This would also indicate that the Timoshenko beam would be a better approximation of the two-dimensional beam as the beam gets more narrow since the two-dimensional model behaves `more like a beam'.
 

@@ -1,7 +1,7 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-An example of modal analysis on a Timoshenko beam is given in section \ref{sec:existence:ModalAnalysis}. In this chapter, more general theory for modal analysis of te Timoshenko beam theory is discussed, as well as more examples of the application of the theory.
+An example of modal analysis of a Timoshenko beam is given in section \ref{sec:existence:ModalAnalysis}. In this chapter, more general theory for modal analysis of the Timoshenko beam theory is discussed, as well as more examples of the application of the theory.
 
 \section{Eigenvalue problem}\label{sec:Timo:EigenvalueProblem}
 This section is a discussion of a systematic method to solve the eigenvalue problem for the Timoshenko beam theory. The article discussed is \cite{VV06}.
@@ -16,7 +16,7 @@ Find functions $u$ and $\phi$ and a real number $\lambda$ satisfying the followi
 
 Recall from section \ref{sec:1D_Model}, $u$ represents the transverse motion of the beam, $\phi$ is the angle of rotation of the cross-section of the beam, $\alpha$ and $\gamma$ are dimensionless constants defined in section 1.5 and $\lambda$ represents the eigenvalue. 
 
-The authors of \cite{VV06} first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In \cite{VV06} the authors show that for the Timoshenko models in this dissertation $\lambda$ non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in R$ or $m\in \mathbb{C}$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
+The authors of \cite{VV06} first derive a general solution for the system of ordinary differential equations \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2}. In \cite{VV06} the authors show that for the Timoshenko models in this dissertation that $\lambda$ is non-negative. Assume that the solution is of the form $\langle u, \phi \rangle = e^{mx}\bar{w}$ where $m\in R$ or $m\in C$. Substitution into \eqref{eq:Timo:EigenvalueProblem1} and \eqref{eq:Timo:EigenvalueProblem2} yields:
 \begin{eqnarray*}
 -m^{2}e^{mx}w_{1}+me^{mx}w_{2}&=&\lambda e^{mx}w_{1},\\
 -\frac{1}{\gamma}m^{2}e^{mx}w_{2}-\alpha me^{mx}w_{1}+\alpha e^{mx}w_{2}&=&\lambda e^{mx}w_{2}.
@@ -38,7 +38,7 @@ w_{1}\\w_{2}
 \end{bmatrix}. \label{eq:Timo:SolutionEigenvalueProblem}
 \end{equation}
 
-Let $A$ denote the coefficient matrix of \eqref{eq:Timo:SolutionEigenvalueProblem}. For a nontrivial solution of $\bar{w}$, it is required that the determinant of matrix $A$ is $0$.
+Let $A$ denote the coefficient matrix of \eqref{eq:Timo:SolutionEigenvalueProblem}. For a nontrivial solution $\bar{w}$, it is required that the determinant of matrix $A$ is $0$.
 \begin{align*}
 \textrm{det}(A)=m^{4}+\lambda(1+\gamma)m^{2}+\gamma\lambda(\lambda-\alpha)=0. \label{TE7}
 \end{align*} \label{sym:determinant}
@@ -169,7 +169,7 @@ D
 
 \subsubsection*{Strategy for determining the eigenvalues and eigenvectors}
 
-The authors of \cite{VV06} provide a detailed example of the application of the above strategy to for determining the eigenvalues and eigenvectors. The example used is a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}.
+The authors of \cite{VV06} provide a detailed example of the application of the above strategy for determining the eigenvalues and eigenvectors. The example used is a pinned-pinned beam, the same model as in section \ref{subsec:Timoshenko_Modal_Analsis}.
 
 The strategy can be summarized as follows:
 
@@ -182,7 +182,7 @@ A \bar{b} = \bar{0}.
 
 This system either has the zero solution or infinitely many solutions. To ensure the zero solution, the determinant of the matrix $A$ is set to zero. This equation $\textrm{det}(A) = 0$ is called the frequency equation.
 
-The frequency equation has infinitely many solutions. Each of the solutions corresponds to a eigenvalue with a unique vector $\bar{b}$. The eigefunctions can then be obtained by substituting the vector $\bar{b}$ into the general solution for $u$ and $\phi$.
+The frequency equation has infinitely many solutions. Each of the solutions corresponds to a eigenvalue with a unique vector $\bar{b}$. The eigenfunctions can then be obtained by substituting the vector $\bar{b}$ into the general solution for $u$ and $\phi$.
 
 \subsubsection*{Pinned-pinned beam}
 

@@ -5,7 +5,7 @@
 \section{Introduction} \label{sec:existence}
 The models in this dissertation concern vibration of elastic bodies. These type of models have a similar variational form as the wave equation and are called second order hyperbolic type problems. This chapter discusses theory for the existence and uniqueness of solutions for these type of problems. The theoretical basis for modal analysis is also presented.
 
-In this chapter we consider the work done by the authors of \cite{VV02} and \cite{VS19}. In these articles the authors prove the existence and uniqueness of solutions for general second order hyperbolic type problems. The problems in Chapter 1 are examples. The article \cite{VV02} concerns the case of a symmetric bilinear form $b$. The article \cite{VS19} extends this work where $b$ need not be symmetric. The article \cite{VV02} is sufficient for the models of this dissertation, while \cite{VS19} is only used where the notation is more convenient and to gain more insight.
+In this chapter we consider the work done by the authors of \cite{VV02} and \cite{VS18}. In these articles the authors prove the existence and uniqueness of solutions for general second order hyperbolic type problems. The problems in Chapter 1 are examples. The article \cite{VV02} concerns the case of a symmetric bilinear form $b$. The article \cite{VS18} extends this work where $b$ need not be symmetric. The article \cite{VV02} is sufficient for the models of this dissertation, while \cite{VS18} is only used where the notation is more convenient and to gain more insight.
 
 Before the general theory is discussed, a model is presented to be used as an example to show the application of the theory. The model is a cantilever Timoshenko beam, denoted by Problem T-2 in Section \ref{ssec:1D_Model:ModelProblems}.
 
@@ -15,7 +15,7 @@ To obtain the weak variational form of Problem T-2V some preparation is required
 
 Define a function u with domain $J$, an interval of real numbers. The range of $u$ is contained in $X$:
 \begin{eqnarray}
-	u(t)(x) = \langle w(x,t), \phi(x,t) \rangle \label{def_of_u}
+	u(t)(x) = \langle w(x,t), \phi(x,t) \rangle. \label{def_of_u}
 \end{eqnarray}
 
 A derivative $u'$ for $u$ may be defined by
@@ -43,14 +43,14 @@ Find a function $u$ such that $\forall \ t \in J$, $u(t) \in V$, $\ddot{u}(t) \i
 \end{eqnarray*}
 for all $v\in V$. The initial conditions $u(0) = u_0$ and $\dot{u}(0)=u_1$ must be specified.
 
-The space X with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.
+The space X equipped with the inner-product $c$ is denoted by $W$. $W$ is called the inertia space and in Section 2.3 it is shown that $c$ is an inner-product for $W$.
 
 In the next section, the theory of the article \cite{VV02} is presented. In Section 2.3 the theory is applied to Problem T-2W.
 
 \section{Existence and uniqueness of solutions}\label{sec:existence:ExistenceAndUniqueness}
 The general weak variational problem is studied in this section. The following theory is from the article \cite{VV02}. To start, some notation is given, as well as the relations between various Hilbert spaces. The necessary assumptions are also stated.\\
 
-As mentioned before, ideas and notation from \cite{VS19} are also used.
+As mentioned before, ideas and notation from \cite{VS18} are also used.
 
 \subsection{The variational approach}\label{ssec:existence:VariationlApproach}
 Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
@@ -89,7 +89,7 @@ Given a function $f:J\rightarrow X$, find a function $u\in C(J,\ X)$ such that $
 \end{eqnarray}
 while $u(0)=u_{0},\ \ \ u'(0)=u_{1}$.\label{sym:a}
 
-This general variational form is applicable in all the models in this dissertation. In \cite{VV02}, a more general form is given that includes the possibility for damping terms in the models. Damping is not considered in this dissertation.
+This general variational form is applicable to all the models in this dissertation. In \cite{VV02}, a more general form is given that includes the possibility for damping terms in the models. Damping is not considered in this dissertation.
 
 \subsubsection*{Assumptions} \label{sssec:existence:Assumptions}
 The following assumptions are made in \cite{VV02} for the existence results.
@@ -144,7 +144,7 @@ In \cite{VV02} the authors consider a special case of weak damping. Define a spa
 	If $a$ is positive definite on $V$, there exists a unique solution $u \in C^1([0,\infty),V)\cap C^2((0,\infty),W)$ for Problem GVar for any $u_0 \in V$, $u_1 \in W$ and any $f$ which is Lipschitz on $V$. If $f=0$, then $u \in C^1([0,\infty),V)\cap C^2([0,\infty),W)\cap C^\infty((0,\infty),V)$.
 \end{Thm3n} \label{sym:Cinfty}
 
-As mentioned, in the models of this dissertation, the bilinear form $a$ is identically zero. This automatically satisfy the weak damping condition and hence Theorem 2 may be applied.
+As mentioned, in the models of this dissertation, the bilinear form $a$ is identically zero. This automatically satisfies the weak damping condition and hence Theorem 2 may be applied.
 
 
 \subsection{First order system} \label{ssec:existence:AbstractDifferentialEquation}
@@ -212,13 +212,13 @@ To apply the theory, Problem T-2W must satisfy assumptions \textbf{A1}-\textbf{A
 
 To prove \textbf{Assumption A1}, observe that $W$ is dense in $X$. (The set $W = X$).\\
 
-Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L_2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L_2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L_2(0,1) \times L_2(0,1)$.\label{sym:Cinftyzero} 
+Let $u \in C_0^\infty(0,1)$. Then $u(0) = u(1) = 0$ and therefore $u \in T(0,1)$ and $C_0^\infty(0,1) \subset T(0,1)$. Recall that $V(0,1)$ is the closure of $T(0,1)$ in $H^1(0,1)$. So it follows that $C_0^\infty(0,1) \subset V(0,1) \subset H^1(0,1)$. And since $C_0^\infty(0,1)$ is dense in $L^2(0,1)$, both $V(0,1)$ and $H^1(0,1)$ are dense in $L^2(0,1)$. Therefore $V(0,1)\times V(0,1)$ is dense in $X = L^2(0,1) \times L^2(0,1)$.\label{sym:Cinftyzero} 
 
 Consider \textbf{Assumption A2}. From the definition of the bilinear form $c$,
 \begin{eqnarray*}
 	c(f,f) & = & \int_0^1  (f_1)^2 + \frac{1}{\alpha}\int_0^1  (f_2)^2 = ||f_1||^2 + \frac{1}{\alpha}||f_2||^2.\\
 \end{eqnarray*}
-From this, the following inequalities can be obtained:
+From this and the definition of the $X$ norm, the following inequalities can be obtained:
 \begin{eqnarray*}
 	\min\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2 \leq	c(f,f)	\leq \max\left\{1, \frac{1}{\alpha}\right\} ||f||_{X}^2.\\
 \end{eqnarray*}
@@ -306,7 +306,7 @@ Consider \textbf{Assumption A4}. In Problem T-2W, it is clear that the bilinear 
 To understand what is meant by modal analysis, it is in the first place necessary to consider modes of vibration. And to understand how modal analysis is applied, a Timoshenko beam is used as an example. Specifically, Problem T-1 as the boundary conditions makes it easy to illustrate the idea of modal analysis. A detailed approach to modal analysis for the Timoshenko beam theory is discussed in Chapter 4.
 
 
-Consider the partial differential equations of a pinned-pinned Timoshenko beam, obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations1D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion1D}:
+Consider the partial differential equations of a pinned-pinned Timoshenko beam, obtained by substituting the constitutive equations \eqref{eq:1D_Model:ConstitutiveEquations1D} and \eqref{eq:1D_Model:ConstitutiveEquations2D} into the equations of motion \eqref{eq:1D_Model:EquationOfMotion1D} and \eqref{eq:1D_Model:EquationOfMotion2D}:
 \begin{eqnarray}
 	  \partial^2_{x} w - \partial_{x}\phi &=& \partial^{2}_{t} w, \label{eq:1D_Model:ModalPDE1}\\
 	  \alpha\partial_{x} w - \alpha\phi + \frac{1}{\gamma}\partial^2_{x}\phi &=&  \partial^{2}_{t} \phi,\label{eq:1D_Model:ModalPDE2}
@@ -341,7 +341,7 @@ To determine if such a number $\lambda$ exists, consider the following eigenvalu
 Find $\lambda \in R$ and functions $\tilde{w}$ and $\tilde{\phi}$ such that
 \begin{eqnarray*}
 	-\tilde{w}'' + \tilde{\phi}' &=& \lambda \tilde{w}, \label{eq:1D_Model:ProblemT1E1}\\
-	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}. \label{eq:1D_Model:ProblemT1E2}
+	-\alpha \tilde{w}' + \alpha\tilde{\phi} - \frac{1}{\gamma}\tilde{\phi}'' &=& \lambda \tilde{\phi}, \label{eq:1D_Model:ProblemT1E2}
 \end{eqnarray*} with boundary conditions $\tilde{w}(0) = \tilde{w}(1) = 0$ and $\tilde{\phi}'(0) = \tilde{\phi}'(1) = 0$.
 
 Solutions to Problem T-1E is a pair of functions $\langle \tilde{w}, \tilde{\phi} \rangle$ called the eigenfunction with corresponding eigenvalue $\lambda$. Substitution of $\tilde{w} = \sin(k\pi x)$ and $\tilde{\phi} = \cos(k \pi x)$ show that they are solutions of the differential equations and satisfy the boundary conditions.
@@ -370,7 +370,7 @@ Combining the solutions of the eigenvalue problem with the solution \eqref{eq:1D
 	w_n(x,t) & = & T_n(t)\tilde{w}_n(t), \\
 	\phi_n(x,t) & = & T_n(t)\tilde{\phi}_n(x).
 \end{eqnarray*} 
-Substitution show that these solutions does indeed satisfy the differential equations \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (and consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
+Substitution show that these solutions do indeed satisfy the differential equations \eqref{eq:1D_Model:ModalPDE1} and \eqref{eq:1D_Model:ModalPDE2} with the boundary conditions. These solutions are the modal solutions and they are clearly periodic with natural angular frequencies $\sqrt{\lambda_n}$ (and consequently the natural frequencies are $\frac{\sqrt{\lambda_n}}{2 \pi})$.
 
 Therefore the formal series solution for Problem T-1 is
 \begin{eqnarray*}
@@ -384,7 +384,7 @@ Find a pair of functions $\tilde{w}$ and $\tilde{\phi}$ such that for all $t >0$
 \begin{eqnarray*}
 	 -\int_0^1 \tilde{w}'v'  + \int_0^1 \tilde{\phi} v' &=& \int_0^1 \lambda \tilde{w} v ,\\
 	 -\int_0^1\alpha \tilde{w}' \psi + \int_0^1\alpha \tilde{\phi} \psi - \int_0^1\frac{1}{\gamma}\tilde{\phi}' \psi' &=& \int_0^1 \lambda \tilde{\phi} \psi .
-\end{eqnarray*} for each $\langle v \ \psi\rangle \in T[0,1]$. \label{sym:lambda}
+\end{eqnarray*} for each $\langle v, \ \psi\rangle \in T[0,1]$. \label{sym:lambda}
 
 
 \subsection{General vibration problem}
@@ -440,7 +440,7 @@ Also the sequence of normalized eigenvectors ${x_i}$ forms an orthonormal basis 
 
 Following these results from \cite{CVV18}, for any $u \in V$, $\displaystyle u = \sum_{i=1}^{\infty} a_i x_i$. These coefficients $a_i$ are generalized Fourier coefficients of $u$ with respect to the eigenvectors $x_i$. Therefore, for any $u \in V$,
 \begin{eqnarray*}
-	u = \sum_{i=1}^{\infty} a_i x_i. = \sum_{i=1}^{\infty} c(u, x_i)x_i.
+	u = \sum_{i=1}^{\infty} a_i x_i = \sum_{i=1}^{\infty} c(u, x_i)x_i.
 \end{eqnarray*}
 
 Now that the eigenvalue problem has many solutions, the following ordinary differentiable equation can be considered,
@@ -462,7 +462,7 @@ Then combining the solutions of the eigenvalue problem and the differential equa
 \subsection{Validity of series solution}
 Consider the following question: When is the formal series solution valid for the vibration problem with initial values $u(0) = u_0$ and $u'(0) = u_1$? To answer this question, we again refer to the article \cite{CVV18}.
 
-In the article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ a function $u$ given by \label{sym:Energy}
+In the article, the validity of the series solution is proved using energy norms, where the energy $\mathcal{E}$ of the function $u$ given by \label{sym:Energy}
 \begin{eqnarray}
 	\mathcal{E} (t) = \frac{1}{2} b(u(t), u(t)) + \frac{1}{2} c(u'(t), u'(t)). \label{eq:1D_Model:ModalAnalysisEnergy}
 \end{eqnarray}
@@ -473,7 +473,7 @@ Then,
 					& = & 0 \ \ \ \ \ \ \ \textrm{ following from \eqref{eq:existence:ProblemGVarHom}}. 
 \end{eqnarray*}
 
-Therfore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
+Therefore $\mathcal{E}(t) = \mathcal{E}(0)$ for all $t>0$. For the case of weak damping, it can be proved that $\mathcal{E}(t) \leq \mathcal{E}(0)$ for all $t>0$ which is the case of \cite{CVV18}.
 
 Denote the partial sum $u^{N}(t) = \sum_{n=1}^{N} T_{n}(t)w_n$. Ideally
 \begin{eqnarray*}
@@ -505,7 +505,7 @@ Sections 4.5 and 6.2 are a discussion and extension of the article \cite{LVV09}.
 
 Being able to express the solutions as valid series solutions, enable us to compare the different models by only considering the eigenvalues and eigenfunctions of the different models. This is explained in detail in \cite{CVV18}.
 
-In \cite{CVV18}, the authors consider a beam model and wave equation model for a vibrating string. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions are not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
+In \cite{CVV18}, the authors consider a beam model and wave equation model for a vibrating string. Suppose that for the same initial conditions, $u_b$ and $u_w$ are the exact solutions. A comparison of the exact solutions is not possible, but the partial sums can be compared if the bounds for the errors $u_b - u^N_b$ and $u_w - u^N_w$ can be guaranteed.
 
 \end{document}
 

@@ -13,10 +13,10 @@
     Let $w$ represent the transverse displacement and $\phi$ a rotation of the cross-sections of the beam.
 
     \subsubsection*{Equations of motion}\label{sssec:1D_Model:EquationOfMotion}
-    \begin{align}
+    \begin{eqnarray}
         \rho A \partial_t^2 w &=& \partial_x V + Q, \label{eq:1D_Model:EquationOfMotion1}\\
         \rho I\partial_t^2 \phi  &=& V + \partial_x M. \label{eq:1D_Model:EquationOfMotion2}
-    \end{align}\label{sym:A}\label{sym:V}\label{sym:Iinertia}\label{sym:M}\label{sym:phiT}
+    \end{eqnarray}\label{sym:A}\label{sym:V}\label{sym:Iinertia}\label{sym:M}\label{sym:phiT}
     In~\eqref{eq:1D_Model:EquationOfMotion1} and \eqref{eq:1D_Model:EquationOfMotion2} $\rho$ denotes the density, $A$ is the area of a cross section, $I$ is the area moment of inertia, $M$ is the moment, $V$ is the shear force and $Q$ is an external force acting on the beam.
 
     \subsubsection*{Constitutive equations}\label{sssec:1D_Model:ConstitutiveEquation}
@@ -27,13 +27,13 @@
     $E$ is Young's modulus, $G$ the shear modulus and $\kappa^2$ the shear correction factor.
 
     \subsubsection*{Dimensionless form}\label{sssec:1D_Model:DimensionlessForm}
-    As mentioned in subsection \ref{ssec:3D_Model:DimensionlessForm}, the same dimensionless scaling is used for all the models in this dissertation.\\
+    As mentioned in Subsection \ref{ssec:3D_Model:DimensionlessForm}, the same dimensionless scaling is used for all the models in this dissertation.\\
 
     Set \[\tau = \frac{t}{t_0}, \,\, \xi = \frac{x}{\ell}, \,\, w^*(\xi,\tau) = \frac{w(x,t)}{\ell} \ \text{ and } \ \phi^*(\xi, \tau) = \phi(x,t).\]
 
     The dimensionless forms of the shear force, moment and external force density are \[ V^{*}(\xi,\tau) = \frac{V(x,t)}{AG\kappa^2}, \quad M^{*}(\xi,\tau) = \frac{M(x,t)}{A G\kappa^2 \ell} \,\,\, \ \text{and} \ \,\,\, Q^*(\xi,\tau) = \frac{Q(x,t)\ell}{A G\kappa^2}.\]
 
-    Choose $t_0$ the same as in subsection \ref{ssec:3D_Model:DimensionlessForm}, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+    Choose $t_0$ the same as in Subsection \ref{ssec:3D_Model:DimensionlessForm}, i.e. \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
 
     As in [VV06] and [LLV09] we use the dimensionless constants
     \begin{equation*}
@@ -44,9 +44,9 @@
     Interestingly, it turns out that
     \begin{eqnarray*}
         \frac{\beta}{\alpha} & = & \gamma
-    \end{eqnarray*} where $\gamma$ is the dimensionless parameter defined in subsection \ref{ssec:3D_Model:DimensionlessForm}.\\
+    \end{eqnarray*} where $\gamma$ is the dimensionless parameter defined in Subsection \ref{ssec:3D_Model:DimensionlessForm}.\\
 
-    \textbf{Remark} Recall that in subsection \ref{ssec:3D_Model:DimensionlessForm} the constant $G\kappa^2$ was used for the scaling of the stresses.
+    \textbf{Remark} Recall that in Subsection \ref{ssec:3D_Model:DimensionlessForm} the constant $G\kappa^2$ was used for the scaling of the stresses.
 
     \subsubsection*{Dimensionless equations of motion}\label{sssec:1D_Model:DimensionlessEquationsOfMotion}
     \begin{eqnarray}

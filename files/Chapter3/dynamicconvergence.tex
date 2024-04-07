@@ -127,7 +127,7 @@ Consider the time interval $J = [0,T]$. Divide $J$ into $N$ steps with length $\
 \subsection{Error estimates}\label{e_est}
 In this subsection we consider estimates for the error $u(t_k) - u^h_k$. To simplify the process, the error is divided into errors for the semi-discrete problem and the fully discrete problem.
 
-Under the assumptions \textbf{A1}-\textbf{A4} of Section 2 and continuity of $f$, there exists a unique solution for Problem GVar$^h$. The next step is to show that the solution of Problem GVar$^h$ converges to the solution of Problem GVar.
+Under the assumptions \textbf{A1}-\textbf{A4} of Chapter 2 and continuity of $f$, there exists a unique solution for Problem GVar$^h$. The next step is to show that the solution of Problem GVar$^h$ converges to the solution of Problem GVar.
 
 Let $u$ be the solution of Problem GVar and $u^h$ be the solution of Problem GVar$^h$. The authors of \cite{BV13} define the following error,
 \begin{eqnarray}
@@ -148,7 +148,7 @@ In \cite{BV13} it is assumed that there exists a subspace $H$ of $V$ and a posit
 \end{DC_Thm6_1}
 
 From Theorem 2 for the semi-discrete problem an error estimate for
-$e(t) = [u(t)-u_h(t)]$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $e_k = [u_h(t_k) - u^h_k]$. 
+$e(t) = u(t)-u_h(t)$ with respect to the norm of $W$ was obtained. The authors of \cite{BV13} then proceed to obtain an error estimate for $e_k = u_h(t_k) - u^h_k$. 
 
 The error can then be expressed as
 \begin{eqnarray}
@@ -158,7 +158,7 @@ The error can then be expressed as
 In \eqref{error_e}, the the error for the semi-discrete problem is the term $u(t_k)-u_h(t_k)$ and the term $u_h(t_k) - u^h_k$ is the error for the fully disrete appreximation of the semi-discrete approximation.
 
 Since the dimension of $S^h$ is not fixed, the equivalence of norms
-cannot be used, and therefore this error estimate for $e_k = [u_h(t_k) - u^h_k]$
+cannot be used, and therefore this error estimate for $e_k = u_h(t_k) - u^h_k$
 should also be with respect to the norm of $W$. The local error $e_1$ can be estimated using Taylor polynomials, but then $e_k$ `grows' as $k$ increases.
 
 A stability result is derived in \cite{BV13}. Recall that $\displaystyle \tau = \frac{T}{N}$.
@@ -172,7 +172,7 @@ A stability result is derived in \cite{BV13}. Recall that $\displaystyle \tau = 
 \end{DC_Lem3}
 
 
-Using this lemma, \cite{BV13} prove the error estimate. The error estimate for the term $[u_h(t_k) - u^h_k]$ with respect to the norm of $W$ as proven by the authors of \cite{BV13} is presented here as Theorem 3.
+Using this lemma, \cite{BV13} prove the error estimate. The error estimate for the term $u_h(t_k) - u^h_k$ with respect to the norm of $W$ as proven by the authors of \cite{BV13} is presented here as Theorem 3.
 
 \newtheorem*{DC_Thm5_1}{Theorem 3}
 \begin{DC_Thm5_1}

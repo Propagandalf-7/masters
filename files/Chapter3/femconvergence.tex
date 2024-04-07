@@ -27,12 +27,12 @@ For examples, see Chapter 5.
 
 Problem $E^h$ can be written as a matrix eigenvalue problem,
 \begin{eqnarray}
-	\lambda^nM\bar{u}_n = K\bar{u}_n. \label{eq:matrix_eigenvalue}
+	\lambda^hM\bar{u}_n = K\bar{u}_n. \label{eq:matrix_eigenvalue}
 \end{eqnarray} 
 
 Since $N_e$ is never small and usually large to very large, a compute algorithm is required to calculate the eigenvalues (and eigenfunctions) of \eqref{eq:matrix_eigenvalue}.
 
-The pair $(\lambda^n, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to understand some of the theory to make the connection.
+The pair $(\lambda^h, \bar{u}_n)$ correspond to the pair $(\lambda^h_k, u^h_k)$ which is the solution of Problem $E^h$. It is necessary to understand some of the theory to make the connection.
 
 In $S^h$, the ordering of vectors is the same as in the original space. Denote the normalized eigenvectors in the space $S^h$ as $u^h_k$ with corresponding eigenvalues $\lambda^h_k$ for $k = 1,2,...,N_e$.
 
@@ -44,7 +44,7 @@ Finally, any subspace of $S^h$ will also be a subspace of $V$. So the minmax pri
 \end{equation}
 
 \section{Estimating the eigenvalues.} \label{sec:estimating_the_eigenvalues}
-In this section, the work in the textbook \cite{SF73} is discussed. The results are the same as given in the textbook, how ever the proofs are expanded for greater clarity.
+In this section, the work in the textbook \cite{SF73} is discussed. The results are the same as given in the textbook, however the proofs are expanded for greater clarity.
 
 \subsection{Projection of the eigenfunctions}
 
@@ -483,7 +483,7 @@ From the textbook \cite{OR76}, following approximation theorem for finite elemen
 	where $|u|_H^{k+1}(\Omega)$ is the seminorm.
 \end{Interpolation}
 
-For the requirements of this dissertation, this can be simplified with an assumption. The assumption is that the basis of $S^h$ consists of polynomials. With this assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||_{W}$. This approximation theorem can be rewritten as
+For the requirements of this dissertation, this can be simplified with an assumption. The assumption is that the basis of $S^h$ consists of polynomials. With these assumptions, the semi-norm $|u|_H$ is equal to the norm $||u||_{W}$. This approximation theorem can be rewritten as
 \newtheorem{Interpolation_2}{Theorem}
 \begin{Interpolation_2}
 	Suppose there exists an integer $k$ such that for each element

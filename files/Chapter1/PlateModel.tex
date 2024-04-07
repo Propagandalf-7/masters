@@ -25,25 +25,25 @@
 	\end{eqnarray*}
 	Define
 	\begin{eqnarray*}
-		{\psi} = \langle \psi_1 \  \psi_2\rangle = \langle \sin\phi \cos \theta \ \ \sin\phi \sin \theta\rangle.
+		{\psi} = \langle \psi_1, \ \psi_2\rangle = \langle \sin\phi \cos \theta, \ \sin\phi \sin \theta\rangle.
 	\end{eqnarray*}
 	
 	The plate model in consideration is restricted to a linear model. Therefore $\sin\phi$ can be approximated by $\phi$ such that
 	\begin{eqnarray*}
-		{\psi} = \langle \psi_1 \  \psi_2\rangle = \langle \phi \cos \theta \ \ \phi \sin \theta \rangle.
+		{\psi} = \langle \psi_1, \  \psi_2\rangle = \langle \phi \cos \theta, \ \phi \sin \theta \rangle.
 	\end{eqnarray*}
 	
 	The equations for the Reissner-Mindlin plate model is given in the next section. The model is restricted to the linear theory.
 	
 	\subsection{Equations of Motion and Constitutive Equations}\label{ssec:P_Model:EquationsOfMotion+ConstitutiveEquation}
-	Consider a Reissner-Mindlin plate with reference configuration $\Omega \in R^2$. Let $u \in \Omega$ define the transverse motion of the plate model and $\psi = \langle \psi_1 \ \psi_2 \rangle$ the angle between the material line and a line perpendicular to the plate.
+	Consider a Reissner-Mindlin plate with reference configuration $\Omega \in R^2$. Let $u \in \Omega$ define the transverse motion of the plate model and $\psi = \langle \psi_1, \ \psi_2 \rangle$ the angle between the material line and a line perpendicular to the plate.
 	
 	\subsubsection*{Equations of Motion}\label{sssec:P_Model:EquationsOfMotion}
 	\begin{eqnarray}
 		\rho h \partial_t^2 w & = & \textrm{div} \mathbf{Q} + q \label{eq:P_Model:EM1}\\
 		\rho I \partial_t^2 {\psi} & = & \textrm{div} M - Q \label{P2}\label{eq:P_Model:EM1}
 	\end{eqnarray} \label{sym:bfQ}
-	In these equations $\rho$ denotes the density of the plate, $\displaystyle I = \frac{h^3}{12}$ the length moment of inertia, $M$ the moment density and $Q$ the shear force density. The parameter $q$ is an external force acting on the plate. The moment density is defined as
+	In these equations $\rho$ denotes the density of the plate, $\displaystyle I = \frac{h^3}{12}$ the length moment of inertia, $M$ the moment density and $Q$ the shear force density. The parameter $q$ is an external force acting on the plate. $\mathbf{Q}$ is defined as part of the constitutive equations below. The moment density is defined as
 	
 	\begin{eqnarray*}
 		M = 
@@ -83,8 +83,10 @@
 	\[h = \frac{h}{\ell}, \,\, \quad I^* = \frac{h^3}{12} \ \text{ and } \  \beta = \frac{\ell^3G\kappa^2}{EI}.\]
 	
 	\subsubsection{Remark}
-	Similar to the model in section \ref{ssec:3D_Model:DimensionlessForm}, the constant $G$ is introduced to allow for the comparison of models in later chapters. It will also be required that $\kappa$ is the same for the beam and plate models.
+	Similar to the model in Section \ref{ssec:3D_Model:DimensionlessForm}, the constant $G$ is introduced to allow for the comparison of models in later chapters. It will also be required that $\kappa$ is the same for the beam and plate models.
 	
+	For convienience, the original notation is used for the dimensionless form.
+
 	\subsubsection{Dimensionless Equations of Motion}\label{sssec:P_Model:EquationsOfMotionD}
 	\begin{eqnarray}
 		h \partial_t^2 w & = & \textrm{div} \mathbf{Q} + q \label{eq:P_Model:EM1D} \\
@@ -100,7 +102,7 @@
 	\subsection{Boundary Conditions}\label{ssec:P_Model:BoundaryConditions}
 	The boundary conditions are applied along an edge of a plate. Let $n$ be the outward normal of the edge, and $\tau$ be a unit vector tangent to that edge.\\
 	
-	Some commonly used boundary (or edge) conditions are:\\
+	Some commonly used boundary (or edge) conditions are:
 	
 	Free Edge:
 	\[Mn\cdot n = 0, \ \ Mn\cdot \tau = 0 \ \ \textrm{ and }\ \mathbf{Q}\cdot n = 0 \]
@@ -116,35 +118,32 @@
 	In this dissertation, only the free edge and rigidly clamped edge boundary conditions are considered.
 	
 	\subsection{Model Problems}\label{ssec:P_Model:ModelProblems}
-	Let $\Omega \subset R^2$ denote reference configuration of the plate model. Following \cite{Wu05}, $\Omega$ is a rectangle.\\
+	Let $\Omega \subset R^2$ denote reference configuration of the plate model. Following \cite{Wu06}, $\Omega$ is a rectangle.
 	
 	The boundary $\partial \Omega$ can be divided into 4 distinct parts. Denote any two opposing sides by $\Sigma_0$ and $\Sigma_1$ and the remaining two opposing sides by $\Gamma_0$ and $\Gamma_1$.
 	
 	\subsubsection{Problem P-1}\label{sssec:P_Model:ProblemP1}
-	Consider a cantilever plate model. In this configuration, the plate is clamped at one edge and free hanging at the rest of the boundary. With out loss of generality, assume that the plate is clamped on the edge $\Sigma_0$.\\
+	Consider a cantilever plate model. In this configuration, the plate is clamped at one edge and free hanging at the rest of the boundary. Without loss of generality, assume that the plate is clamped on the edge $\Sigma_0$.
 
-	Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1}, the boundary conditions.\\
+	Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1} and the boundary conditions:
 	
-	Boundary Conditions\\
 	\[w = 0,  \ \textrm{ and } \ \psi = \bar{0} \ \textrm{ on } \Sigma_0.\]
 	\[Mn\cdot n = 0,\ \ \ Mn\cdot \tau = 0, \ \textrm{ and } \ \mathbf{Q} \cdot n =0 \ \textrm{ on } \partial\Omega\setminus\Sigma_0.\]
-	with $\tau$ a unit vector perpendicular to $n$.\\
+	with $\tau$ a unit vector perpendicular to $n$. 
 	
 	\subsubsection{Problem P-2}\label{sssec:P_Model:ProblemP2}
-	Consider a plate model that is rigidly clamped on $\partial \Omega$. Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1}, the boundary conditions.\\
+	Consider a plate model that is rigidly clamped on $\partial \Omega$. Find functions $w$ and $\psi$ satisfying equations \eqref{eq:P_Model:EM1D} to \eqref{eq:P_Model:CE4D_chap1} and the boundary conditions:\\
 	
-	Boundary Conditions\\
 	\[w = 0,  \ \textrm{ and } \ \psi = \bar{0} \ \textrm{ on } \partial \Omega.\]
 	
-	
 	\subsection{Variational Form}\label{ssec:P_Model:VariationalForm}
-	Let $v \in C_2^1[0,1]$ and $w \in C^1[0,1] \times C^1[0,1]$ such that $w$ is a vector valued function. Multiplication these functions to \eqref{eq:P_Model:EM1D} and \eqref{eq:P_Model:EM2D} yields:
+	Let $v \in C_2^1[0,1]$ and $w \in C^1[0,1] \times C^1[0,1]$ such that $w$ is a vector valued function. Multiplication these artitrary functions to \eqref{eq:P_Model:EM1D} and \eqref{eq:P_Model:EM2D_chap1} yields:
 	\begin{eqnarray*}
 		\int_\Omega h \partial_t^2 w v \ dA & = & \int_\Omega \textrm{div} (\mathbf{Q}) v \ dA + \int_\Omega q v \ dA\\
 		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & \int_\Omega \textrm{div} (M) \cdot \phi \ dA - \int_\Omega Q \cdot \phi \ dA
 	\end{eqnarray*}
 	
-	Following from Green's Formulas, similar to section \ref{ssec:3D_Model:VariationalForm}, 
+	Following from Green's Formulas, similar to Section \ref{ssec:3D_Model:VariationalForm}, 
 	\begin{eqnarray*}
 		\int_\Omega \textrm{div}(\mathbf{Q}) v \ dA & = & - \int_\Omega \mathbf{Q} \cdot \nabla v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds,\\
 		\int_\Omega \textrm{div}(M) \cdot \phi \ dA & = & - \int_\Omega \textrm{Tr} (M \Phi) \ dA + \int_{\partial\Omega} M n \cdot \phi ds.
@@ -158,7 +157,7 @@
 		\end{bmatrix}.
 	\end{eqnarray*}
 	
-	The variational form can be given as
+	The variational form is given as
 	\begin{align}
 		\int_\Omega h \partial_t^2 w v \ dA & = & - \int_\Omega Q \cdot \nabla v \ dA + \int_\Omega q v \ dA + \int_{\partial\Omega} (Q\cdot n)v ds, \label{P1}\\
 		\int_\Omega I \partial_t^2 \psi \cdot \phi \ dA & = & - \int_\Omega \textrm{Tr} (M \Phi) \ dA - \int_\Omega Q \cdot \phi \ dA + \int_{\partial\Omega} M n \cdot \phi ds. \label{P2}
@@ -200,7 +199,7 @@
 	\end{eqnarray} with $\phi = \langle v, \phi \rangle  \in T_1({\bar{\Omega}}) \times T_2({\bar{\Omega}})$ an arbitrary function.\\
 	
 	
- Applications are continued in Chapter 5 and 6. In Chapter 5, the finite element analysis is applied to a cantilever plate to solve the eigenvalue problem. In Chapter 6, a cantilever plate in used in the comparison of our linear models.
+ Applications are continued in Chapter 5 and 6. In Chapter 5, the finite element method is applied to a cantilever plate to solve the eigenvalue problem. In Chapter 6, a cantilever plate in used in the comparison of the linear models.
 \end{document}
 
 	\textcolor{red}{Voel nie die dra iets by nie.}\\

@@ -1,0 +1,61 @@
+\documentclass[8pt]{beamer}
+\usetheme{metropolis} % Use the Metropolis theme
+\usepackage{pgfplots}
+
+
+
+\title{Comparison of linear beam models}
+\author{Rudi du Toit}
+\date{September 1, 2023}
+\institute{University of Pretoria}
+
+\begin{document}
+
+% Redefine the title page template
+\setbeamertemplate{title page}{
+    \begin{center}
+        \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+        \vskip0.25em%
+        {\fontsize{14}{16}\selectfont\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}% Increase the font size of the title
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.25em%
+        {\fontsize{12}{14}\selectfont\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}% Increase the font size of the subtitle
+        \fi%     
+        \vskip1em\par
+        \usebeamerfont{author}\insertauthor\par
+        \vskip1em\par
+        \usebeamerfont{institute}\insertinstitute\par
+        \vskip1em%
+        \includegraphics[width=0.2\linewidth]{logo-up.jpg}\par % Include the logo here
+        \vskip1em\par
+        \usebeamerfont{date}\insertdate\par
+        \vfill
+    \end{center}
+}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Beams are widely used in engineering.
+        \item A three-dimensional beam model would be most realistic representation of a real world beam.
+        \item Three-dimensional beams are complex and require a lot of compute power, especially when using multiple beams in a single structure.
+        \item Therefore simplified beam models are used, like the Timoshenko beam model.
+        \item When in application is a Timoshenko beam a suitable replacement for a three-dimensional beam?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Vibration problems are common in beam models.
+        \item The validity of a Timoshenko beam model in application is an important consideration.
+        \item Validity refers to how well the solution of a model compares to a more realistic, higher dimensional model.
+    \end{itemize}
+\end{frame}
+
+
+
+\end{document}

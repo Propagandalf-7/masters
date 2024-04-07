@@ -1,17 +1,17 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../main.tex]{subfiles}ite{VS18}
 \begin{document}
 \section{Model problem for a three-dimensional elastic solid} \label{sec:3D_Model}
-In this section we introduces the linear theory for a three-dimensional elastic
+In this section we introduce the linear theory for a three-dimensional elastic
 solid. The textbook of Fung \cite{Fung65} is used with some changes in the
 notation. \\
 
-The equation of motion and constitutive equation are given in subsection
+The equation of motion and constitutive equation are given in Subsection
 \ref{ssec:3D_Model:EquationOfMotion}. The dimensionless form of the equation of
-motion and constitutive equation are derived in subsection
+motion and constitutive equation are derived in Subsection
 \ref{ssec:3D_Model:DimensionlessForm}. Model problems are presented in
-subsection \ref{ssec:3D_Model:ModelProblems}. The variational form for the
-vibration problem is given in section \ref{ssec:3D_Model:VariationalForm}.
-Plane stress is discussed in section \ref{ssec:3D_Model:PlaneStress}
+Subsection \ref{ssec:3D_Model:ModelProblems}. The variational form for the
+vibration problem is given in Section \ref{ssec:3D_Model:VariationalForm}.
+Plane stress is discussed in Section \ref{ssec:3D_Model:PlaneStress}
 
 \subsection{Equations of motion and constitutive equations} \label{ssec:3D_Model:EquationofMotion+ConstitutiveEquation}
 Consider a vector valued function $u$ defined on domain $\Omega \subset {R}^3$ \label{sym:Omega} \label{sym:Rn}
@@ -44,7 +44,7 @@ $\textrm{Tr}(T)$\label{sym:TrT} denote the trace of the stress tensor $T$, that 
 \textbf{Remark} Some books prefer to use $\rho Q$ for the external body force, but $Q$ is also correct. $Q$ is then a force per unit volume.
 
 \subsubsection*{Strain}\label{sssec:3D_Model:Strain}
-Infinitesimal strain tensor is defined on $\Omega$ as $\mathcal{E}$\label{sym:mathcalE}, with components
+The infinitesimal strain tensor is defined on $\Omega$ as $\mathcal{E}$\label{sym:mathcalE}, with components
 \begin{eqnarray}
 	\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right). \label{eq:3D_Model:Strain}
 \end{eqnarray}\label{sym:varepsilonij}
@@ -62,7 +62,7 @@ If the principal stresses $\sigma_i$ are all non-zero, then Hooke's law can be w
 \begin{eqnarray}
 	T = \left( \frac{E}{1+\nu} \right)\mathcal{E} + \frac{\nu E}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE}.
 \end{eqnarray}
-$\textrm{Tr}(\mathcal{E}) = \epsilon_{11} + \epsilon_{12} + \epsilon_{13}$ is the trace of the strain operator $\mathcal{E}$.\\
+$\textrm{Tr}(\mathcal{E}) = \varepsilon_{11} + \varepsilon_{12} + \varepsilon_{13}$ is the trace of the strain operator $\mathcal{E}$.\\
 
 Hooke's Law \eqref{eq:3D_Model:CE} is the constitutive equation for the
 three-dimensional elastic model used in problems. Conditions for the problems
@@ -71,36 +71,35 @@ to be well posed, are discussed in Chapter 2.
 \subsection{Dimensionless form} \label{ssec:3D_Model:DimensionlessForm}
 The dimensionless form of the equation of motion and constitutive equation are
 derived in this subsection. Suppose $\ell$ represents some notable dimension
-(e.g.the length) of the elastic body and $G$ the shear modulus of elasticity.\\
+(e.g. the length) of the elastic body and $G$ the shear modulus of elasticity.\\
 
 Set \[\tau = \frac{t}{t_0},\quad \xi_i = \frac{x_i}{\ell},\quad {u}^*(\xi,\tau) = \frac{1}{\ell}{u}(x,t), \quad Q^{*} = \ell G \kappa^2 Q, \]
 \[ \text{and} \ \,\,\, \sigma_{ij}^*(\xi,\tau) = \frac{1}{G\kappa^2}\sigma_{ij}(x,t),\]\label{sym:t}\label{sym:G}\label{sym:tau}\label{sym:xi}\label{sym:Qstar}\label{sym:sigmaijstar}\label{sym:ell}\label{sym:kappa2}
 
 where $\kappa^2$ is a dimensionless constant and $t_0$ must be specified. A
-convenient choice for $t_0$ (see section \ref{sec:1D_Model}) is \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
+convenient choice for $t_0$ (see Section \ref{sec:1D_Model}) is \[t_0 = \ell\sqrt{\frac{\rho}{G\kappa^2}}.\]
 
-Substitution into \eqref{eq:3D_Model:EM} and yields
+Substitution into \eqref{eq:3D_Model:EM} yields
 \begin{eqnarray*}
-	\partial_{\tau} u^{*} = \textrm{div}T^* + Q^*.
+	\partial_{\tau} u^{*} = \textrm{div}T^* + Q^*,
 \end{eqnarray*}
-where $T^* = \sigma_{i,j}^*(\xi,\tau)$.\\
+where $T^* = \sigma_{i,j}^*(\xi,\tau)$.
 
 The dimensionless form of \eqref{eq:3D_Model:HL} and \eqref{eq:3D_Model:CE} are
-\begin{eqnarray*}
-	\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right]
-\end{eqnarray*}\label{sym:I}
-
+\begin{eqnarray}
+	\mathcal{E} = \frac{G \kappa^2}{E} \left[ (1+\nu)T^* - \nu \textrm{Tr}(T^*)I \right] \label{sym:E_2}
+\end{eqnarray}\label{sym:I}
 and
-\begin{eqnarray*}
-	T^* = \frac{E}{G \kappa^2} \left[\left( \frac{1}{1+\nu} \right)\mathcal{E} + \frac{\nu}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \right]
-\end{eqnarray*}
+\begin{eqnarray}
+	T^* = \frac{E}{G \kappa^2} \left[\left( \frac{1}{1+\nu} \right)\mathcal{E} + \frac{\nu}{(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \right]. \label{sym:T_2}
+\end{eqnarray}
 
 Introduce a dimensionless constant
 \begin{eqnarray*}
 	\gamma= \frac{G\kappa^2}{E}.
 \end{eqnarray*}\label{sym:gamma}
 
-Using this dimensionless constant,
+Using this dimensionless constant, \eqref{sym:E_2} and \eqref{sym:T_2} becomes
 \begin{eqnarray}
 	\mathcal{E} = \gamma(1+\nu)T^* - \gamma\nu \textrm{Tr}(T^*)I \label{DM_H_E}
 \end{eqnarray}
@@ -109,9 +108,9 @@ and
 	T^* = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I. \label{DM_H_T}
 \end{eqnarray}
 
-\textbf{Remark} The constant $G\kappa^2$ is introduced to allow for comparisons of the models in later chapters. The constant comes from the Timoshenko beam theory and is explained in section \ref{sec:1D_Model} \\
+\textbf{Remark} The constant $G\kappa^2$ is introduced to allow for comparisons of the models in later chapters. The constant comes from the Timoshenko beam theory and is explained in Section \ref{sec:1D_Model} \\
 
-In the rest of section 1.2 the original notation is retained for convenience.
+In the rest of Section 1.2 the original notation is retained for convenience.
 
 \subsubsection*{Equations of motion in dimensionless form}\label{sssec:3D_Model:EquationOfMotionDimensionless}
 \begin{eqnarray}
@@ -127,7 +126,7 @@ with
 	\end{bmatrix}.\label{eq:3D_Model:divT-D}
 \end{eqnarray}
 
-\subsubsection*{Constitutive equations in dimensionless form}\label{sssec:3D_Model:ConstitutiveEquationsDimensionless}
+\subsubsection*{Constitutive equation in dimensionless form}\label{sssec:3D_Model:ConstitutiveEquationsDimensionless}
 \begin{eqnarray}
 	T = \frac{1}{\gamma(1+\nu)} \mathcal{E} + \frac{\nu}{\gamma(1+\nu)(1-2\nu)}\textrm{Tr}(\mathcal{E})I \label{eq:3D_Model:CE-D}
 \end{eqnarray}
@@ -138,7 +137,7 @@ executing small vibrations. The boundary of $\Omega$ can be divided into two
 distinct parts, referred to as $\Sigma$ and $\Gamma$. The following will be
 considered a model problem for a three-dimensional elastic body.
 \begin{enumerate}
-	\item[] The equations of motion \eqref{eq:3D_Model:EM-D} and \eqref{eq:3D_Model:divT-D} is satisfied in $\Omega$;
+	\item[] The equations of motion \eqref{eq:3D_Model:EM-D} and \eqref{eq:3D_Model:divT-D} are satisfied in $\Omega$;
 	\item[] Hooke's law \eqref{eq:3D_Model:CE-D} is satisfied in $\Omega$;
 	\item[] The displacement $u = u_\Sigma$ is specified on
 		$\Sigma$;
@@ -153,25 +152,23 @@ Find a vector valued function $u$, satisfying equations
 \eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the following boundary
 conditions:\\
 
-Boundary Conditions:
 \begin{eqnarray*}
 	u & = & 0 \quad \textrm{ on } \Sigma\\
 	Tn & = & 0 \quad \textrm{ on } \Gamma
-\end{eqnarray*} With $n$ the outward normal vector to $\Omega$.
+\end{eqnarray*} with $n$ the outward normal vector to $\Omega$.
 
 \subsubsection{Problem 3D-2}\label{sssec:3D_Model:Problem3D2}
 Find a vector valued function $u$, satisfying equations
 \eqref{eq:3D_Model:EM-D} to \eqref{eq:3D_Model:CE-D} and the following boundary
 conditions:\\
 
-Boundary Conditions:
 \begin{eqnarray*}
 	Tn & = & 0 \quad \textrm{ on } \partial\Omega
-\end{eqnarray*} With $n$ the unit outward normal vector. \label{sym:boundaryOmega}
+\end{eqnarray*} with $n$ the unit outward normal vector. \label{sym:boundaryOmega}
 
 \subsection{Variational form}\label{ssec:3D_Model:VariationalForm}
 Let $\phi \in C({\Omega})$ be an arbitrary vector valued function. Multiplying
-$\phi$ to equation \eqref{eq:3D_Model:EM-D} and integrating over the domain
+$\phi$ with equation \eqref{eq:3D_Model:EM-D} and integrating over the domain
 $\Omega$ results in, \label{sym:Cn} \label{sym:phi}
 
 \begin{eqnarray*}
@@ -258,14 +255,14 @@ Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and
 \begin{align}
 	c(u,\phi) = -b(u,\phi) + (Q,\phi), \label{eq:3D_Model:Problem3D1VEq}
 \end{align}\label{sym:c}
-for all $\phi \in T(\Omega)$\\
+for all $\phi \in T(\Omega)$.\\
 
 The well-posedness of the model is treated in Chapter 2, where Korn's
-inequality is presented. Applications are continued in Chapter 4, 5 and 6. In
+inequality is presented. Applications are continued in Chapters 4, 5 and 6. In
 Chapter 4, a free-free three-dimensional beam is discussed as part of an
 empirical study. In Chapter 5, the finite element analysis is applied to a
 cantilever beam to solve the eigenvalue problem. In Chapter 6, a cantilever
-beam in used in the comparison of our linear models.
+beam is used in the comparison of the linear models.
 
 \subsection{Plane stress}\label{ssec:3D_Model:PlaneStress}
 When the stresses in an elastic body act parallel to a single plane, it is
@@ -294,13 +291,13 @@ components given in \cite{Fung65}.
 \noindent
 \begin{minipage}{.5\linewidth}
 	\begin{eqnarray*}
-		\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)} ( \varepsilon_{11} + \nu\varepsilon_{22})\\
+		\sigma_{11} & = & \frac{1}{\gamma(1-\nu^2)} ( \varepsilon_{11} + \nu\varepsilon_{22}),\\
 		\sigma_{22} & = & \frac{1}{\gamma(1-\nu^2)} (\nu \varepsilon_{11} + \varepsilon_{22}).
 	\end{eqnarray*}
 \end{minipage}%
 \begin{minipage}{.5\linewidth}
 	\begin{eqnarray}
-		\sigma_{12} & = & \frac{1}{\gamma(1+\nu)} \varepsilon_{12} \label{stress_comp}
+		\sigma_{12} & = & \frac{1}{\gamma(1+\nu)} \varepsilon_{12}, \label{stress_comp}
 	\end{eqnarray}
 \end{minipage}\\
 
@@ -312,6 +309,6 @@ $\varepsilon_{33}$ in \eqref{strain_comp} to obtain
 \end{eqnarray}
 
 This is known as general plane stress. In this dissertation only a special case
-of general plane stress is considered in section \ref{sec:2D_Model}.
+of general plane stress is considered in Section \ref{sec:2D_Model}.
 
 \end{document}
