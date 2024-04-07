@@ -128,7 +128,7 @@ In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the 
 \subsubsection{Problem 3D-1V}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
 \begin{align}
-	c(u,\phi) = -b(u,\phi) - (Q,\phi) \label{3DB_20}
+	c(u,\phi) = -b(u,\phi) + (Q,\phi) \label{3DB_20}
 \end{align}
 for all $\phi \in T(\Omega)$.\\
 
@@ -178,7 +178,7 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, sa
 See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
+As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
 
 Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
 
@@ -189,13 +189,13 @@ Define a set of $n$-dimensional linear independent basis functions. For the thre
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
-For the this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
+For this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
 
 Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
 Define the space
 \begin{eqnarray*}
-	S^h & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k \right\} \right)
+	S^h & = & \textrm{span}\left\{\delta_i \ | \ i = 1,2,...,k \right\}
 \end{eqnarray*}
 
 For each function $u^h \in S^h$, $u^h$ can be expressed as
@@ -209,7 +209,7 @@ Substituting $u^h$ into Problem 3D-1V, results in the following Galerkin approxi
 Find a function $u^h$ such that for all $t>0$, $u^h \in S^h$ and
 \begin{eqnarray*}
 	(u^h, \phi_i) & = & -b(u^h,\phi_i) + (Q^I \cdot \phi_i)
-\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$. i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
+\end{eqnarray*} for $i = 1,2,...,k$. $Q^I$ is a scalar vector obtained after interpolating the function $Q$ over the rectangular grid $\Omega$, i.e. $Q^I_{i,j, h} = Q(x_i,x_j, x_h)$ for $i = 1,2,...,n_1$, $j = 1,2,...,n_2$ and $h = 1,2,...,n_3$.
 
 \subsection{System of ordinary differential equations}\label{3d_fem_g}
 Consider the following standard Finite Element Method matrices.
@@ -230,6 +230,7 @@ Consider the following standard Finite Element Method matrices.
 		{K_{33}}_{ij} & = & \int_{\Omega} \partial_3\phi_j \partial_3\phi_i \ dV \ \\
 	\end{eqnarray*}
 \end{minipage}
+
 for $i,j = 1,2,...,k.$\\
 
 And
@@ -308,7 +309,7 @@ Using \eqref{eq:3DFEM:K+M} and \eqref{eq:3DFEM:M}, Problem 3D-1G is rewritten as
 Find a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	M\ddot{\bar{u}} & = & K\bar{u} + M_{f}Q^I. \label{3D_M}
-\end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \partial^i_1u \partial^j_2u \partial^k_3u$ for $i,j,k = 0,1,2,3$.
+\end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \langle \partial^i_1u, \ \partial^j_2u, \ \partial^k_3u \rangle$ for $i,j,k = 0,1,2,3$.
 
 \subsection{Eigenvalue problem}
 The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in section \ref{2dFEM_EP}.

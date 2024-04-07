@@ -1,9 +1,9 @@
 \documentclass[../../main.tex]{subfiles}
 \begin{document}
 \section{Introduction}
-In this chapter, the Finite Element Method (FEM) is applied to the models of this dissertation, presented in Chapter 1. The goal of this chapter is to obtain an algorithm that can be used to calculate the eigenvalues and eigenvectors for the models. This is in preparation of chapter 6, where the eigenvalues and eigenvectors of the models are compared.
+In this chapter, the Finite Element Method (FEM) is applied to the models of this dissertation, presented in Chapter 1. The goal of this chapter is to obtain an algorithm that can be used to calculate the eigenvalues and eigenvectors for the models. This is in preparation of Chapter 6, where the eigenvalues and eigenvectors of the models are compared.
 
-In chapter 4, a method was discussed to obtain the eigenvalues and eigenvectors for the Timoshenko beam model. Therefore it is not necessary to apply the Finite Element Method on the Timoshenko model to obtain the eigenvalues and eigenvectors. The Finite Element Method is applied to the two-dimensional and three-dimensional models.
+In Chapter 4, a method was discussed to obtain the eigenvalues and eigenvectors for the Timoshenko beam model. Therefore it is not necessary to apply the Finite Element Method on the Timoshenko model to obtain the eigenvalues and eigenvectors. The Finite Element Method is applied to the two-dimensional and three-dimensional models.
 
 The outline of the chapter is as follows.
 \begin{itemize}
@@ -163,7 +163,7 @@ The subset of basis functions $B$ that satisfies all the conditions of the test 
 
 Define the space
 \begin{eqnarray*}
-S^h & = & \textrm{span}\left(\left\{\delta_i \ | \ i = 1,2,...,k \right\} \right).
+S^h & = & \textrm{span}\left\{\delta_i \ | \ i = 1,2,...,k \right\}.
 \end{eqnarray*}
 
 For each function $u^h \in S^h$, $u^h$ can be expressed as
@@ -240,7 +240,7 @@ Using the standard FEM matrices and matrices $K_1$-$K_4$, the following concaten
 	\end{bmatrix}\label{eq:2DFEM:M}
 \end{eqnarray}
 
-The matrices ${O}$ and ${O_f}$ are the zero matrices of the same size as $\mathbf{M}$ and ${M_f}$ respectively.
+The matrices ${O}$ and ${O_F}$ are the zero matrices of the same size as $\mathbf{M}$ and ${M_f}$ respectively.
 
 Using \eqref{eq:2DFEM:K+M} and \eqref{eq:2DFEM:M}, Problem 2D-1G is rewritten as a system of ordinary differential equations. This system is referred to as Problem 2D-1ODE.
 
