@@ -167,7 +167,7 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$, $u'(t) \in V$ and $u'
 See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-To discretise the body $\Omega$, the same shapes as in Section \ref{ssec:2D_Model:Galerkin} are used.
+To discretise the body $\Omega$, the same shapes as in Section \ref{2d_FEM_G} are used.
 
 Divide the reference configuration $\Omega$ into a rectangular grid of elements, such that there are $n = n_1 \times n_2$ nodes.
 
@@ -184,10 +184,10 @@ Define the two spaces
 \end{eqnarray*}
 For each function $u^h \in S_1^h$ and each function $\psi^h \in S_2^h$, $u^h$ can be expressed as
 \begin{eqnarray*}
-	w^h = \sum_{i = 1}^{k} w_i(t) \delta^*_{i}(x)
+	w^h = \sum_{i = 1}^{k} w_i(t) \delta^1_{i}(x)
 \end{eqnarray*} and $\psi^h$ can be expressed as
 \begin{eqnarray*}
-	\psi^h = \sum_{i = 1}^{k} \psi_i(t) \delta_{i}(x)
+	\psi^h = \sum_{i = 1}^{k} \psi_i(t) \delta^2_{i}(x)
 \end{eqnarray*}
 
 Substitution of $u^h$ and $\psi^h$ into Problem P-1V, results in the following Galerkin approximation, denoted by Problem P-1G.
@@ -284,7 +284,7 @@ With $\bar{u}$ in the form $\bar{u} = \langle w, \partial_1 w, \partial_2 w, \pa
 
 \subsection{Eigenvalue problem}
 
-The equation \eqref{Plate_FEM_M} is the same form as in Section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem P-1 by Problem P-1E.
+The equation \eqref{Plate_FEM_M} is in the same form as in Section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem P-1 by Problem P-1E.
 \subsubsection{Problem P-1E}
 Find a vector function $\bar{u}$ and a number $\lambda$ such that
 \begin{eqnarray}
