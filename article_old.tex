@@ -524,10 +524,10 @@ Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ 
 	\end{eqnarray*}
 \end{minipage}
 
-Using this notation, the boundary conditions are similar to the two-dimensional model in section \ref{sssec:2D_Model:RefConf}, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
+Using this notation, the boundary conditions are similar to the two-dimensional model in Section \ref{sssec:2D_Model:RefConf}, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
 
 \subsubsection{Cantilever elastic body}
-Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D in section \ref{ssec:3D_Model:ModelProblems}.
+Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D in Section \ref{ssec:3D_Model:ModelProblems}.
 
 \begin{figure}[h!]
 	\centering
@@ -618,7 +618,7 @@ Consider a three-dimensional elastic body with rectangular cross-section, rigidl
 \end{figure} 
 
 
-In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3DV. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from section \ref{sec:3D_Model} are repeated here.
+In Section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3DV. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from Section \ref{sec:3D_Model} are repeated here.
 
 \subsubsection{Problem 3DV}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
@@ -671,7 +671,7 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, sa
 \end{eqnarray}
 
 \subsection{Galerkin approximation}
-As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
+As mentioned in the previous section, Section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this is three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
 
 Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
 
@@ -682,7 +682,7 @@ Define a set of $n$-dimensional linear independent basis functions. For the thre
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
-For the this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
+For the this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in Section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
 
 Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
@@ -804,7 +804,7 @@ Find a function $\bar{u} \in S^h$ such that
 \end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \partial^i_1u \partial^j_2u \partial^k_3u$ for $i,j,k = 0,1,2,3$.
 
 \subsection{Eigenvalue problem}
-The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in section \ref{2dFEM_EP}.
+The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in Section \ref{2dFEM_EP}.
 
 \subsubsection{Problem 3DE}\label{3dFEM_EP}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
@@ -837,7 +837,7 @@ Let $\{e_1,e_2\}$ be a right-handed orthonormal basis for $R^2$. Denote the elas
 In this configuration, the body is clamped rigidly to the surface at $x_1 = 0$ denoted as $\Sigma$ and the body is free-hanging on the other boundaries denoted by $\Gamma$.
 
 \subsubsection{Cantilever elastic body}
-Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. This is Problem 2D in section \ref{ssec:2D_Model:ModelProblem}.
+Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0$. The body is free-hanging on the other boundaries. This is Problem 2D in Section \ref{ssec:2D_Model:ModelProblem}.
 
 \begin{figure}[h!]
 	\centering
@@ -901,7 +901,7 @@ Consider a two-dimensional elastic body clamped rigidly to a surface at $x_1 = 0
 \end{figure} 
 
 
-In section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is derived and refered to as Problem 2DV. Some of the results from section \ref{sec:2D_Model} are repeated here for convenience. Using the reference configuration, these results are rewritten from a general form to a model specific form.
+In Section \ref{ssec:2D_Model:VariationalForm} the variational problem for the two dimensional cantilever model is derived and refered to as Problem 2DV. Some of the results from Section \ref{sec:2D_Model} are repeated here for convenience. Using the reference configuration, these results are rewritten from a general form to a model specific form.
 
 \subsubsection{Problem 2DV}\label{sssec:2D_Model:Problem2D1VChp5}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
@@ -1073,14 +1073,14 @@ Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 
 \section{Validity of a model for a cantilever two-dimensional beam} \label{sec:validity-of-a-2d-beam}
 
-In section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the article \cite{LVV09} was discussed. In this article, the authors investigated the validity of a cantilever Timoshenko beam by comparing it to a cantilever two-dimensional beam. In this section, the article is extended and the validity of the cantilever two-dimensional model is investigated.
+In Section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the article \cite{LVV09} was discussed. In this article, the authors investigated the validity of a cantilever Timoshenko beam by comparing it to a cantilever two-dimensional beam. In this section, the article is extended and the validity of the cantilever two-dimensional model is investigated.
 
 As mentioned in the introduction of the chapter, a beam is a three-dimensional body and therefore a three-dimensional model is more realistic. However the authors of \cite{LVV09} mention that a direct comparison of the one and three-dimensional models will have complexities and they suggest using the two-dimensional model as an intermediate step.
 
 So in this section, the article \cite{LVV09} is extended and the validity of a cantilever two-dimensional beam model is investigated, using a cantilever three-dimensional model as a reference.
 
 \subsection{The models}
-The two-dimensional model is the same model as used in the previous section, Problem T-2 defined in section \ref{ssec:2D_Model:ModelProblem}. From section \ref{ssec:3D_Model:ModelProblems}, the cantilever three-dimensional model, referred to as Problem 3D.
+The two-dimensional model is the same model as used in the previous section, Problem T-2 defined in Section \ref{ssec:2D_Model:ModelProblem}. From Section \ref{ssec:3D_Model:ModelProblems}, the cantilever three-dimensional model, referred to as Problem 3D.
 
 Figure \ref{fig:2Dv3D} shows the two beams side-by-side.
 
@@ -1177,13 +1177,13 @@ Figure \ref{fig:2Dv3D} shows the two beams side-by-side.
 
 
 \subsection{Calculating the eigenvalues}
-In section \ref{sec:FEM:3D}, the Finite Element Method for the three-dimensional beam is derived. Similar to the two-dimensional case in \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the Finite Element Method is used to calculate the eigenvalues of the three-dimensional beam. The eigenvalue problem for both models have the same form, but different matrices.
+In Section \ref{sec:FEM:3D}, the Finite Element Method for the three-dimensional beam is derived. Similar to the two-dimensional case in \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the Finite Element Method is used to calculate the eigenvalues of the three-dimensional beam. The eigenvalue problem for both models have the same form, but different matrices.
 
 \subsubsection{Problem 2DE and 3D-1E}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
 \begin{eqnarray}
 	K\bar{u} & = & M\lambda{\bar{u}},
-\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in section \ref{ssec:2DFEM:DE} for the Problem 2DE and section \ref{3d_fem_g} for Problem 3DE.
+\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in Section \ref{ssec:2DFEM:DE} for the Problem 2DE and Section \ref{3d_fem_g} for Problem 3DE.
 
 \subsubsection{Accuracy of the eigenvalues of the three-dimensional model}
 Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenvalues of Problem 3DE. 
@@ -1197,12 +1197,12 @@ Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenv
 
 Similar to the two-dimensional case, the number of elements can be chosen so that at least the first 20 eigenvalues are accurate to 4 significant digits.
 
-For the three-dimensional model, obtaining this level of accuracy can be difficult and computationally expensive. For the two-dimensional beam in section \ref{sec:validity-of-a-cantilever-timoshenko-beam} and the upcoming two-dimensional plate model in section \ref{sec:validity-of-a-plate} it is easier to get 5 significant digits of accuracy.
+For the three-dimensional model, obtaining this level of accuracy can be difficult and computationally expensive. For the two-dimensional beam in Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} and the upcoming two-dimensional plate model in Section \ref{sec:validity-of-a-plate} it is easier to get 5 significant digits of accuracy.
 
 \subsection{Comparing the mode shapes}
-To be able to compare the eigenvalues, the mode shapes of the two models are compared to match up the eigenvalues of the two models. This is the same approach as in section \ref{sec:validity-of-a-cantilever-timoshenko-beam}. 
+To be able to compare the eigenvalues, the mode shapes of the two models are compared to match up the eigenvalues of the two models. This is the same approach as in Section \ref{sec:validity-of-a-cantilever-timoshenko-beam}. 
 
-As seen in section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the two-dimensional model as eigenvalues and eigenvectors that are not related to beam type problems. This is also true for the three-dimensional model, and it has even more non-beam type eigenvalues.
+As seen in Section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, the two-dimensional model as eigenvalues and eigenvectors that are not related to beam type problems. This is also true for the three-dimensional model, and it has even more non-beam type eigenvalues.
 
 The focus of the investigation remains on beam type problems. Below are some examples of the mode shapes for beam type eigenvalues, mode shapes for non-beam type eigenvalues that are shared between the two and three-dimensional models and also mode shapes for non-beam type eigenvalues that are only present in the three-dimensional model.
 
@@ -1276,7 +1276,7 @@ Figure \ref{fig:nonbeam-2dv3d} show examples of mode shapes relating to non-beam
 
 For a realistic comparison of the models, the parameters need to be chosen carefully. The parameters are $h$ representing the height of the beam and $b$ representing the width of the beam. The two-dimensional model does not have the width parameter.
 
-For $h$, the values used in section \ref{sec:validity-of-a-cantilever-timoshenko-beam} will be used. These values covers a range of beam shapes from a short thick beam, to a long slender beam. two cases are selected that represents realistic cases. For a short and thick beam, consider $h = 1/5$ and for a long and slender beam, consider $h = 1/20$.
+For $h$, the values used in Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} will be used. These values covers a range of beam shapes from a short thick beam, to a long slender beam. two cases are selected that represents realistic cases. For a short and thick beam, consider $h = 1/5$ and for a long and slender beam, consider $h = 1/20$.
 
 For the parameter $b$, two different cases will be considered. The first case is for $b \leq h$, and the $b > h$. The distinction of these two cases will become apparent in the results. It is important to note that the parameter $b$ will be expressed as a multiple of $h$.
 

@@ -4,7 +4,7 @@
 Consider a rectangular cantilever Reissner-Mindlin plate model with a rectangular cross-section.
 
 \subsubsection{Reference configuration for a rectangular plate}
-Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Although this basis seems identical to the two-dimensional beam in section \ref{sssec:2D_Model:RefConf}, it is fact different. It would be more appropriate to use $e_1$ and $e_3$ for this plate model. However the use of $e_1$ and $e_2$ is kept to reiterate that this is in fact a two-dimensional model.
+Let $\left\{e_1,e_2\right\}$ be a right-handed orthonormal basis for $R^2$. Although this basis seems identical to the two-dimensional beam in Section \ref{sssec:2D_Model:RefConf}, it is fact different. It would be more appropriate to use $e_1$ and $e_3$ for this plate model. However the use of $e_1$ and $e_2$ is kept to reiterate that this is in fact a two-dimensional model.
 
 Denote the elastic body as $\Omega \in R^2$ with the reference point $(0,0)$. For a rectangular plate,
 \begin{eqnarray*}
@@ -28,7 +28,7 @@ Let $\partial \Omega$ denote the boundary of plate. The boundary $\partial \Omeg
 Similar to the two and three-dimensional cantilever models, this notation implies that the plate is clamped at $\Sigma$ and free hanging at $\Gamma$.
 
 \subsubsection{Cantilever plate model}
-Consider a rectangular Reissner-Mindlin plate clamped rigidly to a surface at $\Sigma$ and free hanging on the remaining edges. This plate model is presented in section \ref{ssec:P_Model:ModelProblems} as Problem P-1.
+Consider a rectangular Reissner-Mindlin plate clamped rigidly to a surface at $\Sigma$ and free hanging on the remaining edges. This plate model is presented in Section \ref{ssec:P_Model:ModelProblems} as Problem P-1.
 
 \begin{figure}[h!]
 	\centering
@@ -94,7 +94,7 @@ Consider a rectangular Reissner-Mindlin plate clamped rigidly to a surface at $\
 \end{figure}
 \FloatBarrier
 
-In section \ref{ssec:P_Model:ModelProblems} the variational problem for the cantilever Reissner-Mindlin plate is defined by Problem P-1V. For convenience, the relevant results from section \ref{ssec:P_Model:ModelProblems} are repeated.
+In Section \ref{ssec:P_Model:ModelProblems} the variational problem for the cantilever Reissner-Mindlin plate is defined by Problem P-1V. For convenience, the relevant results from Section \ref{ssec:P_Model:ModelProblems} are repeated.
 
 \subsubsection{Problem P-1V}
 Find a function $u = \langle w, \psi \rangle$, such that for all $t>0$, $u \in T_1({\bar{\Omega}}) \times T_2({\bar{\Omega}})$ and the following equations are satisfied
@@ -167,7 +167,7 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$, $u'(t) \in V$ and $u'
 See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-To discretise the body $\Omega$, the same shapes as in section \ref{ssec:2D_Model:Galerkin} are used.
+To discretise the body $\Omega$, the same shapes as in Section \ref{ssec:2D_Model:Galerkin} are used.
 
 Divide the reference configuration $\Omega$ into a rectangular grid of elements, such that there are $n = n_1 \times n_2$ nodes.
 
@@ -199,7 +199,7 @@ Find a function $u^h = \langle w^h, \psi^h \rangle$, such that for all $t>0$, $u
 \end{eqnarray} with $\phi_{i,j} = \langle v_i, \phi_j \rangle$ for $i = 1,2,...,k_1$ and $j = 1,2,...,k_2$
 
 \subsection{System of ordinary differential equations}\label{plate_fem_g}
-The standard FEM matrices $K_{11}$, $K_{12}$, $K_{21}$, $K_{22}$ and $M_F$ where presented in section \ref{ssec:2DFEM:DE}. Even though the definition of $R^2$ is different in section \ref{sec:FEM:2D}, the definition of the matrices are the same and are not repeated here.
+The standard FEM matrices $K_{11}$, $K_{12}$, $K_{21}$, $K_{22}$ and $M_F$ where presented in Section \ref{ssec:2DFEM:DE}. Even though the definition of $R^2$ is different in Section \ref{sec:FEM:2D}, the definition of the matrices are the same and are not repeated here.
 
 In addition to these matrices, the following standard FEM matrices are also required.
 
@@ -284,7 +284,7 @@ With $\bar{u}$ in the form $\bar{u} = \langle w, \partial_1 w, \partial_2 w, \pa
 
 \subsection{Eigenvalue problem}
 
-The equation \eqref{Plate_FEM_M} is the same form as in section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem P-1 by Problem P-1E.
+The equation \eqref{Plate_FEM_M} is the same form as in Section \ref{2dFEM_EP} for the two-dimensional elastic body. Therefore the derivation of the eigenvalue problem is identical. Denote the eigenvalue problem for Problem P-1 by Problem P-1E.
 \subsubsection{Problem P-1E}
 Find a vector function $\bar{u}$ and a number $\lambda$ such that
 \begin{eqnarray}

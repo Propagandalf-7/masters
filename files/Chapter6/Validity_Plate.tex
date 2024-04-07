@@ -2,14 +2,14 @@
 \begin{document}
 \section{Validity of a model for a cantilever Reissner-Mindlin plate} \label{sec:validity-of-a-plate}
 
-In the previous section, section \ref{sec:validity-of-a-2d-beam}, it was shown that for certain applications beam models might not be the appropriate choice. The specific application is for models where the body has a larger width than height. A suggestion would be a plate model.
+In the previous section, Section \ref{sec:validity-of-a-2d-beam}, it was shown that for certain applications beam models might not be the appropriate choice. The specific application is for models where the body has a larger width than height. A suggestion would be a plate model.
 
-In this section, the validity of a cantilever Reissner-Mindlin plate model is investigated. This model is a two-dimensional model. So similar to the Timoshenko beam in section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, it is of value to investigate the validity of the model using a three-dimensional plate model as a reference.
+In this section, the validity of a cantilever Reissner-Mindlin plate model is investigated. This model is a two-dimensional model. So similar to the Timoshenko beam in Section \ref{sec:validity-of-a-cantilever-timoshenko-beam}, it is of value to investigate the validity of the model using a three-dimensional plate model as a reference.
 
 The same method to validate the model will be used as in sections \ref{sec:validity-of-a-cantilever-timoshenko-beam} and \ref{sec:validity-of-a-2d-beam}. A cantilever three-dimensional plate model will be used as a reference, and the eigenvalues and mode shapes of the two models will be compared.
 
 \subsection{The models}
-Form section \ref{ssec:P_Model:ModelProblems}, the cantilever Reissner-Mindlin plate model is given, and is referred to as Problem P-1. The three-dimensional model is the same as used in the previous section (section \ref{sec:validity-of-a-2d-beam}), and is referred to as Problem 3D-1 defined in section \ref{ssec:3D_Model:ModelProblems}.
+Form Section \ref{ssec:P_Model:ModelProblems}, the cantilever Reissner-Mindlin plate model is given, and is referred to as Problem P-1. The three-dimensional model is the same as used in the previous section (Section \ref{sec:validity-of-a-2d-beam}), and is referred to as Problem 3D-1 defined in Section \ref{ssec:3D_Model:ModelProblems}.
 
 Figure \ref{fig:plate_sbs} shows the two cantilever plates side by side.
 
@@ -123,7 +123,7 @@ The eigenvalues for both models are calculated using the Finite Element Method. 
 Find a vector function $u$ and a number $\lambda$ such that
 \begin{eqnarray}
 	K{u} & = & M\lambda{u}, 
-\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in section \ref{3d_fem_g} for Problem 3D-1E and section \ref{plate_fem_g} for Problem P-1E.
+\end{eqnarray} where $K$ and $M$ are the standard Finite Element Method matrices defined in Section \ref{3d_fem_g} for Problem 3D-1E and Section \ref{plate_fem_g} for Problem P-1E.
 
 \subsubsection{Accuracy of the eigenvalues}
 Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenvalues of Problem 3D-1E. 
@@ -140,7 +140,7 @@ Figure \ref{fig:conv_3d_eig} show the rate of convergence of the first 20 eigenv
 The number of elements can be chosen so that at least the first 20 eigenvalues are accurate to 5 significant digits.
 
 \subsection{Comparing the mode shapes}
-Similar to the previous sections (section \ref{sec:validity-of-a-cantilever-timoshenko-beam} and section \ref{sec:validity-of-a-2d-beam}), the mode shapes of the two models are compared, to be able to match up the eigenvalues.
+Similar to the previous sections (Section \ref{sec:validity-of-a-cantilever-timoshenko-beam} and Section \ref{sec:validity-of-a-2d-beam}), the mode shapes of the two models are compared, to be able to match up the eigenvalues.
 
 \subsubsection{Mode shapes relating to plate type eigenvalues}
 Figure \ref{fig:plate_mode_shapes} shows examples of mode shapes relating to plate-type eigenvalues. The plate models has many different shapes.
@@ -371,7 +371,7 @@ Three main cases are considered. These cases are $b = 0.25$ for a narrow plate, 
 
 Overall Tables \ref{tab:Table_plate_1}, \ref{tab:Table_plate_2} and \ref{tab:Table_plate_3} shows that the cantilever Reissner-Mindlin plate model compares very well to the three-dimensional plate. The maximum relative error is less than 3.65\% for all cases considered.
 
-There is less of a dramatic change of the comparison when the width of the plate is changed as with the beam model in section \ref{sec:validity-of-a-2d-beam}. This could be because the Reissner-Mindlin plate model does consider both the width and the height of the plate, while it is only a two-dimensional model. The two-dimensional beam model only considered the height of the beam, and not the width.
+There is less of a dramatic change of the comparison when the width of the plate is changed as with the beam model in Section \ref{sec:validity-of-a-2d-beam}. This could be because the Reissner-Mindlin plate model does consider both the width and the height of the plate, while it is only a two-dimensional model. The two-dimensional beam model only considered the height of the beam, and not the width.
 
 Other cases not shown here have also been considered, and the results are similar to the ones shown here. They are therefore not included here, and only worth mentioning.
 

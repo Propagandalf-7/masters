@@ -29,10 +29,10 @@ Let $\partial \Omega$ denote the boundary of the body. Divide $\partial \Omega$ 
 	\end{eqnarray*}
 \end{minipage}
 
-Using this notation, the boundary conditions are similar to the two-dimensional model in section \ref{sssec:2D_Model:RefConf}, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
+Using this notation, the boundary conditions are similar to the two-dimensional model in Section \ref{sssec:2D_Model:RefConf}, where the body is clamped rigidly at $\Sigma$, and free-hanging on the other sides denoted by $\Gamma$.
 
 \subsubsection{Cantilever elastic body}
-Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D-1 in section \ref{ssec:3D_Model:ModelProblems}.
+Consider a three-dimensional elastic body with rectangular cross-section, rigidly clamped to a surface at attached at the side $\Sigma$ and free-hanging at all the other sides. This is Problem 3D-1 in Section \ref{ssec:3D_Model:ModelProblems}.
 \FloatBarrier
 \begin{figure}[h!]
 	\centering
@@ -123,7 +123,7 @@ Consider a three-dimensional elastic body with rectangular cross-section, rigidl
 \end{figure} 
 \FloatBarrier
 
-In section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from section \ref{sec:3D_Model} are repeated here.
+In Section \ref{ssec:3D_Model:VariationalForm}, the variational problem for the three-dimensional cantilever model is defined by Problem 3D-1V. This general form can now be rewritten as in a model specific form using the reference configuration. For convenience, some of the results from Section \ref{sec:3D_Model} are repeated here.
 
 \subsubsection{Problem 3D-1V}
 Find a function $u$ such that for all $t>0$, $u \in T(\Omega)$ and 
@@ -178,7 +178,7 @@ Find a function $u$ such that for all $t>0$, $u(t) \in V$ and $u''(t) \in W$, sa
 See Chapter 2 for the existence theory.
 
 \subsection{Galerkin approximation}
-As mentioned in the previous section, section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
+As mentioned in the previous section, Section \ref{2d_FEM_G}, the body $\Omega$ needs to be descritised. For this three-dimensional body, three-dimensional elements shapes are required. The elements used in this dissertation are rectangular prismatic elements. These elements are also known as `brick-shaped' elements and is described in \cite{Wu06}. This shape of element is a natural choice for a three-dimensional elastic body with a rectangular cross-section.
 
 Divide the reference configuration $\Omega$ into a grid of rectangular prismatic elements, such that there are $n = n_1 \times n_2 \times n_3$ nodes.
 
@@ -189,7 +189,7 @@ Define a set of $n$-dimensional linear independent basis functions. For the thre
 	\langle 0,0,\phi_1 \rangle,\langle 0,0,\phi_2\rangle,...,\langle 0,0,\phi_{n}\rangle \}.
 \end{eqnarray*}
 
-For this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
+For this three-dimensional model, piecewise Hermite tri-cubic basis functions are used. Although this is more complex than using piecwise tri-linear basis functions, as mentioned in Section \ref{2d_FEM_G}, the tri-cubic basis functions ensure faster convergence and also the derivatives of the solutions.
 
 Recall that the admissible basis functions, are all the basis functions that satisfies all the conditions of the test function space $T(\Omega)$. Denote the admissible basis functions by $\delta_j$, with each $\delta_j$ a unique element of $B$. The set of admissible basis functions can then be expressed as $A = \left\{\delta_1, \delta_2,... , \delta_k\right\}$ with $k \leq 3n$.
 
@@ -312,7 +312,7 @@ Find a function $\bar{u} \in S^h$ such that
 \end{eqnarray} With $\bar{u}$ in the form $\bar{u} = \langle \partial^i_1u, \ \partial^j_2u, \ \partial^k_3u \rangle$ for $i,j,k = 0,1,2,3$.
 
 \subsection{Eigenvalue problem}
-The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in section \ref{2dFEM_EP}.
+The derivation and form of the eigenvalue problem for the three-dimensional elastic body is similar to the two-dimensional model given in Section \ref{2dFEM_EP}.
 
 \subsubsection{Problem 3D-1E}\label{3dFEM_EP}
 Find a real number $\lambda$ and a function $\bar{u} \in S^h$ such that
