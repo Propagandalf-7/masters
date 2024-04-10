@@ -1,7 +1,7 @@
 \documentclass[8pt]{beamer}
 \usetheme{metropolis} % Use the Metropolis theme
 \usepackage{pgfplots}
-
+\usepackage{caption,subcaption}
 \usepackage[style=authoryear,backend=biber]{biblatex}
 \addbibresource{../references.bib}
 
@@ -57,15 +57,55 @@
 \section{Theory}
     \subsection{General vibration problem}
         \begin{frame}{General vibration problem}
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
         \end{frame}
 
     \subsection{Existence and uniqueness of solutions}
         \begin{frame}{Existence and uniqueness of solutions}
+            Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
+            \begin{itemize}
+                \item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
+                \item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
+                \item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
+            \end{itemize}
         \end{frame}
+
+        \begin{frame}{Existence and uniqueness of solutions}
+            The following assumptions are made in \cite{VV02} for the existence results.
+            \begin{itemize}
+                \item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
+
+                \item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
+
+                \item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+
+                \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
+            \end{itemize}
+        \end{frame}
+
+        \begin{frame}{Existence and uniqueness of solutions}
+            \newtheorem{Thmx}{Theorem}
+            \begin{Thmx}
+                Suppose assumptions \textbf{A1}-\textbf{A4} hold. If, for $u_0 \in V$ and $u_1 \in V$, there exists some $y \in W$ such that
+                \begin{eqnarray}
+                    b(u_0,v) + a(u_1,v) = c(y,v) \ \ \ \ \textrm{ for all } \ v \in V, \label{bilinear_equation}
+                \end{eqnarray}
+                then for each $f \in C^1(J,X)$, there exists a unique solution $u \in C^1(J,V)\cap C^2(J,W)$ for Problem GVar.
+            \end{Thmx}
+
+            This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.
+        \end{frame}
+
 
     \subsection{Modal Analysis}
         \begin{frame}{Modal Analysis}
-            General vibration problem:
+            \textbf{General vibration problem:}
         
             Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
             \begin{eqnarray}
@@ -128,19 +168,10 @@
                 b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
             \end{eqnarray*}}
         
-            *******************CHECK THIS*******************
             Existence of a solution is presented in the article [\cite{CVV18}]\footfullcite{CVV18}
         
         \end{frame}
         
-        \begin{frame}{Modal Analysis}
-            Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
-            \begin{itemize}
-                \item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
-                \item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
-                \item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
-            \end{itemize}
-        \end{frame}
         
         \begin{frame}{Modal Analysis}
             \begin{itemize}
@@ -495,9 +526,20 @@
 
 \section{Numerical Results}
     \subsection{Finite Element Analysis}
-        \begin{frame}{FEM}
+        \begin{frame}{Eigenvalue problem - Two and Three-dimensional models}
+            General eigenvalue problem for the two- and three-dimensional models:
+            
+                For the eigenvalue problem, assume that $M_{f}Q^I = 0$ so that 
+            \begin{eqnarray}
+                    M\ddot{\bar{u}} & = & K\bar{u}.\label{eq:2DFEM:M2}
+            \end{eqnarray}
+            
+            Not so simple to compute the eigenvalues and eigenfunctions.
+            
+            Need to use a numerical method like FEM to approximate the eigenvalues and eigenvectors.
+        
         \end{frame}
-
+        
         \begin{frame}{Eigenvalue problem - Timoshenko model}
             General eigenvalue problem for the Timoshenko beam model:
         
@@ -516,35 +558,83 @@
             \end{itemize}
         
         \end{frame}
-        
-        
-        \begin{frame}{Eigenvalue problem - Two and Three-dimensional models}
-            General eigenvalue problem for the two- and three-dimensional models:
-            
-                For the eigenvalue problem, assume that $M_{f}Q^I = 0$ so that 
-            \begin{eqnarray}
-                    M\ddot{\bar{u}} & = & K\bar{u}.\label{eq:2DFEM:M2}
-            \end{eqnarray}
-            
-            Not so simple to compute the eigenvalues and eigenfunctions.
-            
-            Need to use a numerical method like FEM to approximate the eigenvalues and eigenvectors.
-        
+
+        \begin{frame}{FEM}
+        \end{frame}
+
+        \begin{frame}{Accuracy of the Eigenvalues}
+            \centering
+            \includegraphics[scale=0.3]{Convergence.png} \\ % Adjust scale as needed
+            \footnotesize Rate of convergence of the first 20 eigenvalues.
+
+            \centering
+            \includegraphics[scale=0.3]{convergence3d.png} \\ % Adjust scale as needed
+            \footnotesize Rate of convergence of the first 20 eigenvalues.
         \end{frame}
 
     \subsection{Validity of the Timoshenko beam model}
         \begin{frame}{Validity of the Timoshenko beam model}
-        \end{frame}
-
-    \subsection{Validity of the two-dimensional beam model}
-        \begin{frame}{Validity of the two-dimensional beam model}
-        \end{frame}
-
-        \begin{frame}{Eigenvalue problem - FEM}
-            \centering
-            \includegraphics[scale=0.45]{Convergence.png} \\ % Adjust scale as needed
-            \footnotesize Rate of convergence of the first 20 eigenvalues.
-            \label{fig:conv}
+            \begin{center}
+                \begin{minipage}[b]{0.45\linewidth}
+                    \centering
+                    \begin{tikzpicture}[scale=0.7]
+                        \draw[line width = 0.4mm] (0,0.2) -- (6,0.2);
+                                    \draw[line width = 0.4mm] (0,-0.2) -- (6,-0.2);
+                                    \draw[line width = 0.4mm] (6,-0.2) -- (6,0.2);
+                                    
+                                    \node at (6.2,0) {$h$};
+                                    \node at (2.7,-0.45) {$\ell = 1$};
+                                    
+                                    \draw[line width = 0.1mm] (0,-1.5) -- (0,1.5);
+                                    \draw[line width = 0.1mm] (0,1.5) -- (-0.2,1.4);
+                                    \draw[line width = 0.1mm] (0,1.3) -- (-0.2,1.2);
+                                    \draw[line width = 0.1mm] (0,1.1) -- (-0.2,1);
+                                    \draw[line width = 0.1mm] (0,0.9) -- (-0.2,0.8);
+                                    \draw[line width = 0.1mm] (0,0.7) -- (-0.2,0.6);
+                                    \draw[line width = 0.1mm] (0,0.5) -- (-0.2,0.4);
+                                    \draw[line width = 0.1mm] (0,0.3) -- (-0.2,0.2);
+                                    \draw[line width = 0.1mm] (0,0.1) -- (-0.2,0);
+                                    
+                                    \draw[line width = 0.1mm] (0,-0.1) -- (-0.2,-0.2);
+                                    \draw[line width = 0.1mm] (0,-0.3) -- (-0.2,-0.4);
+                                    \draw[line width = 0.1mm] (0,-0.5) -- (-0.2,-0.6);
+                                    \draw[line width = 0.1mm] (0,-0.7) -- (-0.2,-0.8);
+                                    \draw[line width = 0.1mm] (0,-0.9) -- (-0.2,-1);
+                                    \draw[line width = 0.1mm] (0,-1.1) -- (-0.2,-1.2);
+                                    \draw[line width = 0.1mm] (0,-1.3) -- (-0.2,-1.4);
+                                    \draw[line width = 0.1mm] (0,-1.5) -- (-0.2,-1.6);
+                    \end{tikzpicture}
+                    \captionof{figure}{Two-Dimensional Beam}
+                \end{minipage}
+                \hfill
+                \begin{minipage}[b]{0.45\linewidth}
+                    \centering
+                    \begin{tikzpicture}[scale=0.7]
+                        \draw[line width = 0.4mm] (0,0) -- (6,0);
+                                \node at (2.7,-0.25) {$\ell = 1$};
+                                
+                                \draw[line width = 0.1mm] (0,-1.5) -- (0,1.5);
+                                \draw[line width = 0.1mm] (0,1.5) -- (-0.2,1.4);
+                                \draw[line width = 0.1mm] (0,1.3) -- (-0.2,1.2);
+                                \draw[line width = 0.1mm] (0,1.1) -- (-0.2,1);
+                                \draw[line width = 0.1mm] (0,0.9) -- (-0.2,0.8);
+                                \draw[line width = 0.1mm] (0,0.7) -- (-0.2,0.6);
+                                \draw[line width = 0.1mm] (0,0.5) -- (-0.2,0.4);
+                                \draw[line width = 0.1mm] (0,0.3) -- (-0.2,0.2);
+                                \draw[line width = 0.1mm] (0,0.1) -- (-0.2,0);
+                                
+                                \draw[line width = 0.1mm] (0,-0.1) -- (-0.2,-0.2);
+                                \draw[line width = 0.1mm] (0,-0.3) -- (-0.2,-0.4);
+                                \draw[line width = 0.1mm] (0,-0.5) -- (-0.2,-0.6);
+                                \draw[line width = 0.1mm] (0,-0.7) -- (-0.2,-0.8);
+                                \draw[line width = 0.1mm] (0,-0.9) -- (-0.2,-1);
+                                \draw[line width = 0.1mm] (0,-1.1) -- (-0.2,-1.2);
+                                \draw[line width = 0.1mm] (0,-1.3) -- (-0.2,-1.4);
+                                \draw[line width = 0.1mm] (0,-1.5) -- (-0.2,-1.6);
+                    \end{tikzpicture}
+                    \captionof{figure}{Timoshenko Beam}
+                \end{minipage}
+            \end{center}
         \end{frame}
         
         \begin{frame}{Comparison of two and three-dimensional models}
@@ -596,7 +686,7 @@
         \begin{frame}{Comparison of two and three-dimensional models}
             \centering
             \footnotesize
-            \renewcommand{\arraystretch}{0.8}
+            \renewcommand{\arraystretch}{0.9}
             Results from [LVV09] and results obtained. $0^a$ indicates a 0 due to rounding. $\alpha = 1200$
         
             \begin{tabular}{cccc|cccc}
@@ -669,6 +759,100 @@
         \end{frame}
         
         
+        
+    
+    \subsection{Validity of the Two-dimensional beam model}
+        \begin{frame}{Validity of the Two-dimensional beam model}
+            \begin{center}
+                \begin{minipage}[b]{0.45\linewidth}
+                    \centering
+                    \begin{tikzpicture}[scale=0.6]
+                        \draw[line width = 0.3mm] (-0.1,1) -- (6.9,1);
+                        \draw[line width = 0.3mm] (-0.1,-1) -- (6.9,-1);
+                        \draw[line width = 0.3mm] (6.9,-1) -- (6.9,1);
+                        \draw[line width = 0.3mm] (-0.1,-1) -- (-0.1,1);
+                        
+                        \draw[line width = 0.3mm] (0.1,1.1) -- (7.1,1.1);
+                        \draw[line width = 0.3mm] (7.1,-0.9) -- (7.1,1.1);
+                        
+                        \draw[line width = 0.3mm] (-0.1,1) -- (0.1,1.1);
+                        \draw[line width = 0.3mm] (6.9,1) -- (7.1,1.1);
+                        \draw[line width = 0.3mm] (6.9,-1) -- (7.1,-0.9);
+                        
+                        
+                        
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+4});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3.5});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2.5});
+                        
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1.5});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1});
+                        
+                        \draw[scale=0.5, domain=0.5:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2});
+                        \draw[scale=0.5, domain=1.5:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1.5});
+                        \draw[scale=0.5, domain=2.5:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1});
+                        
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+0.5});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-0.5});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-1});
+                        \draw[scale=0.5, domain=-3:-0.1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-1.5});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-2});
+                        \draw[scale=0.5, domain=-3:1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-2.5});
+                        \draw[scale=0.5, domain=-3:2, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3.5});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-4});
+                        
+                        \node at (6.95,1.25) {$b$};
+                        \node at (6.78,0) {$h$};
+                        \node at (3.2,-1.2) {$\ell = 1$};
+                    \end{tikzpicture}
+                    \captionof{figure}{Three-Dimensional Beam}
+                \end{minipage}
+                \hfill
+                \begin{minipage}[b]{0.45\linewidth}
+                    \centering
+                    \begin{tikzpicture}[scale=0.6]
+                        \draw[line width = 0.3mm] (0,1) -- (7,1);
+                        \draw[line width = 0.3mm] (0,-1) -- (7,-1);
+                        \draw[line width = 0.3mm] (7,-1) -- (7,1);
+                        \draw[line width = 0.3mm] (0,-1) -- (0,1);
+                        
+                        
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+4});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3.5});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+3});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2.5});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+2});
+                        
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1.5});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1});
+                        
+                        
+                        \draw[scale=0.5, domain=1:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1.5});
+                        \draw[scale=0.5, domain=2:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+1});
+                        
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x+0.5});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-0.5});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-1});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-1.5});
+                        \draw[scale=0.5, domain=-3:0, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-2});
+                        \draw[scale=0.5, domain=-3:1, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-2.5});
+                        \draw[scale=0.5, domain=-3:2, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-3.5});
+                        \draw[scale=0.5, domain=-3:3, smooth, variable=\x,densely dotted] plot ({\x}, {0.5*\x-4});
+                        
+                        \node at (7.2,0) {$h$};
+                        \node at (3.2,-1.2) {$\ell = 1$};
+                    \end{tikzpicture}
+                    \captionof{figure}{Two-dimensional Beam}
+                \end{minipage}
+            \end{center}
+        \end{frame}
+
         \begin{frame}{Three-Dimensional model vs Two-Dimensional model}
             \centering
             \begin{minipage}[b]{0.45\textwidth}
