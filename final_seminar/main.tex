@@ -5,10 +5,14 @@
 \usepackage[style=authoryear,backend=biber]{biblatex}
 \addbibresource{../references.bib}
 
-\title{Finite element analysis of multi-dimensional and simplified models for beams and plates}
+\title{Finite element analysis of multi-dimensional and simplified models for beams}
 \author{Rudi du Toit}
 \date{\today}
 \institute{University of Pretoria}
+
+\newcommand{\footfullcitenonumber}[1]{
+  \footnotetext{\fullcite{#1}}
+}
 
 \begin{document}
 
@@ -35,6 +39,8 @@
     \end{center}
 }
 
+
+
 \begin{frame}[plain]
 \titlepage
 \end{frame}
@@ -57,24 +63,40 @@
 \section{Theory}
     \subsection{General vibration problem}
         \begin{frame}{General vibration problem}
-            \textbf{General vibration problem:}
-        
-            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-            \begin{eqnarray}
-                c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-            \end{eqnarray}
-            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
-        \end{frame}
-
-    \subsection{Existence and uniqueness of solutions}
-        \begin{frame}{Existence and uniqueness of solutions}
             Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
             \begin{itemize}
                 \item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
                 \item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
                 \item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
             \end{itemize}
+            \only<2->{
+            The bilinear forms $a$, $b$ and $c$ are defined as $a = (\cdot,\cdot)_X$,$b = (\cdot,\cdot)_V$ and $c = (\cdot,\cdot)_W$.
+            }
+
+            \only<3>{
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
+
+            \only<4->{
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
+
+            \footfullcitenonumber{VV02}
         \end{frame}
+
+    \subsection{Existence and uniqueness of solutions}
+
+        In [\cite{VV02}] the authors present results for the existence and uniqueness of solutions to the general vibration problem. The following assumptions are made for the existence results.
 
         \begin{frame}{Existence and uniqueness of solutions}
             The following assumptions are made in \cite{VV02} for the existence results.
@@ -87,6 +109,7 @@
 
                 \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
             \end{itemize}
+            \footfullcitenonumber{VV02}
         \end{frame}
 
         \begin{frame}{Existence and uniqueness of solutions}
@@ -100,6 +123,8 @@
             \end{Thmx}
 
             This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.
+
+            \footfullcitenonumber{VV02}
         \end{frame}
 
 
@@ -815,7 +840,7 @@
                 \begin{minipage}[b]{0.45\linewidth}
                     \centering
                     \begin{tikzpicture}[scale=0.6]
-                        \draw[line width = 0.3mm] (0,1) -- (7,1);
+                        \draw[line width = 0.3mm] (0,1) -- (7,1);~
                         \draw[line width = 0.3mm] (0,-1) -- (7,-1);
                         \draw[line width = 0.3mm] (7,-1) -- (7,1);
                         \draw[line width = 0.3mm] (0,-1) -- (0,1);
