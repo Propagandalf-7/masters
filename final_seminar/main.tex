@@ -3,6 +3,7 @@
 \usepackage{pgfplots}
 \usepackage{caption,subcaption}
 \usepackage[style=authoryear,backend=biber]{biblatex}
+\usepackage[table]{xcolor}
 \addbibresource{../references.bib}
 
 \title{Finite element analysis of multi-dimensional and simplified models for beams}
@@ -60,168 +61,106 @@
         \tableofcontents
     \end{frame}
 
-\section{Theory}
-    \subsection{General vibration problem}
-        \begin{frame}{General vibration problem}
-            Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
+\section{Literature study}
+    \subsection{Comparison of linear beam theories}
+        \begin{frame}{Literature study - Comparison of linear beam theories}
+            Consider the article \textit{Comparison of linear beam theories} [\cite{LVV09}]
+
+            \footfullcite{LVV09}
+        \end{frame}
+
+        \begin{frame}{Detailed Comparison: Timoshenko Beam Model vs. Two-Dimensional Model}
+
+            \textbf{Objective of Comparison:}
             \begin{itemize}
-                \item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
-                \item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
-                \item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
+              \item To validate the efficacy of the Timoshenko beam theory against a more comprehensive two-dimensional model, which accounts for plane stress conditions and detailed stress distribution across the beam's cross-section.
             \end{itemize}
-            \only<2->{
-            The bilinear forms $a$, $b$ and $c$ are defined as $a = (\cdot,\cdot)_X$,$b = (\cdot,\cdot)_V$ and $c = (\cdot,\cdot)_W$.
-            }
-
-            \only<3>{
-            \textbf{General vibration problem:}
-        
-            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-            \begin{eqnarray}
-                c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-            \end{eqnarray}
-            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
-
-            \only<4->{
-            \textbf{General vibration problem:}
-        
-            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-            \begin{eqnarray}
-                c(u''(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-            \end{eqnarray}
-            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
-
-            \footfullcitenonumber{VV02}
-        \end{frame}
-
-    \subsection{Existence and uniqueness of solutions}
-
-        In [\cite{VV02}] the authors present results for the existence and uniqueness of solutions to the general vibration problem. The following assumptions are made for the existence results.
-
-        \begin{frame}{Existence and uniqueness of solutions}
-            The following assumptions are made in \cite{VV02} for the existence results.
+            
+            \textbf{Methodology:}
             \begin{itemize}
-                \item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
-
-                \item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
-
-                \item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
-
-                \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
+              \item Utilized finite element methods to calculate natural frequencies and modes, providing a direct comparison of results from both models.
+              \item Both models analyzed under the same boundary conditions and loading scenarios to ensure consistency in comparison.
             \end{itemize}
-            \footfullcitenonumber{VV02}
-        \end{frame}
-
-        \begin{frame}{Existence and uniqueness of solutions}
-            \newtheorem{Thmx}{Theorem}
-            \begin{Thmx}
-                Suppose assumptions \textbf{A1}-\textbf{A4} hold. If, for $u_0 \in V$ and $u_1 \in V$, there exists some $y \in W$ such that
-                \begin{eqnarray}
-                    b(u_0,v) + a(u_1,v) = c(y,v) \ \ \ \ \textrm{ for all } \ v \in V, \label{bilinear_equation}
-                \end{eqnarray}
-                then for each $f \in C^1(J,X)$, there exists a unique solution $u \in C^1(J,V)\cap C^2(J,W)$ for Problem GVar.
-            \end{Thmx}
-
-            This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.
-
-            \footfullcitenonumber{VV02}
-        \end{frame}
-
-
-    \subsection{Modal Analysis}
-        \begin{frame}{Modal Analysis}
-            \textbf{General vibration problem:}
-        
-            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-            \begin{eqnarray}
-                c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-            \end{eqnarray}
-            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
-        
-            \only<2->{
-            Trial solution:
-        
-            $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$}
-        \end{frame}
-        
-        \begin{frame}{Modal Analysis}
-           Substituting trial solution into \eqref{eq:existence:ProblemGVarHom}:
-           \begin{eqnarray*}
-                b(T(t)x,v) = - c(T''(t)x,v).  \label{eq:existence:ProblemGVarHom:Substitution}
-            \end{eqnarray*}
-        
-            Due to the linearity of the bilinear form, this equation can be rewritten as
-            \begin{eqnarray*}
-                T(t)b(x,v) = - T''(t)c(x,v).
-            \end{eqnarray*}
-        
-            \only<1>{
-            Dividing both sides by $T(t)$ gives
-            \begin{eqnarray*}
-                b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
-            \end{eqnarray*}}
-        
-            \only<2>{
-            Dividing both sides by $T(t)$ gives
-            \begin{eqnarray*}
-                b(x,v) = - \frac{T''(t)}{T(t)}c(x,v) \implies  \frac{T''(t)}{T(t)} \ \ \ \textrm{must be constant.}
-            \end{eqnarray*}}
-        \end{frame}
-        
-        \begin{frame}{Modal Analysis}
-            Set $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$.
-        
-            At this point we do not yet know if such a $\lambda$ exists.
-        
-            \only<2->{
-            Eigenvalue Problem:
-        
-            Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
-            \begin{eqnarray*}
-                b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-            \end{eqnarray*}}
-        
-         \end{frame}
-        
-        
-         \begin{frame}{Modal Analysis}
-            \only<1->{
-            Eigenvalue Problem:
-        
-            Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
-            \begin{eqnarray*}
-                b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-            \end{eqnarray*}}
-        
-            Existence of a solution is presented in the article [\cite{CVV18}]\footfullcite{CVV18}
-        
-        \end{frame}
-        
-        
-        \begin{frame}{Modal Analysis}
+            
+            \textbf{Key Findings:}
             \begin{itemize}
-                \item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
-            
-                \item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
-            
-                \item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
-            
-                \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
-        
-                \item[] \textbf{A5} - The embedding of $V$ into $W$ is compact.
+              \item \textbf{Close Agreement}: Timoshenko model results closely match those from the two-dimensional model, with most eigenvalues showing less than 3\% deviation.
+              \item \textbf{Model Reliability}: Demonstrates high reliability of the Timoshenko model for predicting beam behavior under various loading conditions, particularly for lower vibration modes.
             \end{itemize}
-         \end{frame}
+            
+        \end{frame}
+            
+        \begin{frame}
+            \textbf{Model Advantages:}
+            \begin{itemize}
+              \item \textbf{Timoshenko Model}: Offers significant improvements in accuracy over simpler models like Euler-Bernoulli, especially in scenarios where beam lengths are relatively short and shear deformations cannot be ignored.
+              \item \textbf{Two-Dimensional Model}: Provides a more rigorous analysis by accounting for two-dimensional stress effects, which are important for comprehensive structural analyses.
+            \end{itemize}
+            
+            \textbf{Practical Implications:}
+            \begin{itemize}
+              \item \textbf{Engineering Applications}: Timoshenko model is particularly advantageous for practical engineering applications, providing a good balance between computational efficiency and accuracy.
+              \item \textbf{Advanced Analyses}: For critical engineering tasks where detailed stress distribution is crucial, the two-dimensional model serves as a more suitable analytical tool.
+            \end{itemize}
+            
+            \textbf{Conclusions and Recommendations:}
+            \begin{itemize}
+              \item \textbf{Preferred Use of Timoshenko Model}: Recommended for most practical engineering applications involving beams, where it strikes an optimal balance between accuracy and simplicity.
+              \item \textbf{When to Use Two-Dimensional Model}: Advisable for in-depth structural analyses where precise stress distribution is required, such as in complex assemblies or where materials with varying properties are involved.
+              \item This comparison serves as an intermediate step towards the more comprehensive analysis involving the comparison of two-dimensional and three-dimensional models.
+            \end{itemize}
+            
+            \end{frame}
+
+
+    \subsection{Empirical comparison of beams}
+        \begin{frame}{Literature study - Empirical comparison of beams}
+            Consider the article \textit{On the valid frequency range of Timoshenko beam theory} [\cite{SP06}]\footfullcite{SP06}
+        \end{frame}
+
+        \begin{frame}{Setup and Testing Method}
+            \textbf{Objective:}
+            \begin{itemize}
+                \item To validate the frequency predictions of Timoshenko beam theory (TBT) for different end conditions and frequencies.
+            \end{itemize}
         
-         \begin{frame}{Modal Analysis}
-            Formal series solution for the general vibration problem:
-            \begin{eqnarray}
-                u(t) = \sum_{n=1}^{\infty} T_n(t)x_n. \label{eq:1D_Model:ModalAnalysisSeriesSolution}
-            \end{eqnarray}
-            with 
-            \begin{flalign}
-                T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}
-            \end{flalign}
-         \end{frame}
+            \textbf{Methodology:}
+            \begin{itemize}
+                \item Experimental setup involved a short free-free beam of near-square cross-section.
+                \item Beam dimensions: Length = 40.047 mm, Breadth = 10.097 mm, Depth = 10.047 mm.
+                \item Beam material: Aluminum alloy, with properties determined via resonant ultrasound spectroscopy (RUS).
+                \item Comparisons made with experimental observations, commercial finite element (ANSYS) predictions, and RUS technique predictions.
+                \item Finite element analysis used 20-node brick elements, and TBT predictions were calculated using specific frequency equations.
+            \end{itemize}
+        
+            \textbf{Key Setup Features:}
+            \begin{itemize}
+                \item The experimental beam was suspended and excited by two carbon-fibre loops attached to piezoelectric transducers.
+                \item Resonant frequencies detected by sweeping the frequency range with a network analyzer.
+            \end{itemize}
+        \end{frame}
+        
+        \begin{frame}{Numerical Results and Discussion}
+            \textbf{Results Summary:}
+            \begin{itemize}
+                \item Excellent agreement between measured, ANSYS, and RUS frequencies below the cut-off frequency.
+                \item Above the cut-off frequency, TBT predictions deviate increasingly from measured and simulated frequencies.
+            \end{itemize}
+        
+            \textbf{Discussion:}
+            \begin{itemize}
+                \item For free-free end conditions, discrepancies arise above the cut-off frequency, suggesting limitations in the TBT's applicability.
+                \item TBT predictions were increasingly inaccurate for higher modes (n >= 8), exceeding the typical engineering tolerance.
+            \end{itemize}
+        
+            \textbf{Conclusion:}
+            \begin{itemize}
+                \item The study suggests a cut-off frequency as a reasonable upper bound for TBT predictions.
+                \item This research serves as an intermediate step, setting the stage for further comparison between two-dimensional and three-dimensional models.
+            \end{itemize}
+        \end{frame}
+        
+
 
 \section{Models}
     \subsection{Timoshenko cantilever beam}
@@ -538,15 +477,167 @@
             \end{eqnarray*} With $n$ the outward normal vector to $\Omega$.
         \end{frame}
 
-\section{Literature study}
-    \subsection{Comparison of linear beam theories}
-        \begin{frame}{Literature study - Comparison of linear beam theories}
-            Consider the article [\cite{LVV09}]\footfullcite{LVV09}
+\section{Theory}
+    \subsection{General vibration problem}
+        \begin{frame}{General vibration problem}
+            Let $V$, $W$ and $X$ be real Hilbert spaces such that $W$ is a linear subspace of $X$, and $V$ is a linear subspace of $W$, i.e. $V \subset W \subset X$.
+            \begin{itemize}
+                \item[] X is the global space with inner product $(\cdot,\cdot)_X$ and the induced norm $||\cdot||_X$.
+                \item[] W is the inertia space with inner product $(\cdot,\cdot)_W$ and the induced norm $||\cdot||_W$.
+                \item[] V is the energy space with inner product $(\cdot,\cdot)_V$ and the induced norm $||\cdot||_V$.
+            \end{itemize}
+            \only<2->{
+            The bilinear forms $a$, $b$ and $c$ are defined as $a = (\cdot,\cdot)_X$,$b = (\cdot,\cdot)_V$ and $c = (\cdot,\cdot)_W$.
+            }
+
+            \only<3>{
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
+
+            \only<4->{
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
+
+            \footfullcitenonumber{VV02}
         \end{frame}
 
-    \subsection{Empirical comparison of beams}
-        \begin{frame}{Literature study - Empirical comparison of beams}
-            Consider the article [\cite{SP06}]\footfullcite{SP06}
+    \subsection{Existence and uniqueness of solutions}
+        \begin{frame}{Existence and uniqueness of solutions}
+            In [\cite{VV02}] the authors present results for the existence and uniqueness of solutions to the general vibration problem. The following assumptions are made for the existence results.
+
+            \begin{itemize}
+                \item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
+
+                \item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
+
+                \item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+
+                \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
+            \end{itemize}
+            \footfullcitenonumber{VV02}
+        \end{frame}
+
+        \begin{frame}{Existence and uniqueness of solutions}
+            \newtheorem{Thmx}{Theorem}
+            \begin{Thmx}
+                Suppose assumptions \textbf{A1}-\textbf{A4} hold. If, for $u_0 \in V$ and $u_1 \in V$, there exists some $y \in W$ such that
+                \begin{eqnarray}
+                    b(u_0,v) + a(u_1,v) = c(y,v) \ \ \ \ \textrm{ for all } \ v \in V, \label{bilinear_equation}
+                \end{eqnarray}
+                then for each $f \in C^1(J,X)$, there exists a unique solution $u \in C^1(J,V)\cap C^2(J,W)$ for Problem GVar.
+            \end{Thmx}
+
+            This theorem allows for a solution of the abstract variational problem Problem GVar, if the assumptions \textbf{A1}-\textbf{A4} is satisfied and the initial values $u_0$ and $u_1$ are admissible. It is not always easy to verify that \eqref{bilinear_equation} is satisfied.
+
+            \footfullcitenonumber{VV02}
+        \end{frame}
+
+
+    \subsection{Modal Analysis}
+        \begin{frame}{Modal Analysis}
+            \textbf{General vibration problem:}
+        
+            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
+            \begin{eqnarray}
+                c(u''(t),v)+b(u(t),v) = 0 \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
+            \end{eqnarray}
+            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.
+        
+            \only<2->{
+            Trial solution:
+        
+            $u(t) = T(t)x$ with $x \in V$ and $x \neq 0$}
+        \end{frame}
+        
+        \begin{frame}{Modal Analysis}
+           Substituting trial solution into \eqref{eq:existence:ProblemGVarHom}:
+           \begin{eqnarray*}
+                b(T(t)x,v) = - c(T''(t)x,v).  \label{eq:existence:ProblemGVarHom:Substitution}
+            \end{eqnarray*}
+        
+            Due to the linearity of the bilinear form, this equation can be rewritten as
+            \begin{eqnarray*}
+                T(t)b(x,v) = - T''(t)c(x,v).
+            \end{eqnarray*}
+        
+            \only<1>{
+            Dividing both sides by $T(t)$ gives
+            \begin{eqnarray*}
+                b(x,v) = - \frac{T''(t)}{T(t)}c(x,v).
+            \end{eqnarray*}}
+        
+            \only<2>{
+            Dividing both sides by $T(t)$ gives
+            \begin{eqnarray*}
+                b(x,v) = - \frac{T''(t)}{T(t)}c(x,v) \implies  \frac{T''(t)}{T(t)} \ \ \ \textrm{must be constant.}
+            \end{eqnarray*}}
+
+            \only<3->{
+                Set $\displaystyle \frac{T''(t)}{T(t)} = -\lambda$.
+        
+            At this point we do not yet know if such a $\lambda$ exists.
+            }
+        \end{frame}
+        
+        \begin{frame}{Modal Analysis}
+            Eigenvalue Problem:
+        
+            Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
+            \begin{eqnarray*}
+                b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
+            \end{eqnarray*}
+
+            Ordinary differential equation for $T(t)$:
+            \begin{eqnarray}
+                T''(t)  + \lambda T(t) = 0. \label{eq:1D_Model:ModalAnalysisODE}
+            \end{eqnarray}
+         \end{frame}
+        
+        \begin{frame}{Modal Analysis}
+            Assumptions:
+            \begin{itemize}
+                \item[] \textbf{A1} - $V$ is dense in $W$ and $W$ is dense in $X$.
+            
+                \item[] \textbf{A2} - There exists a positive constant $C_{W}$ such that $\Vert w\Vert_{X} \leq C_{W}\Vert w\Vert_{W}$ for each $ w\in W$.
+            
+                \item[] \textbf{A3} - There exists a positive constant $C_{V}$ such that $\Vert v\Vert_{W} \leq C_{V}\Vert v\Vert_{V}$ for each $v \in V$.
+            
+                \item[] \textbf{A4} - The bilinear form $a$ is non-negative, symmetric and bounded on $V$, i.e. there exists a positive constant $K_a$ such that for $\displaystyle u,v \in V$, \[|a(u,v)| \leq K_a\Vert u \Vert_V \Vert v \Vert_V.\]
+            
+                \item[] \alert{\textbf{A5} - The embedding of $V$ into $W$ is compact.} [\cite{CVV18}]
+            \end{itemize}
+            \footfullcite{CVV18}
+        \end{frame}
+
+        \begin{frame}{Modal Analysis}
+            
+            ***************Verduideliking********************
+
+
+            Solutions for the Eigenvalue Problem:
+            \begin{eqnarray*}
+                u = \sum_{i=1}^{\infty} a_i x_i = \sum_{i=1}^{\infty} c(u, x_i)x_i.
+            \end{eqnarray*}
+
+            Solutions for the Ordinary Differential Equation:
+            \begin{flalign}
+                T_n(t) &=  A_n \cos(\sqrt{\lambda_n} t) + B_n \sin(\sqrt{\lambda_n} t) \quad \textrm{ if } \lambda_n > 0, \label{lambda_1}
+            \end{flalign}
+
+            Formal series solution for the general vibration problem:
+            \begin{eqnarray}
+                u(t) = \sum_{n=1}^{\infty} T_n(t)x_n.
+            \end{eqnarray}
         \end{frame}
 
 \section{Numerical Results}
@@ -939,6 +1030,173 @@
             \end{minipage}
         
             Mode shapes of the displacement \( w \) with \( \alpha = 4800 \).
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[htbp]
+                \scalebox{.8}{
+                \makebox[\textwidth]{
+                    \begin{tabular}{|cc|cc|cc|cc||cc|}
+                        \hline
+                        \multicolumn{10}{|c|}{Eigenvalues for $b \leq h$} \\
+                        \hline
+                        \hline
+                        i     & {b = h} & i     & {b = 1/2 h} & i     & {b = 1/4 h} & i     & {b = 1/8 h} & j     & 2D \\
+                        \hline
+                        {2} & 0.12307 & {2} & 0.12234 & {2} & 0.12198 & {3} & 0.12178 & 1     & 0.12151 \\
+                        {3} & 3.5773 & {5} & 3.5630 & {6} & 3.5558 & {8} & 3.5519 & 2     & 3.5460 \\
+                        \rowcolor{lightgray}{5} & 7.7799 & {6} & 7.7596 & {8} & 7.7471 & {11} & 7.7401 & 3     & 7.7311 \\
+                        {8} & 20.334 & {9} & 20.283 & {11} & 20.26 & {14} & 20.247 & 4     & 20.225 \\
+                        {10} & 56.247 & {12} & 56.173 & {15} & 56.156 & {22} & 56.142 & 5     & 56.109 \\
+                        \rowcolor{lightgray}{11} & 69.197 & {14} & 69.319 & {17} & 69.281 & {24} & 69.238 & 6     & 69.164 \\
+                        {14} & 114.03 & {16} & 114.01 & {20} & 114.05 & {29} & 114.06 & 7     & 114.03 \\
+                        \rowcolor{lightgray}{17} & 187.01 & {19} & 189.14 & {25} & 189.37 & {36} & 189.34 & 8     & 189.17 \\
+                        {18} & 192.21 & {20} & 192.41 & {26} & 192.58 & {37} & 192.63 & 9     & 192.61 \\
+                        {21} & 284.76 & {23} & 285.43 & {31} & 285.74 & {42} & 285.84 & 10    & 285.85 \\
+                        {23} & 327.57 & {26} & 328.24 & {35} & 328.37 & {46} & 328.40 & 11    & 328.40 \\
+                        \rowcolor{lightgray}{25} & 347.77 & {28} & 356.44 & {36} & 357.30 & {50} & 357.33 & 12    & 357.08 \\
+                        {27} & 393.69 & {30} & 396.84 & {38} & 397.28 & {53} & 397.37 & 13    & 397.33 \\
+                        {30} & 434.46 & {34} & 441.05 & {41} & 441.81 & {57} & 441.99 & 14    & 442.00 \\
+                        \rowcolor{lightgray}{31} & 523.65 & {36} & 534.04 & {43} & 534.17 & {63} & 534.03 & 15    & 533.71 \\
+                        {34} & 550.51 & {37} & 537.82 & {44} & 538.86 & {64} & 539.06 & 16    & 538.97 \\
+                        \rowcolor{lightgray}{37} & 590.86 & {41} & 587.43 & {48} & 594.17 & {65} & 595.58 & 17    & 596.06 \\
+                        {39} & 590.86 & {42} & 600.52 & {49} & 602.25 & {67} & 602.69 & 18    & 602.77 \\
+                        \rowcolor{lightgray}{42} & 646.21 & {44} & 657.22 & {50} & 658.04 & {71} & 658.06 & 19    & 657.87 \\
+                        {44} & 711.07 & {46} & 714.62 & {53} & 717.10 & {73} & 717.51 & 20    & 717.37 \\
+                        \hline
+                        \hline
+                        \multicolumn{2}{|c|}{Max RE: \  2.6069\%} &\multicolumn{2}{c|}{Max RE: \ 1.4469\%}  & \multicolumn{2}{c|}{Max RE: \  0.38192\%}  & \multicolumn{2}{c||}{Max RE: \ 0.22301\%}& \multicolumn{2}{c|}{-} \\
+                        \hline
+                    \end{tabular}%
+                    \label{tab:2v3_1}%
+                }}
+            \end{table}%
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[htbp]
+                \centering
+                \begin{tabular}{|c|cccc|}
+                    \hline
+                    \multicolumn{5}{|c|}{Maximum relative error for beam type and non-beam type eigenvalues for $h = 1/5$.} \\
+                    \hline
+                    \hline
+                    & {b = h} & {b = 1/2h} & {b = 1/4h} & {b = 1/8h} \\
+                    \hline
+                    Beam Type & 2.1420 \% & 0.6804 \% & 0.38192 \% & 0.22301 \% \\
+                    Non-Beam Type & 2.6069 \% & 1.4469 \% & 0.31546 \% & 0.11680 \% \\
+                    \hline
+                \end{tabular}%
+                \label{tab:2Dv3D_1_breakup}%
+            \end{table}%
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[ht]
+                \scalebox{.8}{
+                \makebox[\textwidth]{
+                \begin{tabular}{|cc|cc|cc|cc||cc|}
+                    \hline
+                    \multicolumn{10}{|c|}{Comparsion of Eigenvalues with $h = 1/20$, with decreasing $b$ and $b < h$.} \\
+                    \hline
+                    \hline
+                    i     & {b = h} & i     & {b = 1/2 h} & i     & {b = 1/4 h} & i     & {b = 1/8 h} & j     & 2D \\
+                    \hline
+                    {2} & 0.008043 & {2} & 0.008029 & {2} & 0.008023 & {3} & 0.00802 & {1} & {0.008013} \\
+                    {3} & 0.3087 & {4} & 0.30816 & {5} & 0.30794 & {7} & 0.30785 & {2} & {0.30757} \\
+                    {5} & 2.3357 & {8} & 2.3316 & {9} & 2.3300  & {12} & 2.3293 & {3} & {2.3273} \\
+                    \rowcolor{lightgray}{8} & 7.7217 & {10} & 7.7156 & {13} & 7.7124 & {16} & 7.7111 & {4} & {7.7077} \\
+                    {10} & 8.5387 & {11} & 8.5238 & {14} & 8.5182 & {18} & 8.516 & {5} & {8.5086} \\
+                    {11} & 21.986 & {14} & 21.948 & {18} & 21.934 & {24} & 21.929 & {6} & {21.911} \\
+                    {14} & 45.863 & {18} & 45.781 & {21} & 45.756 & {30} & 45.746 & {7} & {45.712} \\
+                    \rowcolor{lightgray}{17} & 69.444 & {19} & 69.408 & {25} & 69.385 & {33} & 69.374 & {8} & {69.344} \\
+                    {18} & 83.149 & {22} & 82.999 & {27} & 82.960 & {36} & 82.944 & {9} & {82.887} \\
+                    {21} & 136.44 & {25} & 136.19 & {31} & 136.14 & {42} & 136.12 & {10} & {136.03} \\
+                    \rowcolor{lightgray}{23} & 192.62 & {27} & 192.62 & {35} & 192.58 & {47} & 192.56 & {11} & {192.48} \\
+                    {25} & 207.87 & {29} & 207.5 & {36} & 207.43 & {48} & 207.41 & {12} & {207.29} \\
+                    {27} & 299.14 & {33} & 298.63 & {41} & 298.56 & {55} & 298.53 & {13} & {298.38} \\
+                    \rowcolor{lightgray}{30} & 376.68 & {35} & 377.01 & {44} & 377.01 & {58} & 376.98 & {14} & {376.83} \\
+                    {31} & 411.58 & {37} & 410.89 & {46} & 410.83 & {61} & 410.81 & {15} & {410.63} \\
+                    {34} & 546.15 & {40} & 545.27 & {50} & 545.24 & {66} & 545.23 & {16} & {545.03} \\
+                    \rowcolor{lightgray}{37} & 620.77 & {42} & 622.02 & {53} & 622.19 & {69} & 622.18 & {17} & {621.95} \\
+                    {39} & 703.55 & {44} & 702.49 & {54} & 702.29 & {71} & 702.53 & {18} & {702.31} \\
+                    {42} & 884.27 & {47} & 883.02 & {59} & 883.14 & {82} & 883.19 & {19} & {882.96} \\
+                    \rowcolor{lightgray}{44} & 923.68 & {49} & 926.88 & {60} & 927.43 & {86} & 927.50 & {20} & {927.18} \\
+                    \hline
+                    \hline
+                    \multicolumn{2}{|c|}{Max RE: \  0.37701\%} &\multicolumn{2}{c|}{Max RE: \ 0.19893\%}  & \multicolumn{2}{c|}{Max RE: \  0.12393\%}  & \multicolumn{2}{c||}{Max RE: \ 0.092843\%}& \multicolumn{2}{c|}{-} \\
+                    \hline
+                \end{tabular}%
+                \label{tab:2v3_2}%
+            }}
+            \end{table}%
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[htbp]
+                \centering
+                \begin{tabular}{|c|cccc|}
+                    \hline
+                    \multicolumn{5}{|c|}{Maximum relative error for beam type and non-beam type eigenvalues for $h = 1/20$} \\
+                    \hline
+                    \hline
+                    & {b = h} & {b = 1/2h} & {b = 1/4h} & {b = 1/8h} \\
+                    \hline
+                    Beam Type & 0.37701 \% & 0.19893 \% & 0.12393 \% & 0.092843 \% \\
+                    Non-Beam Type & 0.37682 \% & 0.10218 \% & 0.061213 \% & 0.043601 \% \\
+                    \hline
+                \end{tabular}%
+                \label{tab:2v3_2_split}%
+            \end{table}%
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[htbp]
+                \scalebox{.8}{
+                \makebox[\textwidth]{
+                    \begin{tabular}{|cc|cc|cc||cc|}
+                        \hline
+                        \multicolumn{8}{|c|}{Comparsion of Eigenvalues with $h = 1/20$, with increasing $b$ and $b > h$} \\
+                        \hline
+                        \hline
+                        i     & {b = 2h} & i     & {b = 4h} & i     & {b = 8h} & j     & 2D \\
+                        \hline
+                        {2} & 0.008076 & {1} & 0.008162 & {1} & 0.008324 & 1     & 0.008013 \\
+                        {3} & 0.30995 & {3} & 0.31298 & {3} & 0.31738 & 2     & 0.30757 \\
+                        {5} & 2.3462 & {5} & 2.3737 & {6} & 2.4116 & 3     & 2.3273 \\
+                        \rowcolor{lightgray}{8} & 7.7312 & {8} & 7.7471 & {9} & 7.7711 & 4     & 7.7077 \\
+                        {10} & 8.5841 & {9} & 8.7082 & {10} & 8.7929 & 5     & 8.5086 \\
+                        {11} & 22.124 & {12} & 22.491 & {14} & 23.222 & 6     & 21.911 \\
+                        {14} & 46.195 & {14} & 47.003 & {18} & 47.921 & 7     & 45.712 \\
+                        \rowcolor{lightgray}{17} & 69.454 & {17} & 69.281 & {22} & 72.307 & 8     & 69.344 \\
+                        {18} & 83.822 & {18} & 85.218 & {24} & 80.607 & 9     & 82.887 \\
+                        {21} & 137.43 & {21} & 138.58 & {32} & 140.97 & 10    & 136.03 \\
+                        \hline
+                        \hline
+                        \multicolumn{2}{|c|}{Max RE: \  1.1289\%} &\multicolumn{2}{c|}{Max RE: \ 2.8261\%}  & \multicolumn{2}{c|}{Max RE: \  5.9821\%} & \multicolumn{2}{c|}{-} \\
+                        \hline
+                    \end{tabular}%
+                    \label{tab:b>h_20}%
+                }}
+            \end{table}
+        \end{frame}
+
+        \begin{frame}
+            \begin{table}[htbp]
+                \centering
+                \begin{tabular}{|c|ccc|}
+                    \hline
+                    \multicolumn{4}{|c|}{Maximum relative error for beam type and non-beam type eigenvalues for $h = 1/20$} \\
+                    \hline
+                    \hline
+                    & {b = 2h} & {b = 4h} & {b = 8h} \\
+                    \hline
+                    Beam Type & 1.1289 \% & 2.8261 \% & 5.9821 \% \\
+                    Non-Beam Type & 0.30521 \% & 0.51096 \% & 4.2734 \% \\
+                    \hline
+                \end{tabular}%
+                \label{tab:b>h-split_20}%
+            \end{table}%
         \end{frame}
 
 \section{Conclusion}
