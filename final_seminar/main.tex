@@ -49,10 +49,8 @@
 \section{Introduction}
     \begin{frame}{Introduction}
         Beams are fundamental structural elements in engineering. They are used in a wide range of applications, from bridges to buildings.
-        \pause
 
         Simplified models are often used in vibration problems due to their reduced complexity and computational demand. However, the accuracy of these models in practical applications is not always certain.
-        \pause
 
         In this presentation, we look at the validity of the Timoshenko beam model as well as the validity of the two-dimensional model. We use modal analysis and the Finite Element Method (FEM) to compare the models' natural frequencies and mode shapes to those of a more realistic three-dimensional model.
     \end{frame}
@@ -78,7 +76,7 @@
             
             \textbf{Key Findings:}
             \begin{itemize}
-              \item Timoshenko model results closely match those from the two-dimensional model, with most eigenvalues showing less than 3\% deviation, depending on the shape of the beam.
+              \item Timoshenko model results closely match those from the two-dimensional model, especially for the first ten eigenvalues.
               \item The shape of the beams significantly influences the accuracy of the Timoshenko model.
             \end{itemize}
 
@@ -424,6 +422,18 @@
         \end{frame}
 
         \begin{frame}{Models - Three-dimensional cantilever beam}
+            Assume that $\sigma_{3i} = 0$ for $i = 1, 2, 3$; $\partial_3 u_1 = 0$, $\partial_3 u_2 = 0$ ($u_1$ and $u_2$ are functions of $x_1$ and $x_2$), and the strain component $\varepsilon_{33} = 0$. Then using the definition of strain 
+            \begin{eqnarray}
+                \partial_i u_3 = 0 \quad \textrm{ for } i = 1,2,3 \textrm{ on } \Omega.
+            \end{eqnarray}
+
+            It follows that $u_3$ is a constant on $\Omega$ and $u$ is a vector valued function in $R^2$ with two-dimensional stress and strain. The out of plane conditions for strain \eqref{plane_stress_neseccary_condition} falls away and Hooke’s law can be written in a two-dimensional form using the stress components (1.2.16) as $\displaystyle T = \frac{1}{\gamma(1+\nu)}\mathcal{E} + \frac{\nu}{\gamma(1-\nu^2)}\textrm{tr}(\mathcal{E})I.$\\
+
+
+            
+        \end{frame}
+
+        \begin{frame}{Models - Three-dimensional cantilever beam}
             \begin{figure}[h!]
                 \centering
                 \begin{tikzpicture}[scale=0.58]
@@ -634,9 +644,9 @@
             Eigenvalue Problem:
         
             Find a real number $\lambda$ and a $x \in V$ with $x \neq 0$ such that
-            \begin{eqnarray*}
+            \begin{eqnarray}
                 b(x,y) = \lambda c(x,y) \ \ \ \ \textrm{ for each } \ y \in V.
-            \end{eqnarray*}
+            \end{eqnarray}
 
             Ordinary differential equation for $T(t)$:
             \begin{eqnarray}
