@@ -1,0 +1,248 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{CVV18}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=146a2b0edef81770d56a3eebc4f8b808}{%
+           family={Civin},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=4114d37924da8cf83b67532a1bc557d3}{%
+           family={Van\bibnamedelima Rensburg},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={N.F.J.},
+           giveni={N\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=5c71a0332f55d54a27173559139e850b}{%
+           family={Van\bibnamedelimb Der\bibnamedelima Merwe},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={A.J.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \strng{fullhash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \strng{bibnamehash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \strng{authorbibnamehash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \strng{authornamehash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \strng{authorfullhash}{b3e4876fc1f5851a763fa0c6cff5ef7f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Mathematics and Computation}
+      \field{month}{03}
+      \field{title}{Using energy methods to compare linear vibration models}
+      \field{urlday}{9}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{321}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{602\bibrangedash 613}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.amc.2017.11.008
+      \endverb
+    \endentry
+    \entry{LVV09}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e67ead19a80dd984be75e6ced6ee3c7f}{%
+           family={Labuschagne},
+           familyi={L\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=4114d37924da8cf83b67532a1bc557d3}{%
+           family={Van\bibnamedelima Rensburg},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={N.F.J.},
+           giveni={N\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=5c71a0332f55d54a27173559139e850b}{%
+           family={Van\bibnamedelimb Der\bibnamedelima Merwe},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={A.J.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \strng{fullhash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \strng{bibnamehash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \strng{authorbibnamehash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \strng{authornamehash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \strng{authorfullhash}{b95afb7b759d528ca3ba1939c4c466bc}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical and Computer Modelling}
+      \field{month}{01}
+      \field{title}{Comparison of linear beam theories}
+      \field{volume}{49}
+      \field{year}{2009}
+      \field{pages}{20\bibrangedash 30}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.mcm.2008.06.006
+      \endverb
+    \endentry
+    \entry{SP06}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e791de6af4b212ae137d9fbb9d7bc1d3}{%
+           family={Stephen},
+           familyi={S\bibinitperiod},
+           given={N.G},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=638cbbffb3a79a9a4f99df1f5588ee89}{%
+           family={Puchegger},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \strng{fullhash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \strng{bibnamehash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \strng{authorbibnamehash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \strng{authornamehash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \strng{authorfullhash}{7f4e8931cf25a05b9d66ed1689f1ee56}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Sound and Vibration}
+      \field{month}{11}
+      \field{title}{On the valid frequency range of Timoshenko beam theory}
+      \field{urlday}{28}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{volume}{297}
+      \field{year}{2006}
+      \field{urldateera}{ce}
+      \field{pages}{1082\bibrangedash 1087}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.jsv.2006.04.020
+      \endverb
+    \endentry
+    \entry{VV02}{article}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=4114d37924da8cf83b67532a1bc557d3}{%
+           family={Van\bibnamedelima Rensburg},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={N.F.J},
+           giveni={N\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=5c71a0332f55d54a27173559139e850b}{%
+           family={Van\bibnamedelimb Der\bibnamedelima Merwe},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={A.J.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{fullhash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{bibnamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authorbibnamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authornamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authorfullhash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \field{extraname}{1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applicable Analysis}
+      \field{month}{01}
+      \field{title}{Analysis of the Solvability of Linear Vibration Models}
+      \field{urlday}{25}
+      \field{urlmonth}{11}
+      \field{urlyear}{2022}
+      \field{volume}{81}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{1143\bibrangedash 1159}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1080/0003681021000029837
+      \endverb
+    \endentry
+    \entry{VV06}{article}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=4114d37924da8cf83b67532a1bc557d3}{%
+           family={Van\bibnamedelima Rensburg},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={N.F.J.},
+           giveni={N\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=5c71a0332f55d54a27173559139e850b}{%
+           family={Van\bibnamedelimb Der\bibnamedelima Merwe},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={A.J.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{fullhash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{bibnamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authorbibnamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authornamehash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \strng{authorfullhash}{3ca8ec2b02c06458a90a165034d16b5f}
+      \field{extraname}{2}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Wave Motion}
+      \field{month}{11}
+      \field{title}{Natural frequencies and modes of a Timoshenko beam}
+      \field{urlday}{3}
+      \field{urlmonth}{8}
+      \field{urlyear}{2019}
+      \field{volume}{44}
+      \field{year}{2006}
+      \field{urldateera}{ce}
+      \field{pages}{58\bibrangedash 69}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.wavemoti.2006.06.008
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

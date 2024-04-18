@@ -249,31 +249,216 @@ and eigenvectors of the models.
 
 #########################################################################################################
 
+Now we can start to look at the numerical results. Following what we now know about modal analysis, we 
+need to solve the eigenvalue problems for our models. First we look at the eigenvalue problem for the 
+Timoshenko cantilever beam.
+
+Here we have a general eigenvalue problem for the Timoshenko beam model. Find eigenfunctions u and phi
+and a real numbda lambda, the eigenvalue, satisfying equations 9 and 10. This general problem as well 
+as a method to obtain a solution is presented in the article 
+`Natural frequencies and modes of a Timoshenko beam` by Van Rensburg and Van Der Merwe.
+
+In this article, the authors provide a method that allows us to calcualte the exact eigenvalues and 
+eigenfunctions for the Timoshenko eigenvalue value problem. The authors also use a cantilever beam as an
+example to explain the method. And then we can estimate the eigenvalues and eigenfunctions numerically
+to any desired degree of accuracy.
+
+We will not be going through the method in the presentation, and skip towards the results.
+
+
 #########################################################################################################
+
+Solving the eigenvalue problems for the two-dimensional and three-dimensional cantilever beams require a
+different approach. This is were the Finite Element Method is useful.
+
+It is not trivial to solve the eigenvalue problem for the cantilever two- and three-dimensional beams. 
+The Finite Element Method (FEM) can be used to approximate the eigenvalues and eigenvectors.
+
+We descrise our beams into a finite number of elements and nodes. For the two-dimensional beam, we can 
+use a grid of rectangular shaped elements. For the three-dimensional beam, we can use a grid of cuboid 
+or brick shaped elements.
+
+We can also choose our basis functions. In this presentation, bi-cubic and tri-cubic basis function 
+are used. These have the advantage over bi-linear and tri-linear basis function in that they provide
+faster convergence of the eigenvalues, although they are more complex to program.
+
+
+#########################################################################################################
+
+Here we have a general form of the eigenvalue problem that is applicable to both the two and 
+three-dimensional beam models. The matrices M and K are the mass and stiffness matrices and are derived
+from the standard finite element matrices. 
+
+In this form, the eigenvalue problem is essentially a large system of ordinary differential equations 
+that can be solved using standard numerical methods.
+
+In this presentation, we will not go through the derivation of this eigenvalue problem or the application
+of the Finite Element Method, and skip towards the results.
+
+#########################################################################################################
+
+Since we are using a numerical method, we first look at the rate of convergence of the methods.
+
+Here we have two figures that shows the rate of convergence of the first 20 eigenvalues of the 
+two-dimensional beam on top and the three-dimensional beam at the bottom. On the ys axis is show the 
+absolute differences between the eigenvalues, and on the x axis we have the number of elements needed.
+Also the colors are chosen so that each color represents the same eigenvalue.
+
+Here we see that the two-dimensional model starts to level off. For the two-dimensional model, we can get
+the accuracy of the first 10 eigenvalues down to at least 5 significant digits.
+
+The three-dimensional model actually have more room, but as you can see from the number of elements, we
+started to reach a limit on what a home computer will be able to do. For the three-dimensional model we 
+can get the first 10 eigenvalues accurate to at least 4 significant digits.
+
+Although not shown in the graph, the shape of the beam does affect the rate of convergence.
+
+
+#########################################################################################################
+
+Now stepping back to what we want to show in this presentation. First we want to look at the validity 
+of the Timoshenko beam model. Is this the work that is done in the article Comparison of linear beam 
+theories. 
+
+Here is a representation of the two beams that we are going to compare.
+
+
+#########################################################################################################
+
+To start, lets look at the mode shapes of the beam models. Here we have two examples of the mode shapes.
+The two-dimensional cantilever beam is on the left and the Timoshenko cantilever beam is on the right.
+
+In this example, both beams have a lenght the width ratio of 1 to 20. And we can see that the mode shapes
+are similar in shape. I also included the eigenvalues, that we can also see are also quite close.
+
+But the numbering of the eigenvalues are not the same.
+
+#########################################################################################################
+
+Now if we actually look at the all of the mode shapes of the two-dimensional cantilever beam and the 
+Timoshenko cantilever beam, we'll see that there are some mode shapes that are present in the 
+two-dimensional model that are absent in the Timoshenko beam model. 
+
+This is due to the complexity of the model, that also introduces unqiue behaviour not found in the 
+Timoshenko beam models. Now since we are interested mainly in the beam type problems, we can call the 
+eigenvalies relating to the mode shapes that are shared between the models, beam-type eigenvalues and the rest non-beam type eigenvalues.
+
+And we will use the mode shapes to match up our eigenvalues to be able to make our comparison.
+
+
+#########################################################################################################
+
+Now lets look at some results from the article Comparison of linear beam models.
+
+On the left of the table, we have the results from the article and on the right we have the same results,
+replicated in my master dissertation.
+
+These results show that the eigenvalues match quite good, with a maximum relative error less than 3%. 
+These results are for a beam with height to lenght ratio of 1 to 10. 
+
+#########################################################################################################
+
+Lets look at similar results for different shapes of beams. 
+
+In this table, we have the first 20 eigenvalues of the two-dimensional beam model matched to the eiegnvalues
+of the Timoshenko beam model for different beam shapes. 
+
+From left to right the height to length ratio decreases as the beam goes from shot and thick to long 
+and slender. And in these results, we see that the maximum relative error is decreasing as the beam 
+gets more slender. This result is also show in the article by hands of an illustration.
+
+Interestingly we also see that the number of non-beam type eigenvalues decrease as the beam gets more 
+slender as we could match 13 of the eigenvalues for the a height to length ratio of 1 to 5, and 15 eigenvalues
+for the a height to length ratio of 1 to 30.
+
+#########################################################################################################
+
+Next we look at the comparison of the two-dimensional cantilever beam and a three-dimensional catilever 
+beam. This is an extention of the article.
+
+Again we start be looking at the mode shapes. Here we have two examples of mode shapes relating to beam
+type problems. Again the shapes are very similar as are the eigenvalues. We also again see a difference 
+between the numbering of the eigenvalues, again indicating a difference in the complexity of the models.
+
+And it is exactly due to this complexity that the authors suggest using the two-dimensional model as 
+an intermeidate step and not directly comparing the one-dimensional Timoshenko model to the
+three-dimensional model.
+
+#########################################################################################################
+
+Here we have some of the non-beam type mode shapes. The first row shows a mode shape that is shared between
+the two models. In fact all of the mode shapes of the two-dimensional model are present in the 
+three-dimensional model, but this is expected.
+
+The second row shows examples of mode shapes that are unique to the three-dimensional model. These mode
+shapes represent interesting behaviour that the three-dimensional model can extert. 
+
+In fact there are quite a lot of extras, so in the results that follow, we will only include the 
+eigenvalues that are shared between the models, with the non-beam type eigenvalues grayed out.
+
+#########################################################################################################
+
+We also have an extra parameter for the depth of the beam, so we will start by looking at a short and 
+thick beam with a lenght to width ration of 1 to 5, and then vary the depth of the beam, first looking
+at a depth that is smaller than the hieight of the beam.
+
+In this table we have the results of the two-dimensional beam on the far right hand side. and then from 
+left to right, the depth of the beam is decreased. Remeber that the non-beam type eigenvalues are 
+grayed out.
+
+Here we can see that as the depth of the beam decreases, our maximum relative error also decreases. 
+Although overall our comparison is very good, with all results less that a 2.7% difference. These 
+maximum relative errors do include the non-beam type results, but if we split them,
+
+
+#########################################################################################################
+
+We get the following table. Here we just show the maximum relative errors distinctly for the beam type 
+and non beam type eigenvalues of the previous table. For beam type problems, the two-dimensional model is
+doing very well.
+
+#########################################################################################################
+
+In this table, we have similar results as the previous one, but now for a long and slender beam. Recall 
+that the long and slender beam was the best case in the comparison of the Timoshenko cantilever beam and 
+the two-dimensional cantilever beam.
+
+Here again we see that the long and slender beam compares better than the shorter and thick beam. And
+as we decrease the depth of the beam, we get exceptional results.
+
+Something to note that I did not mention when we looked at the previous table, is that as the depth of 
+the beam decreases, the number of non-beam type eigenvalues increases. This is different to what we see
+when we decrease the height to lenght ratio.
+
+This also shows how computationally expensive the three-dimensional model is and why a simpler model
+is often used, especially for beam type problems.
+
+#########################################################################################################
+
+Here again we split the beam type and non beam types results.  
+
+#########################################################################################################
+
+Next we look at what happens if we increase the depth of the beam. Here we have a table showing a beam 
+of length to width ratio of 1 to 20 (which was the best case in all of our results), and we increase the 
+depth of the beam.
+
+We do not need a lot of results to see that as the depth increases, our maximum relative error increases.
+We also again see an increase of non-beam type eigenvalues, suggesting any variation from a square beam 
+will be a little bit more complex.
+
+#########################################################################################################
+
+Again we split the results up into beam type and non-beam type and we wee that as we increase the 
+depth, our beam type comparison get worse.
+
+Now this is not necessarily a fault with the two-dimensional beam model. It suggests that for 
+this shapes, a beam model is not appriopriate. A model like a plate model might be better suited. In my 
+masters dissertation, I did expand the investigation to plate models and it shows that a plate model
+is well suited if the depth is larger than the height of the body.
 
 #########################################################################################################
 
 #########################################################################################################
 
 #########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
-#########################################################################################################
-
