@@ -5,13 +5,13 @@
 Thank you everyone for joining my master's seminar today. This presentation is titled 
 `Finite Element Analysis of multi-dimensional and simplified models for beams`. My thesis also covers 
 plate models; however, today's presentation will focus solely on beams, despite the mention of plates 
-in the seminar invitation, which was an error.
+in the seminar invitation, which was an error on my part.
 
-Beams are fundamental structural elements in engineering. They are in a vast array of applications 
+Beams are fundamental structural elements in engineering. They are used in a vast array of applications 
 including bridges, buildings, and even the International Space Station.
 
 Simplified models are often used over more realistic models for vibration problems due to their 
-reduced complexity and lower computational demands compared. More realistic models are also often 
+reduced complexity and lower computational demand. More realistic models are also often 
 higher dimensional models. However, the accuracy of these simplified models in practical applications
 is not always certain. Today, we will examine some of the key factors that affect how well these models 
 perform.
@@ -27,7 +27,8 @@ The structure of this presentation is as follows:
     1. We will begin with a discussion on two literature studies. The first article, titled 
     `Comparison of Linear Beam Theories`, compares a cantilever Timoshenko beam with a two-dimensional beam.
     We will review the theory used by the authors and some of their results, and we will extend their work
-    to a comparison of a two and three-dimensional model..
+    to a comparison of a two and three-dimensional model. This is the main article that this presentation is \
+    based on.
 
     2. Next, we will look at a study where researchers vibrated an actual beam and measured its natural 
     frequencies, comparing these to results to the Timoshenko beam theory and a three-dimensional beam 
@@ -66,6 +67,8 @@ The authors show that the Timoshenko beam compares very well to the two-dimensio
 the first ten eigenvalues. The authors also show that the shape of the models significantly influences 
 the comparison. We'll also see this when we get to the numerical results.
 
+#########################################################################################################
+
 The authors do not include damping in their investigation, but show that for practical applications, the
 Timshenko beam model compares well to a two-dimensional model. Practical applications do refer to common
 beam shapes. 
@@ -74,9 +77,9 @@ Although a direct comparison to a three-dimensional model is preferred, the auth
 two-dimensional model be used as an intermediate step, as this should mitigate some complexities that we'll
 discuss in the numerical results.
 
-In this article we will dicuss and replicate the results of the article, up to 5 significant digits. We
-also extend the results to a comparison of a two-dimensional cantilever beam to a three-dimensional
-cantilever beam.
+For this literature study of the article we will dicuss and replicate the results of the article, up to 
+5 significant digits. We also extend the results to a comparison of a two-dimensional cantilever beam to 
+a three-dimensional cantilever beam.
 
 #########################################################################################################
 
@@ -89,6 +92,8 @@ The beam is vibrated and a free-free beam is simulated. They then sweep through 
 measured the natural frequencies of the beam.
 
 The results obtained is then compared to some theoretical results. 
+
+#########################################################################################################
 
 Here is just a representation of the suspended beam.
 
@@ -104,7 +109,7 @@ does compare better, but the Timoshenko beam is also respectable.
 
 Now we can look at the models that we'll be using in this presentation. Note that we do not consider any
 damping in the models, and also the models are all in a dimensionless form. We also will only look at 
-a cantilever configuration with a sqaure cross-secion of the models, following the first article 
+a cantilever configuration with a retangular cross-secion of the models, following the first article 
 we discussed.
 
 #########################################################################################################
@@ -140,7 +145,7 @@ similar to the two-dimensional model, so I will not go over them again, but I'll
 screen quickly. 
 
 The two-dimensional model is actually a special case of plane stress of the three-dimensional model. 
-For this special case, we assume that all the stress tensor components in the 3rd axis is 0, the derivatives
+For this special case, we assume that all the stress tensor components in the x3 direction is 0, the derivatives
 in the direction of x3 is zero, as well as the strain component epsilon 33 is 0.
 
 Is this is assumed, the two-dimensional model is obtained. This is not a general case of plane stress, as the
@@ -269,7 +274,7 @@ We will not be going through the method in the presentation, and skip towards th
 #########################################################################################################
 
 Solving the eigenvalue problems for the two-dimensional and three-dimensional cantilever beams require a
-different approach. This is were the Finite Element Method is useful.
+different approach. This is where the Finite Element Method is useful.
 
 It is not trivial to solve the eigenvalue problem for the cantilever two- and three-dimensional beams. 
 The Finite Element Method (FEM) can be used to approximate the eigenvalues and eigenvectors.
@@ -286,8 +291,8 @@ faster convergence of the eigenvalues, although they are more complex to program
 #########################################################################################################
 
 Here we have a general form of the eigenvalue problem that is applicable to both the two and 
-three-dimensional beam models. The matrices M and K are the mass and stiffness matrices and are derived
-from the standard finite element matrices. 
+three-dimensional beam models that can be obtained when applying the FEM. The matrices M and K are the 
+mass and stiffness matrices and are derived from the standard finite element matrices. 
 
 In this form, the eigenvalue problem is essentially a large system of ordinary differential equations 
 that can be solved using standard numerical methods.
@@ -308,11 +313,10 @@ Here we see that the two-dimensional model starts to level off. For the two-dime
 the accuracy of the first 10 eigenvalues down to at least 5 significant digits.
 
 The three-dimensional model actually have more room, but as you can see from the number of elements, we
-started to reach a limit on what a home computer will be able to do. For the three-dimensional model we 
-can get the first 10 eigenvalues accurate to at least 4 significant digits.
+started to reach a limit on what a home computer with a realistic amount of ram will be able to do. For 
+the three-dimensional model we can get the first 10 eigenvalues accurate to at least 4 significant digits.
 
 Although not shown in the graph, the shape of the beam does affect the rate of convergence.
-
 
 #########################################################################################################
 
@@ -322,6 +326,15 @@ theories.
 
 Here is a representation of the two beams that we are going to compare.
 
+For the Timoshenko beam model, we do not have a paramter h representing the height of the beam. But 
+something that was not shown previously in the derivation of the models, was derivation of the 
+dimensionless parameter alpha. Alpha is equal to A ell squared over I where A is the area 
+of the cross section, ell is the lenght of the beam and I is the area momement of inertia. And since we
+have a beam with a rectangular cross-section, we can easily calculate the area and area moment of inertia.
+We then obtain the following relationship between alpha and h. So for any value of h, we can use a 
+corresponding value of alpha so that the beams have the same shape.
+
+So simplicity, I will only refer to h, and the height to length ratio.
 
 #########################################################################################################
 
@@ -341,9 +354,22 @@ two-dimensional model that are absent in the Timoshenko beam model.
 
 This is due to the complexity of the model, that also introduces unqiue behaviour not found in the 
 Timoshenko beam models. Now since we are interested mainly in the beam type problems, we can call the 
-eigenvalies relating to the mode shapes that are shared between the models, beam-type eigenvalues and the rest non-beam type eigenvalues.
+eigenvalies relating to the mode shapes that are shared between the models, beam-type eigenvalues and the 
+rest non-beam type eigenvalues.
 
 And we will use the mode shapes to match up our eigenvalues to be able to make our comparison.
+
+#########################################################################################################
+
+We can also look at the mode shapes by overlaying the two shapes. Here we have a figure that shows a mode
+shapes of both the models. These shapes where only scaled to rougthly match. The scaling is not important
+as any multiple of a eigenfunction is still an eigenfunction, but we are interested mainly in the overall
+shape.
+
+We can do a similar figure for the mode shape of the rotation phi. The two dimensional model does not have
+mode shapes representing the angle of the cross-sections. But be can estimate the rotation by calculating
+the average rotation of the cross-sections at intervals. This is demonstrated in Figure 6 by the red line.
+And we actually get quite a good approximation.
 
 
 #########################################################################################################
@@ -371,13 +397,21 @@ Interestingly we also see that the number of non-beam type eigenvalues decrease 
 slender as we could match 13 of the eigenvalues for the a height to length ratio of 1 to 5, and 15 eigenvalues
 for the a height to length ratio of 1 to 30.
 
+
+Overall we see that the Timoshenko beam model compares very well to the Two dimensional beam model. The 
+shape of the beam influences how well the model compares. We were also able to confirm the results of 
+the article.
+
+Next we extend this to investigate the validity of the two-dimensional model.
+
+
 #########################################################################################################
 
 Next we look at the comparison of the two-dimensional cantilever beam and a three-dimensional catilever 
 beam. This is an extention of the article.
 
 Again we start be looking at the mode shapes. Here we have two examples of mode shapes relating to beam
-type problems. Again the shapes are very similar as are the eigenvalues. We also again see a difference 
+type eigenvalues. Again the shapes are very similar as are the eigenvalues. We also again see a difference 
 between the numbering of the eigenvalues, again indicating a difference in the complexity of the models.
 
 And it is exactly due to this complexity that the authors suggest using the two-dimensional model as 

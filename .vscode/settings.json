@@ -19,7 +19,6 @@
         "**/*.fdb_latexmk": true,
         "**/*.fls": true,
         "**/*.gz": true,
-        "**/*.log": true,
         "**/*.nav": true,
         "**/*.out": true,
         "**/*.snm": true,
