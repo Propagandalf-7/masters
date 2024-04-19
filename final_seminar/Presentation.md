@@ -53,7 +53,7 @@ Finally we will conclude our findings, and discuss future work.
 
 #########################################################################################################
 
-Conside the article `Comparison of linear beam theories` by Labuschagne, Van Rensburg and Van Der Merwe.
+Consider the article `Comparison of linear beam theories` by Labuschagne, Van Rensburg and Van Der Merwe.
 
 In this article, the authors investigate the efficacy of the Timoshenko beam theory against a more
 realistic two-dimensional model. Specifically, the authors compare a cantilever Timoshenko beam to 
