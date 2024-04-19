@@ -2,7 +2,7 @@
 
 #########################################################################################################
 
-Thank you everyone for joining my master's seminar today. This presentation is titled 
+Thank you everyone for joining this final post grad seminar today. This presentation is titled 
 `Finite Element Analysis of multi-dimensional and simplified models for beams`. My thesis also covers 
 plate models; however, today's presentation will focus solely on beams, despite the mention of plates 
 in the seminar invitation, which was an error on my part.
@@ -13,8 +13,8 @@ including bridges, buildings, and even the International Space Station.
 Simplified models are often used over more realistic models for vibration problems due to their 
 reduced complexity and lower computational demand. More realistic models are also often 
 higher dimensional models. However, the accuracy of these simplified models in practical applications
-is not always certain. Today, we will examine some of the key factors that affect how well these models 
-perform.
+is not always certain. Today, we will examine some of the key factors that affect how well these simplified 
+models perform.
 
 In this presentation, we will assess the validity of a Timoshenko cantilever beam model and a 
 two-dimensional cantilever beam model. Here, 'validity' refers to how well the solution from the simplified 
@@ -189,7 +189,7 @@ The following assumptions are made in the article:
     A1 - V is dense in W and W is dense in X
     A2 - The norm of X is bounded above by the norm of W
     A3 - The norm of W is bounded above by the norm of V
-    A4 - The bilinear form is non-negative, symmetric and bounded on V
+    A4 - The bilinear form a is non-negative, symmetric and bounded on V
 
 Now since we have no damping and the bilinear form a is always 0, the forth assumption is automatically 
 satisfied by our models.
@@ -214,7 +214,8 @@ right hand side.
 
 Dividing both sides by T(t) gives the following equation.
 
-Form this it follows that this relation T''(t) over T(t) must be a constant.
+Form this it follows that this relation T''(t) over T(t) must be a constant, since the bilinear form b is 
+not time dependent.
 
 Set this value equal to some number, let call it lambda. And at this point, the existence of such a value
 lambda is not known. 
