@@ -33,7 +33,7 @@
         \vskip1em\par
         \usebeamerfont{institute}\insertinstitute\par
         \vskip1em%
-        \includegraphics[width=0.2\linewidth]{logo-up.jpg}\par % Include the logo here
+        \includegraphics[width=0.4\linewidth]{logo-up.jpg}\par % Include the logo here
         \vskip1em\par
         \usebeamerfont{date}\insertdate\par
         \vfill
@@ -539,21 +539,12 @@
             The bilinear forms $a$, $b$ and $c$ are defined as $a = (\cdot,\cdot)_X$,$b = (\cdot,\cdot)_V$ and $c = (\cdot,\cdot)_W$.
             }
 
-            \only<3>{
+            \only<3->{
             \textbf{General vibration problem:}
         
             Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
             \begin{eqnarray}
                 c(u''(t),v)+a(u'(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
-            \end{eqnarray}
-            with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
-
-            \only<4->{
-            \textbf{General vibration problem:}
-        
-            Find a function $u \in C(J,\ X)$ such that $u'$ is continuous at $0$ with respect to $\Vert \cdot \Vert_{W}$, and for each $t \in J$, $u(t) \in V$, $u'(t) \in V$, $u''(t) \in W$, satisfying
-            \begin{eqnarray}
-                c(u''(t),v)+b(u(t),v) = (f(t),v) \ \ \ \ \textrm{for each} \ v \in V, \label{eq:existence:ProblemGVarHom}
             \end{eqnarray}
             with initial conditions $u(0) = u_0$ and $u'(0) = u_1$.}
 
@@ -990,18 +981,17 @@
             \only<2->{
                 \textbf{Conclusion for the Timoshenko beam model:}
                 \begin{itemize}
-                    \item The Timoshenko beam model compares well with the two-dimensional beam model.
+                    \item The Timoshenko beam model compares well with the two-dimensional beam model. It is a suitable model to use instead of the two-dimensional beam model.
                     \item The shape of the beam influences how well the Timoshenko beam model compares to the two-dimensional beam model.
                     \item The results of the article are confirmed.
-                    \item The case of a height to length ration of 1 to 20 is the best case we have tested.
                 \end{itemize}
             }
             
 
         \end{frame}
         
-    \subsection{Validity of the Two-dimensional beam model}
-        \begin{frame}{Validity of the Two-dimensional beam model}
+    \subsection{Validity of the Two-dimensional beam}
+        \begin{frame}{Validity of the Two-dimensional beam - Visual representation}
             \begin{center}
                 \begin{minipage}[b]{0.45\linewidth}
                     \centering
@@ -1095,7 +1085,7 @@
 
 
 
-        \begin{frame}{Three-Dimensional model vs Two-Dimensional model}
+        \begin{frame}{Validity of the Two-dimensional beam- Beam type mode shapes}
             \centering
             \begin{minipage}[b]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{3D12.png}
@@ -1127,7 +1117,7 @@
         
         \end{frame}
         
-        \begin{frame}{Three-Dimensional model}
+        \begin{frame}{Validity of the Two-dimensional beam - Non-beam type mode shapes}
             \centering
             \begin{minipage}[b]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{3D33.png}
@@ -1158,11 +1148,7 @@
             Mode shapes of the displacement \( w \) with \( \alpha = 4800 \).
         \end{frame}
 
-        \begin{frame}{}
-            
-        \end{frame}
-
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - Comparison short thick beam}
             \begin{table}[htbp]
                 \scalebox{.8}{
                 \makebox[\textwidth]{
@@ -1203,7 +1189,7 @@
             \end{table}%
         \end{frame}
 
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - Comparison short thick beam}
             \begin{table}[htbp]
                 \centering
                 \begin{tabular}{|c|cccc|}
@@ -1221,7 +1207,7 @@
             \end{table}%
         \end{frame}
 
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - Comparison long slender beam}
             \begin{table}[ht]
                 \scalebox{.8}{
                 \makebox[\textwidth]{
@@ -1262,7 +1248,7 @@
             \end{table}%
         \end{frame}
 
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - Comparison long slender beam}
             \begin{table}[htbp]
                 \centering
                 \begin{tabular}{|c|cccc|}
@@ -1280,7 +1266,7 @@
             \end{table}%
         \end{frame}
 
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - depth larger than height}
             \begin{table}[htbp]
                 \scalebox{.8}{
                 \makebox[\textwidth]{
@@ -1311,7 +1297,7 @@
             \end{table}
         \end{frame}
 
-        \begin{frame}
+        \begin{frame}{Validity of the Two-dimensional beam - depth larger than height}
             \begin{table}[htbp]
                 \centering
                 \begin{tabular}{|c|ccc|}
@@ -1329,26 +1315,35 @@
             \end{table}%
         \end{frame}
 
+        \begin{frame}{Conclusion for the Two-dimensional model}
+            \textbf{Conclusion for the Two-dimensional model:}
+            \begin{itemize}
+                \item The two-dimensional model compares well with the three-dimensional model, given that the depth of the beam is not larger than the height.
+                \item Again a long and slender beam does compare better than a short and thick beam.
+                \item For body shapes where the depth is larger than the height, the two-dimensional model is not a good approximation to the three-dimensional model and another model should be considered.
+            \end{itemize}
+        \end{frame}
+
 \section{Conclusion}
     \begin{frame}{Conclusion}
         \textbf{What we have done:}
         \begin{itemize}
-            \item Literature study on two articles.
-            \item Presented three different models for a beam, each a different dimension.
-            \item Looked at the well-posedness of the models.
-            \item Looked into Modal Analysis, which forms the basis of the comparisons.
-            \item Quickly discussed the Finite Element Method.
-            \item Looked at the validity of the Timoshenko beam model. Part of the literature study.
+            \item Gave a summary of two articles, one that formed the basis of the comparison that we investigated
+            \item Presented three different models of a beam, each a different dimension.
+            \item Mentioned the well-posedness of the models.
+            \item Briefly discussed modal analysis, and how it can be used to compare the models.
+            \item Discussed at the validity of the Timoshenko beam model as part of the literature of the first article.
             \item Extended the investigation to the validity of the two-dimensional beam model.
         \end{itemize}
 
+    \end{frame}
+    \begin{frame}{Conclusion}
         \textbf{Conclusion}
         \begin{itemize}
-            \item We verified the results of the article.
-            \item Shown that the Timoshenko cantilever beam model is a good approximation to the two-dimensional cantilever beam. The shape is important.
+            \item Discussed and verified the results of the article.
+            \item Shown that the Timoshenko cantilever beam model is a good approximation to the two-dimensional cantilever beam.
             \item Shown that the two-dimensional cantilever beam is a good approximation to the three-dimensional cantilever beam.
-            \item The shape of the beams are very important to how well the models compare.
-            \item Showed results for various shapes, that can be considered realistic for practical applications of a beam.
+            \item Shown that shape of the beams are very important to how well the models compare. The shapes that we looked at can be considered realistic beam shapes that is used in applications.
         \end{itemize}
 
         \textbf{Future Work:}
@@ -1357,7 +1352,6 @@
             \item Expand to plate models (this is done in my masters)
             \item Investigate the effect of different distrubances on the models.
         \end{itemize}
-
     \end{frame}
 
     \begin{frame}{References}
